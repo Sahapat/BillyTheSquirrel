@@ -1,31 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public static class StateRef
-{
-    public enum SpecialState
-    {
-        IDLE,
-        RUN
-    };
-    public static int GetSpecialState(SpecialState state)
-    {
-        int numSpecial = 0;
-        switch (state)
-        {
-            case SpecialState.IDLE:
-                numSpecial = 0;
-                break;
-            case SpecialState.RUN:
-                numSpecial = 1;
-                break;
-        }
-        return numSpecial;
-    }
-}
 public class StateHandler : MonoBehaviour
 {
-    [SerializeField]string currentAnimationState = string.Empty;
+    [SerializeField] string currentAnimationState = string.Empty;
     private Animator m_animator;
 
     void Awake()
@@ -34,11 +12,32 @@ public class StateHandler : MonoBehaviour
     }
     void Update()
     {
-
+        UpdateState();
     }
-    public void MovingCharacter(Vector2 Axis)
+    public void MoveCharacter(Vector3 Axis)
     {
+        float weight = Mathf.Max(Mathf.Abs(Axis.x), Mathf.Abs(Axis.y));
+        var target = transform.position + Axis;
+        var relativeVector = (target - transform.position).normalized;
+        var radian = Mathf.Atan2(relativeVector.x, relativeVector.y);
+        var degree = (radian * 180) / Mathf.PI;
 
+        if (Axis != Vector3.zero)
+        {
+            transform.eulerAngles = new Vector3(0, degree, 0);
+            if (weight > 0.5f)
+            {
+                m_animator.SetFloat("MovementSpeed", 2);
+            }
+            else
+            {
+                m_animator.SetFloat("MovementSpeed", 1);
+            }
+        }
+        else
+        {
+            m_animator.SetFloat("MovementSpeed", 0);
+        }
     }
     void UpdateState()
     {
