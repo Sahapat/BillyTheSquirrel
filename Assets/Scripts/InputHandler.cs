@@ -14,9 +14,13 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         Vector3 movement = Vector3.zero;
+        #if UNITY_WSA_10_0
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        #else
+        movement.x = m_floatingJoystick.Horizontal;
+        movement.y = m_floatingJoystick.Vertical;
+        #endif
         m_stateHandler.MoveCharacter(movement);
     }
 }
