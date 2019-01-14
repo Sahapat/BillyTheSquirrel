@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     }
     void Start()
     {
-        cameraOffset = new Vector3(offset,offset,offset) - targetTranform.position;
+        cameraOffset = new Vector3(targetTranform.position.x,offset,targetTranform.position.z-offset) - targetTranform.position;
     }
     void LateUpdate()
     {
