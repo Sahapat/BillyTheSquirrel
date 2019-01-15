@@ -5,11 +5,9 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     private StateHandler m_stateHandler;
-    private FloatingJoystick m_floatingJoystick;
     void Awake()
     {
         m_stateHandler = GetComponent<StateHandler>();
-        m_floatingJoystick = FindObjectOfType<FloatingJoystick>();
     }
     void Update()
     {
@@ -18,8 +16,8 @@ public class InputHandler : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         #else
-        movement.x = m_floatingJoystick.Horizontal;
-        movement.y = m_floatingJoystick.Vertical;
+        movement.x = GameCore.m_floatingJoystick.Horizontal;
+        movement.y = GameCore.m_floatingJoystick.Vertical;
         #endif
         m_stateHandler.MoveCharacter(movement);
     }
