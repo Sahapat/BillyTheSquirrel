@@ -11,13 +11,12 @@ public class Main : MonoBehaviour
 {
     void Awake()
     {
-        #if UNITY_WSA_10_0
+        #if UNITY_IOS || UNITY_ANDROID
+        GameCore.m_floatingJoystick = GameObject.Find("VirutalJoystick").GetComponentInChildren<FloatingJoystick>();
+        #else
         GameCore.m_floatingJoystick = null;
         Destroy(GameObject.Find("VirutalJoystick"));
-        #else
-        GameCore.m_floatingJoystick = GameObject.Find("VirutalJoystick").GetComponentInChildren<FloatingJoystick>();
         #endif
-
         GameCore.m_cameraController = Camera.main.GetComponent<CameraController>();
     }
 }

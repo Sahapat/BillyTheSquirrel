@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [Space]
     private Vector3 cameraOffset;
     [Header("Setting Property")]
-    [SerializeField]float offset = 1f;
+    [SerializeField] float offset = 1f;
     [Range(0.01f, 1.0f)]
     [SerializeField] float smoothFactor = 0.5f;
     [SerializeField] float rotateSpeedZ = 5.0f;
@@ -24,14 +24,14 @@ public class CameraController : MonoBehaviour
     }
     void Start()
     {
-        cameraOffset = new Vector3(targetTranform.position.x,offset,targetTranform.position.z-offset) - targetTranform.position;
+        cameraOffset = new Vector3(targetTranform.position.x, offset, targetTranform.position.z - offset) - targetTranform.position;
     }
     void LateUpdate()
     {
         Vector2 turnAxis = TurningInputGetter();
         Quaternion camTurnAngleZ = Quaternion.AngleAxis((turnAxis.x * rotateSpeedZ), angleAxisZ);
         Quaternion camTurnAngleY = Quaternion.AngleAxis((turnAxis.y * rotateSpeedY), angleAxisY);
-        cameraOffset = camTurnAngleZ*camTurnAngleY * cameraOffset;
+        cameraOffset = camTurnAngleZ * camTurnAngleY * cameraOffset;
         Vector3 newPos = targetTranform.position + cameraOffset;
         transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
         transform.LookAt(targetTranform);
@@ -39,31 +39,34 @@ public class CameraController : MonoBehaviour
     Vector2 TurningInputGetter()
     {
         Vector2 Axis = Vector2.zero;
-        #if UNITY_WSA_10_0
-        if(Input.GetMouseButton(1))
+        if (GameCore.m_floatingJoystick)
         {
-            Axis = new Vector2(Input.GetAxis("Mouse X"),Input.GetAxis("Mouse Y"));
+            var m_touches = Input.touches;
+
+            if (m_touches.Length > 1)
+            {
+                if (m_touches[1].phase == TouchPhase.Began)
+                {
+                    m_TouchBeganPos = m_touches[1].position;
+                }
+                else if (m_touches[1].phase == TouchPhase.Moved)
+                {
+                    Vector2 direction = m_touches[1].position - m_TouchBeganPos;
+                    Axis = direction.normalized * 0.5f;
+                }
+            }
         }
         else
         {
-            Axis = new Vector2(Input.GetAxis("Horizontal2"),Input.GetAxis("Vertical2"));
-        }
-        #else
-        var m_touches = Input.touches;
-
-        if(m_touches.Length >1)
-        {
-            if(m_touches[1].phase == TouchPhase.Began)
+            if (Input.GetMouseButton(1))
             {
-                m_TouchBeganPos = m_touches[1].position;
+                Axis = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             }
-            else if(m_touches[1].phase == TouchPhase.Moved)
+            else
             {
-                Vector2 direction = m_touches[1].position - m_TouchBeganPos;
-                Axis = direction.normalized * 0.5f;
+                Axis = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
             }
         }
-        #endif
         return Axis;
     }
 }
