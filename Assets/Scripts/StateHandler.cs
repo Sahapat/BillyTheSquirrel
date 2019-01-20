@@ -5,7 +5,6 @@ public class StateHandler : MonoBehaviour
 {
     [SerializeField] string currentAnimationState = string.Empty;
     private Animator m_animator;
-
     void Awake()
     {
         m_animator = GetComponent<Animator>();
