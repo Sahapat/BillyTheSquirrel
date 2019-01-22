@@ -8,7 +8,8 @@ public class CameraController : MonoBehaviour
     [Space]
     private Vector3 cameraOffset;
     [Header("Setting Property")]
-    [SerializeField] float offset = 1f;
+    [SerializeField] float offsetZ = 1f;
+    [SerializeField] float offsetY = 2f;
     [Range(0.01f, 1.0f)]
     [SerializeField] float smoothFactor = 0.5f;
     [SerializeField] float rotateSpeedZ = 5.0f;
@@ -24,9 +25,19 @@ public class CameraController : MonoBehaviour
     }
     void Start()
     {
-        cameraOffset = new Vector3(targetTranform.position.x, offset, targetTranform.position.z - offset) - targetTranform.position;
+        cameraOffset = new Vector3(targetTranform.position.x, offsetZ, targetTranform.position.z - offsetZ) - targetTranform.position;
+        ThirdPersonCamera();
+        Quaternion camTurnAngleY = Quaternion.AngleAxis((9f * rotateSpeedY), angleAxisY);
+        cameraOffset = camTurnAngleY * cameraOffset;
+        Vector3 newPos = targetTranform.position + cameraOffset;
+        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
+        transform.LookAt(targetTranform);
     }
     void LateUpdate()
+    {
+        ThirdPersonCamera();
+    }
+    void ThirdPersonCamera()
     {
         Vector2 turnAxis = TurningInputGetter();
         Quaternion camTurnAngleZ = Quaternion.AngleAxis((turnAxis.x * rotateSpeedZ), angleAxisZ);
@@ -35,6 +46,7 @@ public class CameraController : MonoBehaviour
         Vector3 newPos = targetTranform.position + cameraOffset;
         transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
         transform.LookAt(targetTranform);
+        transform.Translate(new Vector3(0,offsetY,0));
     }
     Vector2 TurningInputGetter()
     {

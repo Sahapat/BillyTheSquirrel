@@ -15,7 +15,7 @@ public class StateHandler : MonoBehaviour
     }
     public void MoveCharacter(Vector3 Axis)
     {
-        float weight = Mathf.Max(Mathf.Abs(Axis.x), Mathf.Abs(Axis.y));
+        float weight = new Vector2(Axis.x,Axis.y).magnitude;
         var target = transform.position + Axis;
         var relativeVector = (target - transform.position).normalized;
         var radian = Mathf.Atan2(relativeVector.x, relativeVector.y);
