@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public enum CameraState
+    {
+        NORMAL,
+        INVENTORY
+    };
+
     [SerializeField] Transform targetTranform = null;
     [Space]
     private Vector3 cameraOffset;
@@ -18,10 +24,14 @@ public class CameraController : MonoBehaviour
     Vector2 m_TouchBeganPos = Vector2.zero;
     Vector3 angleAxisZ = Vector3.zero;
     Vector3 angleAxisY = Vector3.zero;
+    
+    CameraState m_cameraState = CameraState.NORMAL;
+
     void Awake()
     {
         angleAxisZ = Vector3.up;
         angleAxisY = Vector3.left;
+        Cursor.visible = false;
     }
     void Start()
     {
@@ -46,39 +56,24 @@ public class CameraController : MonoBehaviour
         Vector3 newPos = targetTranform.position + cameraOffset;
         transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
         transform.LookAt(targetTranform);
-        transform.Translate(new Vector3(0,offsetY,0));
+        transform.Translate(new Vector3(0, offsetY, 0));
     }
     Vector2 TurningInputGetter()
     {
         Vector2 Axis = Vector2.zero;
-        if (GameCore.m_floatingJoystick)
+        if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
         {
-            var m_touches = Input.touches;
-
-            if (m_touches.Length > 1)
-            {
-                if (m_touches[1].phase == TouchPhase.Began)
-                {
-                    m_TouchBeganPos = m_touches[1].position;
-                }
-                else if (m_touches[1].phase == TouchPhase.Moved)
-                {
-                    Vector2 direction = m_touches[1].position - m_TouchBeganPos;
-                    Axis = direction.normalized * 0.5f;
-                }
-            }
+            Axis = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         }
         else
         {
-            if (Input.GetMouseButton(1))
-            {
-                Axis = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            }
-            else
-            {
-                Axis = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
-            }
+            Axis = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
+            Axis *= 1.5f;
         }
         return Axis;
+    }
+    public void SetCameraState(CameraState state)
+    {
+        m_cameraState = state;
     }
 }
