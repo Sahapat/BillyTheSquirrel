@@ -4,31 +4,17 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField]GameObject txt3D= null;
     private BoxCollider m_boxColider2D;
-
+    private Rigidbody m_rigidbody;
     void Awake()
     {
         m_boxColider2D = GetComponent<BoxCollider>();
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            txt3D.SetActive(true);
-        }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            txt3D.SetActive(false);
-        }
+        m_rigidbody = GetComponent<Rigidbody>();
     }
     public GameObject PickObjUp()
     {
         m_boxColider2D.enabled = false;
-        txt3D.SetActive(false);
-        return this.transform.parent.gameObject;
+        m_rigidbody.isKinematic = true;
+        return this.transform.gameObject;
     }
 }

@@ -7,6 +7,7 @@ public class GameCore
     public static CameraController m_cameraController;
     public static UIHandler m_uiHandler;
     public static Main m_Main;
+    public static InventoryUIController m_inventoryController;
 }
 public enum SceneInfo
 {
@@ -39,6 +40,7 @@ public class Main : MonoBehaviour
         GameCore.m_cameraController = Camera.main.GetComponent<CameraController>();
         GameCore.m_uiHandler = GetComponent<UIHandler>();
         GameCore.m_Main = GetComponent<Main>();
+        GameCore.m_inventoryController = FindObjectOfType<InventoryUIController>();
     }
     void Start()
     {

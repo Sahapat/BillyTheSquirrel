@@ -4,9 +4,10 @@ using UnityEngine;
 public class StateHandler : MonoBehaviour
 {
     [SerializeField] string currentAnimationState = string.Empty;
+    [Space]
+    [Header("Movement")]
     [SerializeField] float normalSpeed = 0f;
     [SerializeField] float runSpeed = 0f;
-
     private Animator m_animator;
     private Rigidbody m_rigidbody;
 
