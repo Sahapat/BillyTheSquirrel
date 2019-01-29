@@ -8,7 +8,7 @@ public class InventoryUIController : MonoBehaviour
 
     private ItemSlot[] m_itemSlot;
     private ItemSlot[] m_weaponSlot;
-
+    private Inventory inventoryTarget = null;
     void Awake()
     {
         inventoryHubObj.SetActive(true);
@@ -27,6 +27,10 @@ public class InventoryUIController : MonoBehaviour
         }
         inventoryHubObj.SetActive(false);
     }
+    public void SetInventoryTarget(Inventory target)
+    {
+        inventoryTarget = target;        
+    }
     public void InventorySwitch()
     {
         if(inventoryHubObj.activeSelf)
@@ -41,10 +45,36 @@ public class InventoryUIController : MonoBehaviour
     }
     public void OnOpen()
     {
-        print("Open");
+        LoadItemList();
     }
     public void OnClose()
     {
-        print("close");
+        return;
+    }
+    void LoadItemList()
+    {
+        for(int i=0;i<m_weaponSlot.Length;i++)
+        {
+            if(inventoryTarget.GetWeaponItem(i).itemType != Item.GetDefualtValue().itemType)
+            {
+                m_weaponSlot[i].SetImage(inventoryTarget.GetWeaponItem(i));
+            }
+            else
+            {
+                m_weaponSlot[i].Clear();
+            }
+        }
+
+        for(int i=0;i<m_itemSlot.Length;i++)
+        {
+            if(inventoryTarget.GetWeaponItem(i).itemType != Item.GetDefualtValue().itemType)
+            {
+                m_itemSlot[i].SetImage(inventoryTarget.GetWeaponItem(i));
+            }
+            else
+            {
+                m_itemSlot[i].Clear();
+            }
+        }
     }
 }

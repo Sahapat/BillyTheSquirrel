@@ -914,8 +914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 129.5, y: 188.8}
-  m_SizeDelta: {x: 221.24, y: 95.2}
+  m_AnchoredPosition: {x: 136.1, y: 188.8}
+  m_SizeDelta: {x: 234.5, y: 95.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &612984068
 MonoBehaviour:
@@ -991,7 +991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &613873884
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1340,6 +1340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_txtCoin: {fileID: 968021760}
+  m_txtHealth: {fileID: 1557668168}
+  m_txtStemina: {fileID: 1103640225}
 --- !u!114 &717261918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,6 +1853,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHoldPos: {fileID: 1937469983}
+  health: 100
+  stemina: 100
 --- !u!114 &996681532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,6 +2376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc014b5e87c0b344b168cfdd11ac730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemData:
+    midmapIcon: {fileID: 21300000, guid: 04733bb9a8785bd49b9eed7c326d53eb, type: 3}
+    itemType: 0
+    discription: Sword
 --- !u!65 &1210639418
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3198,6 +3206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455481e46ae83094a979ab703bb50fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemData:
+    midmapIcon: {fileID: 21300000, guid: 04733bb9a8785bd49b9eed7c326d53eb, type: 3}
+    itemType: 1
+    discription: Potion
 --- !u!1 &1823019323
 GameObject:
   m_ObjectHideFlags: 0
