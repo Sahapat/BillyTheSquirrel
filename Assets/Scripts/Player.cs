@@ -5,9 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform weaponHoldPos = null;
-    [SerializeField] int health = 100;
-    [SerializeField] int stemina = 100;
-
     private CapsuleCollider m_capsuleColider = null;
 
     void Awake()
@@ -42,7 +39,5 @@ public class Player : MonoBehaviour
         {
             GameCore.m_inventoryController.InventorySwitch();
         }
-        GameCore.m_uiHandler.UpdateTxtHealth(health);
-        GameCore.m_uiHandler.UpdateTxtStemina(stemina);
     }
 }

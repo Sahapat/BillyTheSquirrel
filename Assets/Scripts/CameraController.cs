@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     [Header("Setting Property")]
     [SerializeField] float offsetZ = 1f;
     [SerializeField] float offsetY = 2f;
-    [Range(0.01f, 1.0f)]
+    [Range(0.5f, 1.5f)]
     [SerializeField] float smoothFactor = 0.5f;
     [SerializeField] float rotateSpeedZ = 5.0f;
     [SerializeField] float rotateSpeedY = 5.0f;

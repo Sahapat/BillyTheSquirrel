@@ -20,19 +20,14 @@ public class StateHandler : MonoBehaviour
     {
         UpdateState();
     }
-    public void MoveCharacter(Vector3 Axis)
+    public void MovementSetter(Vector3 Axis)
     {
         if(Axis == Vector3.zero)
         {
             m_animator.SetFloat("MovementSpeed",0);
             return;
         }
-        Vector3 newForward = Vector3.Cross(Camera.main.transform.right,Vector3.up).normalized * Axis.y;
-        Vector3 newRight = -Vector3.Cross(Camera.main.transform.forward,Vector3.up).normalized * Axis.x;
-        Vector3 direction = newForward +newRight;
-        Vector3 newAxis = new Vector3(direction.x,direction.z);
-
-        var target = transform.position + newAxis;
+        var target = transform.position + Axis;
         var relativeVector = (target - transform.position).normalized;
         var radian = Mathf.Atan2(relativeVector.x,relativeVector.y);
         var degree = (radian *180)/Mathf.PI;
@@ -42,12 +37,12 @@ public class StateHandler : MonoBehaviour
         if(weight > 0.5f)
         {
             m_animator.SetFloat("MovementSpeed",2);
-            m_rigidbody.velocity = direction * runSpeed;
+            m_rigidbody.velocity = new Vector3(Axis.x*runSpeed,m_rigidbody.velocity.y,Axis.y*runSpeed);
         }
         else
         {
             m_animator.SetFloat("MovementSpeed",1);
-            m_rigidbody.velocity = direction * normalSpeed;
+            m_rigidbody.velocity = new Vector3(Axis.x*normalSpeed,m_rigidbody.velocity.y,Axis.y*normalSpeed);
         }
     }
     void UpdateState()
