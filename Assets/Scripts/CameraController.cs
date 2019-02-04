@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
 
     void Awake()
     {
+        targetTranform =(targetTranform)?targetTranform:GameObject.FindGameObjectWithTag("Player").transform;
         angleAxisZ = Vector3.up;
         angleAxisY = Vector3.left;
         Cursor.visible = false;
@@ -75,5 +76,9 @@ public class CameraController : MonoBehaviour
     public void SetCameraState(CameraState state)
     {
         m_cameraState = state;
+    }
+    public void SetCameraTarget(Transform targetTranform)
+    {
+        this.targetTranform = targetTranform;
     }
 }

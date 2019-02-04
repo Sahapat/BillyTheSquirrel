@@ -24,26 +24,24 @@ public class StateHandler : MonoBehaviour
     {
         if(Axis == Vector3.zero)
         {
-            m_animator.SetFloat("MovementSpeed",0);
+            m_animator.SetFloat("MovementMagnitude",0);
             return;
         }
+        var weight = new Vector2(Axis.x,Axis.y).magnitude;
+        var assignMoveSpeed = (weight < 0.5f) ? Axis*normalSpeed:Axis*runSpeed;
+        m_animator.SetFloat("MovementMagnitude",weight);
+        m_animator.SetFloat("MovementX",assignMoveSpeed.x);
+        m_animator.SetFloat("MovementZ",assignMoveSpeed.y);
+        RotateToAxis(Axis);
+    }
+    void RotateToAxis(Vector3 Axis)
+    {
         var target = transform.position + Axis;
         var relativeVector = (target - transform.position).normalized;
         var radian = Mathf.Atan2(relativeVector.x,relativeVector.y);
         var degree = (radian *180)/Mathf.PI;
 
         transform.eulerAngles = new Vector3(0,degree,0);
-        var weight = new Vector2(Axis.x,Axis.y).magnitude;
-        if(weight > 0.5f)
-        {
-            m_animator.SetFloat("MovementSpeed",2);
-            m_rigidbody.velocity = new Vector3(Axis.x*runSpeed,m_rigidbody.velocity.y,Axis.y*runSpeed);
-        }
-        else
-        {
-            m_animator.SetFloat("MovementSpeed",1);
-            m_rigidbody.velocity = new Vector3(Axis.x*normalSpeed,m_rigidbody.velocity.y,Axis.y*normalSpeed);
-        }
     }
     void UpdateState()
     {

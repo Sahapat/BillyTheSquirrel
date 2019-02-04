@@ -9,12 +9,30 @@ AnimatorController:
   m_Name: SampleController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: MovementSpeed
+  - m_Name: MovementMagnitude
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: MovementX
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: MovementZ
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Controlable
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -68,6 +86,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootMotionStatus: 0
+--- !u!114 &114197479920242570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998f1a186c4b4fc498e7ed024ad75453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetVelocityX: MovementX
+  targetVelocityY: 
+  targetVelocityZ: MovementZ
+  delayWhenEnter: 0.08
 --- !u!114 &114345209100025654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,6 +115,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootMotionStatus: 0
+--- !u!114 &114550859911366176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998f1a186c4b4fc498e7ed024ad75453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetVelocityX: MovementX
+  targetVelocityY: 
+  targetVelocityZ: MovementZ
+  delayWhenEnter: 0.2
 --- !u!114 &114992696611142842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,8 +153,11 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: MovementSpeed
+    m_ConditionEvent: MovementMagnitude
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: MovementMagnitude
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102866247485790238}
   m_Solo: 0
@@ -128,8 +181,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: MovementSpeed
-    m_EventTreshold: 1
+    m_ConditionEvent: MovementMagnitude
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102893148711805014}
   m_Solo: 0
@@ -139,7 +192,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.975
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -153,8 +206,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: MovementSpeed
-    m_EventTreshold: 1
+    m_ConditionEvent: MovementMagnitude
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102893148711805014}
   m_Solo: 0
@@ -178,8 +231,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: MovementSpeed
-    m_EventTreshold: 1
+    m_ConditionEvent: MovementMagnitude
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102741239756936688}
   m_Solo: 0
@@ -203,8 +256,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: MovementSpeed
-    m_EventTreshold: 1
+    m_ConditionEvent: MovementMagnitude
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102398952482370960}
   m_Solo: 0
@@ -227,12 +280,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: MovementSpeed
-    m_EventTreshold: 2
   - m_ConditionMode: 3
-    m_ConditionEvent: MovementSpeed
+    m_ConditionEvent: MovementMagnitude
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: MovementMagnitude
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102866247485790238}
   m_Solo: 0
@@ -341,6 +394,7 @@ AnimatorState:
   - {fileID: 1101620587646869242}
   m_StateMachineBehaviours:
   - {fileID: 114024651223196114}
+  - {fileID: 114550859911366176}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -370,6 +424,7 @@ AnimatorState:
   - {fileID: 1101662838035706730}
   m_StateMachineBehaviours:
   - {fileID: 114992696611142842}
+  - {fileID: 114197479920242570}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

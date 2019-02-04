@@ -170,7 +170,12 @@ ModelImporter:
     4300006: EyeGlass
     9500000: //RootNode
     13700000: Body
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 9b5dcf17404e5434e886fba4f745b48f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
