@@ -8,7 +8,6 @@ public class ASB_AddingVelocity : StateMachineBehaviour
     [SerializeField]string targetVelocityY = string.Empty;
     [SerializeField]string targetVelocityZ = string.Empty;
     [SerializeField]float delayWhenEnter = 0f;
-
     private float delayTime = 0f;
     Rigidbody m_rigidbody = null;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -86,6 +86,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootMotionStatus: 0
+--- !u!114 &114119979569327654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2799e172d40f5344a8542b9ae62c01c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBool: Controlable
+  onEnter: 1
+  EnterValue: 0
+  onExit: 1
+  ExitValue: 1
 --- !u!114 &114197479920242570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +118,7 @@ MonoBehaviour:
   targetVelocityX: MovementX
   targetVelocityY: 
   targetVelocityZ: MovementZ
-  delayWhenEnter: 0.08
+  delayWhenEnter: 0.09
 --- !u!114 &114345209100025654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +148,23 @@ MonoBehaviour:
   targetVelocityY: 
   targetVelocityZ: MovementZ
   delayWhenEnter: 0.2
+--- !u!114 &114954137214884046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2799e172d40f5344a8542b9ae62c01c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBool: Controlable
+  onEnter: 1
+  EnterValue: 1
+  onExit: 0
+  ExitValue: 0
 --- !u!114 &114992696611142842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +192,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: MovementMagnitude
     m_EventTreshold: 0.5
+  - m_ConditionMode: 1
+    m_ConditionEvent: Controlable
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102866247485790238}
   m_Solo: 0
@@ -183,6 +220,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: MovementMagnitude
     m_EventTreshold: 0.5
+  - m_ConditionMode: 1
+    m_ConditionEvent: Controlable
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102893148711805014}
   m_Solo: 0
@@ -208,6 +248,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: MovementMagnitude
     m_EventTreshold: 0.5
+  - m_ConditionMode: 1
+    m_ConditionEvent: Controlable
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102893148711805014}
   m_Solo: 0
@@ -336,6 +379,7 @@ AnimatorState:
   - {fileID: 1101940632579591650}
   m_StateMachineBehaviours:
   - {fileID: 114345209100025654}
+  - {fileID: 114119979569327654}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -365,6 +409,7 @@ AnimatorState:
   - {fileID: 1101542907262396386}
   m_StateMachineBehaviours:
   - {fileID: 114025212268898302}
+  - {fileID: 114954137214884046}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

@@ -8,16 +8,21 @@ public class StateHandler : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float normalSpeed = 0f;
     [SerializeField] float runSpeed = 0f;
+    [SerializeField] float groundDrag = 8f;
+    [SerializeField] float fallDrag =0f;
     private Animator m_animator;
     private Rigidbody m_rigidbody;
+    private GroundChecker m_groundChecker = null;
 
     void Awake()
     {
         m_animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody>();
+        m_groundChecker = GetComponentInChildren<GroundChecker>();
     }
     void Update()
     {
+        m_rigidbody.drag = (m_groundChecker.isOnGround)?groundDrag:fallDrag;
         UpdateState();
     }
     public void MovementSetter(Vector3 Axis)
@@ -32,7 +37,7 @@ public class StateHandler : MonoBehaviour
         m_animator.SetFloat("MovementMagnitude",weight);
         m_animator.SetFloat("MovementX",assignMoveSpeed.x);
         m_animator.SetFloat("MovementZ",assignMoveSpeed.y);
-        RotateToAxis(Axis);
+        if(m_animator.GetBool("Controlable"))RotateToAxis(Axis);
     }
     void RotateToAxis(Vector3 Axis)
     {

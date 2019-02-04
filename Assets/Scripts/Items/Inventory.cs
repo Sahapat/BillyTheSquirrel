@@ -10,23 +10,10 @@ public struct Item
     };
     public string discription;
 };
-public class Inventory : MonoBehaviour
+public class ItemSlot
 {
-    /* [SerializeField]int maxWeapon = 2;
-    [SerializeField]int maxItem = 8;
- */
-    private List<Item> weapon_item = null;
-    private List<Item> item_item = null;
 
-    void Awake()
-    {
-        weapon_item = new List<Item>();
-        item_item =new List<Item>();
-    }
-    void AddWeapon(Item weaponIn)
-    {
-        /* if(weapon_item.Count > maxWeapon)
-        {
-        } */
-    }
+}
+public class Inventory
+{
 }

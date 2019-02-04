@@ -8,6 +8,8 @@ public class GameCore
     public static UIHandler m_uiHandler;
     public static Main m_Main;
     public static InventoryUIController m_inventoryController;
+    public static GameController m_GameContrller;
+    public static CursorController m_CursorController;
 }
 public enum SceneInfo
 {
@@ -16,39 +18,19 @@ public enum SceneInfo
 };
 public class Main : MonoBehaviour
 {
-    int _coin = 0;
-    public int Coin
-    {
-        get
-        {
-            return 0;   
-        }
-        set
-        {
-            _coin += value;
-            _coin =Mathf.Clamp(_coin,0,9999);
-            GameCore.m_uiHandler.UpdateTxtCoin(_coin);
-        }
-    }
-
-    public bool isJoy
-    {
-        get;private set;
-    }
     void Awake()
     {
         GameCore.m_cameraController = Camera.main.GetComponent<CameraController>();
-        GameCore.m_uiHandler = GetComponent<UIHandler>();
+        GameCore.m_uiHandler = FindObjectOfType<UIHandler>();
         GameCore.m_Main = GetComponent<Main>();
         GameCore.m_inventoryController = FindObjectOfType<InventoryUIController>();
+        GameCore.m_GameContrller = GetComponent<GameController>();
+        GameCore.m_CursorController = GetComponent<CursorController>();
     }
     void Start()
     {
-        SettingValue();
-    }
-    void SettingValue()
-    {
-        Coin = 0;
+        GameCore.m_CursorController.CursorInGameMode();
+        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.NORMAL);
     }
 }
 

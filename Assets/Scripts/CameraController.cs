@@ -24,12 +24,12 @@ public class CameraController : MonoBehaviour
     Vector2 m_TouchBeganPos = Vector2.zero;
     Vector3 angleAxisZ = Vector3.zero;
     Vector3 angleAxisY = Vector3.zero;
-    
+
     CameraState m_cameraState = CameraState.NORMAL;
 
     void Awake()
     {
-        targetTranform =(targetTranform)?targetTranform:GameObject.FindGameObjectWithTag("Player").transform;
+        targetTranform = (targetTranform) ? targetTranform : GameObject.FindGameObjectWithTag("Player").transform;
         angleAxisZ = Vector3.up;
         angleAxisY = Vector3.left;
         Cursor.visible = false;
@@ -46,7 +46,14 @@ public class CameraController : MonoBehaviour
     }
     void LateUpdate()
     {
-        ThirdPersonCamera();
+        switch (m_cameraState)
+        {
+            case CameraState.NORMAL:
+                ThirdPersonCamera();
+                break;
+            case CameraState.INVENTORY:
+                break;
+        }
     }
     void ThirdPersonCamera()
     {
