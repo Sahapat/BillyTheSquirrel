@@ -11,6 +11,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField]Text m_CoinText = null;
 
     [SerializeField]GameObject InventoryHub = null;
+
     void Start()
     {
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnHPChanged += UpdateHPBar;
@@ -28,12 +29,12 @@ public class UIHandler : MonoBehaviour
     }
     void UpdateHPBar(int value)
     {
-        int assignValue = Mathf.Clamp(value,0,100);
+        int assignValue = Mathf.Clamp(value,0,GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.MaxHP);
         m_HPSlider.value = assignValue;
     }
     void UpdateSPBar(int value)
     {
-        int assignValue = Mathf.Clamp(value,0,100);
+        int assignValue = Mathf.Clamp(value,0,GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.MaxSP);
         m_SPSlider.value = assignValue;
     }
 }
