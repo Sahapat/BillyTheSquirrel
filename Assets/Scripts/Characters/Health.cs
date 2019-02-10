@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine;
 [System.Serializable]
 public class Health
 {
@@ -25,11 +25,13 @@ public class Health
     public void RemoveHP(int value)
     {
         HP -= value;
+        HP = Mathf.Clamp(HP,0,MaxHP);
         _FireEvent_OnHPChanged();
     }
     public void AddHP(int value)
     {
         HP += value;
+        HP = Mathf.Clamp(HP,0,MaxHP);
         _FireEvent_OnHPChanged();
     }
     public void SetMaxHP(int value)

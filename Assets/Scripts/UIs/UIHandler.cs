@@ -15,15 +15,25 @@ public class UIHandler : MonoBehaviour
     {
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnHPChanged += UpdateHPBar;
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnResetHP += OnResetHP;
+        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminaReset += OnResetSP;
+        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminachange += UpdateSPBar;
     }
     void OnResetHP()
     {
         UpdateHPBar(GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.HP);
     }
+    void OnResetSP()
+    {
+        UpdateSPBar(GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.SP);
+    }
     void UpdateHPBar(int value)
     {
         int assignValue = Mathf.Clamp(value,0,100);
         m_HPSlider.value = assignValue;
-        print("in");
+    }
+    void UpdateSPBar(int value)
+    {
+        int assignValue = Mathf.Clamp(value,0,100);
+        m_SPSlider.value = assignValue;
     }
 }
