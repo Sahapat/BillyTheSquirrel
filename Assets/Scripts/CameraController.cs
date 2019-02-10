@@ -12,7 +12,6 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Transform targetTranform = null;
     [Space]
-    private Vector3 cameraOffset;
     [Header("Setting Property")]
     [SerializeField] float offsetZ = 1f;
     [SerializeField] float offsetY = 2f;
@@ -24,9 +23,8 @@ public class CameraController : MonoBehaviour
     Vector2 m_TouchBeganPos = Vector2.zero;
     Vector3 angleAxisZ = Vector3.zero;
     Vector3 angleAxisY = Vector3.zero;
-
+    Vector3 cameraOffset;
     CameraState m_cameraState = CameraState.NORMAL;
-
     void Awake()
     {
         targetTranform = (targetTranform) ? targetTranform : GameObject.FindGameObjectWithTag("Player").transform;
@@ -57,28 +55,44 @@ public class CameraController : MonoBehaviour
     }
     void ThirdPersonCamera()
     {
-        Vector2 turnAxis = TurningInputGetter();
-        Quaternion camTurnAngleZ = Quaternion.AngleAxis((turnAxis.x * rotateSpeedZ), angleAxisZ);
-        Quaternion camTurnAngleY = Quaternion.AngleAxis((turnAxis.y * rotateSpeedY), angleAxisY);
-        cameraOffset = camTurnAngleZ * camTurnAngleY * cameraOffset;
-        Vector3 newPos = targetTranform.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
+        RotateCameraAxisZ();
+        RotateCameraAxisY();
         transform.LookAt(targetTranform);
         transform.Translate(new Vector3(0, offsetY, 0));
     }
+    void RotateCameraAxisZ()
+    {
+        Vector2 turnAxis = TurningInputGetter();
+        Quaternion camTurnAngleZ = Quaternion.AngleAxis((turnAxis.x * rotateSpeedZ), angleAxisZ);
+        cameraOffset = camTurnAngleZ * cameraOffset;
+        Vector3 newPos = targetTranform.position + cameraOffset;
+        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
+    }
+    void RotateCameraAxisY()
+    {
+        Vector2 turnAxis = TurningInputGetter();
+        Quaternion camTurnAngleY = Quaternion.AngleAxis((turnAxis.y * rotateSpeedY), angleAxisY);
+        cameraOffset = camTurnAngleY * cameraOffset;
+        Vector3 newPos = targetTranform.position + cameraOffset;
+        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
+    }
     Vector2 TurningInputGetter()
     {
-        Vector2 Axis = Vector2.zero;
+        float rotateAxisX = 0f;
+        float rotateAxisY = 0f;
         if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
         {
-            Axis = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            rotateAxisX = Input.GetAxis("Mouse X");
+            rotateAxisY = Input.GetAxis("Mouse Y");
         }
         else
         {
-            Axis = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
-            Axis *= 1.5f;
+            rotateAxisX = Input.GetAxis("Horizontal2");
+            rotateAxisY = Input.GetAxis("Vertical2");
+            rotateAxisX *= 1.5f;
+            rotateAxisY *= 2.2f;
         }
-        return Axis;
+        return new Vector2(rotateAxisX, rotateAxisY);
     }
     public void SetCameraState(CameraState state)
     {

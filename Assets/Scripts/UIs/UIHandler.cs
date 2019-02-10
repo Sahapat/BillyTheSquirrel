@@ -16,19 +16,11 @@ public class UIHandler : MonoBehaviour
     {
         int assignValue = Mathf.Clamp(value,0,100);
         m_HPSlider.value = assignValue;
-        if(assignValue == 0)
-        {
-            m_HPSlider.fillRect.sizeDelta = Vector2.zero;
-        }
     }
     public void UpdateSpBar(int value)
     {
         int assignValue = Mathf.Clamp(value,0,100);
         m_SPSlider.value = assignValue;
-        if(assignValue == 0)
-        {
-            m_SPSlider.fillRect.sizeDelta = Vector2.zero;
-        }
     }
     public void UpdateLevelTxt(string txt)
     {
@@ -36,7 +28,7 @@ public class UIHandler : MonoBehaviour
     }
     public void UpdateCoinTxt(int value)
     {
-        m_LevelText.text = value.ToString();
+        m_CoinText.text = value.ToString();
     }
     public void SwitchActiveInventoryHUB()
     {

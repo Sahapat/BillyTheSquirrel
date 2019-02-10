@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public struct Item
-{
-    public enum ItemType
-    {
-        WEAPON,
-        ITEM
-    };
-    public string discription;
-};
-public class ItemSlot
-{
-
-}
 public class Inventory
 {
+    [SerializeField]int _maxSlot = 0;
+    public int maxSlot
+    {
+        get
+        {
+            return _maxSlot;
+        }
+        private set
+        {
+            _maxSlot = value;
+        }
+    }
+
+
 }

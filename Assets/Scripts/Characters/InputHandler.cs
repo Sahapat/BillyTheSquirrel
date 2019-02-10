@@ -4,29 +4,18 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    private StateHandler m_stateHandler = null;
-    private GroundChecker m_groundChecker = null;
+    private Player m_player = null;
     private Vector3 movement = Vector3.zero;
+    private StateHandler m_stateHandler = null;
     void Awake()
     {
         m_stateHandler = GetComponent<StateHandler>();
-        m_groundChecker = GetComponentInChildren<GroundChecker>();
+        m_player = GetComponent<Player>();
     }
     void Update()
     {
-        if (m_groundChecker.isOnGround)
-        {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
-        }
-        else
-        {
-            movement = Vector3.zero;
-        }
-        if(Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button6))
-        {
-            GameCore.m_uiHandler.SwitchActiveInventoryHUB();
-        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
     }
     void FixedUpdate()
     {
