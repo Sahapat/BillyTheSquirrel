@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public string CurrentLevelInfo
+    [SerializeField] Player ClientPlayerTarget = null;
+    public Player GetClientPlayerTarget()
     {
-        get
-        {
-            return $"Level {CurrentLevel}";
-        }
+        return ClientPlayerTarget;
     }
-    public int CurrentLevel{get;private set;}=1;
 }
