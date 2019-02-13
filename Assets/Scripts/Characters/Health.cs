@@ -46,10 +46,10 @@ public class Health
     }
     void _FireEvent_OnResetHP()
     {
-        if(OnResetHP != null)OnResetHP();
+        OnResetHP?.Invoke();
     }
     void _FireEvent_OnHPChanged()
     {
-        if(OnHPChanged != null)OnHPChanged(HP);
+        OnHPChanged?.Invoke(HP);
     }
 }

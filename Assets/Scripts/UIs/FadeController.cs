@@ -74,7 +74,6 @@ public class FadeController : MonoBehaviour
             yield return null;
         }
         m_fadeImage.color = targetColor;
-        print("Start: "+timeStart+" End: "+Time.time);
     }
     private IEnumerator FadeOut()
     {
@@ -87,7 +86,6 @@ public class FadeController : MonoBehaviour
             yield return null;
         }
         m_fadeImage.color = targetColor;
-        print("Start: "+timeStart+" End: "+Time.time);
     }
     private IEnumerator LoadingScene()
     {

@@ -5,11 +5,11 @@ public enum CharacterState
 {
     IDLE = 0,
     RUN = 1,
+    ATTACK = 2,
     RUNSTOP = 10
 };
 public class StateHandler : MonoBehaviour
 {
-    [SerializeField] string currentAnimationState = string.Empty;
     [SerializeField] CharacterState m_characterState = CharacterState.IDLE;
     [Space]
     [Header("Movement")]
@@ -23,6 +23,7 @@ public class StateHandler : MonoBehaviour
     private GroundChecker m_groundChecker = null;
     private Vector2 Movement = Vector2.zero;
 
+    private Equipment currentEquipment = null;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
@@ -70,15 +71,52 @@ public class StateHandler : MonoBehaviour
     }
     void DoMovement()
     {
-        m_rigidbody.velocity = new Vector3(Movement.x,m_rigidbody.velocity.y,Movement.y);
+        m_rigidbody.velocity = new Vector3(Movement.x, m_rigidbody.velocity.y, Movement.y);
     }
     void UpdateState()
     {
-        currentAnimationState = m_animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
     }
-    public string GetCurrentAnimationState()
+    #region Testing
+    public void HaveWeapon()
     {
-        return currentAnimationState;
+        m_animator.SetTrigger("SwitchingWeapon");
+        m_animator.SetBool("HaveWeapon",true);
     }
+    public void NotHaveWeapon()
+    {
+        m_animator.SetTrigger("SwitchingWeapon");
+        m_animator.SetBool("HaveWeapon", false);
+    }
+    public bool Attack1()
+    {
+        if (!m_animator.GetBool("Controlable") || !m_animator.GetBool("HaveWeapon"))
+        {
+            return false;
+        }
+        else
+        {
+            m_animator.SetTrigger("Attack1");
+            currentEquipment.NormalAttack();
+            return true;
+        }
+    }
+    public bool Attack2()
+    {
+        if (!m_animator.GetBool("Controlable") || !m_animator.GetBool("HaveWeapon"))
+        {
+            return false;
+        }
+        else
+        {
+            m_animator.SetTrigger("Attack2");
+            currentEquipment.HeavyAttack();
+            return true;
+        }
+    }
+    public void SetCurrentEquipment(Equipment equipIN)
+    {
+        currentEquipment = equipIN;
+    }
+    #endregion
 }
