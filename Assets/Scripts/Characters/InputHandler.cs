@@ -15,36 +15,10 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         MovementInputGetter();
-        Testing();
     }
     void FixedUpdate()
     {
         m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
-    }
-    void Testing()
-    {
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
-        {
-            if(m_player.CollectionItem())
-            {
-                m_stateHandler.HaveWeapon();
-                m_stateHandler.SetCurrentEquipment(GameObject.Find("SwordSample").GetComponent<Equipment>());
-            }
-        }
-        if((Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Joystick1Button5))&& m_player.CharacterStemina.SP > 25)
-        {
-            if(m_stateHandler.Attack1())
-            {
-                m_player.CharacterStemina.RemoveSP(25);
-            }
-        }
-        if((Input.GetMouseButtonDown(1)||Input.GetKeyDown(KeyCode.Joystick1Button4))&& m_player.CharacterStemina.SP > 50)
-        {
-            if(m_stateHandler.Attack2())
-            {
-                m_player.CharacterStemina.RemoveSP(50);
-            }
-        }
     }
     void MovementInputGetter()
     {

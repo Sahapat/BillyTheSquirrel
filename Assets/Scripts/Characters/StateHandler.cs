@@ -6,7 +6,7 @@ public enum CharacterState
     IDLE = 0,
     RUN = 1,
     ATTACK = 2,
-    RUNSTOP = 10
+    NONE = 10
 };
 public class StateHandler : MonoBehaviour
 {
@@ -43,8 +43,6 @@ public class StateHandler : MonoBehaviour
             case CharacterState.RUN:
                 DoMovement();
                 break;
-            case CharacterState.RUNSTOP:
-                break;
         }
         m_rigidbody.drag = (m_groundChecker.isOnGround) ? normalDrag : fallDrag;
     }
@@ -77,46 +75,4 @@ public class StateHandler : MonoBehaviour
     {
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
     }
-    #region Testing
-    public void HaveWeapon()
-    {
-        m_animator.SetTrigger("SwitchingWeapon");
-        m_animator.SetBool("HaveWeapon",true);
-    }
-    public void NotHaveWeapon()
-    {
-        m_animator.SetTrigger("SwitchingWeapon");
-        m_animator.SetBool("HaveWeapon", false);
-    }
-    public bool Attack1()
-    {
-        if (!m_animator.GetBool("Controlable") || !m_animator.GetBool("HaveWeapon"))
-        {
-            return false;
-        }
-        else
-        {
-            m_animator.SetTrigger("Attack1");
-            currentEquipment.NormalAttack();
-            return true;
-        }
-    }
-    public bool Attack2()
-    {
-        if (!m_animator.GetBool("Controlable") || !m_animator.GetBool("HaveWeapon"))
-        {
-            return false;
-        }
-        else
-        {
-            m_animator.SetTrigger("Attack2");
-            currentEquipment.HeavyAttack();
-            return true;
-        }
-    }
-    public void SetCurrentEquipment(Equipment equipIN)
-    {
-        currentEquipment = equipIN;
-    }
-    #endregion
 }
