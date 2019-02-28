@@ -18,6 +18,8 @@ public class UIHandler : MonoBehaviour
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnResetHP += OnResetHP;
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminaReset += OnResetSP;
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminachange += UpdateSPBar;
+        OnResetHP();
+        OnResetSP();
     }
     void OnResetHP()
     {

@@ -75,4 +75,16 @@ public class StateHandler : MonoBehaviour
     {
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
     }
+    void SetAnimToBase()
+    {
+        m_animator.SetLayerWeight(1,1);
+        m_animator.SetLayerWeight(2,0);
+        m_animator.SetLayerWeight(3,0);
+    }
+    void SetAnimToExpand()
+    {
+        m_animator.SetLayerWeight(1,0);
+        m_animator.SetLayerWeight(2,1);
+        m_animator.SetLayerWeight(3,1);
+    }
 }

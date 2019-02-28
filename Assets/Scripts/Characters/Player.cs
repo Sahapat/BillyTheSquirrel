@@ -19,47 +19,14 @@ public class Player : MonoBehaviour, ICharacter
         CharacterStemina = GetComponent<Stemina>();
         m_capsuleColider = GetComponent<CapsuleCollider>();
     }
-    void Start()
-    {
-        CharacterHP.ResetHP();
-        CharacterStemina.ResetStemina();
-    }
-    public void Heal(int healValue)
-    {
-        CharacterHP.AddHP(healValue);
-    }
 
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);
     }
-    public bool CollectionItem()
+
+    public void Heal(int healValue)
     {
-        var hitItem = PhysicsExtensions.OverlapCapsule(m_capsuleColider, itemLayer);
-        if (hitItem.Length > 0)
-        {
-            ICollectable itemToCollect = hitItem[0].GetComponent<ICollectable>();
-            switch (itemToCollect.itemType)
-            {
-                case ItemType.EQUIPMENT:
-                    Equipment equipment = itemToCollect.PickUp().GetComponent<Equipment>();
-                    if(equipment.equipmentType  == Equipment.EquipmentType.WEAPON)
-                    {
-                        equipment.transform.parent = WeaponHoldPos;
-                        equipment.transform.localRotation = Quaternion.identity;
-                        equipment.transform.localScale = Vector3.one;
-                        equipment.transform.localPosition = equipment.HoldingPos;
-                    }
-                    else
-                    {
-                        equipment.transform.parent = ShieldHoldPos;
-                        equipment.transform.localRotation = Quaternion.identity;
-                        equipment.transform.localScale = Vector3.one;
-                        equipment.transform.localPosition = equipment.HoldingPos;
-                    }
-                    return true;
-            }
-        }
-        return false;
+        CharacterHP.AddHP(healValue);
     }
 }
