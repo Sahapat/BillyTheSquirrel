@@ -5,7 +5,12 @@ public enum CharacterState
 {
     IDLE = 0,
     RUN = 1,
-    ATTACK = 2,
+    ATTACK1 = 2,
+    ATTACK2 = 3,
+    ATTACK3 = 4,
+    ATTACKHEAVY = 5,
+    GUARD= 6,
+    JUMP = 7,
     NONE = 10
 };
 public class StateHandler : MonoBehaviour
@@ -13,8 +18,8 @@ public class StateHandler : MonoBehaviour
     [SerializeField] CharacterState m_characterState = CharacterState.IDLE;
     [Space]
     [Header("Movement")]
-    [SerializeField] float normalSpeed = 0f;
     [SerializeField] float runSpeed = 0f;
+    [SerializeField] float shieldRunSpeed = 0f;
     [Header("Drag")]
     [SerializeField] float normalDrag = 10f;
     [SerializeField] float fallDrag = 0;
@@ -22,13 +27,13 @@ public class StateHandler : MonoBehaviour
     private Rigidbody m_rigidbody = null;
     private GroundChecker m_groundChecker = null;
     private Vector2 Movement = Vector2.zero;
-
-    private Equipment currentEquipment = null;
+    private EquipmentSword currentEquipment = null;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
+        currentEquipment = GetComponentInChildren<EquipmentSword>();
     }
     void Update()
     {
@@ -46,6 +51,26 @@ public class StateHandler : MonoBehaviour
         }
         m_rigidbody.drag = (m_groundChecker.isOnGround) ? normalDrag : fallDrag;
     }
+    public bool NormalAttack()
+    {
+        if(m_animator.GetBool("Controlable"))
+        {
+            m_animator.SetTrigger("Attack");
+            m_animator.SetBool("Controlable",false);
+            return true;
+        }
+        return false;
+    }
+    public bool HeavyAttack()
+    {
+        if(m_animator.GetBool("Controlable"))
+        {
+            m_animator.SetTrigger("AttackHeavy");
+            m_animator.SetBool("Controlable",false);
+            return true;
+        }
+        return false;
+    }
     public void MovementSetter(Vector3 Axis)
     {
         if (Axis == Vector3.zero || !m_groundChecker.isOnGround)
@@ -54,7 +79,7 @@ public class StateHandler : MonoBehaviour
             return;
         }
         var weight = new Vector2(Axis.x, Axis.y).magnitude;
-        Movement = (weight < 0.5f) ? Axis * normalSpeed : Axis * runSpeed;
+        Movement = Axis*runSpeed;
         m_animator.SetFloat("MovementMagnitude", weight);
         if (m_animator.GetBool("Controlable")) RotateToAxis(Axis);
     }
@@ -77,14 +102,15 @@ public class StateHandler : MonoBehaviour
     }
     void SetAnimToBase()
     {
-        m_animator.SetLayerWeight(1,1);
-        m_animator.SetLayerWeight(2,0);
-        m_animator.SetLayerWeight(3,0);
+        m_animator.SetLayerWeight(1, 1);
+        m_animator.SetLayerWeight(2, 0);
+        m_animator.SetLayerWeight(3, 0);
+        m_animator.Play("Idle", 1);
     }
     void SetAnimToExpand()
     {
-        m_animator.SetLayerWeight(1,0);
-        m_animator.SetLayerWeight(2,1);
-        m_animator.SetLayerWeight(3,1);
+        m_animator.SetLayerWeight(1, 0);
+        m_animator.SetLayerWeight(2, 1);
+        m_animator.SetLayerWeight(3, 1);
     }
 }

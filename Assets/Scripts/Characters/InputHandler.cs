@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    private Player m_player = null;
     private Vector3 movement = Vector3.zero;
     private StateHandler m_stateHandler = null;
     void Awake()
     {
         m_stateHandler = GetComponent<StateHandler>();
-        m_player = GetComponent<Player>();
     }
     void Update()
     {
@@ -19,11 +17,34 @@ public class InputHandler : MonoBehaviour
     void FixedUpdate()
     {
         m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
+        if (NormalAttackGetter())
+        {
+            if(m_stateHandler.NormalAttack())
+            {
+                GameCore.m_GameContrller.GetClientPlayerTarget().NormalAttackDepletion();
+            }
+        }
+        if (HeavyAttackGetter())
+        {
+            if(m_stateHandler.HeavyAttack())
+            {
+                GameCore.m_GameContrller.GetClientPlayerTarget().HeavyAttackDepletion();
+            }
+        }
     }
     void MovementInputGetter()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+    }
+    bool NormalAttackGetter()
+    {
+        return Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(0);
+    }
+    bool HeavyAttackGetter()
+    {
+        var TriggerAxis = Input.GetAxis("JoystickTrigger");
+        return TriggerAxis > 0 || Input.GetMouseButtonDown(1);
     }
     Vector3 SerializeInputByCameraTranform(Vector3 inputAxis)
     {

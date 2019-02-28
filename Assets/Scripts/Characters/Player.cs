@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour, ICharacter
 {
     [SerializeField] int m_characterMaxHP = 100;
-    [SerializeField] LayerMask itemLayer = 0;
-    [SerializeField] Transform WeaponHoldPos = null;
-    [SerializeField] Transform ShieldHoldPos = null;
+
+    [Header("Action Stamina Depletion")]
+    [SerializeField] int NormalAttack = 20;
+    [SerializeField] int HeavyAttack = 40;
+    [SerializeField] int Dash = 20;
 
     public Health CharacterHP { get; private set; }
     public Stemina CharacterStemina { get; private set; }
@@ -19,7 +21,18 @@ public class Player : MonoBehaviour, ICharacter
         CharacterStemina = GetComponent<Stemina>();
         m_capsuleColider = GetComponent<CapsuleCollider>();
     }
-
+    public void NormalAttackDepletion()
+    {
+        CharacterStemina.RemoveSP(NormalAttack);
+    }
+    public void HeavyAttackDepletion()
+    {
+        CharacterStemina.RemoveSP(HeavyAttack);
+    }
+    public void DashDepletion()
+    {
+        CharacterStemina.RemoveSP(Dash);
+    }
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);

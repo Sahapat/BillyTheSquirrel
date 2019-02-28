@@ -39,7 +39,6 @@ public class NormalHit : MonoBehaviour, IHitSystem
     private float InActionDelayCounter = 0f;
     bool isHit = false;
     private BoxCollider m_boxcolider = null;
-
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();
