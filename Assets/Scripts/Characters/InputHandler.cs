@@ -17,19 +17,30 @@ public class InputHandler : MonoBehaviour
     void FixedUpdate()
     {
         m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
-        if (NormalAttackGetter())
+        if (NormalAttackGetter() && GameCore.m_GameContrller.GetClientPlayerTarget().CheckNormalAttackSP())
         {
             if(m_stateHandler.NormalAttack())
             {
                 GameCore.m_GameContrller.GetClientPlayerTarget().NormalAttackDepletion();
             }
         }
-        if (HeavyAttackGetter())
+        if (HeavyAttackGetter() && GameCore.m_GameContrller.GetClientPlayerTarget().CheckHeavyAttackSP())
         {
             if(m_stateHandler.HeavyAttack())
             {
                 GameCore.m_GameContrller.GetClientPlayerTarget().HeavyAttackDepletion();
             }
+        }
+        if((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button1))&&GameCore.m_GameContrller.GetClientPlayerTarget().CheckDashSP())
+        {
+           if( m_stateHandler.Dash())
+           {
+               GameCore.m_GameContrller.GetClientPlayerTarget().DashDepletion();
+           }
+        }
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+        {
+            m_stateHandler.Jump();
         }
     }
     void MovementInputGetter()

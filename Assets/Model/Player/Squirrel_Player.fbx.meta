@@ -278,6 +278,8 @@ ModelImporter:
     7400036: NormalAttack3ToIdle
     7400038: HeavyAttack
     7400040: HeavyAttackCharge
+    7400042: InAir
+    7400044: Landing
     9500000: //RootNode
     13700000: Squirrel_Weight:Belt
     13700002: Squirrel_Weight:Body
@@ -395,7 +397,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.69708
+      - time: 0.691068
         functionName: Attack1
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -480,7 +482,7 @@ ModelImporter:
       name: Jump
       takeName: Take 001
       firstFrame: 260
-      lastFrame: 280
+      lastFrame: 275
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -908,6 +910,62 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 145
       lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: InAir
+      takeName: Take 001
+      firstFrame: 273
+      lastFrame: 275
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Landing
+      takeName: Take 001
+      firstFrame: 275
+      lastFrame: 280
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -21,6 +21,18 @@ public class Player : MonoBehaviour, ICharacter
         CharacterStemina = GetComponent<Stemina>();
         m_capsuleColider = GetComponent<CapsuleCollider>();
     }
+    public bool CheckNormalAttackSP()
+    {
+        return CharacterStemina.SP >= NormalAttack;
+    }
+    public bool CheckHeavyAttackSP()
+    {
+        return CharacterStemina.SP >= HeavyAttack;
+    }
+    public bool CheckDashSP()
+    {
+        return CharacterStemina.SP >=Dash;
+    }
     public void NormalAttackDepletion()
     {
         CharacterStemina.RemoveSP(NormalAttack);
