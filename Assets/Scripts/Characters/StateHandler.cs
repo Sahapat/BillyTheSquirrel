@@ -20,56 +20,37 @@ public enum CharacterState
 public class StateHandler : MonoBehaviour
 {
     [SerializeField] CharacterState m_characterState = CharacterState.IDLE;
-    [Space]
-    [Header("Movement")]
-    [SerializeField] float runSpeed = 0f;
-    [SerializeField] float shieldRunSpeed = 0f;
-    [Header("Jump")]
-    [SerializeField] float jumpStartDelay = 0.2f;
-    [SerializeField] float jumpUpScale = 3.2f;
-    [SerializeField] float jumpMoveScale = 2.5f;
-    [SerializeField] float jumpInAirMoveScale = 15f;
-    [SerializeField] float jumpMaxMagnitude = 3.5f;
-    [Header("Drag")]
-    [SerializeField] float normalDrag = 10f;
-    [SerializeField] float fallDrag = 0;
-    private Animator m_animator = null;
-    private Rigidbody m_rigidbody = null;
-    private GroundChecker m_groundChecker = null;
-    private Vector2 Movement = Vector2.zero;
+    public CharacterState currentCharacterState{get {return m_characterState;}}
+    public Vector2 Movement{get;private set;}
+    public delegate void _Func();
+    public event _Func OnStateChanged;
 
-    private float CounterForJumpStart = 0f;
+    private Animator m_animator = null;
+    private CharacterState previousState = CharacterState.NONE;
+    private GroundChecker m_groundChecker = null;
+    
     void Awake()
     {
         m_animator = GetComponent<Animator>();
-        m_rigidbody = GetComponent<Rigidbody>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
     }
     void Update()
     {
         UpdateState();
     }
-    void FixedUpdate()
+    void StateChange()
     {
-        m_rigidbody.drag = (m_groundChecker.isOnGround) ? normalDrag : fallDrag;
-        switch (m_characterState)
-        {
-            case CharacterState.RUN:
-                DoMovement();
-                RotateToAxis();
-                break;
-            case CharacterState.JUMP:
-                DoJump();
-                break;
-            case CharacterState.JUMPINAIR:
-                RotateToAxis();
-                WhileJump();
-                break;
-            case CharacterState.DASH:
-                m_rigidbody.drag = normalDrag;
-                break;
-        }
+        OnStateChanged?.Invoke();
+    }
+    void UpdateState()
+    {
+        previousState = currentCharacterState;
+        m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
+        if(previousState != currentCharacterState)
+        {
+            StateChange();
+        }
     }
     public bool NormalAttack()
     {
@@ -95,16 +76,25 @@ public class StateHandler : MonoBehaviour
     {
         if (m_animator.GetBool("Controlable") && m_groundChecker.isOnGround)
         {
-            RotateToAxis();
             m_animator.SetTrigger("Dash");
             m_animator.SetBool("Controlable", false);
             return true;
         }
         return false;
     }
+    public bool Hurt()
+    {
+        m_animator.SetTrigger("Hurt");
+        return true;
+    }
+    public bool UsePotion()
+    {
+        m_animator.SetTrigger("UsePotion");
+        return true;
+    }
     public void MovementSetter(Vector3 Axis)
     {
-        Movement = Axis * runSpeed;
+        Movement = Axis;
         var weight = new Vector2(Axis.x, Axis.y).magnitude;
         m_animator.SetFloat("MovementMagnitude", weight);
     }
@@ -113,43 +103,6 @@ public class StateHandler : MonoBehaviour
         if (m_animator.GetBool("Controlable") && m_groundChecker.isOnGround)
         {
             m_animator.SetTrigger("Jump");
-            CounterForJumpStart = Time.time + jumpStartDelay;
         }
-    }
-    void RotateToAxis()
-    {
-        var temp = Movement.normalized;
-        var Axis = new Vector3(Movement.x, Movement.y, 0);
-        var target = transform.position + Axis;
-        var relativeVector = (target - transform.position).normalized;
-        var radian = Mathf.Atan2(relativeVector.x, relativeVector.y);
-        var degree = (radian * 180) / Mathf.PI;
-        transform.eulerAngles = new Vector3(0, degree, 0);
-    }
-    void WhileJump()
-    {
-        m_rigidbody.AddForce(new Vector3(Movement.x * jumpMoveScale*jumpInAirMoveScale, 0, Movement.y * jumpMoveScale*jumpInAirMoveScale));
-        var currentMagnitude = new Vector2(m_rigidbody.velocity.x,m_rigidbody.velocity.z).magnitude;
-        if(currentMagnitude > jumpMaxMagnitude)
-        {
-            var ClampMagnitude = new Vector2(m_rigidbody.velocity.x,m_rigidbody.velocity.z).normalized * jumpMaxMagnitude;
-            m_rigidbody.velocity = new Vector3(ClampMagnitude.x,m_rigidbody.velocity.y,ClampMagnitude.y);
-        }
-    }
-    void DoJump()
-    {
-        if (CounterForJumpStart <= Time.time)
-        {
-            var jumpMovement = Movement.normalized;
-            m_rigidbody.velocity = new Vector3(jumpMovement.x*jumpMoveScale, jumpUpScale,jumpMovement.y*jumpMoveScale);
-        }
-    }
-    void DoMovement()
-    {
-        m_rigidbody.velocity = new Vector3(Movement.x, m_rigidbody.velocity.y, Movement.y);
-    }
-    void UpdateState()
-    {
-        m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
     }
 }

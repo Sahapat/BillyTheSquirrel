@@ -223,20 +223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetInt: CharacterState
   IntValue: 12
---- !u!114 &114189809332804256
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f70b54af417f44ca93a6bbca6b48ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityAdd: 30
-  forceMode: 2
 --- !u!114 &114195397979028900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2139,7 +2125,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: 1101972500722801294}
   m_StateMachineBehaviours:
-  - {fileID: 114189809332804256}
   - {fileID: 114370567808834032}
   - {fileID: 114873903399345212}
   m_Position: {x: 50, y: 50, z: 0}
