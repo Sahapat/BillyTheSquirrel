@@ -279,7 +279,7 @@ ModelImporter:
     7400038: HeavyAttack
     7400040: HeavyAttackCharge
     7400042: InAir
-    7400044: Landing
+    7400044: Take 001
     9500000: //RootNode
     13700000: Squirrel_Weight:Belt
     13700002: Squirrel_Weight:Body
@@ -290,6 +290,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Squirrel_Weight_lambert2
     second: {fileID: 2100000, guid: 9b5dcf17404e5434e886fba4f745b48f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100002, guid: 75503ec3753a5024199816e033e291c2, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -797,7 +802,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -962,7 +967,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Landing
+      name: Take 001
       takeName: Take 001
       firstFrame: 275
       lastFrame: 280

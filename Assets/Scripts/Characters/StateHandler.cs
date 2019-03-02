@@ -13,9 +13,9 @@ public enum CharacterState
     JUMP = 7,
     DASH = 8,
     INAIR = 9,
-    RESET = 10,
-    NONE = 11,
-    JUMPINAIR = 12
+    JUMPINAIR = 10,
+    RESET = 11,
+    NONE = 12,
 };
 public class StateHandler : MonoBehaviour
 {
@@ -24,9 +24,12 @@ public class StateHandler : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float runSpeed = 0f;
     [SerializeField] float shieldRunSpeed = 0f;
+    [Header("Jump")]
     [SerializeField] float jumpStartDelay = 0.2f;
     [SerializeField] float jumpUpScale = 3.2f;
     [SerializeField] float jumpMoveScale = 2.5f;
+    [SerializeField] float jumpInAirMoveScale = 15f;
+    [SerializeField] float jumpMaxMagnitude = 3.5f;
     [Header("Drag")]
     [SerializeField] float normalDrag = 10f;
     [SerializeField] float fallDrag = 0;
@@ -59,13 +62,11 @@ public class StateHandler : MonoBehaviour
                 DoJump();
                 break;
             case CharacterState.JUMPINAIR:
+                RotateToAxis();
                 WhileJump();
                 break;
             case CharacterState.DASH:
                 m_rigidbody.drag = normalDrag;
-                break;
-            case CharacterState.RESET:
-                ResetEveryThing();
                 break;
         }
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
@@ -103,13 +104,8 @@ public class StateHandler : MonoBehaviour
     }
     public void MovementSetter(Vector3 Axis)
     {
-        if (Axis == Vector3.zero || !m_groundChecker.isOnGround)
-        {
-            m_animator.SetFloat("MovementMagnitude", 0);
-            return;
-        }
-        var weight = new Vector2(Axis.x, Axis.y).magnitude;
         Movement = Axis * runSpeed;
+        var weight = new Vector2(Axis.x, Axis.y).magnitude;
         m_animator.SetFloat("MovementMagnitude", weight);
     }
     public void Jump()
@@ -128,22 +124,24 @@ public class StateHandler : MonoBehaviour
         var relativeVector = (target - transform.position).normalized;
         var radian = Mathf.Atan2(relativeVector.x, relativeVector.y);
         var degree = (radian * 180) / Mathf.PI;
-
         transform.eulerAngles = new Vector3(0, degree, 0);
-    }
-    void ResetEveryThing()
-    {
-
     }
     void WhileJump()
     {
-        m_rigidbody.AddForce(new Vector3(Movement.x * jumpMoveScale, 0, Movement.y * jumpMoveScale));
+        m_rigidbody.AddForce(new Vector3(Movement.x * jumpMoveScale*jumpInAirMoveScale, 0, Movement.y * jumpMoveScale*jumpInAirMoveScale));
+        var currentMagnitude = new Vector2(m_rigidbody.velocity.x,m_rigidbody.velocity.z).magnitude;
+        if(currentMagnitude > jumpMaxMagnitude)
+        {
+            var ClampMagnitude = new Vector2(m_rigidbody.velocity.x,m_rigidbody.velocity.z).normalized * jumpMaxMagnitude;
+            m_rigidbody.velocity = new Vector3(ClampMagnitude.x,m_rigidbody.velocity.y,ClampMagnitude.y);
+        }
     }
     void DoJump()
     {
         if (CounterForJumpStart <= Time.time)
         {
-            m_rigidbody.velocity = new Vector3(m_rigidbody.velocity.x, jumpUpScale, m_rigidbody.velocity.z);
+            var jumpMovement = Movement.normalized;
+            m_rigidbody.velocity = new Vector3(jumpMovement.x*jumpMoveScale, jumpUpScale,jumpMovement.y*jumpMoveScale);
         }
     }
     void DoMovement()
