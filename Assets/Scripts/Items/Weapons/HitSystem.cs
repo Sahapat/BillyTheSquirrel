@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalHit : MonoBehaviour, IHitSystem
+public class HitSystem : MonoBehaviour, IHitSystem
 {
     [SerializeField] int damagePerHit = 0;
     [SerializeField] float m_delayForActive = 0f;
@@ -37,24 +37,20 @@ public class NormalHit : MonoBehaviour, IHitSystem
     private bool isSetActive = false;
     private float ActiveDelayCounter = 0f;
     private float InActionDelayCounter = 0f;
-    bool isHit = false;
+    private HitDataStorage m_hitDataStorage = null;
     private BoxCollider m_boxcolider = null;
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();
+        m_hitDataStorage = new HitDataStorage(8);
     }
-
     void FixedUpdate()
     {
-        TimeCountChecker();
+        if (!isSetActive) return;
+        Counting();
         if (isActive)
         {
-            var hitInfo = PhysicsExtensions.OverlapBox(m_boxcolider, TargetLayer);
-            if (hitInfo.Length > 0 && !isHit)
-            {
-                hitInfo[0].GetComponent<ICharacter>().TakeDamage(damagePerHit);
-                isHit = true;
-            }
+            CheckHit();
         }
     }
     public void ActiveHit()
@@ -63,31 +59,37 @@ public class NormalHit : MonoBehaviour, IHitSystem
         ActiveDelayCounter = Time.time + delayForActive;
         InActionDelayCounter = ActiveDelayCounter + delayForInActive;
     }
-
     public void CancelHit()
     {
         ResetHit();
     }
-    void TimeCountChecker()
+    void ResetHit()
     {
-        if (ActiveDelayCounter <= Time.time && isSetActive)
+        isActive = false;
+        isSetActive = false;
+        m_hitDataStorage.ResetHit();
+    }
+    void CheckHit()
+    {
+        var hitInfo = PhysicsExtensions.OverlapBox(m_boxcolider, TargetLayer);
+        for (int i = 0; i < hitInfo.Length; i++)
+        {
+            if (m_hitDataStorage.CheckHit(hitInfo[i].GetInstanceID()))
+            {
+                var character = hitInfo[i].GetComponent<ICharacter>();
+                character.TakeDamage(damagePerHit);
+            }
+        }
+    }
+    void Counting()
+    {
+        if (ActiveDelayCounter >= Time.time)
         {
             isActive = true;
-            isSetActive = false;
         }
-        if (InActionDelayCounter <= Time.time && isActive)
+        if (InActionDelayCounter >= Time.time)
         {
             ResetHit();
         }
-    }
-    void ResetHit()
-    {
-        ClearHitObj();
-        isActive = false;
-        isSetActive = false;
-    }
-    void ClearHitObj()
-    {
-        isHit = false;
     }
 }
