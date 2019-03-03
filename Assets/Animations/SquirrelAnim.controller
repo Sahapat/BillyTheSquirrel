@@ -223,20 +223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetInt: CharacterState
   IntValue: 12
---- !u!114 &114195397979028900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f70b54af417f44ca93a6bbca6b48ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityAdd: 120
-  forceMode: 1
 --- !u!114 &114247497762917054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -487,20 +473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetInt: CharacterState
   IntValue: 5
---- !u!114 &114749322830870536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f70b54af417f44ca93a6bbca6b48ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityAdd: 120
-  forceMode: 1
 --- !u!114 &114795650214995536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -515,34 +487,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetInt: CharacterState
   IntValue: 5
---- !u!114 &114842675674199730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f70b54af417f44ca93a6bbca6b48ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityAdd: 120
-  forceMode: 1
---- !u!114 &114853761699262782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f70b54af417f44ca93a6bbca6b48ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityAdd: 3
-  forceMode: 2
 --- !u!114 &114862685902870902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1605,7 +1549,6 @@ AnimatorState:
   - {fileID: 1101697121368810168}
   - {fileID: 1101233511075629466}
   m_StateMachineBehaviours:
-  - {fileID: 114842675674199730}
   - {fileID: 114913376951762808}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1803,7 +1746,6 @@ AnimatorState:
   - {fileID: 1101510294468713476}
   - {fileID: 1101678326357600096}
   m_StateMachineBehaviours:
-  - {fileID: 114853761699262782}
   - {fileID: 114625570784958770}
   - {fileID: 114862685902870902}
   m_Position: {x: 50, y: 50, z: 0}
@@ -1834,7 +1776,6 @@ AnimatorState:
   - {fileID: 1101586131211105630}
   - {fileID: 1101202875059536888}
   m_StateMachineBehaviours:
-  - {fileID: 114195397979028900}
   - {fileID: 114879369373436038}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1983,7 +1924,6 @@ AnimatorState:
   - {fileID: 1101004191060205220}
   - {fileID: 1101607832154905994}
   m_StateMachineBehaviours:
-  - {fileID: 114749322830870536}
   - {fileID: 114697999652126570}
   - {fileID: 114408318770585592}
   m_Position: {x: 50, y: 50, z: 0}

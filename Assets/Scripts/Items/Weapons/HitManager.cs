@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class HitManager : MonoBehaviour
 {
-    [SerializeField]IHitSystem[] NormalHits;
-    [SerializeField]IHitSystem HeavyHit;
+    [SerializeField]BaseHitSystem[] NormalHits;
+    [SerializeField]BaseHitSystem HeavyHit;
 
     public void ActiveNormalHit(int index)
     {
         NormalHits[index].ActiveHit();
+    }
+    public void ActiveHeavyHit()
+    {
+        HeavyHit.ActiveHit();
     }
     public void CancelNormalHit(int index)
     {

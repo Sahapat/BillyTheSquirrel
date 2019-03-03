@@ -2,64 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitSystem : MonoBehaviour, IHitSystem
+public class HitSystem : BaseHitSystem
 {
-    [SerializeField] int damagePerHit = 0;
-    [SerializeField] float m_delayForActive = 0f;
-    [SerializeField] float m_delayForInActive = 0f;
-    [SerializeField] LayerMask TargetLayer = 0;
-    public float delayForActive
-    {
-        get
-        {
-            return m_delayForActive;
-        }
-        private set
-        {
-            m_delayForActive = value;
-            m_delayForActive = Mathf.Clamp(m_delayForActive, 0f, float.MaxValue);
-        }
-    }
-
-    public float delayForInActive
-    {
-        get
-        {
-            return m_delayForInActive;
-        }
-        private set
-        {
-            m_delayForInActive = value;
-            m_delayForInActive = Mathf.Clamp(m_delayForInActive, 0f, float.MaxValue);
-        }
-    }
-    private bool isActive = false;
-    private bool isSetActive = false;
-    private float ActiveDelayCounter = 0f;
-    private float InActionDelayCounter = 0f;
-    private HitDataStorage m_hitDataStorage = null;
     private BoxCollider m_boxcolider = null;
+    private MeleeWeaponTrail m_weaponTrail = null;
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();
         m_hitDataStorage = new HitDataStorage(8);
+        m_weaponTrail = GetComponent<MeleeWeaponTrail>();
     }
     void FixedUpdate()
     {
-        if (!isSetActive) return;
+        if(!isSetActive)
+        {
+            if(m_weaponTrail != null)m_weaponTrail.Emit =false;
+            return;
+        }
         Counting();
-        if (isActive)
+        if(isActive)
         {
             CheckHit();
         }
     }
-    public void ActiveHit()
+    public override void ActiveHit()
     {
         isSetActive = true;
         ActiveDelayCounter = Time.time + delayForActive;
         InActionDelayCounter = ActiveDelayCounter + delayForInActive;
     }
-    public void CancelHit()
+    public override void CancelHit()
     {
         ResetHit();
     }
@@ -83,11 +55,12 @@ public class HitSystem : MonoBehaviour, IHitSystem
     }
     void Counting()
     {
-        if (ActiveDelayCounter >= Time.time)
+        if (ActiveDelayCounter <= Time.time)
         {
+            if(m_weaponTrail != null)m_weaponTrail.Emit = true;
             isActive = true;
         }
-        if (InActionDelayCounter >= Time.time)
+        if (InActionDelayCounter <= Time.time)
         {
             ResetHit();
         }
