@@ -92,6 +92,10 @@ public class StateHandler : MonoBehaviour
         m_animator.SetTrigger("UsePotion");
         return true;
     }
+    public bool GetControlable()
+    {
+        return m_animator.GetBool("Controlable");
+    }
     public void MovementSetter(Vector3 Axis)
     {
         Movement = Axis;

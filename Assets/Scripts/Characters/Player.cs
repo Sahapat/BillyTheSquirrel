@@ -24,6 +24,10 @@ public class Player : MonoBehaviour, ICharacter
         m_capsuleColider = GetComponent<CapsuleCollider>();
         m_stateHandler = GetComponent<StateHandler>();
     }
+    void Start()
+    {
+        CharacterHP.OnHPChanged += CheckHealth;
+    }
     void Update()
     {
         MovementInputGetter();
@@ -94,6 +98,13 @@ public class Player : MonoBehaviour, ICharacter
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+    }
+    void CheckHealth(int value)
+    {
+        if(value <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
     Vector3 SerializeInputByCameraTranform(Vector3 inputAxis)
     {
