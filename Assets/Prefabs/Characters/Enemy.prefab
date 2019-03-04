@@ -3668,9 +3668,9 @@ MonoBehaviour:
   StartPosition: {x: 0, y: 0, z: 0}
   m_DetechPlayer: {fileID: 6245167491525194254}
   m_AttackSight: {fileID: 3827048076823926690}
-  chanceForCombo: 50
-  chanceForHeavyAttack: 30
-  stateAttackDelay: 1.2
+  chanceForCombo: 30
+  chanceForHeavyAttack: 20
+  stateAttackDelay: 2.3
 --- !u!114 &8678980829644959859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3695,10 +3695,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b721c2250d1f9ff4d9d33f0587c29e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack1ScaleToAdd: 3
-  attack2ScaleToAdd: 3
-  attack3ScaleToAdd: 3
-  HeavyAttackScaleToAdd: 5
+  attack1ScaleToAdd: 18
+  attack2ScaleToAdd: 18
+  attack3ScaleToAdd: 18
+  HeavyAttackScaleToAdd: 21
 --- !u!1 &6618080166121925885
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField]Text m_LevelText = null;
     [SerializeField]Text m_CoinText = null;
 
-    [SerializeField]GameObject InventoryHub = null;
-
+    [SerializeField]InventoryUIController InventoryHub = null;
     void Start()
     {
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnHPChanged += UpdateHPBar;
@@ -20,6 +19,18 @@ public class UIHandler : MonoBehaviour
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminachange += UpdateSPBar;
         OnResetHP();
         OnResetSP();
+    }
+    public void OpenInventory()
+    {
+        InventoryHub.OpenInventory();
+    }
+    public void CloseInventory()
+    {
+        InventoryHub.CloseInventory();
+    }
+    public bool GetInventoryStatus()
+    {
+        return InventoryHub.inventoryStatus;
     }
     void OnResetHP()
     {

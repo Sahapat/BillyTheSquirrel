@@ -29,8 +29,8 @@ public class Main : MonoBehaviour
     }
     void Start()
     {
-        GameCore.m_CursorController.CursorInGameMode();
-        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.NORMAL);
+        GameCore.m_uiHandler.CloseInventory();
+        GameCore.m_CursorController.SetCursorInGameMode();
     }
 }
 

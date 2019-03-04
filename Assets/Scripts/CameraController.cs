@@ -50,27 +50,33 @@ public class CameraController : MonoBehaviour
                 ThirdPersonCamera();
                 break;
             case CameraState.INVENTORY:
+                InventoryCamera();
                 break;
         }
     }
-    void ThirdPersonCamera()
+    void InventoryCamera()
     {
-        RotateCameraAxisZ();
-        RotateCameraAxisY();
+        RotateCameraAxisZ(Vector2.zero);
+        RotateCameraAxisY(Vector2.zero);
         transform.LookAt(targetTranform);
         transform.Translate(new Vector3(0, offsetY, 0));
     }
-    void RotateCameraAxisZ()
+    void ThirdPersonCamera()
     {
-        Vector2 turnAxis = TurningInputGetter();
+        RotateCameraAxisZ(TurningInputGetter());
+        RotateCameraAxisY(TurningInputGetter());
+        transform.LookAt(targetTranform);
+        transform.Translate(new Vector3(0, offsetY, 0));
+    }
+    void RotateCameraAxisZ(Vector2 turnAxis)
+    {
         Quaternion camTurnAngleZ = Quaternion.AngleAxis((turnAxis.x * rotateSpeedZ), angleAxisZ);
         cameraOffset = camTurnAngleZ * cameraOffset;
         Vector3 newPos = targetTranform.position + cameraOffset;
         transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
     }
-    void RotateCameraAxisY()
+    void RotateCameraAxisY(Vector2 turnAxis)
     {
-        Vector2 turnAxis = TurningInputGetter();
         Quaternion camTurnAngleY = Quaternion.AngleAxis((turnAxis.y * rotateSpeedY), angleAxisY);
         cameraOffset = camTurnAngleY * cameraOffset;
         Vector3 newPos = targetTranform.position + cameraOffset;

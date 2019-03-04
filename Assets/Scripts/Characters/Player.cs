@@ -10,9 +10,14 @@ public class Player : MonoBehaviour, ICharacter
     [SerializeField] int NormalAttack = 20;
     [SerializeField] int HeavyAttack = 40;
     [SerializeField] int Dash = 20;
+    [Header("Inventory Properties")]
+    [SerializeField]int WeaponSlot =2;
+    [SerializeField]int ItemSlot = 8;
 
     public Health CharacterHP { get; private set; }
     public Stemina CharacterStemina { get; private set; }
+    public Inventory WeaponInventory {get;private set;}
+    public Inventory ItemInventory{get;private set;}
 
     private CapsuleCollider m_capsuleColider = null;
     private StateHandler m_stateHandler = null;
@@ -23,6 +28,8 @@ public class Player : MonoBehaviour, ICharacter
         CharacterStemina = GetComponent<Stemina>();
         m_capsuleColider = GetComponent<CapsuleCollider>();
         m_stateHandler = GetComponent<StateHandler>();
+        WeaponInventory = new Inventory(WeaponSlot);
+        ItemInventory = new Inventory(ItemSlot);
     }
     void Start()
     {
@@ -34,6 +41,17 @@ public class Player : MonoBehaviour, ICharacter
     }
     void FixedUpdate()
     {
+        if(Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
+        {
+            GameCore.m_GameContrller.SwitchAvtiveInventory();
+        }
+
+        if(GameCore.m_uiHandler.GetInventoryStatus())
+        {
+            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(Vector3.zero));
+            return;
+        }
+
         m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
 
         if (NormalAttackGetter() && CheckNormalAttackSP())
