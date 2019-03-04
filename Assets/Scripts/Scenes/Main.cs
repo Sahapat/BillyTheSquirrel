@@ -32,5 +32,12 @@ public class Main : MonoBehaviour
         GameCore.m_uiHandler.CloseInventory();
         GameCore.m_CursorController.SetCursorInGameMode();
     }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F2))
+        {
+            FindObjectOfType<FadeController>().LoadSceneAndFade(2);
+        }
+    }
 }
 

@@ -19,6 +19,7 @@ public class CameraMenu : MonoBehaviour
     [SerializeField]GameObject SunHUB;
     [SerializeField]AnimationShow OatShow;
     [SerializeField]EnviroumentShow SunShow;
+    [SerializeField]GameObject TleHUB;
     [SerializeField]float speed = 3f;
     bool isSet = false;
     CameraPos Destination;
@@ -40,6 +41,7 @@ public class CameraMenu : MonoBehaviour
         SunHUB.SetActive(false);
         MenuHUB.SetActive(false);
         OatHUB.SetActive(true);
+        TleHUB.SetActive(false);
         OatShow.OpenAll();
         SunShow.CloseAll();
     }
@@ -50,6 +52,7 @@ public class CameraMenu : MonoBehaviour
         OatHUB.SetActive(false);
         MenuHUB.SetActive(false);
         SunHUB.SetActive(true);
+        TleHUB.SetActive(false);
         OatShow.CloseAll();
         SunShow.OpenAll();
     }
@@ -60,6 +63,18 @@ public class CameraMenu : MonoBehaviour
         SunHUB.SetActive(false);
         OatHUB.SetActive(false);
         MenuHUB.SetActive(true);
+        TleHUB.SetActive(false);
+        OatShow.CloseAll();
+        SunShow.CloseAll();
+    }
+    public void SetToTle()
+    {
+        isSet = true;
+        Destination = MenuPos;
+        SunHUB.SetActive(false);
+        OatHUB.SetActive(false);
+        MenuHUB.SetActive(false);
+        TleHUB.SetActive(true);
         OatShow.CloseAll();
         SunShow.CloseAll();
     }
