@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, ICharacter
 
     public Health CharacterHP { get; private set; }
     public Stemina CharacterStemina { get; private set; }
+    public Coin CharacterCoin {get;private set;}
     public Inventory WeaponInventory {get;private set;}
     public Inventory ItemInventory{get;private set;}
 
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour, ICharacter
     {
         CharacterHP = new Health(m_characterMaxHP);
         CharacterStemina = GetComponent<Stemina>();
+        CharacterCoin = new Coin();
         m_capsuleColider = GetComponent<CapsuleCollider>();
         m_stateHandler = GetComponent<StateHandler>();
         WeaponInventory = new Inventory(WeaponSlot);

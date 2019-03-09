@@ -39,10 +39,13 @@ public class MovementHandler : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Movement = m_stateHandler.Movement;
+        Movement = (m_stateHandler.Movement == Vector2.zero)?Movement:m_stateHandler.Movement;
         m_rigidbody.drag = (m_groundChecker.isOnGround) ? normalDrag : fallDrag;
         switch (currentState)
         {
+            case CharacterState.IDLE:
+                RotateToAxis();
+            break;
             case CharacterState.RUN:
                 RotateToAxis();
                 DoMovement();

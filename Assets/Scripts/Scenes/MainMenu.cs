@@ -36,4 +36,8 @@ public class MainMenu : MonoBehaviour
         }
         Controllers[showIndex].SetActive(true);
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

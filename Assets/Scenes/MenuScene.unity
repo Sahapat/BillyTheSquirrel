@@ -209,7 +209,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 24ec7579cc9e5e14db39576f107af522, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -541,6 +541,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1212848002}
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 262517523}
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2129,12 +2140,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1795609351226659999, guid: ac7039eaa63a4ae4eba710905291d926,
+    - target: {fileID: 5390702387676927558, guid: ac7039eaa63a4ae4eba710905291d926,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5390702387676927558, guid: ac7039eaa63a4ae4eba710905291d926,
+    - target: {fileID: 1795609351226659999, guid: ac7039eaa63a4ae4eba710905291d926,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

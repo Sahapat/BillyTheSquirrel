@@ -6,4 +6,9 @@ using UnityEngine.UI;
 public class SlotUIController : MonoBehaviour
 {
     [SerializeField]GameObject DiscriptionObj = null;
+    
+    public void SelectedSlot()
+    {
+        
+    }
 }

@@ -17,6 +17,8 @@ public class UIHandler : MonoBehaviour
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnResetHP += OnResetHP;
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminaReset += OnResetSP;
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminachange += UpdateSPBar;
+        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.OnCoinAdd+=UpdateCoinTxt;
+        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.OnCoinRemove+=UpdateCoinTxt;
         OnResetHP();
         OnResetSP();
     }
@@ -49,5 +51,9 @@ public class UIHandler : MonoBehaviour
     {
         int assignValue = Mathf.Clamp(value,0,GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.MaxSP);
         m_SPSlider.value = assignValue;
+    }
+    void UpdateCoinTxt(int value)
+    {
+        m_CoinText.text = GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin._Coin.ToString();
     }
 }
