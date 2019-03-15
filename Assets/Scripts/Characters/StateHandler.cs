@@ -40,6 +40,10 @@ public class StateHandler : MonoBehaviour
     {
         UpdateState();
     }
+    void OnDestroy()
+    {
+        OnStateChanged = null;
+    }
     void StateChange()
     {
         OnStateChanged?.Invoke();

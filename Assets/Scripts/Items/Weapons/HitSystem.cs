@@ -12,21 +12,16 @@ public class HitSystem : BaseHitSystem
     }
     void FixedUpdate()
     {
-        if(!isSetActive)
-        {
-            return;
-        }
-        Counting();
         if(isActive)
         {
             CheckHit();
+            isActive = (activeDurationCounter <= Time.time);
         }
     }
     public override void ActiveHit()
     {
-        isSetActive = true;
-        ActiveDelayCounter = Time.time + delayForActive;
-        InActionDelayCounter = ActiveDelayCounter + delayForInActive;
+        isActive = true;
+        activeDurationCounter = Time.time + activeDuration;
     }
     public override void CancelHit()
     {
@@ -35,7 +30,6 @@ public class HitSystem : BaseHitSystem
     void ResetHit()
     {
         isActive = false;
-        isSetActive = false;
         m_hitDataStorage.ResetHit();
     }
     void CheckHit()
@@ -48,17 +42,6 @@ public class HitSystem : BaseHitSystem
                 var character = hitInfo[i].GetComponent<ICharacter>();
                 character.TakeDamage(damagePerHit);
             }
-        }
-    }
-    void Counting()
-    {
-        if (ActiveDelayCounter <= Time.time)
-        {
-            isActive = true;
-        }
-        if (InActionDelayCounter <= Time.time)
-        {
-            ResetHit();
         }
     }
 }

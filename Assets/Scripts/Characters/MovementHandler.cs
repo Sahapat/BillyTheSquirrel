@@ -17,6 +17,7 @@ public class MovementHandler : MonoBehaviour
     [SerializeField] float jumpInAirMoveScale = 15f;
     [SerializeField] float jumpMaxMagnitude = 3.5f;
     [Header("Drag")]
+    [SerializeField] float DashDrag = 10f;
     [SerializeField] float normalDrag = 10f;
     [SerializeField] float fallDrag = 0;
 
@@ -40,7 +41,7 @@ public class MovementHandler : MonoBehaviour
     void FixedUpdate()
     {
         Movement = (m_stateHandler.Movement == Vector2.zero)?Movement:m_stateHandler.Movement;
-        m_rigidbody.drag = (m_groundChecker.isOnGround) ? normalDrag : fallDrag;
+        m_rigidbody.drag = (m_groundChecker.isOnGround)?normalDrag:fallDrag;
         switch (currentState)
         {
             case CharacterState.RUN:
@@ -55,7 +56,7 @@ public class MovementHandler : MonoBehaviour
                 WhileJump();
                 break;
             case CharacterState.DASH:
-                m_rigidbody.drag = normalDrag;
+                m_rigidbody.drag = DashDrag;
                 break;
         }
     }

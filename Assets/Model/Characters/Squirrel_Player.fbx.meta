@@ -656,8 +656,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.691068
-        functionName: Attack1
+      - time: 0.70056164
+        functionName: ActiveNormalHit1
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -691,12 +691,12 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.47080985
-        functionName: Attack2
+      - time: 0.48030353
+        functionName: ActiveNormalHit1
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -727,11 +727,11 @@ ModelImporter:
       curves: []
       events:
       - time: 0.50282496
-        functionName: Attack3
+        functionName: ActiveNormalHit1
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 2
         messageOptions: 0
       transformMask: []
       maskType: 3
@@ -1153,8 +1153,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.17514159
-        functionName: HeavyAttack
+      - time: 0.3270403
+        functionName: ActiveHeavyHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
