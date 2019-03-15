@@ -43,9 +43,6 @@ public class MovementHandler : MonoBehaviour
         m_rigidbody.drag = (m_groundChecker.isOnGround) ? normalDrag : fallDrag;
         switch (currentState)
         {
-            case CharacterState.IDLE:
-                RotateToAxis();
-            break;
             case CharacterState.RUN:
                 RotateToAxis();
                 DoMovement();
