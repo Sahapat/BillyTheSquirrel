@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6974961222514169920, guid: a2f78444c1583f04fadfb3e75b5160ca,
         type: 3}
       propertyPath: m_Name
-      value: Potion (2)
+      value: PotionSP
       objectReference: {fileID: 0}
     - target: {fileID: 6974961222514169923, guid: a2f78444c1583f04fadfb3e75b5160ca,
         type: 3}
@@ -72,5 +72,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 3f25c0b2d0188104c98fc2cef6a6e82a, type: 2}
+    - target: {fileID: 5845118823792560194, guid: a2f78444c1583f04fadfb3e75b5160ca,
+        type: 3}
+      propertyPath: _Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: a28a31fce866ee44bbe16fe38c6a0200,
+        type: 3}
+    - target: {fileID: 5845118823792560194, guid: a2f78444c1583f04fadfb3e75b5160ca,
+        type: 3}
+      propertyPath: _headerName
+      value: Potion SP
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845118823792560194, guid: a2f78444c1583f04fadfb3e75b5160ca,
+        type: 3}
+      propertyPath: HpHeal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845118823792560194, guid: a2f78444c1583f04fadfb3e75b5160ca,
+        type: 3}
+      propertyPath: SPHeal
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2f78444c1583f04fadfb3e75b5160ca, type: 3}

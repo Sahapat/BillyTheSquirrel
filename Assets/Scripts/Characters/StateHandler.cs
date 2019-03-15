@@ -20,6 +20,8 @@ public enum CharacterState
 public class StateHandler : MonoBehaviour
 {
     [SerializeField] CharacterState m_characterState = CharacterState.IDLE;
+    [SerializeField] int weaponType = 1;
+
     public CharacterState currentCharacterState{get {return m_characterState;}}
     public Vector2 Movement{get;private set;}
     public delegate void _Func();
@@ -45,6 +47,7 @@ public class StateHandler : MonoBehaviour
     void UpdateState()
     {
         previousState = currentCharacterState;
+        m_animator.SetInteger("WeaponHolding",weaponType);
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
         if(previousState != currentCharacterState)

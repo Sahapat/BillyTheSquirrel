@@ -5,18 +5,15 @@ using UnityEngine;
 public class HitSystem : BaseHitSystem
 {
     private BoxCollider m_boxcolider = null;
-    private MeleeWeaponTrail m_weaponTrail = null;
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();
         m_hitDataStorage = new HitDataStorage(8);
-        m_weaponTrail = GetComponent<MeleeWeaponTrail>();
     }
     void FixedUpdate()
     {
         if(!isSetActive)
         {
-            if(m_weaponTrail != null)m_weaponTrail.Emit =false;
             return;
         }
         Counting();
@@ -57,7 +54,6 @@ public class HitSystem : BaseHitSystem
     {
         if (ActiveDelayCounter <= Time.time)
         {
-            if(m_weaponTrail != null)m_weaponTrail.Emit = true;
             isActive = true;
         }
         if (InActionDelayCounter <= Time.time)

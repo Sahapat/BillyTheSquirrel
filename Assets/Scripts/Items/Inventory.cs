@@ -3,82 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Inventory
 {
-    public struct ItemInInventory
+    public delegate void _Func();
+    public event _Func OnItemAdded;
+    public event _Func OnItemRemove;
+
+    public ICollectable[] items{get;private set;}
+
+    public GameObject[] itemInEndPoint{get;private set;}
+    public bool isFull{get;private set;}
+    int addedIndex = 0;
+    int specialAddIndex = -1;
+    int maxSlot = 0;
+    public Inventory(int maxSlot)
     {
-        public ItemType itemType;
-        public Sprite Icon;
-        public string description;
-
-        public void SetDefualtValue()
-        {
-            itemType = ItemType.NONE;
-            Icon = null;
-            description = string.Empty;
-        }
-        public bool CheckIsEmpty()
-        {
-            var check1 = (itemType == ItemType.NONE)?true:false;
-            var check2 = (Icon == null)?true:false;
-            var check3 = (description == string.Empty)?true:false;
-
-            return check1 && check2&& check3;
-        }
+        items = new ICollectable[maxSlot];
+        itemInEndPoint = new GameObject[maxSlot];
+        this.maxSlot = maxSlot;
     }
-    public delegate void _FuncICollecable(ICollectable itemAdded);
-    public delegate void _FuncInt(int removeIndex);
-    public event _FuncICollecable OnItemAdd;
-    public event _FuncInt OnItemRemove;
-
-    private ItemInInventory[] _ItemInInventory;
-    private int addedIndex = 0;
-    private int recentlyRemoveIndex = -1;
-
-    public Inventory(int size)
-    {
-        _ItemInInventory = new ItemInInventory[size];
-    }
-    public ItemInInventory GetItem(int index)
-    {
-        return _ItemInInventory[index];
-    }
-
-    public bool AddItem(ICollectable itemAdded)
+    public void AddItem(GameObject itemAdded,Transform endPoint)
     {
         int indexToAdd = 0;
 
-        if(recentlyRemoveIndex != -1)
+        if(specialAddIndex != -1)
         {
-            indexToAdd = recentlyRemoveIndex;
-            recentlyRemoveIndex= -1;    
+            indexToAdd = specialAddIndex;
+            specialAddIndex = -1;
         }
-        else if(addedIndex != _ItemInInventory.Length-1)
+        else
         {
             indexToAdd = addedIndex;
-            addedIndex++;
         }
-        else
-        {
-            return false;
-        }
+        
+        items[indexToAdd] = itemAdded.GetComponent<ICollectable>();
+        itemAdded.transform.parent = endPoint;
+        itemAdded.transform.localPosition = Vector3.zero;
+        itemAdded.transform.localRotation = Quaternion.identity;
+        itemInEndPoint[indexToAdd] = itemAdded;
+        
+        addedIndex = (addedIndex+1 > maxSlot)?-1:addedIndex+1;
 
-        _ItemInInventory[indexToAdd].itemType = itemAdded.itemType;
-        _ItemInInventory[indexToAdd].Icon = itemAdded.Icon;
-        _ItemInInventory[indexToAdd].description = itemAdded.discription;
-        OnItemAdd?.Invoke(itemAdded);
-        return true;
+        if(addedIndex == -1 && specialAddIndex == -1)
+        {
+            isFull =true;
+        }
+        OnItemAdded?.Invoke();
     }
-    public bool RemoveItem(int index)
+    public GameObject RemoveItem(int index)
     {
-        if(_ItemInInventory[index].CheckIsEmpty())
-        {
-            return false;
-        }
-        else
-        {
-            recentlyRemoveIndex = index;
-            OnItemRemove?.Invoke(index);
-            return true;
-        }
+        items[index] = null;
+        specialAddIndex = index;
+        OnItemRemove?.Invoke();
+        return itemInEndPoint[index];
     }
-
 }

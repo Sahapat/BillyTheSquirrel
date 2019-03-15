@@ -38,7 +38,7 @@ public class ActionHandler : MonoBehaviour
             break;
         }
     }
-    void UpdateSword(BaseSword baseSword)
+    public void UpdateSword(BaseSword baseSword)
     {
         m_baseSword = baseSword;
     }

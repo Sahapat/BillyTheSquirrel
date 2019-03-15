@@ -30,7 +30,9 @@ public class Main : MonoBehaviour
     void Start()
     {
         GameCore.m_uiHandler.CloseInventory();
+        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.NORMAL);
         GameCore.m_CursorController.SetCursorInGameMode();
+        GameCore.m_GameContrller.UpdateEquipmentSlot();
     }
     void Update()
     {

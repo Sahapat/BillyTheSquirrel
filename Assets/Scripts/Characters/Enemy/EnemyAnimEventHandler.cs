@@ -9,7 +9,6 @@ public class EnemyAnimEventHandler : MonoBehaviour
     [SerializeField]float attack2ScaleToAdd = 250f;
     [SerializeField]float attack3ScaleToAdd = 265f;
     [SerializeField]float HeavyAttackScaleToAdd = 300f;
-    int state = 0;
     bool isSet = false;
     Vector3 destination = Vector3.zero;
     void FixedUpdate()

@@ -5,14 +5,19 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] Player ClientPlayerTarget = null;
+    [SerializeField] Transform temporaryTranform = null;
     public Player GetClientPlayerTarget()
     {
         return ClientPlayerTarget;
     }
+    public Transform GetTemporaryTranform()
+    {
+        return temporaryTranform;
+    }
     public void SwitchAvtiveInventory()
     {
         var inventoryStatus = GameCore.m_uiHandler.GetInventoryStatus();
-        if(inventoryStatus)
+        if (inventoryStatus)
         {
             GameCore.m_uiHandler.CloseInventory();
             GameCore.m_cameraController.SetCameraState(CameraController.CameraState.NORMAL);
@@ -24,5 +29,10 @@ public class GameController : MonoBehaviour
             GameCore.m_cameraController.SetCameraState(CameraController.CameraState.INVENTORY);
             GameCore.m_CursorController.SetCursorInInventoryMode();
         }
+    }
+    public void UpdateEquipmentSlot()
+    {
+        GameCore.m_inventoryController.UpdateShield();
+        GameCore.m_inventoryController.UpdateWeapon();
     }
 }

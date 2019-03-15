@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Acorn : MonoBehaviour
+public class Acorn : MonoBehaviour,IPopable
 {
     [SerializeField] int coinValue = 1;
     [SerializeField] Vector3 RotateDirection = Vector3.zero;
     [SerializeField] float RotateSpeed = 10;
     private BoxCollider m_Boxcolider = null;
     private Rigidbody m_rigidBody = null;
-
     private bool isPopOut = false;
     void Awake()
     {
@@ -43,6 +42,6 @@ public class Acorn : MonoBehaviour
     {
         m_rigidBody.isKinematic = false;
         isPopOut = true;
-        m_rigidBody.AddForce(new Vector3(xForce*0.3f,Vector3.up.y,zForce*0.3f) * forceToAdd, ForceMode.Impulse);
+        m_rigidBody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse);
     }
 }

@@ -7,10 +7,20 @@ public enum ItemType
     ITEM,
     NONE
 };
+public enum ItemUsedType
+{
+    STATUS_MODIFILER,
+    NONE
+};
 public interface ICollectable
 {
     ItemType itemType{get;}
-    string discription{get;}
+    string description{get;}
+    string headerName{get;}
     Sprite Icon{get;}
     GameObject PickUp();
+}
+public interface IPopable
+{
+    void PopOut(float xForce,float zForce,float forceToAdd);
 }
