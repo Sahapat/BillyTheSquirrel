@@ -45,25 +45,37 @@ public class ActionHandler : MonoBehaviour
     {
         switch (m_stateHandler.currentCharacterState)
         {
-            case CharacterState.ATTACK1:
+            case CharacterState.WEAPON0_ATTACK1:
                 queueMotionIndex = 0;
-                CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
                 break;
-            case CharacterState.ATTACK2:
+            case CharacterState.WEAPON0_ATTACK2:
                 queueMotionIndex = 1;
-                CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
                 break;
-            case CharacterState.ATTACK3:
+            case CharacterState.WEAPON0_ATTACK3:
                 queueMotionIndex = 2;
-                CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
                 break;
-            case CharacterState.ATTACKHEAVY:
+            case CharacterState.WEAPON0_ATTACKHEAVY:
                 queueMotionIndex = 3;
-                CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
+                break;
+            case CharacterState.WEAPON1_ATTACK1:
+                queueMotionIndex = 4;
+                break;
+            case CharacterState.WEAPON1_ATTACK2:
+                queueMotionIndex = 5;
+                break;
+            case CharacterState.WEAPON1_ATTACK3:
+                queueMotionIndex = 6;
+                break;
+            case CharacterState.WEAPON1_ATTACKHEAVY:
+                queueMotionIndex = 7;
                 break;
             case CharacterState.RESET:
                 m_baseSword.hitSystemManager.CancelAllHit();
                 break;
+        }
+        if(queueMotionIndex != -1)
+        {
+            CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
         }
     }
     public void ActiveNormalHit1(int index)

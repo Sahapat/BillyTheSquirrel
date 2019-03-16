@@ -26,6 +26,11 @@ public class Stemina : MonoBehaviour
             regenerateTimeCount = Time.time + regenerateFrequency;
         }
     }   
+    void OnDestroy()
+    {
+        OnSteminachange = null;
+        OnSteminaReset = null;
+    }
     public void ResetStemina()
     {
         _SP = MaxSP;
@@ -46,10 +51,6 @@ public class Stemina : MonoBehaviour
     public void SetMaxSP(int value)
     {
         _MaxSP = value;
-    }
-    void OnDestroy()
-    {
-        OnSteminachange = null;
     }
     void _FireEvent_OnSteminaChange()
     {

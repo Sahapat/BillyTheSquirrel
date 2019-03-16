@@ -15,7 +15,11 @@ public class HitSystem : BaseHitSystem
         if(isActive)
         {
             CheckHit();
-            isActive = (activeDurationCounter <= Time.time);
+            isActive = (activeDurationCounter >= Time.time);
+            if(!isActive)
+            {
+                ResetHit();
+            }
         }
     }
     public override void ActiveHit()

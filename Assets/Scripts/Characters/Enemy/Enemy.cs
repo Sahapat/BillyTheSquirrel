@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour, ICharacter
+public class Enemy : MonoBehaviour,ICharacter
 {
-    public enum AIStateMachine
+    #region Old Implement
+    /* public enum AIStateMachine
     {
         GUARD,
         CHASING,
@@ -152,5 +153,67 @@ public class Enemy : MonoBehaviour, ICharacter
         {
             Destroy(this.gameObject);
         }
+    } */
+    #endregion
+
+    #region Test Implement
+    /* public Transform target;
+    NavMeshPath path;
+    float elapsed = 0.0f;
+
+    void Start()
+    {
+        path = new NavMeshPath();
+        elapsed = 0.0f;
+    }
+
+    void Update()
+    {
+        elapsed += Time.deltaTime;
+
+        if(elapsed > 1.0f)
+        {
+            elapsed -= 1.0f;
+            print(NavMesh.CalculatePath(transform.position,target.position,NavMesh.AllAreas,path));
+        }
+        for(int i=0;i<path.corners.Length-1;i++)
+        {
+            Debug.DrawLine(path.corners[i],path.corners[i+1],Color.red);
+        }
+    } */
+    #endregion
+
+    public enum AIStateMachine
+    {
+        GUARD,
+        CHASING,
+        STAYAROUND,
+        ATTACK
+    };
+    [Header("Character Properties")]
+    [SerializeField]int m_characterMaxHP = 100;    
+    [SerializeField]float moveSpeed = 4.2f;
+
+    public Health CharacterHP{get;private set;}
+
+    private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
+    private Enemy_SightCheck enemy_SightCheck = null;
+    private Rigidbody m_rigidbody = null;
+    
+    void Awake()
+    {
+        CharacterHP = new Health(m_characterMaxHP);
+        enemy_SightCheck = GetComponentInChildren<Enemy_SightCheck>();
+        m_rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        CharacterHP.RemoveHP(damage);
+    }
+
+    public void Heal(int healValue)
+    {
+        CharacterHP.AddHP(healValue);
     }
 }

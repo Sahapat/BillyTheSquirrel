@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum CharacterState
 {
-    IDLE = 0,
-    RUN = 1,
-    ATTACK1 = 2,
-    ATTACK2 = 3,
-    ATTACK3 = 4,
-    ATTACKHEAVY = 5,
-    GUARD = 6,
-    JUMP = 7,
-    DASH = 8,
-    INAIR = 9,
-    JUMPINAIR = 10,
-    RESET = 11,
-    NONE = 12,
+    IDLE,
+    RUN,
+    WEAPON0_ATTACK1,
+    WEAPON0_ATTACK2,
+    WEAPON0_ATTACK3,
+    WEAPON0_ATTACKHEAVY,
+    WEAPON1_ATTACK1,
+    WEAPON1_ATTACK2,
+    WEAPON1_ATTACK3,
+    WEAPON1_ATTACKHEAVY,
+    GUARD,
+    JUMP,
+    DASH,
+    INAIR,
+    JUMPINAIR,
+    RESET,
+    NONE,
 };
 public class StateHandler : MonoBehaviour
 {

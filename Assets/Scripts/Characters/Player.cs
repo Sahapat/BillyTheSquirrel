@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, ICharacter
 {
+    [Header("CharacterProperties")]
     [SerializeField] int m_characterMaxHP = 100;
 
     [Header("Action Stamina Depletion")]
