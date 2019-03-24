@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class HitSystem : BaseHitSystem
 {
+    [SerializeField]TrailRenderer m_trailRenderer = null;
+    [SerializeField]float forceToAdd = 5f;
+    [SerializeField]float shakeLeght = 0.32f;
     private BoxCollider m_boxcolider = null;
+    private Transform m_rootTranform = null;
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();
-        m_hitDataStorage = new HitDataStorage(8);
+        m_hitDataStorage = new HitDataStorage(5);
+        m_rootTranform = transform.root;
+        m_trailRenderer.enabled = false;
     }
     void FixedUpdate()
     {
@@ -16,6 +22,7 @@ public class HitSystem : BaseHitSystem
         {
             CheckHit();
             isActive = (activeDurationCounter >= Time.time);
+            m_trailRenderer.enabled = true;
             if(!isActive)
             {
                 ResetHit();
@@ -33,18 +40,23 @@ public class HitSystem : BaseHitSystem
     }
     void ResetHit()
     {
+        m_trailRenderer.enabled = false;
         isActive = false;
         m_hitDataStorage.ResetHit();
     }
     void CheckHit()
     {
         var hitInfo = PhysicsExtensions.OverlapBox(m_boxcolider, TargetLayer);
+        if(hitInfo.Length == 0)return;
         for (int i = 0; i < hitInfo.Length; i++)
         {
             if (m_hitDataStorage.CheckHit(hitInfo[i].GetInstanceID()))
             {
                 var character = hitInfo[i].GetComponent<ICharacter>();
+                var characterRigid = hitInfo[i].GetComponent<Rigidbody>();
+                characterRigid.velocity = m_rootTranform.forward * forceToAdd;
                 character.TakeDamage(damagePerHit);
+                GameCore.m_cameraController.ShakeCamera(0.12f,shakeLeght);
             }
         }
     }

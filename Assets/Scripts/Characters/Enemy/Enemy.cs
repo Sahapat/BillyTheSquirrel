@@ -3,213 +3,166 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour,ICharacter
+public class Enemy : MonoBehaviour, ICharacter
 {
-    #region Old Implement
-    /* public enum AIStateMachine
-    {
-        GUARD,
-        CHASING,
-        ATTACK
-    };
-
-    [SerializeField] int maxHealth = 100;
-    [SerializeField] Vector3 StartPosition = Vector3.zero;
-    [Header("Enemy StateMachine")]
-    [SerializeField] Enemy_SightCheck m_DetechPlayer = null;
-    [SerializeField] Enemy_SightCheck m_AttackSight = null;
-    [SerializeField, Range(0, 100)] int chanceForCombo = 50;
-    [SerializeField, Range(0, 100)] int chanceForHeavyAttack = 30;
-    [SerializeField] float stateAttackDelay = 1.2f;
-    public Health CharacterHP { get; private set; }
-
-    private AIStateMachine m_stateMachine = AIStateMachine.GUARD;
-    private StateHandler m_stateHandler = null;
-    private NavMeshAgent m_Agent = null;
-    private bool attackTrigger = false;
-    private bool isGoFirstAttack = false;
-    private float CounterForStateAttackDelay = 0f;
-    void Awake()
-    {
-        m_stateHandler = GetComponent<StateHandler>();
-        m_Agent = GetComponent<NavMeshAgent>();
-        if (StartPosition == Vector3.zero) StartPosition = this.transform.position;
-        CharacterHP = new Health(maxHealth);
-    }
-    void Start()
-    {
-        CharacterHP.OnHPChanged += CheckDeath;
-    }
-    void FixedUpdate()
-    {
-        StateConditionCheck();
-
-        switch (m_stateMachine)
-        {
-            case AIStateMachine.GUARD:
-                GuardState();
-                break;
-            case AIStateMachine.CHASING:
-                ChasingState();
-                break;
-            case AIStateMachine.ATTACK:
-                AttackState();
-                AttackSpeculate();
-                break;
-        }
-    }
-    public void Heal(int healValue)
-    {
-        CharacterHP.AddHP(healValue);
-        m_stateHandler.UsePotion();
-    }
-
-    public void TakeDamage(int damage)
-    {
-        CharacterHP.RemoveHP(damage);
-        m_stateHandler.Hurt();
-    }
-    void GuardState()
-    {
-        isGoFirstAttack = false;
-        m_Agent.SetDestination(StartPosition);
-        m_stateHandler.MovementSetter(new Vector2(transform.forward.x, transform.forward.z));
-
-        if (m_Agent.remainingDistance <= 0)
-        {
-            m_Agent.isStopped = true;
-            m_stateHandler.MovementSetter(Vector2.zero);
-        }
-    }
-    void AttackState()
-    {
-        m_Agent.isStopped = true;
-        if (m_AttackSight.EnemyInSight && m_stateHandler.GetControlable())
-        {
-            transform.LookAt(m_AttackSight.EnemyInSight.transform.position);
-            m_stateHandler.MovementSetter(Vector2.zero);
-        }
-    }
-    void AttackSpeculate()
-    {
-        if (!isGoFirstAttack && !attackTrigger)
-        {
-            if (Random.value <= chanceForHeavyAttack*0.01f)
-            {
-                m_stateHandler.HeavyAttack();
-            }
-            else
-            {
-                m_stateHandler.NormalAttack();
-            }
-            CounterForStateAttackDelay = Time.time + stateAttackDelay;
-            isGoFirstAttack = true;
-            attackTrigger = true;
-        }
-        if(!attackTrigger)
-        {
-            if(Random.value <= chanceForCombo*0.01f)
-            {
-                m_stateHandler.NormalAttack();
-            }
-            else if(Random.value <= chanceForHeavyAttack*0.01f)
-            {
-                m_stateHandler.HeavyAttack();
-            }
-            CounterForStateAttackDelay = Time.time + stateAttackDelay;
-            attackTrigger = true;
-        }
-        attackTrigger = (CounterForStateAttackDelay>= Time.time);
-    }
-    void ChasingState()
-    {
-        isGoFirstAttack = false;
-        m_Agent.isStopped = false;
-        m_Agent.SetDestination(m_DetechPlayer.EnemyInSight.transform.position);
-        m_stateHandler.MovementSetter(new Vector2(transform.forward.x, transform.forward.z));
-    }
-    void StateConditionCheck()
-    {
-        if (m_stateHandler.GetControlable())
-        {
-            if (m_DetechPlayer.EnemyInSight != null)
-            {
-                m_stateMachine = AIStateMachine.CHASING;
-            }
-            else
-            {
-                m_stateMachine = AIStateMachine.GUARD;
-            }
-
-            if (m_AttackSight.EnemyInSight != null)
-            {
-                m_stateMachine = AIStateMachine.ATTACK;
-            }
-        }
-    }
-    void CheckDeath(int hpValue)
-    {
-        if (hpValue <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-    } */
-    #endregion
-
-    #region Test Implement
-    /* public Transform target;
-    NavMeshPath path;
-    float elapsed = 0.0f;
-
-    void Start()
-    {
-        path = new NavMeshPath();
-        elapsed = 0.0f;
-    }
-
-    void Update()
-    {
-        elapsed += Time.deltaTime;
-
-        if(elapsed > 1.0f)
-        {
-            elapsed -= 1.0f;
-            print(NavMesh.CalculatePath(transform.position,target.position,NavMesh.AllAreas,path));
-        }
-        for(int i=0;i<path.corners.Length-1;i++)
-        {
-            Debug.DrawLine(path.corners[i],path.corners[i+1],Color.red);
-        }
-    } */
-    #endregion
-
     public enum AIStateMachine
     {
         GUARD,
         CHASING,
+        ROAR,
         STAYAROUND,
         ATTACK
     };
     [Header("Character Properties")]
-    [SerializeField]int m_characterMaxHP = 100;    
-    [SerializeField]float moveSpeed = 4.2f;
+    [SerializeField] int m_characterMaxHP = 100;
+    [SerializeField] float moveSpeed = 4.2f;
+    [Header("Enemy AI Ref")]
+    [SerializeField] float stopDistance = 0.5f;
+    [Header("Sight Ref")]
+    [SerializeField] SightCheck enemySightCheck = null;
+    [SerializeField] SightCheck attackSightCheck = null;
+    [SerializeField] GameObject temp;
 
-    public Health CharacterHP{get;private set;}
+    public Health CharacterHP { get; private set; }
 
     private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
-    private Enemy_SightCheck enemy_SightCheck = null;
     private Rigidbody m_rigidbody = null;
-    
+    private NavMeshPath m_NavMeshPath = null;
+    private StateHandler m_stateHandler = null;
+
+    private Transform targetPlayer = null;
+    private Vector3 previousPlayerPosition = Vector3.zero;
+    private int navMeshPathCornerIndex = -1;
+    private bool isStop = false;
+
     void Awake()
     {
         CharacterHP = new Health(m_characterMaxHP);
-        enemy_SightCheck = GetComponentInChildren<Enemy_SightCheck>();
+        m_NavMeshPath = new NavMeshPath();
+        m_stateHandler = GetComponent<StateHandler>();
         m_rigidbody = GetComponent<Rigidbody>();
     }
+    void Start()
+    {
+        if (!targetPlayer) { targetPlayer = GameCore.m_GameContrller.GetClientPlayerTarget().transform; }
+        previousPlayerPosition = targetPlayer.position;
+    }
+    void FixedUpdate()
+    {
+        if (enemySightCheck.targetInSight)
+        {
+            CalculatePath();
+            FindPath();
+            MoveToPos();
+        }
+        /* switch (aIStateMachine)
+        {
+            case AIStateMachine.GUARD:
+                GuardState();
+                break;
+            case AIStateMachine.ROAR:
+                RoreState();
+                break;
+            case AIStateMachine.CHASING:
+                ChasingState();
+                CalculatePath();
+                FindPath();
+                break;
+            case AIStateMachine.STAYAROUND:
+                StayaroundState();
+                CalculatePath();
+                FindPath();
+                break;
+            case AIStateMachine.ATTACK:
+                AttackState();
+                break;
+        } */
+    }
+    void GuardState()
+    {
 
+    }
+    void ChasingState()
+    {
+
+    }
+    void RoreState()
+    {
+
+    }
+    void StayaroundState()
+    {
+
+    }
+    void AttackState()
+    {
+
+    }
+    void CalculatePath()
+    {
+        if (targetPlayer.position != previousPlayerPosition)
+        {
+            if (NavMesh.CalculatePath(transform.position, targetPlayer.position, NavMesh.AllAreas, m_NavMeshPath))
+            {
+                navMeshPathCornerIndex = 1;
+                #region test
+                foreach (GameObject temp in GameObject.FindGameObjectsWithTag("Respawn"))
+                {
+                    Destroy(temp);
+                }
+                for (int i = 0; i < m_NavMeshPath.corners.Length; i++)
+                {
+                    var obj = Instantiate(temp, m_NavMeshPath.corners[i], Quaternion.identity);
+                    obj.tag = "Respawn";
+                }
+                #endregion
+            }
+            previousPlayerPosition = targetPlayer.position;
+        }
+    }
+    void FindPath()
+    {
+        if (navMeshPathCornerIndex != -1)
+        {
+            for (int i = navMeshPathCornerIndex; i < m_NavMeshPath.corners.Length; i++)
+            {
+                var distance = Vector3.Distance(transform.position, m_NavMeshPath.corners[i]);
+                if(distance < stopDistance)
+                {
+                    if (i == m_NavMeshPath.corners.Length - 1)
+                    {
+                        isStop = true;
+                    }
+                    else
+                    {
+                        navMeshPathCornerIndex++;
+                        break;
+                    }
+                }
+                else
+                {
+                    isStop = false;
+                }
+            }
+        }
+    }
+    void MoveToPos()
+    {
+        if (isStop || navMeshPathCornerIndex == -1) return;
+
+        LookAtPosition(m_NavMeshPath.corners[navMeshPathCornerIndex]);
+        m_rigidbody.AddForce(transform.forward * moveSpeed *(m_rigidbody.drag*10+100));
+        m_stateHandler.MovementSetter(Vector3.one);
+    }
+    void LookAtPosition(Vector3 position)
+    {
+        var newPosition = new Vector3(position.x, 0, position.z);
+        transform.LookAt(position);
+    }
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);
+        m_stateHandler.Hurt();
     }
 
     public void Heal(int healValue)

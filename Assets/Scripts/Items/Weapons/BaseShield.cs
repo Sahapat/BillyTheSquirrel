@@ -26,6 +26,10 @@ public class BaseShield : MonoBehaviour,ICollectable,IPopable
         m_boxcolider = GetComponent<BoxCollider>();
         m_rigidbody = GetComponent<Rigidbody>();
     }
+    void Start()
+    {
+        if(isPickUp)SetPickUp();
+    }
     void FixedUpdate()
     {
         if(isPopOut)
@@ -37,10 +41,6 @@ public class BaseShield : MonoBehaviour,ICollectable,IPopable
                 isPopOut = false;
             }
         }
-    }
-    void Start()
-    {
-        if(isPickUp)SetPickUp();
     }
     public GameObject PickUp()
     {
@@ -54,17 +54,21 @@ public class BaseShield : MonoBehaviour,ICollectable,IPopable
         isPickUp = false;
         m_boxcolider.enabled =true;
         m_rigidbody.isKinematic = false;
+        m_rigidbody.useGravity = true;
     }
     void SetPickUp()
     {
         m_boxcolider.enabled = false;
+        m_rigidbody.useGravity = false;
         m_rigidbody.isKinematic = true;
     }
 
     public void PopOut(float xForce, float zForce, float forceToAdd)
     {
-        m_rigidbody.isKinematic = false;
         isPopOut = true;
+        isPickUp =false;
+        m_rigidbody.isKinematic = false;
+        m_rigidbody.useGravity = true;
         m_rigidbody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse);
     }
 }

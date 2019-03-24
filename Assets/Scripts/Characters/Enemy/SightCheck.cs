@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_SightCheck : MonoBehaviour
+public class SightCheck : MonoBehaviour
 {
     [SerializeField]LayerMask EnemyLayer = 0;
 
-    public GameObject EnemyInSight{get;private set;}
+    public GameObject targetInSight{get;private set;}
     private SphereCollider m_sphereCollider =null;
     void Awake()
     {
@@ -17,11 +17,11 @@ public class Enemy_SightCheck : MonoBehaviour
         var hitInfo = PhysicsExtensions.OverlapSphere(m_sphereCollider,EnemyLayer);
         if(hitInfo.Length > 0)
         {
-            EnemyInSight = hitInfo[0].gameObject;
+            targetInSight = hitInfo[0].gameObject;
         }
         else
         {
-            EnemyInSight = null;
+            targetInSight = null;
         }
     }
 }

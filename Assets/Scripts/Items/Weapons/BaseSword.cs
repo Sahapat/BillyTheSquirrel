@@ -55,18 +55,21 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
         this.transform.parent = null;
         isPickUp = false;
         m_boxcolider.enabled =true;
+        m_rigidbody.useGravity = true;
         m_rigidbody.isKinematic = false;
     }
     void SetPickUp()
     {
         m_boxcolider.enabled = false;
+        m_rigidbody.useGravity = false;
         m_rigidbody.isKinematic = true;
     }
 
     public void PopOut(float xForce, float zForce, float forceToAdd)
     {
-        m_rigidbody.isKinematic = false;
         isPopOut = true;
+        m_rigidbody.useGravity = true;
+        m_rigidbody.isKinematic = false;
         m_rigidbody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse);
     }
 }

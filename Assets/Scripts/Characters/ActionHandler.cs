@@ -37,7 +37,7 @@ public class ActionHandler : MonoBehaviour
         if (queueMotionIndex == -1) return;
         if (CounterForMotionAdded <= Time.time)
         {
-            m_rigidbody.AddForce(transform.forward * actionMotions[queueMotionIndex].forceToAdd, ForceMode.Impulse);
+            m_rigidbody.velocity = transform.forward* actionMotions[queueMotionIndex].forceToAdd;
             queueMotionIndex = -1;
         }
     }
@@ -78,7 +78,7 @@ public class ActionHandler : MonoBehaviour
             CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
         }
     }
-    public void ActiveNormalHit1(int index)
+    public void ActiveNormalHit(int index)
     {
         m_baseSword.hitSystemManager.ActiveNormalHit(index);
     }

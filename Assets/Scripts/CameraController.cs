@@ -13,92 +13,116 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform targetTranform = null;
     [Space]
     [Header("Setting Property")]
-    [SerializeField] float offsetZ = 1f;
-    [SerializeField] float offsetY = 2f;
-    [Range(0.5f, 1.5f)]
+    [SerializeField] float offsetX = 3f;
+    [SerializeField] float offsetY = 0.8f;
+    [SerializeField] float offsetXMin = 1f;
+    [SerializeField] float offsetXMax = 5f;
+    [Range(0.0f, 1.0f)]
     [SerializeField] float smoothFactor = 0.5f;
-    [SerializeField] float rotateSpeedZ = 5.0f;
-    [SerializeField] float rotateSpeedY = 5.0f;
+    [SerializeField] float xSpeed = 30f;
+    [SerializeField] float ySpeed = 45f;
+    [SerializeField] float yMinLimit = -180;
+    [SerializeField] float yMaxLimit = 180;
+    [Header("Camera Shake")]
+    [SerializeField] float shakeDelay = 0.1f;
+    [SerializeField] bool isShake = false;
 
-    Vector2 m_TouchBeganPos = Vector2.zero;
-    Vector3 angleAxisZ = Vector3.zero;
-    Vector3 angleAxisY = Vector3.zero;
-    Vector3 cameraOffset;
     CameraState m_cameraState = CameraState.NORMAL;
+    private float RotateX;
+    private float RotateY;
+    private float CounterForShakeDelay = 0f;
+    private float CounterForShakeDuration = 0f;
+    private float shakeLenght = 0f;
+
     void Awake()
     {
         targetTranform = (targetTranform) ? targetTranform : GameObject.FindGameObjectWithTag("Player").transform;
-        angleAxisZ = Vector3.up;
-        angleAxisY = Vector3.left;
-        Cursor.visible = false;
     }
     void Start()
     {
-        cameraOffset = new Vector3(targetTranform.position.x, offsetZ, targetTranform.position.z - offsetZ) - targetTranform.position;
-        ThirdPersonCamera();
-        Quaternion camTurnAngleY = Quaternion.AngleAxis((9f * rotateSpeedY), angleAxisY);
-        cameraOffset = camTurnAngleY * cameraOffset;
-        Vector3 newPos = targetTranform.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
-        transform.LookAt(targetTranform);
+        RotateY = 25f;
+    }
+    void FixedUpdate()
+    {
+        if(isShake)
+        {
+            DoShakeCamera();
+            isShake = (CounterForShakeDuration >= Time.time);
+            
+        }
     }
     void LateUpdate()
     {
-        switch (m_cameraState)
+        if (targetTranform == null) return;
+
+        if (CounterForShakeDelay >= Time.time || !isShake)
         {
-            case CameraState.NORMAL:
-                ThirdPersonCamera();
-                break;
-            case CameraState.INVENTORY:
-                InventoryCamera();
-                break;
+            switch (m_cameraState)
+            {
+                case CameraState.NORMAL:
+                    ThirdPersonCamera();
+                    break;
+                case CameraState.INVENTORY:
+                    InventoryCamera();
+                    break;
+            }
         }
     }
     void InventoryCamera()
     {
-        RotateCameraAxisZ(Vector2.zero);
-        RotateCameraAxisY(Vector2.zero);
-        transform.LookAt(targetTranform);
-        transform.Translate(new Vector3(0, offsetY, 0));
+        Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);
+        Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
+        Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
+
+        transform.rotation = rotation;
+        transform.position = position;
     }
     void ThirdPersonCamera()
     {
-        RotateCameraAxisZ(TurningInputGetter());
-        RotateCameraAxisY(TurningInputGetter());
-        transform.LookAt(targetTranform);
-        transform.Translate(new Vector3(0, offsetY, 0));
+        TurningInputGetter();
+        Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);
+        Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
+        Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
+
+        transform.rotation = rotation;
+        transform.position = Vector3.Lerp(transform.position, position, smoothFactor);
     }
-    void RotateCameraAxisZ(Vector2 turnAxis)
+    void DoShakeCamera()
     {
-        Quaternion camTurnAngleZ = Quaternion.AngleAxis((turnAxis.x * rotateSpeedZ), angleAxisZ);
-        cameraOffset = camTurnAngleZ * cameraOffset;
-        Vector3 newPos = targetTranform.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
+        if(CounterForShakeDelay <= Time.time)
+        {
+            CounterForShakeDelay = Time.time + shakeDelay;
+            Vector2 randShakePos = new Vector2(Random.Range(0.5f,1f),Random.Range(0.5f,1f))*shakeLenght;
+            transform.position = new Vector3(transform.position.x+randShakePos.x,transform.position.y+randShakePos.y,transform.position.z);
+        }
     }
-    void RotateCameraAxisY(Vector2 turnAxis)
+    void TurningInputGetter()
     {
-        Quaternion camTurnAngleY = Quaternion.AngleAxis((turnAxis.y * rotateSpeedY), angleAxisY);
-        cameraOffset = camTurnAngleY * cameraOffset;
-        Vector3 newPos = targetTranform.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
-    }
-    Vector2 TurningInputGetter()
-    {
-        float rotateAxisX = 0f;
-        float rotateAxisY = 0f;
         if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
         {
-            rotateAxisX = Input.GetAxis("Mouse X");
-            rotateAxisY = Input.GetAxis("Mouse Y");
+            RotateX += Input.GetAxis("Mouse X") * xSpeed * offsetX * Time.fixedDeltaTime;
+            RotateY += Input.GetAxis("Mouse Y") * ySpeed * Time.fixedDeltaTime;
         }
         else
         {
-            rotateAxisX = Input.GetAxis("Horizontal2");
-            rotateAxisY = Input.GetAxis("Vertical2");
-            rotateAxisX *= 1.5f;
-            rotateAxisY *= 2.2f;
+            RotateX += Input.GetAxis("Horizontal2") * xSpeed * offsetX * Time.deltaTime * 1.5f;
+            RotateY += Input.GetAxis("Vertical2") * ySpeed * Time.deltaTime * 1.5f;
         }
-        return new Vector2(rotateAxisX, rotateAxisY);
+        RotateX = ClampAngle(RotateX);
+        RotateY = ClampAngle(RotateY);
+        RotateY = Mathf.Clamp(RotateY,yMinLimit,yMaxLimit);
+    }
+    float ClampAngle(float angle)
+    {
+        if (angle < -360f)
+        {
+            angle += 360f;
+        }
+        if (angle > 360f)
+        {
+            angle -= 360f;
+        }
+        return angle;
     }
     public void SetCameraState(CameraState state)
     {
@@ -107,5 +131,14 @@ public class CameraController : MonoBehaviour
     public void SetCameraTarget(Transform targetTranform)
     {
         this.targetTranform = targetTranform;
+    }
+    public void ShakeCamera(float time,float shakeLenght)
+    {
+        if(!isShake)
+        {
+            isShake = true;
+            this.shakeLenght = shakeLenght;
+            CounterForShakeDuration = Time.time + time;
+        }
     }
 }
