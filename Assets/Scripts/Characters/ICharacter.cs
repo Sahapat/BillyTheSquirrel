@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICharacter
+public interface IAttackable
 {
     Health CharacterHP{get;}
     void TakeDamage(int damage);
-    void Heal(int healValue);
+    void TakeDamage(int damage,Vector3 forceToAdd);
 }

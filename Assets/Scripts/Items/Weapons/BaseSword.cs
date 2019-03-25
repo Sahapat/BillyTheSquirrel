@@ -8,7 +8,6 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
     [SerializeField]Sprite _Icon = null;
     [SerializeField]string _headerName = string.Empty;
     [SerializeField]string _description = string.Empty;
-    [SerializeField,Range(1,2)]byte _UsedSlot = 1;
     [SerializeField]Vector3 _HoldingPos = Vector3.zero;
     [SerializeField]bool isPickUp = false;
 

@@ -39,7 +39,7 @@ public class Potion : Item,IPopable
 
     public override void Use(Player player)
     {
-        player.Heal(HpHeal);
+        player.CharacterHP.AddHP(HpHeal);
         player.CharacterHP.SetMaxHP(player.CharacterHP.HP+HPMax);
         player.CharacterStemina.AddSP(SPHeal);
         player.CharacterStemina.SetMaxSP(player.CharacterStemina.SP+SpMax);

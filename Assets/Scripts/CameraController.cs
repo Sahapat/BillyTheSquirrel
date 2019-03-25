@@ -15,8 +15,6 @@ public class CameraController : MonoBehaviour
     [Header("Setting Property")]
     [SerializeField] float offsetX = 3f;
     [SerializeField] float offsetY = 0.8f;
-    [SerializeField] float offsetXMin = 1f;
-    [SerializeField] float offsetXMax = 5f;
     [Range(0.0f, 1.0f)]
     [SerializeField] float smoothFactor = 0.5f;
     [SerializeField] float xSpeed = 30f;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ASB_CharacterStateSetter : StateMachineBehaviour
 {
     [SerializeField]string targetIntName = string.Empty;
-    [SerializeField]CharacterState state;
+    [SerializeField]CharacterState state = CharacterState.NONE;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if(targetIntName != string.Empty)

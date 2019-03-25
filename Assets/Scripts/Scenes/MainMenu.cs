@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]GameObject[] Pages;
-    [SerializeField]GameObject[] Controllers;
+    [SerializeField]GameObject[] Pages = null;
+    [SerializeField]GameObject[] Controllers = null;
     int showIndex =0;
 
     public void ShowPageByIndex(int index)

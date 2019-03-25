@@ -108,6 +108,8 @@ public class MovementHandler : MonoBehaviour
     }
     void DoMovement()
     {
-        m_rigidbody.velocity = new Vector3(Movement.x * runSpeed, m_rigidbody.velocity.y, Movement.y * runSpeed);
+        var desire_movement = Vector2.ClampMagnitude(Movement,1f);
+        var forceToMove = new Vector3(desire_movement.x,0f,desire_movement.y)*runSpeed;
+        m_rigidbody.velocity = forceToMove;
     }
 }

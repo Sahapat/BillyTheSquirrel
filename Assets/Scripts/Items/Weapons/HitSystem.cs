@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HitSystem : BaseHitSystem
 {
-    [SerializeField]TrailRenderer m_trailRenderer = null;
-    [SerializeField]float forceToAdd = 5f;
-    [SerializeField]float shakeLeght = 0.32f;
+    [SerializeField] TrailRenderer m_trailRenderer = null;
+    [SerializeField] float forceToAdd = 5f;
+    [SerializeField] float shakeLeght = 0.32f;
     private BoxCollider m_boxcolider = null;
     private Transform m_rootTranform = null;
     void Awake()
@@ -18,12 +18,12 @@ public class HitSystem : BaseHitSystem
     }
     void FixedUpdate()
     {
-        if(isActive)
+        if (isActive)
         {
             CheckHit();
             isActive = (activeDurationCounter >= Time.time);
             m_trailRenderer.enabled = true;
-            if(!isActive)
+            if (!isActive)
             {
                 ResetHit();
             }
@@ -47,16 +47,24 @@ public class HitSystem : BaseHitSystem
     void CheckHit()
     {
         var hitInfo = PhysicsExtensions.OverlapBox(m_boxcolider, TargetLayer);
-        if(hitInfo.Length == 0)return;
+        if (hitInfo.Length == 0) return;
         for (int i = 0; i < hitInfo.Length; i++)
         {
             if (m_hitDataStorage.CheckHit(hitInfo[i].GetInstanceID()))
             {
-                var character = hitInfo[i].GetComponent<ICharacter>();
-                var characterRigid = hitInfo[i].GetComponent<Rigidbody>();
-                characterRigid.velocity = m_rootTranform.forward * forceToAdd;
-                character.TakeDamage(damagePerHit);
-                GameCore.m_cameraController.ShakeCamera(0.12f,shakeLeght);
+                var attackableObj = hitInfo[i].GetComponent<IAttackable>();
+                if (hitInfo[i].CompareTag("Player") || hitInfo[i].CompareTag("Enemy"))
+                {
+                    attackableObj.TakeDamage(damagePerHit, m_rootTranform.forward * forceToAdd);
+                }
+                else
+                {
+                    attackableObj.TakeDamage(damagePerHit);
+                }
+                if(shakeLeght != 0)
+                {
+                    GameCore.m_cameraController.ShakeCamera(0.18f,shakeLeght);
+                }
             }
         }
     }

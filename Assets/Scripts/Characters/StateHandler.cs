@@ -107,6 +107,10 @@ public class StateHandler : MonoBehaviour
     {
         return m_animator.GetBool("Controlable");
     }
+    public void SetBoolWithString(string name,bool value)
+    {
+        m_animator.SetBool(name,value);
+    }
     public void MovementSetter(Vector3 Axis)
     {
         Movement = Axis;

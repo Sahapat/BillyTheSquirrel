@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-    public void SwitchAvtiveInventory()
+    public void SwitchActiveInventory()
     {
         var inventoryStatus = GameCore.m_uiHandler.GetInventoryStatus();
         if (inventoryStatus)

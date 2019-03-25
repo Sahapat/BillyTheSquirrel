@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, ICharacter
+public class Player : MonoBehaviour, IAttackable
 {
     [Header("CharacterProperties")]
     [SerializeField] int m_characterMaxHP = 100;
@@ -26,9 +26,12 @@ public class Player : MonoBehaviour, ICharacter
     public Coin CharacterCoin { get; private set; }
 
     private CapsuleCollider m_capsuleColider = null;
+    private Rigidbody m_rigidbody = null;
     private StateHandler m_stateHandler = null;
     private ActionHandler m_actionHandler = null;
     private Vector3 movement = Vector3.zero;
+
+    private bool canCancelToHurt = true;
     void Awake()
     {
         CharacterHP = new Health(m_characterMaxHP);
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour, ICharacter
         m_capsuleColider = GetComponent<CapsuleCollider>();
         m_stateHandler = GetComponent<StateHandler>();
         m_actionHandler = GetComponent<ActionHandler>();
+        m_rigidbody = GetComponent<Rigidbody>();
         ItemInventory = new Inventory(8);
     }
     void Start()
@@ -52,7 +56,7 @@ public class Player : MonoBehaviour, ICharacter
         ItemCollectChecker();
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
         {
-            GameCore.m_GameContrller.SwitchAvtiveInventory();
+            GameCore.m_GameContrller.SwitchActiveInventory();
         }
 
         if (GameCore.m_uiHandler.GetInventoryStatus())
@@ -101,22 +105,11 @@ public class Player : MonoBehaviour, ICharacter
                     itemUse.transform.localPosition = Vector3.zero;
                     itemUse.transform.localRotation = Quaternion.identity;
                     itemUse.transform.localScale = Vector3.one;
-                    Invoke("UseItem",1.2f);
-                    Destroy(itemUse,1.2f);
+                    Invoke("UseItem", 1.2f);
+                    Destroy(itemUse, 1.2f);
                 }
             }
         }
-    }
-    public void TakeDamage(int damage)
-    {
-        CharacterHP.RemoveHP(damage);
-        m_stateHandler.Hurt();
-    }
-
-    public void Heal(int healValue)
-    {
-        CharacterHP.AddHP(healValue);
-        print($"Character HP {CharacterHP.HP}");
     }
     bool CheckNormalAttackSP()
     {
@@ -215,5 +208,30 @@ public class Player : MonoBehaviour, ICharacter
         Vector3 newRight = -Vector3.Cross(Camera.main.transform.forward, Vector3.up).normalized * inputAxis.x;
         Vector3 direction = newForward + newRight;
         return new Vector3(direction.x, direction.z);
+    }
+    public void TakeDamage(int damage)
+    {
+        CharacterHP.RemoveHP(damage);
+        if(canCancelToHurt)
+        {
+            m_stateHandler.Hurt();
+        }
+        if (CharacterHP.HP <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public void TakeDamage(int damage, Vector3 forceToAdd)
+    {
+        CharacterHP.RemoveHP(damage);
+        if(canCancelToHurt)
+        {
+            m_rigidbody.velocity = forceToAdd;
+            m_stateHandler.Hurt();
+        }
+        if (CharacterHP.HP <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

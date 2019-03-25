@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HitManager : MonoBehaviour
 {
-    [SerializeField]BaseHitSystem[] NormalHits;
-    [SerializeField]BaseHitSystem HeavyHit;
+    [SerializeField]BaseHitSystem[] NormalHits = null;
+    [SerializeField]BaseHitSystem HeavyHit = null;
 
     public void ActiveNormalHit(int index)
     {

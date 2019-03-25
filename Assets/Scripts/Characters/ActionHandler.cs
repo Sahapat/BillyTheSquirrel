@@ -13,7 +13,7 @@ public class ActionHandler : MonoBehaviour
     }
 
     [Header("Action Motion Setter")]
-    [SerializeField] ActionMotion[] actionMotions;
+    [SerializeField] ActionMotion[] actionMotions = null;
 
     StateHandler m_stateHandler = null;
     Rigidbody m_rigidbody = null;
@@ -71,6 +71,7 @@ public class ActionHandler : MonoBehaviour
                 break;
             case CharacterState.RESET:
                 m_baseSword.hitSystemManager.CancelAllHit();
+                queueMotionIndex = -1;
                 break;
         }
         if(queueMotionIndex != -1)
