@@ -13,9 +13,7 @@ public class MovementHandler : MonoBehaviour
     [Header("Jump")]
     [SerializeField] float jumpStartDelay = 0.2f;
     [SerializeField] float jumpUpScale = 3.2f;
-    [SerializeField] float jumpMoveScale = 2.5f;
     [SerializeField] float jumpInAirMoveScale = 15f;
-    [SerializeField] float jumpMaxMagnitude = 3.5f;
     [Header("Drag")]
     [SerializeField] float DashDrag = 10f;
     [SerializeField] float normalDrag = 10f;
@@ -23,16 +21,20 @@ public class MovementHandler : MonoBehaviour
 
     private StateHandler m_stateHandler = null;
     private Rigidbody m_rigidbody = null;
+    private CapsuleCollider m_capsuleColider = null;
     private GroundChecker m_groundChecker = null;
     private CharacterState currentState = CharacterState.NONE;
-    private Vector2 Movement = Vector2.zero;
+    private Vector2 desire_Movement = Vector2.zero;
+    private Vector2 real_Movement = Vector2.zero;
     private float CounterForJumpStart = 0f;
+    private bool isCancelJump = false;
 
     void Awake()
     {
         m_stateHandler = GetComponent<StateHandler>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
+        m_capsuleColider = GetComponent<CapsuleCollider>();
     }
     void Start()
     {
@@ -40,7 +42,9 @@ public class MovementHandler : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Movement = (m_stateHandler.Movement == Vector2.zero)?Movement:m_stateHandler.Movement;
+        desire_Movement = (m_stateHandler.Movement == Vector2.zero)?desire_Movement:m_stateHandler.Movement;
+        real_Movement = m_stateHandler.Movement;
+
         m_rigidbody.drag = (m_groundChecker.isOnGround)?normalDrag:fallDrag;
         switch (currentState)
         {
@@ -75,8 +79,8 @@ public class MovementHandler : MonoBehaviour
     }
     void RotateToAxis()
     {
-        var temp = Movement.normalized;
-        var Axis = new Vector3(Movement.x, Movement.y, 0);
+        var temp = desire_Movement.normalized;
+        var Axis = new Vector3(desire_Movement.x, desire_Movement.y, 0);
         var target = transform.position + Axis;
         var relativeVector = (target - transform.position).normalized;
         var radian = Mathf.Atan2(relativeVector.x, relativeVector.y);
@@ -85,20 +89,31 @@ public class MovementHandler : MonoBehaviour
     }
     void WhileJump()
     {
-        m_rigidbody.AddForce(new Vector3(Movement.x * jumpMoveScale * jumpInAirMoveScale, 0, Movement.y * jumpMoveScale * jumpInAirMoveScale));
-        var currentMagnitude = new Vector2(m_rigidbody.velocity.x, m_rigidbody.velocity.z).magnitude;
-        if (currentMagnitude > jumpMaxMagnitude)
+        var isHitTheWall = PhysicsExtensions.OverlapCapsule(m_capsuleColider,LayerMask.GetMask("Ground","Obtacle"));
+        var addForceInAir = Vector2.ClampMagnitude(real_Movement,1f) * jumpInAirMoveScale;
+        var currentVelocity = m_rigidbody.velocity;
+        var increastFallValue = (4.2f * Time.deltaTime);
+
+        if(isHitTheWall.Length > 0 || isCancelJump)
         {
-            var ClampMagnitude = new Vector2(m_rigidbody.velocity.x, m_rigidbody.velocity.z).normalized * jumpMaxMagnitude;
-            m_rigidbody.velocity = new Vector3(ClampMagnitude.x, m_rigidbody.velocity.y, ClampMagnitude.y);
+            currentVelocity = new Vector3(0,currentVelocity.y-increastFallValue,0);
+            isCancelJump = true;
         }
+        else
+        {
+            currentVelocity = new Vector3(addForceInAir.x,currentVelocity.y-increastFallValue,addForceInAir.y);
+        }
+        m_rigidbody.velocity = currentVelocity;
     }
     void DoJump()
     {
         if (CounterForJumpStart <= Time.time)
         {
-            var jumpMovement = Movement.normalized;
-            m_rigidbody.velocity = new Vector3(jumpMovement.x * jumpMoveScale, jumpUpScale, jumpMovement.y * jumpMoveScale);
+            var jumpMovement = real_Movement.normalized;
+            jumpMovement = Vector2.ClampMagnitude(jumpMovement,1f) * 10f;
+            var forceToAdd = new Vector3(jumpMovement.x,jumpUpScale,jumpMovement.y);
+            m_rigidbody.AddForce(forceToAdd,ForceMode.Impulse);
+            isCancelJump = false;
         }
     }
     void DoDash()
@@ -108,7 +123,7 @@ public class MovementHandler : MonoBehaviour
     }
     void DoMovement()
     {
-        var desire_movement = Vector2.ClampMagnitude(Movement,1f);
+        var desire_movement = Vector2.ClampMagnitude(desire_Movement,1f);
         var forceToMove = new Vector3(desire_movement.x,0f,desire_movement.y)*runSpeed;
         m_rigidbody.velocity = forceToMove;
     }

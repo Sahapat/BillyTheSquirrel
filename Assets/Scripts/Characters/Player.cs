@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] BaseShield shieldInHand = null;
     [SerializeField] Transform PotionPosition = null;
 
+    public bool isDead { get; private set; }
     public Health CharacterHP { get; private set; }
     public Stemina CharacterStemina { get; private set; }
     public BaseSword WeaponInventory { get { return swordInHand; } }
@@ -29,23 +30,27 @@ public class Player : MonoBehaviour, IAttackable
     private Rigidbody m_rigidbody = null;
     private StateHandler m_stateHandler = null;
     private ActionHandler m_actionHandler = null;
-    private Vector3 movement = Vector3.zero;
+    private RagdollController m_ragdollController = null;
 
+    private Vector3 movement = Vector3.zero;
     private bool canCancelToHurt = true;
+
     void Awake()
     {
         CharacterHP = new Health(m_characterMaxHP);
-        CharacterStemina = GetComponent<Stemina>();
         CharacterCoin = new Coin();
+        ItemInventory = new Inventory(8);
+        CharacterStemina = GetComponent<Stemina>();
         m_capsuleColider = GetComponent<CapsuleCollider>();
         m_stateHandler = GetComponent<StateHandler>();
         m_actionHandler = GetComponent<ActionHandler>();
         m_rigidbody = GetComponent<Rigidbody>();
-        ItemInventory = new Inventory(8);
+        m_ragdollController = GetComponent<RagdollController>();
     }
     void Start()
     {
         CharacterHP.OnHPChanged += CheckHealth;
+        m_ragdollController.InActiveRagdoll();
     }
     void Update()
     {
@@ -141,7 +146,8 @@ public class Player : MonoBehaviour, IAttackable
     {
         if (value <= 0)
         {
-            Destroy(this.gameObject);
+            isDead = true;
+            m_ragdollController.ActiveRagdoll(m_rigidbody.velocity);
         }
     }
     void UseItem()
@@ -212,26 +218,18 @@ public class Player : MonoBehaviour, IAttackable
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);
-        if(canCancelToHurt)
+        if (canCancelToHurt)
         {
             m_stateHandler.Hurt();
-        }
-        if (CharacterHP.HP <= 0)
-        {
-            Destroy(this.gameObject);
         }
     }
     public void TakeDamage(int damage, Vector3 forceToAdd)
     {
         CharacterHP.RemoveHP(damage);
-        if(canCancelToHurt)
+        if (canCancelToHurt)
         {
             m_rigidbody.velocity = forceToAdd;
             m_stateHandler.Hurt();
-        }
-        if (CharacterHP.HP <= 0)
-        {
-            Destroy(this.gameObject);
         }
     }
 }

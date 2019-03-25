@@ -31,12 +31,14 @@ public class Enemy : MonoBehaviour, IAttackable
     [SerializeField] BaseSword swordInHand = null;
 
     public Health CharacterHP { get; private set; }
+    public bool isDead {get;private set;}
 
     private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
     private AIStateMachine previousAiState = AIStateMachine.NONE;
     private Rigidbody m_rigidbody = null;
     private StateHandler m_stateHandler = null;
     private CustomNavMeshAgent m_navMeshAgent = null;
+    private RagdollController m_ragdoll = null;
     private Transform targetPlayer = null;
     private Vector3 previousTargetPosition = Vector3.zero;
     private Vector3 startPosition = Vector3.zero;
@@ -66,18 +68,22 @@ public class Enemy : MonoBehaviour, IAttackable
         m_stateHandler = GetComponent<StateHandler>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_navMeshAgent = GetComponent<CustomNavMeshAgent>();
+        m_ragdoll = GetComponent<RagdollController>();
     }
     void Start()
     {
         if (!targetPlayer) { targetPlayer = GameCore.m_GameContrller.GetClientPlayerTarget().transform; }
+        CharacterHP.OnHPChanged += CheckHealth;
         startPosition = transform.position;
         startRotation = transform.rotation;
         previousTargetPosition = targetPlayer.position;
+        m_ragdoll.InActiveRagdoll();
         CheckStateChange();
     }
     void FixedUpdate()
     {
-        if (!targetPlayer)
+        if(isDead){return;}
+        if (GameCore.m_GameContrller.GetClientPlayerTarget().isDead)
         {
             ResetState();
             aIStateMachine = AIStateMachine.BACK;
@@ -103,31 +109,6 @@ public class Enemy : MonoBehaviour, IAttackable
     }
     void OnStateChange()
     {
-    }
-    void SightCheck()
-    {
-        if (enemySightCheck.targetInSight)
-        {
-            if (roarElapsed >= 3f)
-            {
-                if (!roarTrigger && Random.value <= chanceForRoar)
-                {
-                    roarTrigger = true;
-                    aIStateMachine = AIStateMachine.ROAR;
-                    counterForRoar = Time.time + roarDuration;
-                    m_stateHandler.UsePotion();
-                }
-                else
-                {
-                    aIStateMachine = AIStateMachine.CHASING;
-                }
-                roarElapsed -= 3f;
-            }
-            if (!roarTrigger)
-            {
-                roarElapsed += Time.deltaTime;
-            }
-        }
     }
     void GuardState()
     {
@@ -251,6 +232,39 @@ public class Enemy : MonoBehaviour, IAttackable
         var newPosition = new Vector3(position.x, transform.position.y, position.z);
         transform.LookAt(position);
     }
+    void SightCheck()
+    {
+        if (enemySightCheck.targetInSight)
+        {
+            if (roarElapsed >= 3f)
+            {
+                if (!roarTrigger && Random.value <= chanceForRoar)
+                {
+                    roarTrigger = true;
+                    aIStateMachine = AIStateMachine.ROAR;
+                    counterForRoar = Time.time + roarDuration;
+                    m_stateHandler.UsePotion();
+                }
+                else
+                {
+                    aIStateMachine = AIStateMachine.CHASING;
+                }
+                roarElapsed -= 3f;
+            }
+            if (!roarTrigger)
+            {
+                roarElapsed += Time.deltaTime;
+            }
+        }
+    }
+    void CheckHealth(int value)
+    {
+        if(value <= 0)
+        {
+            m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
+            Destroy(this.gameObject,3f);
+        }
+    }
     IEnumerator DoCombo()
     {
         counterForAttack = Time.time + attackWaitDuration + 3.5f;
@@ -267,10 +281,6 @@ public class Enemy : MonoBehaviour, IAttackable
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);
-        if (CharacterHP.HP <= 0)
-        {
-            Destroy(this.gameObject);
-        }
         if (canCancelAnimation)
         {
             m_stateHandler.Hurt();
@@ -280,10 +290,6 @@ public class Enemy : MonoBehaviour, IAttackable
     public void TakeDamage(int damage, Vector3 forceToAdd)
     {
         CharacterHP.RemoveHP(damage);
-        if (CharacterHP.HP <= 0)
-        {
-            Destroy(this.gameObject);
-        }
         if (canCancelAnimation)
         {
             m_rigidbody.velocity = forceToAdd;
