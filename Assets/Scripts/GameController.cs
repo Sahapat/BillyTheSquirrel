@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public enum CoutrollerInUse
+    {   
+        XBOX,
+        KEYBOARD
+    };
+
     [SerializeField] Player ClientPlayerTarget = null;
     [SerializeField] Transform temporaryTranform = null;
 
-    private float CounterForPause = 0f;
 
     public Player GetClientPlayerTarget()
     {
@@ -16,16 +21,6 @@ public class GameController : MonoBehaviour
     public Transform GetTemporaryTranform()
     {
         return temporaryTranform;
-    }
-    void Update()
-    {
-        if (Time.timeScale == 0)
-        {
-            if(CounterForPause <= Time.unscaledTime)
-            {
-                Time.timeScale = 1;
-            }
-        }
     }
     public void SwitchActiveInventory()
     {
