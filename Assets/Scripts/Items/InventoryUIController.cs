@@ -118,6 +118,8 @@ public class InventoryUIController : MonoBehaviour
         }
         TargetDescriptionObject.SetActive(false);
         inventoryStatus = true;
+        UpdateWeapon();
+        UpdateShield();
         ResetAndUpdateSelected();
         SetCanInputAgain();
     }

@@ -55,11 +55,11 @@ public class HitSystem : BaseHitSystem
                 var attackableObj = hitInfo[i].GetComponent<IAttackable>();
                 if (hitInfo[i].CompareTag("Player") || hitInfo[i].CompareTag("Enemy"))
                 {
-                    attackableObj.TakeDamage(damagePerHit, m_rootTranform.forward * forceToAdd);
+                    attackableObj?.TakeDamage(damagePerHit, m_rootTranform.forward * forceToAdd);
                 }
                 else
                 {
-                    attackableObj.TakeDamage(damagePerHit);
+                    attackableObj?.TakeDamage(damagePerHit);
                 }
                 if(shakeLeght != 0)
                 {

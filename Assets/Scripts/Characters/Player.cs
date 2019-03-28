@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, IAttackable
     [Header("Action Stamina Depletion")]
     [SerializeField] int NormalAttack = 20;
     [SerializeField] int HeavyAttack = 40;
+    [SerializeField] int Jump = 20;
     [SerializeField] int Dash = 20;
     [Header("Other")]
     [SerializeField] Transform SwordHoldPosition = null;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour, IAttackable
     public BaseSword WeaponInventory { get { return swordInHand; } }
     public BaseShield ShieldInvetory { get { return shieldInHand; } }
     public Inventory ItemInventory { get; private set; }
+    public Transform CurrentGround { get; private set; }
     public Coin CharacterCoin { get; private set; }
 
     private CapsuleCollider m_capsuleColider = null;
@@ -58,7 +60,9 @@ public class Player : MonoBehaviour, IAttackable
     }
     void FixedUpdate()
     {
+        if(isDead)return;
         ItemCollectChecker();
+        CheckForUpdateNewLastPosition();
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
         {
             GameCore.m_GameContrller.SwitchActiveInventory();
@@ -79,13 +83,6 @@ public class Player : MonoBehaviour, IAttackable
                 CharacterStemina.RemoveSP(NormalAttack);
             }
         }
-        if (HeavyAttackGetter() && CheckHeavyAttackSP())
-        {
-            if (m_stateHandler.HeavyAttack())
-            {
-                CharacterStemina.RemoveSP(HeavyAttack);
-            }
-        }
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && CheckDashSP())
         {
             if (m_stateHandler.Dash())
@@ -93,7 +90,7 @@ public class Player : MonoBehaviour, IAttackable
                 CharacterStemina.RemoveSP(Dash);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && CheckJumpSP())
         {
             m_stateHandler.Jump();
         }
@@ -128,6 +125,10 @@ public class Player : MonoBehaviour, IAttackable
     {
         return CharacterStemina.SP >= Dash;
     }
+    bool CheckJumpSP()
+    {
+        return CharacterStemina.SP >= Jump;
+    }
     bool NormalAttackGetter()
     {
         return Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(0);
@@ -159,6 +160,27 @@ public class Player : MonoBehaviour, IAttackable
             itemUse.Use(this);
             ItemInventory.RemoveItem(itemIndex);
             GameCore.m_uiHandler.RemoveCurrentItem();
+        }
+    }
+    void CheckForUpdateNewLastPosition()
+    {
+        var hitInfo = PhysicsExtensions.OverlapCapsule(m_capsuleColider, LayerMask.GetMask("Ground"));
+        if (hitInfo.Length > 0)
+        {
+            foreach (var temp in hitInfo)
+            {
+                if (CurrentGround)
+                {
+                    if (temp.GetInstanceID() != CurrentGround.GetInstanceID())
+                    {
+                        CurrentGround = temp.transform;
+                    }
+                }
+                else
+                {
+                    CurrentGround = temp.transform;
+                }
+            }
         }
     }
     void ItemCollectChecker()

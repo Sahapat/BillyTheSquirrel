@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour, IAttackable
     [SerializeField] BaseSword swordInHand = null;
 
     public Health CharacterHP { get; private set; }
-    public bool isDead {get;private set;}
+    public bool isDead { get; private set; }
 
     private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
     private AIStateMachine previousAiState = AIStateMachine.NONE;
@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour, IAttackable
     private float counterForRoar = 0f;
     private float counterForAttack = 0f;
     private float roarElapsed = 3.0f;
+    private float attackElapsed = 0.0f;
 
     private bool roarTrigger = false;
     private WaitForSeconds waitComboAttack1 = null;
@@ -82,11 +83,14 @@ public class Enemy : MonoBehaviour, IAttackable
     }
     void FixedUpdate()
     {
-        if(isDead){return;}
+        if (isDead) { return; }
         if (GameCore.m_GameContrller.GetClientPlayerTarget().isDead)
         {
-            ResetState();
-            aIStateMachine = AIStateMachine.BACK;
+            if (counterForAttack <= Time.time)
+            {
+                ResetState();
+                aIStateMachine = AIStateMachine.BACK;
+            }
         }
         switch (aIStateMachine)
         {
@@ -121,8 +125,8 @@ public class Enemy : MonoBehaviour, IAttackable
             if (attackSightCheck.targetInSight)
             {
                 m_stateHandler.MovementSetter(Vector2.zero);
-                m_navMeshAgent.isStopped = true;
                 aIStateMachine = AIStateMachine.ATTACK;
+                attackElapsed = 1f;
             }
             else
             {
@@ -173,35 +177,36 @@ public class Enemy : MonoBehaviour, IAttackable
     }
     void AttackState()
     {
+        m_navMeshAgent.isStopped = true;
         if (attackSightCheck.targetInSight)
         {
-            if (counterForAttack <= Time.time)
+            attackElapsed += Time.deltaTime;
+            if (attackElapsed > 1f)
             {
-                if (Random.value <= chanceForCombo)
+                if (counterForAttack <= Time.time && Random.value <= chanceForCombo)
                 {
-                    m_stateHandler.SetBoolWithString("isStartAttack", false);
+                    counterForAttack = Time.time + 4f + attackWaitDuration;
                     canCancelAnimation = false;
+                    m_stateHandler.SetBoolWithString("isStartAttack", false);
                     alertIconDanger.SetActive(true);
-                    Invoke("ResetAlertIcon", 0.4f);
+                    attackElapsed = 0;
                     StartCoroutine(DoCombo());
+                    Invoke("ResetAlertIcon", 0.8f);
                 }
-                else if (Random.value <= chanceForNormalAttack)
+                else if (counterForAttack <= Time.time && Random.value <= chanceForNormalAttack)
                 {
                     counterForAttack = Time.time + attackWaitDuration;
-                    canCancelAnimation = false;
+                    canCancelAnimation = true;
+                    m_stateHandler.NormalAttack();
                     m_stateHandler.SetBoolWithString("isStartAttack", false);
                     alertIconNormal.SetActive(true);
-                    Invoke("ResetAlertIcon", 0.4f);
-                    LookAtPosition(targetPlayer.position);
-                    m_stateHandler.NormalAttack();
+                    attackElapsed = 0;
+                    Invoke("ResetAlertIcon", 0.8f);
                 }
             }
-            else if (m_stateHandler.currentCharacterState == CharacterState.IDLE)
-            {
-                LookAtPosition(targetPlayer.position);
-            }
+
         }
-        else if (m_stateHandler.currentCharacterState == CharacterState.IDLE)
+        else if (m_stateHandler.currentCharacterState == CharacterState.IDLE && counterForAttack <= Time.time)
         {
             aIStateMachine = AIStateMachine.CHASING;
         }
@@ -225,7 +230,6 @@ public class Enemy : MonoBehaviour, IAttackable
         alertIconNormal.SetActive(false);
         alertIconDanger.SetActive(false);
         m_stateHandler.SetBoolWithString("isStartAttack", true);
-        canCancelAnimation = true;
     }
     void LookAtPosition(Vector3 position)
     {
@@ -259,15 +263,16 @@ public class Enemy : MonoBehaviour, IAttackable
     }
     void CheckHealth(int value)
     {
-        if(value <= 0)
+        if (value <= 0)
         {
+            ResetAlertIcon();
+            isDead = true;
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
-            Destroy(this.gameObject,3f);
+            Destroy(this.gameObject, 3f);
         }
     }
     IEnumerator DoCombo()
     {
-        counterForAttack = Time.time + attackWaitDuration + 3.5f;
         LookAtPosition(targetPlayer.position);
         m_stateHandler.NormalAttack();
         yield return waitComboAttack1;
@@ -277,6 +282,7 @@ public class Enemy : MonoBehaviour, IAttackable
         LookAtPosition(targetPlayer.position);
         m_stateHandler.NormalAttack();
         yield return waitComboAttack3;
+        ResetAlertIcon();
     }
     public void TakeDamage(int damage)
     {
@@ -284,7 +290,6 @@ public class Enemy : MonoBehaviour, IAttackable
         if (canCancelAnimation)
         {
             m_stateHandler.Hurt();
-            ResetAlertIcon();
         }
     }
     public void TakeDamage(int damage, Vector3 forceToAdd)

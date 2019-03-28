@@ -23,7 +23,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] float yMaxLimit = 180;
     [Header("Camera Shake")]
     [SerializeField] float shakeDelay = 0.1f;
-    [SerializeField] bool isShake = false;
+    
+    public bool isShake {get;private set;} = false;
 
     CameraState m_cameraState = CameraState.NORMAL;
     private float RotateX;
@@ -31,13 +32,9 @@ public class CameraController : MonoBehaviour
     private float CounterForShakeDelay = 0f;
     private float CounterForShakeDuration = 0f;
     private float shakeLenght = 0f;
-
-    void Awake()
-    {
-        targetTranform = (targetTranform) ? targetTranform : GameObject.FindGameObjectWithTag("Player").transform;
-    }
     void Start()
     {
+        targetTranform = GameCore.m_GameContrller.GetClientPlayerTarget().transform;
         RotateY = 25f;
     }
     void FixedUpdate()
@@ -46,7 +43,6 @@ public class CameraController : MonoBehaviour
         {
             DoShakeCamera();
             isShake = (CounterForShakeDuration >= Time.time);
-            
         }
     }
     void LateUpdate()

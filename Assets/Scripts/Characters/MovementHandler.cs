@@ -92,7 +92,7 @@ public class MovementHandler : MonoBehaviour
         var isHitTheWall = PhysicsExtensions.OverlapCapsule(m_capsuleColider,LayerMask.GetMask("Ground","Obtacle"));
         var addForceInAir = Vector2.ClampMagnitude(real_Movement,1f) * jumpInAirMoveScale;
         var currentVelocity = m_rigidbody.velocity;
-        var increastFallValue = (4.2f * Time.deltaTime);
+        var increastFallValue = /* (4.2f * Time.deltaTime) */0;
 
         if(isHitTheWall.Length > 0 || isCancelJump)
         {

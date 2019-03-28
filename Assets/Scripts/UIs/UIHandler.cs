@@ -17,6 +17,10 @@ public class UIHandler : MonoBehaviour
     [SerializeField] Image currentItemShow = null;
     [SerializeField] Sprite noneCurrentItem = null;
 
+    [Header("Object UI")]
+    [SerializeField] GameObject statusHUB = null;
+    [SerializeField] GameObject GameOverHUB = null;
+
     public int currentItemIndex {get;private set;} = -1;
     void Start()
     {
@@ -28,6 +32,18 @@ public class UIHandler : MonoBehaviour
         GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.OnCoinRemove += UpdateCoinTxt;
         OnResetHP();
         OnResetSP();
+    }
+    public void ShowGameOver()
+    {
+        statusHUB.SetActive(false);
+        GameOverHUB.SetActive(true);
+        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.INVENTORY);
+        GameCore.m_CursorController.SetCursorInInventoryMode();
+    }
+    public void CloseGameOver()
+    {
+        statusHUB.SetActive(true);
+        GameOverHUB.SetActive(false);
     }
     public void OpenInventory()
     {
