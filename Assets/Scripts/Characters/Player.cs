@@ -93,6 +93,7 @@ public class Player : MonoBehaviour, IAttackable
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && CheckJumpSP())
         {
             m_stateHandler.Jump();
+            CharacterStemina.RemoveSP(Jump);
         }
         if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
