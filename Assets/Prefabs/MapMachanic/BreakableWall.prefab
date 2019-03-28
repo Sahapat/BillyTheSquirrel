@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5059743051297823552}
   - component: {fileID: 5059743051299150688}
   - component: {fileID: 5059743051300116896}
+  - component: {fileID: 6936404221321838330}
   m_Layer: 0
   m_Name: SpikeColumn2
   m_TagString: Untagged
@@ -77,6 +78,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6936404221321838330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2
 --- !u!1 &5059743051297851234
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +104,7 @@ GameObject:
   - component: {fileID: 5059743051297823554}
   - component: {fileID: 5059743051299150690}
   - component: {fileID: 5059743051300116898}
+  - component: {fileID: 5972518758555367935}
   m_Layer: 0
   m_Name: SpikeColumn3
   m_TagString: Untagged
@@ -154,6 +171,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5972518758555367935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2
 --- !u!1 &5059743051297851236
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +197,7 @@ GameObject:
   - component: {fileID: 5059743051297823556}
   - component: {fileID: 5059743051299150692}
   - component: {fileID: 5059743051300116900}
+  - component: {fileID: 7160261856953600344}
   m_Layer: 0
   m_Name: MiddleColumn5
   m_TagString: Untagged
@@ -231,6 +264,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7160261856953600344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2
 --- !u!1 &5059743051297851238
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +290,7 @@ GameObject:
   - component: {fileID: 5059743051297823558}
   - component: {fileID: 5059743051299150694}
   - component: {fileID: 5059743051300116902}
+  - component: {fileID: 6965258743414858618}
   m_Layer: 0
   m_Name: SpikeColumn
   m_TagString: Untagged
@@ -308,6 +357,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6965258743414858618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2
 --- !u!1 &5059743051297851240
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +383,7 @@ GameObject:
   - component: {fileID: 5059743051297823560}
   - component: {fileID: 5059743051299150696}
   - component: {fileID: 5059743051300116904}
+  - component: {fileID: 5872287875586609616}
   m_Layer: 0
   m_Name: SpikeColumn7
   m_TagString: Untagged
@@ -385,6 +450,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5872287875586609616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2
 --- !u!1 &5059743051297851242
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,8 +474,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5059743051297823562}
-  m_Layer: 0
-  m_Name: Blakeable wall
+  - component: {fileID: 8155668506782473672}
+  - component: {fileID: 7155213838201373431}
+  m_Layer: 13
+  m_Name: BreakableWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5059743051297851242}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.093874, y: 1.69, z: -54.41}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5059743051297823556}
@@ -422,6 +504,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8155668506782473672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857125bcce521c744951d93d09ee1310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 120
+--- !u!65 &7155213838201373431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 3, z: 1.8}
+  m_Center: {x: 0, y: 0, z: 0.12}
 --- !u!1 &5059743051297851244
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +541,7 @@ GameObject:
   - component: {fileID: 5059743051297823564}
   - component: {fileID: 5059743051299150700}
   - component: {fileID: 5059743051300116908}
+  - component: {fileID: 3621037361454032215}
   m_Layer: 0
   m_Name: SpikeColumn4
   m_TagString: Untagged
@@ -499,6 +608,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3621037361454032215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2
 --- !u!1 &5059743051297851246
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +634,7 @@ GameObject:
   - component: {fileID: 5059743051297823566}
   - component: {fileID: 5059743051299150702}
   - component: {fileID: 5059743051300116910}
+  - component: {fileID: 5257549559174404823}
   m_Layer: 0
   m_Name: SpikeColumn6
   m_TagString: Untagged
@@ -576,3 +701,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5257549559174404823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059743051297851246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5205e9e18a2c0c429fdb41df10d913f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  blinkDuration: 2

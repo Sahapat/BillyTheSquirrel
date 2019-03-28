@@ -102,14 +102,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365590313729340308}
-  m_LocalRotation: {x: 0, y: 0.7053397, z: 0, w: 0.7088694}
-  m_LocalPosition: {x: 0.1598916, y: 1.995, z: -68.6753}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 365590315591215306}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 89.714005, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &6654725568763072920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,10 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1165c7f5f43a84cb0544bd5ebe607b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PopOutObjects:
-  - {fileID: 6771886446001402957, guid: cb1f340549fde3842a189f3c39800adc, type: 3}
-  - {fileID: 6275584320518971861, guid: 98aa33e3ff8e72c46a7083387a0f4eaa, type: 3}
-  - {fileID: 961729817022948993, guid: 34c32ee0e17b80743a42949a280066f0, type: 3}
+  PopOutObjects: []
 --- !u!65 &1861995577047849203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -459,7 +456,7 @@ GameObject:
   - component: {fileID: 365590315591215307}
   - component: {fileID: 1275676305854712936}
   m_Layer: 14
-  m_Name: Chest2
+  m_Name: ChestObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

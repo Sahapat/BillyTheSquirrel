@@ -568,8 +568,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4518250142606466534}
   - component: {fileID: 807383057}
+  - component: {fileID: 2913114695268900570}
   m_Layer: 11
-  m_Name: Moveing platform
+  m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,8 +603,26 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.089116, y: 0.9107299, z: 4.0456657}
-  m_Center: {x: 0.00662899, y: -0.4193952, z: 0.017843246}
+  m_Size: {x: 4, y: 0.91, z: 4}
+  m_Center: {x: 0, y: -0.4, z: 0}
+--- !u!114 &2913114695268900570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518250142606623174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc52ad47680c19d478c34a49206fc3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsTomove:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 5
+  jorneyType: 0
 --- !u!1 &4518250142606623180
 GameObject:
   m_ObjectHideFlags: 0
