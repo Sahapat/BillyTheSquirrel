@@ -26,8 +26,6 @@ public class Enemy : MonoBehaviour, IAttackable
     [Header("Enemy Ref")]
     [SerializeField] SightCheck enemySightCheck = null;
     [SerializeField] SightCheck attackSightCheck = null;
-    [SerializeField] GameObject alertIconNormal = null;
-    [SerializeField] GameObject alertIconDanger = null;
     [SerializeField] BaseSword swordInHand = null;
 
     public Health CharacterHP { get; private set; }
@@ -187,21 +185,15 @@ public class Enemy : MonoBehaviour, IAttackable
                 {
                     counterForAttack = Time.time + 4f + attackWaitDuration;
                     canCancelAnimation = false;
-                    m_stateHandler.SetBoolWithString("isStartAttack", false);
-                    alertIconDanger.SetActive(true);
                     attackElapsed = 0;
                     StartCoroutine(DoCombo());
-                    Invoke("ResetAlertIcon", 0.8f);
                 }
                 else if (counterForAttack <= Time.time && Random.value <= chanceForNormalAttack)
                 {
                     counterForAttack = Time.time + attackWaitDuration;
                     canCancelAnimation = true;
                     m_stateHandler.NormalAttack();
-                    m_stateHandler.SetBoolWithString("isStartAttack", false);
-                    alertIconNormal.SetActive(true);
                     attackElapsed = 0;
-                    Invoke("ResetAlertIcon", 0.8f);
                 }
             }
 
@@ -224,12 +216,6 @@ public class Enemy : MonoBehaviour, IAttackable
         roarTrigger = false;
         counterForRoar = 0f;
         swordInHand.gameObject.SetActive(true);
-    }
-    void ResetAlertIcon()
-    {
-        alertIconNormal.SetActive(false);
-        alertIconDanger.SetActive(false);
-        m_stateHandler.SetBoolWithString("isStartAttack", true);
     }
     void LookAtPosition(Vector3 position)
     {
@@ -265,7 +251,6 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         if (value <= 0)
         {
-            ResetAlertIcon();
             isDead = true;
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
             Destroy(this.gameObject, 3f);
@@ -282,7 +267,7 @@ public class Enemy : MonoBehaviour, IAttackable
         LookAtPosition(targetPlayer.position);
         m_stateHandler.NormalAttack();
         yield return waitComboAttack3;
-        ResetAlertIcon();
+        canCancelAnimation = true;
     }
     public void TakeDamage(int damage)
     {
@@ -299,7 +284,6 @@ public class Enemy : MonoBehaviour, IAttackable
         {
             m_rigidbody.velocity = forceToAdd;
             m_stateHandler.Hurt();
-            ResetAlertIcon();
         }
     }
 }
