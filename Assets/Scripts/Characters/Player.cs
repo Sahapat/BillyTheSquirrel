@@ -194,7 +194,7 @@ public class Player : MonoBehaviour, IAttackable
 
         if (hitInfo.Length > 0)
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 var collectItem = hitInfo[0].GetComponent<ICollectable>();
                 switch (collectItem.itemType)

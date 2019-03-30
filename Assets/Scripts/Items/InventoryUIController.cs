@@ -50,7 +50,7 @@ public class InventoryUIController : MonoBehaviour
                 ResetAndUpdateSelected();
                 Invoke("SetCanInputAgain", 0.15f);
             }
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 if (enterSelected != selectedSlotIndex)
                 {

@@ -89,7 +89,7 @@ public class MovementHandler : MonoBehaviour
     }
     void WhileJump()
     {
-        var isHitTheWall = PhysicsExtensions.OverlapCapsule(m_capsuleColider,LayerMask.GetMask("Ground","Obtacle"));
+        var isHitTheWall = PhysicsExtensions.OverlapCapsule(m_capsuleColider,LayerMask.GetMask("Ground","Obtacle","Attackable"));
         var addForceInAir = Vector2.ClampMagnitude(real_Movement,1f) * jumpInAirMoveScale;
         var currentVelocity = m_rigidbody.velocity;
 
