@@ -142,11 +142,9 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         if (roarTrigger)
         {
-            swordInHand.gameObject.SetActive(false);
             if (counterForRoar <= Time.time)
             {
                 roarTrigger = false;
-                swordInHand.gameObject.SetActive(true);
                 aIStateMachine = AIStateMachine.CHASING;
             }
         }

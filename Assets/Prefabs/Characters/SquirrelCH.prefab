@@ -5346,6 +5346,7 @@ GameObject:
   - component: {fileID: 1297225737526760450}
   - component: {fileID: 1297225737526760451}
   - component: {fileID: 1297225737526760460}
+  - component: {fileID: 1115236818}
   m_Layer: 12
   m_Name: GroundChecker
   m_TagString: Untagged
@@ -5395,6 +5396,21 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 51200
+--- !u!114 &1115236818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297225737526760461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b9de3fc2103ac4ab78836cb2c2ec50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &1385772463391142153
 GameObject:
   m_ObjectHideFlags: 0
