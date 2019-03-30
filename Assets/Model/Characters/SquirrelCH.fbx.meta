@@ -122,6 +122,12 @@ ModelImporter:
     100232: Character:TopMouth_Jnt
     100234: Character:TopMouth_Jnt2
     100236: //RootNode
+    100238: Character:EyeCover
+    100240: Character:L_EyelidBot
+    100242: Character:L_EyelidTop
+    100244: Character:L_EyelidTop_Jnt
+    100246: Character:R_EyelidBot
+    100248: Character:R_EyelidTop
     400000: Character:BagbOt_Jnt
     400002: Character:Bagtop_Jnt
     400004: Character:Belt
@@ -241,15 +247,31 @@ ModelImporter:
     400232: Character:TopMouth_Jnt
     400234: Character:TopMouth_Jnt2
     400236: //RootNode
+    400238: Character:EyeCover
+    400240: Character:L_EyelidBot
+    400242: Character:L_EyelidTop
+    400244: Character:L_EyelidTop_Jnt
+    400246: Character:R_EyelidBot
+    400248: Character:R_EyelidTop
     2100000: Character_lambert2
     2100002: Character_lambert9
     4300000: Character:Body
     4300002: Character:EyeGlass
     4300004: Character:Belt
+    4300006: Character:R_EyelidTop
+    4300008: Character:R_EyelidBot
+    4300010: Character:L_EyelidBot
+    4300012: Character:L_EyelidTop
+    7400000: EyeBlink
+    7400002: Eye
     9500000: //RootNode
     13700000: Character:Belt
     13700002: Character:Body
     13700004: Character:EyeGlass
+    13700006: Character:L_EyelidBot
+    13700008: Character:L_EyelidTop
+    13700010: Character:R_EyelidBot
+    13700012: Character:R_EyelidTop
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -287,7 +309,63 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: EyeBlink
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Eye
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -322,8 +400,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
-  copyAvatar: 1
+  importAnimation: 1
+  copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
@@ -339,8 +417,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: aa7489348bc8baf4fa81822d6c2d857e,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0

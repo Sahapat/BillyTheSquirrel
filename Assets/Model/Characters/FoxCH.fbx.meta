@@ -115,6 +115,9 @@ ModelImporter:
     100218: Character:TopMouth_Jnt2
     100220: Character:transform1
     100222: //RootNode
+    100224: EyeGlass
+    100226: EyeGlass1
+    100228: Fox_Model
     400000: Character:BottomMouth_Jnt1
     400002: Character:BottomMouth_Jnt2
     400004: Character:BottomMouth_Jnt3
@@ -227,16 +230,28 @@ ModelImporter:
     400218: Character:TopMouth_Jnt2
     400220: Character:transform1
     400222: //RootNode
+    400224: EyeGlass
+    400226: EyeGlass1
+    400228: Fox_Model
     2100000: Character_lambert9
     2100002: Character_lambert2
+    2100004: lambert9
+    2100006: lambert2
     2300000: Character:EyeGlass
+    2300002: EyeGlass
     3300000: Character:EyeGlass
+    3300002: EyeGlass
     4300000: Character:EyeGlass1
     4300002: Character:EyeGlass
     4300004: Character:Fox_Model
+    4300006: EyeGlass1
+    4300008: EyeGlass
+    4300010: Fox_Model
     9500000: //RootNode
     13700000: Character:EyeGlass1
     13700002: Character:Fox_Model
+    13700004: EyeGlass1
+    13700006: Fox_Model
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -247,6 +262,16 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Character_lambert9
+    second: {fileID: 2100000, guid: abb48a7e8d8bfed468556889d219e61f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: c258c1369dcb86746b097a32b9750701, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert9
     second: {fileID: 2100000, guid: abb48a7e8d8bfed468556889d219e61f, type: 2}
   materials:
     importMaterials: 1
@@ -310,7 +335,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 0
-  copyAvatar: 1
+  copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
@@ -326,8 +351,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: aa7489348bc8baf4fa81822d6c2d857e,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0

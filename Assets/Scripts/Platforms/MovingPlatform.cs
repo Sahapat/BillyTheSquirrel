@@ -15,10 +15,10 @@ public class MovingPlatform : MonoBehaviour, IActivable
     [SerializeField] float speed = 5f;
     [SerializeField] JorneyType jorneyType = MovingPlatform.JorneyType.NORMAL;
 
+
     private int currentIndex = 0;
     private int increaser = 1;
     private bool isActive = false;
-
     void FixedUpdate()
     {
         if (isActive)
@@ -66,5 +66,9 @@ public class MovingPlatform : MonoBehaviour, IActivable
                 currentIndex = Random.Range(0,pointsTomove.Length);
             break;
         }
+    }
+    public float GetPlatformSpeed()
+    {
+        return speed;
     }
 }

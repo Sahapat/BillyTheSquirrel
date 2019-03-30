@@ -125,6 +125,12 @@ ModelImporter:
     100238: Character:TopMouth_Jnt
     100240: Character:TopMouth_Jnt2
     100242: //RootNode
+    100244: Character:L_EyelidTop_Jnt
+    100246: Character:EyeCover
+    100248: Character:L_EyelidBot
+    100250: Character:L_EyelidTop
+    100252: Character:R_EyelidBot
+    100254: Character:R_EyelidTop
     400000: Character:BagbOt_Jnt
     400002: Character:Bagtop_Jnt
     400004: Character:Belt
@@ -247,6 +253,12 @@ ModelImporter:
     400238: Character:TopMouth_Jnt
     400240: Character:TopMouth_Jnt2
     400242: //RootNode
+    400244: Character:L_EyelidTop_Jnt
+    400246: Character:EyeCover
+    400248: Character:L_EyelidBot
+    400250: Character:L_EyelidTop
+    400252: Character:R_EyelidBot
+    400254: Character:R_EyelidTop
     2100000: Character_Glass
     2100002: Character_Wood
     2100004: Character_water
@@ -265,6 +277,10 @@ ModelImporter:
     4300006: Character:Body
     4300008: Character:EyeGlass
     4300010: Character:Belt
+    4300012: Character:R_EyelidTop
+    4300014: Character:R_EyelidBot
+    4300016: Character:L_EyelidBot
+    4300018: Character:L_EyelidTop
     7400000: Idle
     7400002: Run
     7400004: NormalAttack1_1
@@ -300,10 +316,16 @@ ModelImporter:
     7400064: NormalAttack2ToIdle_0_Freeze
     7400066: StartNormalAttack3_0
     7400068: NormalAttack3ToIdle_0_Freeze
+    7400070: Roar
+    7400072: T Pos
     9500000: //RootNode
     13700000: Character:Belt
     13700002: Character:Body
     13700004: Character:EyeGlass
+    13700006: Character:L_EyelidBot
+    13700008: Character:L_EyelidTop
+    13700010: Character:R_EyelidBot
+    13700012: Character:R_EyelidTop
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -1338,6 +1360,34 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 681
       lastFrame: 682
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roar
+      takeName: Take 001
+      firstFrame: 700
+      lastFrame: 760
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

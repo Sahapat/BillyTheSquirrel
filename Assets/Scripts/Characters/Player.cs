@@ -60,7 +60,7 @@ public class Player : MonoBehaviour, IAttackable
     }
     void FixedUpdate()
     {
-        if(isDead)return;
+        if (isDead) return;
         ItemCollectChecker();
         CheckForUpdateNewLastPosition();
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
@@ -83,23 +83,25 @@ public class Player : MonoBehaviour, IAttackable
                 CharacterStemina.RemoveSP(NormalAttack);
             }
         }
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && CheckDashSP())
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
         {
             if (m_stateHandler.Dash())
             {
                 CharacterStemina.RemoveSP(Dash);
             }
         }
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && CheckJumpSP())
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && CheckJumpSP())
         {
             m_stateHandler.Jump();
             CharacterStemina.RemoveSP(Jump);
         }
-        if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Joystick1Button2))
+        if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             if (GameCore.m_uiHandler.currentItemIndex != -1)
             {
                 m_stateHandler.UsePotion();
+                SwordHoldPosition.gameObject.SetActive(false);
+                ShieldHoldPosition.gameObject.SetActive(false);
                 var itemIndex = GameCore.m_uiHandler.currentItemIndex - 2;
                 if (itemIndex >= 0)
                 {
@@ -132,7 +134,7 @@ public class Player : MonoBehaviour, IAttackable
     }
     bool NormalAttackGetter()
     {
-        return Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(0);
+        return Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetMouseButtonDown(0);
     }
     bool HeavyAttackGetter()
     {
@@ -161,6 +163,8 @@ public class Player : MonoBehaviour, IAttackable
             itemUse.Use(this);
             ItemInventory.RemoveItem(itemIndex);
             GameCore.m_uiHandler.RemoveCurrentItem();
+            SwordHoldPosition.gameObject.SetActive(true);
+            ShieldHoldPosition.gameObject.SetActive(true);
         }
     }
     void CheckForUpdateNewLastPosition()

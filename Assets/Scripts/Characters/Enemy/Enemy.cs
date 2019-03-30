@@ -42,7 +42,6 @@ public class Enemy : MonoBehaviour, IAttackable
     private Vector3 startPosition = Vector3.zero;
     private Quaternion startRotation = Quaternion.identity;
 
-    private int navMeshPathCornerIndex = -1;
     private bool canCancelAnimation = true;
 
     //Checker variable
