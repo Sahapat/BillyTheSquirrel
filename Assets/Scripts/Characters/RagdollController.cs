@@ -12,11 +12,9 @@ public class RagdollController : MonoBehaviour
     [SerializeField] int InActiveLayer = 0;
 
     private Rigidbody m_parentRigidbody = null;
-    private Animator m_parentAnimator = null;
     void Awake()
     {
         m_parentRigidbody = GetComponent<Rigidbody>();
-        m_parentAnimator = GetComponent<Animator>();
     }
     public void ActiveRagdoll()
     {
@@ -33,7 +31,6 @@ public class RagdollController : MonoBehaviour
         m_parentRigidbody.isKinematic = true;
         m_parentRigidbody.useGravity = false;
         this.gameObject.layer = InActiveLayer;
-        m_parentAnimator.enabled = false;
     }
     public void ActiveRagdoll(Vector3 velocity)
     {
@@ -51,7 +48,6 @@ public class RagdollController : MonoBehaviour
         m_parentRigidbody.isKinematic = true;
         m_parentRigidbody.useGravity = false;
         this.gameObject.layer = InActiveLayer;
-        m_parentAnimator.enabled = false;
     }
     public void InActiveRagdoll()
     {
@@ -68,6 +64,5 @@ public class RagdollController : MonoBehaviour
         m_parentRigidbody.isKinematic = false;
         m_parentRigidbody.useGravity = true;
         this.gameObject.layer = ActiveLayer;
-        m_parentAnimator.enabled = true;
     }
 }

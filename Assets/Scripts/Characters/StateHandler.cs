@@ -120,4 +120,8 @@ public class StateHandler : MonoBehaviour
             m_animator.SetTrigger("Jump");
         }
     }
+    public void SetBool(string name,bool value)
+    {
+        m_animator.SetBool(name,value);
+    }
 }

@@ -151,6 +151,7 @@ public class Player : MonoBehaviour, IAttackable
         if (value <= 0)
         {
             isDead = true;
+            m_stateHandler.SetBool("isDead",true);
             m_ragdollController.ActiveRagdoll(m_rigidbody.velocity);
         }
     }

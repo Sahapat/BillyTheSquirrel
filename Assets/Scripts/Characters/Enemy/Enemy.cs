@@ -249,6 +249,7 @@ public class Enemy : MonoBehaviour, IAttackable
         if (value <= 0)
         {
             isDead = true;
+            m_stateHandler.SetBool("isDead",true);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
             Destroy(this.gameObject, 3f);
         }
