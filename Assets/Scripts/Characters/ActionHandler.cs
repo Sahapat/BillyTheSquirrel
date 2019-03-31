@@ -6,10 +6,10 @@ using UnityEngine;
 public class ActionHandler : MonoBehaviour
 {
     [System.Serializable]
-    private struct ActionMotion
+    private class ActionMotion
     {
-        public float delayForAddForce;
-        public float forceToAdd;
+        public float delayForAddForce = 0;
+        public float forceToAdd = 0;
     }
 
     [Header("Action Motion Setter")]

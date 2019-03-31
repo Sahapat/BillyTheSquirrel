@@ -11,7 +11,7 @@ public class UIHandler : MonoBehaviour
     [Header("Reference")]
     [SerializeField] Slider m_HPSlider = null;
     [SerializeField] Slider m_SPSlider = null;
-    [SerializeField] TextMeshProUGUI m_LevelText = null;
+    //[SerializeField] TextMeshProUGUI m_LevelText = null;
     [SerializeField] TextMeshProUGUI m_CoinText = null;
     [SerializeField] InventoryUIController InventoryHub = null;
     [SerializeField] Image currentItemShow = null;

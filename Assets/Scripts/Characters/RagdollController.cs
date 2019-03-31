@@ -6,15 +6,18 @@ public class RagdollController : MonoBehaviour
 {
     [SerializeField] Rigidbody[] ragdollsRigidbody = null;
     [SerializeField] Transform[] childForSwitchState = null;
-    [SerializeField] Transform ActiveParent;
-    [SerializeField] Transform InActiveParent;
+    [SerializeField] Transform ActiveParent = null;
+    [SerializeField] Transform InActiveParent = null;
     [SerializeField] int ActiveLayer = 0;
     [SerializeField] int InActiveLayer = 0;
 
     private Rigidbody m_parentRigidbody = null;
+    private CapsuleCollider m_parentColider = null;
+
     void Awake()
     {
         m_parentRigidbody = GetComponent<Rigidbody>();
+        m_parentColider = GetComponent<CapsuleCollider>();
     }
     public void ActiveRagdoll()
     {
@@ -30,6 +33,7 @@ public class RagdollController : MonoBehaviour
         }
         m_parentRigidbody.isKinematic = true;
         m_parentRigidbody.useGravity = false;
+        m_parentColider.enabled = false;
         this.gameObject.layer = InActiveLayer;
     }
     public void ActiveRagdoll(Vector3 velocity)
@@ -47,6 +51,7 @@ public class RagdollController : MonoBehaviour
         }
         m_parentRigidbody.isKinematic = true;
         m_parentRigidbody.useGravity = false;
+        m_parentColider.enabled = false;
         this.gameObject.layer = InActiveLayer;
     }
     public void InActiveRagdoll()
@@ -63,6 +68,7 @@ public class RagdollController : MonoBehaviour
         }
         m_parentRigidbody.isKinematic = false;
         m_parentRigidbody.useGravity = true;
+        m_parentColider.enabled = true;
         this.gameObject.layer = ActiveLayer;
     }
 }

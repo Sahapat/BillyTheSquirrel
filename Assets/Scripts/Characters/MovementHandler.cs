@@ -7,7 +7,7 @@ public class MovementHandler : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float runSpeed = 0f;
-    [SerializeField] float shieldRunSpeed = 0f;
+   // [SerializeField] float shieldRunSpeed = 0f;
     [Header("Dash")]
     [SerializeField] float dashScale = 20f;
     [Header("Jump")]

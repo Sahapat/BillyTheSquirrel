@@ -82,6 +82,10 @@ PrefabInstance:
       value: Low (13)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -129,18 +133,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -163,6 +155,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
       propertyPath: m_Name
       value: Railrail2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -217,10 +213,6 @@ PrefabInstance:
       value: 114.30589
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
       propertyPath: m_LocalScale.z
       value: 152.48665
       objectReference: {fileID: 0}
@@ -245,7 +237,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_Name
-      value: SideLevelRail
+      value: SideLevelRail Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -253,15 +249,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.028
+      value: -28.82
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6632001
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -84.454
+      value: -67.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalRotation.x
@@ -269,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.77774763
+      value: -0.9818893
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalRotation.z
@@ -277,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.62857676
+      value: -0.18945572
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_RootOrder
@@ -289,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -257.88998
+      value: -201.842
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -335,6 +331,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
       propertyPath: m_Name
       value: Railrail2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -389,10 +389,6 @@ PrefabInstance:
       value: 114.30586
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1ab0ce9b6ee22e84ea89a478784de4eb, type: 3}
       propertyPath: m_LocalScale.z
       value: 152.48657
       objectReference: {fileID: 0}
@@ -418,6 +414,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_Name
       value: Low (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -466,18 +466,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 44340164fa0f40f419f66d86f74edd44, type: 3}
       propertyPath: m_Materials.Array.data[0]

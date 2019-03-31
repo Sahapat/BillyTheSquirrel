@@ -33,15 +33,18 @@ public class Enemy : MonoBehaviour, IAttackable
 
     private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
     private AIStateMachine previousAiState = AIStateMachine.NONE;
+    //Component require
     private Rigidbody m_rigidbody = null;
     private StateHandler m_stateHandler = null;
     private CustomNavMeshAgent m_navMeshAgent = null;
+    private DamageMaterial m_damageMaterial = null;
     private RagdollController m_ragdoll = null;
+
+    //General Var
     private Transform targetPlayer = null;
     private Vector3 previousTargetPosition = Vector3.zero;
     private Vector3 startPosition = Vector3.zero;
     private Quaternion startRotation = Quaternion.identity;
-
     private bool canCancelAnimation = true;
 
     //Checker variable
@@ -49,7 +52,6 @@ public class Enemy : MonoBehaviour, IAttackable
     private float counterForAttack = 0f;
     private float roarElapsed = 3.0f;
     private float attackElapsed = 0.0f;
-
     private bool roarTrigger = false;
     private WaitForSeconds waitComboAttack1 = null;
     private WaitForSeconds waitComboAttack2 = null;
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour, IAttackable
         m_rigidbody = GetComponent<Rigidbody>();
         m_navMeshAgent = GetComponent<CustomNavMeshAgent>();
         m_ragdoll = GetComponent<RagdollController>();
+        m_damageMaterial = GetComponent<DamageMaterial>();
     }
     void Start()
     {
@@ -251,7 +254,8 @@ public class Enemy : MonoBehaviour, IAttackable
             isDead = true;
             m_stateHandler.SetBool("isDead",true);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
-            Destroy(this.gameObject, 3f);
+            m_damageMaterial.FadeOut(1f);
+            Destroy(this.gameObject, 5f);
         }
     }
     IEnumerator DoCombo()
