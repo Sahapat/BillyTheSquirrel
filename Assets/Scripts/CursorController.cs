@@ -10,16 +10,14 @@ public class CursorController : MonoBehaviour
     [Header("UIMode")]
     [SerializeField]CursorLockMode inventoryMode_cursorLockMode = CursorLockMode.None;
     [SerializeField]bool uiMode_cursor_visable = false;
-    public void SetCursorInGameMode()
+    public void DisableCursor()
     {
-        Cursor.visible =gameMode_cursor_visable;
-        Cursor.lockState = gameMode_cursorLockMode;
-        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.NORMAL);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-    public void SetCursorInInventoryMode()
+    public void EnableCursor()
     {
-        Cursor.visible = uiMode_cursor_visable;
-        Cursor.lockState = inventoryMode_cursorLockMode;
-        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.INVENTORY);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

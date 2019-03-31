@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ public class CameraController : MonoBehaviour
     public enum CameraState
     {
         NORMAL,
-        INVENTORY
+        UI_MANAGE,
+        LOCK_ON,
+        NONE
     };
 
     [SerializeField] Transform targetTranform = null;
@@ -34,23 +37,36 @@ public class CameraController : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (targetTranform == null) return;
+        //Checking Target if it's null turn camera state to NONE
+        if (!targetTranform)
+        {
+            m_cameraState = CameraController.CameraState.NONE;
+        }
+        //switch for doing a state
         switch (m_cameraState)
         {
             case CameraState.NORMAL:
                 ThirdPersonCamera();
                 break;
-            case CameraState.INVENTORY:
-                InventoryCamera();
+            case CameraState.UI_MANAGE:
+                Ui_ManageCamera();
+                break;
+            case CameraState.LOCK_ON:
+                Lock_OnCamera();
                 break;
         }
     }
-    void InventoryCamera()
+
+    void Lock_OnCamera()
+    {
+        throw new NotImplementedException();
+    }
+
+    void Ui_ManageCamera()
     {
         Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);
         Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
         Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
-
         transform.rotation = rotation;
         transform.position = position;
     }
@@ -76,8 +92,10 @@ public class CameraController : MonoBehaviour
             RotateX += Input.GetAxis("Horizontal2") * xSpeed * offsetX * Time.deltaTime * 1.5f;
             RotateY += Input.GetAxis("Vertical2") * ySpeed * Time.deltaTime * 1.5f;
         }
+
         RotateX = ClampAngle(RotateX);
         RotateY = ClampAngle(RotateY);
+
         RotateY = Mathf.Clamp(RotateY, yMinLimit, yMaxLimit);
     }
     float ClampAngle(float angle)
@@ -92,13 +110,17 @@ public class CameraController : MonoBehaviour
         }
         return angle;
     }
-    public void SetCameraState(CameraState state)
+    public void SetCameraNormalState()
     {
-        m_cameraState = state;
+        m_cameraState = CameraController.CameraState.NORMAL;
     }
-    public void SetCameraTarget(Transform targetTranform)
+    public void SetCameraUI_ManageState()
     {
-        this.targetTranform = targetTranform;
+        m_cameraState = CameraController.CameraState.UI_MANAGE;
+    }
+    public void SetCameraLock_OnState(Transform target)
+    {
+        m_cameraState = CameraController.CameraState.LOCK_ON;
     }
     public void ShakeCamera(float time, float shakeLenght)
     {
