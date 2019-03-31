@@ -71,11 +71,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HPSlider: {fileID: 26448476472842036}
   m_SPSlider: {fileID: 26448477273182951}
-  m_LevelText: {fileID: 2538277731576626215}
   m_CoinText: {fileID: 3666467885547082841}
   InventoryHub: {fileID: 7109811707251716642}
   currentItemShow: {fileID: 7642580301569145748}
   noneCurrentItem: {fileID: 21300000, guid: 735b92c39fd3ac346a2fc836cfaff3d1, type: 3}
+  statusHUB: {fileID: 26448476852002322}
+  GameOverHUB: {fileID: 8706136589985704970}
 --- !u!1 &1384205280293859308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,18 +1211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2538277731576626215 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7006722802180740227, guid: 10bece46f2580cb4f822d9ad2e2b5887,
-    type: 3}
-  m_PrefabInstance: {fileID: 4757251900099029156}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &26448477273182951 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4780801738968119875, guid: 10bece46f2580cb4f822d9ad2e2b5887,
@@ -1255,6 +1244,12 @@ RectTransform:
 --- !u!224 &26448476852002321 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4780801738953815733, guid: 10bece46f2580cb4f822d9ad2e2b5887,
+    type: 3}
+  m_PrefabInstance: {fileID: 4757251900099029156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &26448476852002322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4780801738953815734, guid: 10bece46f2580cb4f822d9ad2e2b5887,
     type: 3}
   m_PrefabInstance: {fileID: 4757251900099029156}
   m_PrefabAsset: {fileID: 0}

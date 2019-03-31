@@ -18,6 +18,7 @@ ModelImporter:
     400010: pCylinder37
     400012: //RootNode
     2100000: lambert1
+    2100002: lambert2
     2300000: pCube151
     2300002: pCylinder34
     2300004: pCylinder35
@@ -38,6 +39,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
+    second: {fileID: 2100000, guid: 988debcb3d10cbd49881c3855b0ca8d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
     second: {fileID: 2100000, guid: 988debcb3d10cbd49881c3855b0ca8d3, type: 2}
   materials:
     importMaterials: 1
