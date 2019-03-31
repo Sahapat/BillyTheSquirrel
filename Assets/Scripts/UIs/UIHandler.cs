@@ -22,14 +22,18 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject GameOverHUB = null;
 
     public int currentItemIndex {get;private set;} = -1;
+
+    private Player m_player = null;
     void Start()
     {
-        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnHPChanged += UpdateHPBar;
-        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.OnResetHP += OnResetHP;
-        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminaReset += OnResetSP;
-        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.OnSteminachange += UpdateSPBar;
-        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.OnCoinAdd += UpdateCoinTxt;
-        GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.OnCoinRemove += UpdateCoinTxt;
+        m_player = GameCore.m_GameContrller.GetClientPlayerTarget();
+        m_player.CharacterHP.OnHPChanged += UpdateHPBar;
+        m_player.CharacterHP.OnResetHP += OnResetHP;
+        m_player.CharacterStemina.OnSteminaReset += OnResetSP;
+        m_player.CharacterStemina.OnSteminachange += UpdateSPBar;
+        m_player.CharacterCoin.OnCoinAdd += UpdateCoinTxt;
+        m_player.CharacterCoin.OnCoinRemove += UpdateCoinTxt;
+        
         OnResetHP();
         OnResetSP();
     }
@@ -37,8 +41,8 @@ public class UIHandler : MonoBehaviour
     {
         statusHUB.SetActive(false);
         GameOverHUB.SetActive(true);
-        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.INVENTORY);
-        GameCore.m_CursorController.SetCursorInInventoryMode();
+        GameCore.m_cameraController.SetCameraUI_ManageState();
+        GameCore.m_CursorController.EnableCursor();
     }
     public void CloseGameOver()
     {
@@ -48,14 +52,23 @@ public class UIHandler : MonoBehaviour
     public void OpenInventory()
     {
         InventoryHub.OpenInventory();
+        GameCore.m_cameraController.SetCameraUI_ManageState();
+        GameCore.m_CursorController.EnableCursor();
     }
     public void CloseInventory()
     {
         InventoryHub.CloseInventory();
+        GameCore.m_cameraController.SetCameraNormalState();
+        GameCore.m_CursorController.DisableCursor();
     }
     public bool GetInventoryStatus()
     {
         return InventoryHub.inventoryStatus;
+    }
+    public void UpdateEquipmentSlot()
+    {
+        InventoryHub.UpdateWeapon();
+        InventoryHub.UpdateShield();
     }
     public void RemoveCurrentItem()
     {
@@ -76,24 +89,24 @@ public class UIHandler : MonoBehaviour
     }
     void OnResetHP()
     {
-        UpdateHPBar(GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.HP);
+        UpdateHPBar(m_player.CharacterHP.HP);
     }
     void OnResetSP()
     {
-        UpdateSPBar(GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.SP);
+        UpdateSPBar(m_player.CharacterStemina.SP);
     }
     void UpdateHPBar(int value)
     {
-        int assignValue = Mathf.Clamp(value, 0, GameCore.m_GameContrller.GetClientPlayerTarget().CharacterHP.MaxHP);
+        int assignValue = (value * 100)/m_player.CharacterHP.MaxHP;
         m_HPSlider.value = assignValue;
     }
     void UpdateSPBar(int value)
     {
-        int assignValue = Mathf.Clamp(value, 0, GameCore.m_GameContrller.GetClientPlayerTarget().CharacterStemina.MaxSP);
+        int assignValue = (value * 100)/m_player.CharacterHP.MaxHP;
         m_SPSlider.value = assignValue;
     }
     void UpdateCoinTxt(int value)
     {
-        m_CoinText.text = GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin._Coin.ToString();
+        m_CoinText.text = m_player.CharacterCoin._Coin.ToString();
     }
 }

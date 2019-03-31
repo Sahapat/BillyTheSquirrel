@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryUIController : MonoBehaviour
 {
-    [SerializeField] GameObject TargetDescriptionObject = null;
+    [SerializeField] GameObject targetDescriptionObject = null;
     [SerializeField] SlotUIController[] slotUIControllers = null;
 
     int selectedSlotIndex = 0;
@@ -29,32 +29,30 @@ public class InventoryUIController : MonoBehaviour
     }
     void Start()
     {
-        GameCore.m_GameContrller.GetClientPlayerTarget().ItemInventory.OnItemAdded += UpdateItem;
-        GameCore.m_GameContrller.GetClientPlayerTarget().ItemInventory.OnItemRemove += UpdateItem;
         m_player = GameCore.m_GameContrller.GetClientPlayerTarget();
+        m_player.ItemInventory.OnItemAdded += UpdateUiInventory;
+        m_player.ItemInventory.OnItemRemove += UpdateUiInventory;
     }
     void Update()
     {
-        if (inventoryStatus && !inputTrigger)
+        #region Joystick selection part
+        /* if (inventoryStatus && !inputTrigger)
         {
             var directionX = Input.GetAxis("Horizontal");
             var directionY = Input.GetAxis("Vertical");
-
-            //print($"DirectionX {directionX}  DirectionY {directionY}");
             bool isHorizontalDirection = Mathf.Abs(directionX) > Mathf.Abs(directionY);
             if (isHorizontalDirection && Mathf.Abs(directionX) > 0.5f)
             {
                 inputTrigger = true;
                 selectedSlotIndex = (directionX > 0) ? selectedSlotIndex + 1 : selectedSlotIndex - 1;
                 selectedSlotIndex = Mathf.Clamp(selectedSlotIndex, 0, slotUIControllers.Length - 1);
-                ResetAndUpdateSelected();
                 Invoke("SetCanInputAgain", 0.15f);
             }
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
                 if (enterSelected != selectedSlotIndex)
                 {
-                    TargetDescriptionObject.SetActive(true);
+                    targetDescriptionObject.SetActive(true);
                     enterSelected = selectedSlotIndex;
                     if (selectedSlotIndex > 1)
                     {
@@ -70,19 +68,15 @@ public class InventoryUIController : MonoBehaviour
                 }
                 else
                 {
-                    TargetDescriptionObject.SetActive(false);
+                    targetDescriptionObject.SetActive(false);
                 }
             }
-        }
-    }
-    public void SelectSlot(int index)
-    {
-        selectedSlotIndex = index;
-        ResetAndUpdateSelected();
-        SetCanInputAgain();
+        } */
+        #endregion
     }
     public void CloseInventory()
     {
+        inventoryStatus = false;
         foreach (Image img in inventoryImg)
         {
             img.enabled = false;
@@ -99,11 +93,11 @@ public class InventoryUIController : MonoBehaviour
         {
             slot.SetUnSelectedSlot();
         }
-        inventoryStatus = false;
         selectedSlotIndex = 0;
     }
     public void OpenInventory()
     {
+        inventoryStatus = true;
         foreach (Image img in inventoryImg)
         {
             img.enabled = true;
@@ -116,12 +110,7 @@ public class InventoryUIController : MonoBehaviour
         {
             btn.enabled = true;
         }
-        TargetDescriptionObject.SetActive(false);
-        inventoryStatus = true;
-        UpdateWeapon();
-        UpdateShield();
-        ResetAndUpdateSelected();
-        SetCanInputAgain();
+        targetDescriptionObject.SetActive(false);
     }
     public void UpdateWeapon()
     {
@@ -131,24 +120,11 @@ public class InventoryUIController : MonoBehaviour
     {
         slotUIControllers[1].AddItemToSlot(m_player.ShieldInvetory);
     }
-    public void UpdateItem()
+    public void UpdateUiInventory()
     {
-        for (int i = 0; i < m_player.ItemInventory.items.Length; i++)
+        for(int i=2;i<slotUIControllers.Length;i++)
         {
-            slotUIControllers[i + 2].AddItemToSlot(m_player.ItemInventory.items[i]);
+            slotUIControllers[i].AddItemToSlot(m_player.ItemInventory.items[i-2]);
         }
-    }
-    void ResetAndUpdateSelected()
-    {
-        foreach (SlotUIController slot in slotUIControllers)
-        {
-            slot.SetUnSelectedSlot();
-        }
-        slotUIControllers[selectedSlotIndex].SetSelectedSlot();
-
-    }
-    void SetCanInputAgain()
-    {
-        inputTrigger = false;
     }
 }

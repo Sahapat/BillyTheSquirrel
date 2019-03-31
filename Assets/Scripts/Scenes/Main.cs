@@ -30,8 +30,6 @@ public class Main : MonoBehaviour
     void Start()
     {
         GameCore.m_uiHandler.CloseInventory();
-        GameCore.m_cameraController.SetCameraNormalState();
-        GameCore.m_CursorController.DisableCursor();
     }
 }
 

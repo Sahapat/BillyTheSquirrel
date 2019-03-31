@@ -18,8 +18,8 @@ public class SlotUIController : MonoBehaviour
     Sprite icon = null;
     string description = string.Empty;
     string headerDescription = string.Empty;
-
     Image selectImage = null;
+
     void Awake()
     {
         selectImage = GetComponent<Image>();
@@ -28,22 +28,23 @@ public class SlotUIController : MonoBehaviour
     {
         if (itemIn == null)
         {
-            itemType =ItemType.NONE;
+            itemType = ItemType.NONE;
             icon = NoneImage;
             description = string.Empty;
             headerDescription = string.Empty;
-            return;
         }
-        itemType = itemIn.itemType;
-        icon = itemIn.Icon;
-        description = itemIn.description;
-        headerDescription = itemIn.headerName;
+        else
+        {
+            itemType = itemIn.itemType;
+            icon = itemIn.Icon;
+            description = itemIn.description;
+            headerDescription = itemIn.headerName;
+        }
         UpdateItemInSlot();
     }
     public void SetSelectedSlot()
     {
         selectImage.sprite = SelectSprite;
-        UpdateItemInSlot();
     }
     public void SetUnSelectedSlot()
     {

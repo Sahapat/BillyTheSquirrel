@@ -52,6 +52,7 @@ public class Player : MonoBehaviour, IAttackable
     void Start()
     {
         CharacterHP.OnHPChanged += CheckHealth;
+        GameCore.m_uiHandler.UpdateEquipmentSlot();
         m_ragdollController.InActiveRagdoll();
     }
     void Update()
@@ -61,20 +62,32 @@ public class Player : MonoBehaviour, IAttackable
     void FixedUpdate()
     {
         if (isDead) return;
+
+        bool InventoryStatus = GameCore.m_uiHandler.GetInventoryStatus();
+
         ItemCollectChecker();
         CheckForUpdateNewLastPosition();
+        
+        if (InventoryStatus)
+        {
+            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(Vector2.zero));
+        }
+        else
+        {
+            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
+        }
+
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
         {
-            GameCore.m_GameContrller.SwitchActiveInventory();
+            if (InventoryStatus)
+            {
+                GameCore.m_uiHandler.CloseInventory();
+            }
+            else
+            {
+                GameCore.m_uiHandler.OpenInventory();
+            }
         }
-
-        if (GameCore.m_uiHandler.GetInventoryStatus())
-        {
-            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(Vector3.zero));
-            return;
-        }
-
-        m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
 
         if (NormalAttackGetter() && CheckNormalAttackSP())
         {
@@ -151,7 +164,7 @@ public class Player : MonoBehaviour, IAttackable
         if (value <= 0)
         {
             isDead = true;
-            m_stateHandler.SetBool("isDead",true);
+            m_stateHandler.SetBool("isDead", true);
             m_ragdollController.ActiveRagdoll(m_rigidbody.velocity);
         }
     }
@@ -212,8 +225,8 @@ public class Player : MonoBehaviour, IAttackable
                             weaponObject.transform.parent = SwordHoldPosition;
                             weaponObject.transform.localPosition = weapon.HoldingPos;
                             weaponObject.transform.localRotation = Quaternion.identity;
+                            GameCore.m_uiHandler.UpdateEquipmentSlot();
                             m_actionHandler.UpdateSword(weapon);
-                            GameCore.m_GameContrller.UpdateEquipmentSlot();
                         }
                         else
                         {
@@ -223,7 +236,7 @@ public class Player : MonoBehaviour, IAttackable
                             shieldObject.transform.parent = ShieldHoldPosition;
                             shieldObject.transform.localPosition = shield.HoldingPos;
                             shieldObject.transform.localRotation = Quaternion.identity;
-                            GameCore.m_GameContrller.UpdateEquipmentSlot();
+                            GameCore.m_uiHandler.UpdateEquipmentSlot();
                         }
                         break;
                     case ItemType.ITEM:
