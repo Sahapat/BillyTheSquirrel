@@ -255,7 +255,6 @@ public class Enemy : MonoBehaviour, IAttackable
             m_stateHandler.SetBool("isDead",true);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
             m_damageMaterial.FadeOut(1f);
-            Destroy(this.gameObject, 5f);
         }
     }
     IEnumerator DoCombo()
@@ -282,6 +281,7 @@ public class Enemy : MonoBehaviour, IAttackable
     public void TakeDamage(int damage, Vector3 forceToAdd)
     {
         CharacterHP.RemoveHP(damage);
+        m_damageMaterial.TakeDamageMaterialActive(CharacterHP.HP,CharacterHP.MaxHP);
         if (canCancelAnimation)
         {
             m_rigidbody.velocity = forceToAdd;

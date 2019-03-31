@@ -4,33 +4,20 @@ using UnityEngine;
 
 public class DamageMaterial : MonoBehaviour
 {
-    //[SerializeField]Color endColor = Color.red;
     [SerializeField] Renderer[] m_renderer = null;
     [SerializeField] GameObject[] specialRenderers = null;
 
-    /* Color[] defaultColor = null;
-    void Start()
+    private Color[] defaultColor = null;
+
+    private WaitForSeconds waitForBackToDefault = null;
+    void Awake()
     {
+        waitForBackToDefault = new WaitForSeconds(0.5f);
         defaultColor = new Color[m_renderer.Length];
         for(int i =0;i<m_renderer.Length;i++)
         {
             defaultColor[i] = m_renderer[i].material.color;
         }
-    }
-    void Update()
-    {
-        foreach(var iterate in m_renderer)
-        {
-            iterate.material.color = endColor;
-        }
-    } */
-    public void FadeOut()
-    {
-        DoFadeOut();
-    }
-    public void FadeOut(float delayTime)
-    {
-        Invoke("DoFadeOut",delayTime);
     }
     void DoFadeOut()
     {
@@ -63,6 +50,39 @@ public class DamageMaterial : MonoBehaviour
         foreach (var i in m_renderer)
         {
             i.material.renderQueue = 1;
+        }
+        Destroy(this.gameObject);
+    }
+    public void TakeDamageMaterialActive(int currentHealth,int maxHealth)
+    {
+        StopAllCoroutines();
+        foreach(var i in m_renderer)
+        {
+            iTween.Stop(i.gameObject);
+        }
+        float getPercentageToMaxHealth = (currentHealth*100)/maxHealth;
+        getPercentageToMaxHealth*=0.01f;
+        Color materialByHealthColor = new Color(1,getPercentageToMaxHealth,getPercentageToMaxHealth,1);
+        foreach(var i in m_renderer)
+        {
+            i.material.color = materialByHealthColor;
+        }
+        StartCoroutine(DoBackToDefault());
+    }
+    public void FadeOut()
+    {
+        DoFadeOut();
+    }
+    public void FadeOut(float delayTime)
+    {
+        Invoke("DoFadeOut",delayTime);
+    }
+    private IEnumerator DoBackToDefault()
+    {
+        yield return waitForBackToDefault;
+        for(int i=0;i<defaultColor.Length;i++)
+        {
+            iTween.ColorTo(m_renderer[i].gameObject,defaultColor[i],0.3f);
         }
     }
 }

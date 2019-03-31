@@ -21,8 +21,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] float ySpeed = 45f;
     [SerializeField] float yMinLimit = -180;
     [SerializeField] float yMaxLimit = 180;
-    [Header("Camera Shake")]
-    [SerializeField] float shakeDelay = 0.1f;
     
     public bool isShake {get;private set;} = false;
 
@@ -36,14 +34,6 @@ public class CameraController : MonoBehaviour
     {
         targetTranform = GameCore.m_GameContrller.GetClientPlayerTarget().transform;
         RotateY = 25f;
-    }
-    void FixedUpdate()
-    {
-        if(isShake)
-        {
-            DoShakeCamera();
-            isShake = (CounterForShakeDuration >= Time.time);
-        }
     }
     void LateUpdate()
     {
@@ -80,15 +70,6 @@ public class CameraController : MonoBehaviour
 
         transform.rotation = rotation;
         transform.position = Vector3.Lerp(transform.position, position, smoothFactor);
-    }
-    void DoShakeCamera()
-    {
-        if(CounterForShakeDelay <= Time.time)
-        {
-            CounterForShakeDelay = Time.time + shakeDelay;
-            Vector2 randShakePos = new Vector2(Random.Range(0.5f,1f),Random.Range(0.5f,1f))*shakeLenght;
-            transform.position = new Vector3(transform.position.x+randShakePos.x,transform.position.y+randShakePos.y,transform.position.z);
-        }
     }
     void TurningInputGetter()
     {
@@ -128,11 +109,6 @@ public class CameraController : MonoBehaviour
     }
     public void ShakeCamera(float time,float shakeLenght)
     {
-        if(!isShake)
-        {
-            isShake = true;
-            this.shakeLenght = shakeLenght;
-            CounterForShakeDuration = Time.time + time;
-        }
+        iTween.ShakePosition(this.gameObject,new Vector3(shakeLenght,shakeLenght,0),time);
     }
 }
