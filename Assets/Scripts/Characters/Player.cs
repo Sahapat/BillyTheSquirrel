@@ -68,15 +68,7 @@ public class Player : MonoBehaviour, IAttackable
         ItemCollectChecker();
         CheckForUpdateNewLastPosition();
         
-        if (InventoryStatus)
-        {
-            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(Vector2.zero));
-        }
-        else
-        {
-            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
-        }
-
+        //Check Input for Open&Close InventoryHub
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
         {
             if (InventoryStatus)
@@ -89,43 +81,52 @@ public class Player : MonoBehaviour, IAttackable
             }
         }
 
-        if (NormalAttackGetter() && CheckNormalAttackSP())
+        //Condition to do action due with the inventoryHub status
+        if (InventoryStatus)
         {
-            if (m_stateHandler.NormalAttack())
+            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(Vector2.zero));
+            if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
-                CharacterStemina.RemoveSP(NormalAttack);
-            }
-        }
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
-        {
-            if (m_stateHandler.Dash())
-            {
-                CharacterStemina.RemoveSP(Dash);
-            }
-        }
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && CheckJumpSP())
-        {
-            m_stateHandler.Jump();
-            CharacterStemina.RemoveSP(Jump);
-        }
-        if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2))
-        {
-            if (GameCore.m_uiHandler.currentItemIndex != -1)
-            {
-                m_stateHandler.UsePotion();
-                SwordHoldPosition.gameObject.SetActive(false);
-                ShieldHoldPosition.gameObject.SetActive(false);
-                var itemIndex = GameCore.m_uiHandler.currentItemIndex - 2;
-                if (itemIndex >= 0)
+                if (GameCore.m_uiHandler.currentItemIndex != -1)
                 {
-                    var itemUse = ItemInventory.itemInEndPoint[itemIndex];
-                    itemUse.transform.parent = PotionPosition;
-                    itemUse.transform.localPosition = Vector3.zero;
-                    itemUse.transform.localRotation = Quaternion.identity;
-                    itemUse.transform.localScale = Vector3.one;
-                    Invoke("UseItem", 1.2f);
-                    Destroy(itemUse, 1.2f);
+                    m_stateHandler.UsePotion();
+                    SwordHoldPosition.gameObject.SetActive(false);
+                    ShieldHoldPosition.gameObject.SetActive(false);
+                    var itemIndex = GameCore.m_uiHandler.currentItemIndex - 2;
+                    if (itemIndex >= 0)
+                    {
+                        var itemUse = ItemInventory.itemInEndPoint[itemIndex];
+                        itemUse.transform.parent = PotionPosition;
+                        itemUse.transform.localPosition = Vector3.zero;
+                        itemUse.transform.localRotation = Quaternion.identity;
+                        itemUse.transform.localScale = Vector3.one;
+                        Invoke("UseItem", 1.2f);
+                        Destroy(itemUse, 1.2f);
+                    }
                 }
+            }
+        }
+        else
+        {
+            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
+            if (NormalAttackGetter() && CheckNormalAttackSP())
+            {
+                if (m_stateHandler.NormalAttack())
+                {
+                    CharacterStemina.RemoveSP(NormalAttack);
+                }
+            }
+            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
+            {
+                if (m_stateHandler.Dash())
+                {
+                    CharacterStemina.RemoveSP(Dash);
+                }
+            }
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && CheckJumpSP())
+            {
+                m_stateHandler.Jump();
+                CharacterStemina.RemoveSP(Jump);
             }
         }
     }

@@ -7,16 +7,22 @@ public class Inventory
     public event _Func OnItemAdded;
     public event _Func OnItemRemove;
 
-    public ICollectable[] items{get;private set;}
+    public Item[] items{get;private set;}
 
     public GameObject[] itemInEndPoint{get;private set;}
     public bool isFull{get;private set;}
+
     int addedIndex = 0;
     int specialAddIndex = -1;
     int maxSlot = 0;
+    ~Inventory()
+    {
+        OnItemAdded = null;
+        OnItemRemove = null;
+    }
     public Inventory(int maxSlot)
     {
-        items = new ICollectable[maxSlot];
+        items = new Item[maxSlot];
         itemInEndPoint = new GameObject[maxSlot];
         this.maxSlot = maxSlot;
     }
@@ -34,13 +40,14 @@ public class Inventory
             indexToAdd = addedIndex;
         }
         
-        items[indexToAdd] = itemAdded.GetComponent<ICollectable>();
+        items[indexToAdd] = itemAdded.GetComponent<Item>();
+        itemInEndPoint[indexToAdd] = itemAdded;
+
         itemAdded.transform.parent = endPoint;
         itemAdded.transform.localPosition = Vector3.zero;
         itemAdded.transform.localRotation = Quaternion.identity;
-        itemInEndPoint[indexToAdd] = itemAdded;
         
-        addedIndex = (addedIndex+1 > maxSlot)?-1:addedIndex+1;
+        addedIndex = (addedIndex+1 >= maxSlot)?-1:addedIndex+1;
 
         if(addedIndex == -1 && specialAddIndex == -1)
         {
