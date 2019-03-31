@@ -21,15 +21,12 @@ public class CameraController : MonoBehaviour
     [SerializeField] float ySpeed = 45f;
     [SerializeField] float yMinLimit = -180;
     [SerializeField] float yMaxLimit = 180;
-    
-    public bool isShake {get;private set;} = false;
+
+    public bool isShake { get; private set; } = false;
 
     CameraState m_cameraState = CameraState.NORMAL;
     private float RotateX;
     private float RotateY;
-    private float CounterForShakeDelay = 0f;
-    private float CounterForShakeDuration = 0f;
-    private float shakeLenght = 0f;
     void Start()
     {
         targetTranform = GameCore.m_GameContrller.GetClientPlayerTarget().transform;
@@ -38,18 +35,14 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         if (targetTranform == null) return;
-
-        if (CounterForShakeDelay >= Time.time || !isShake)
+        switch (m_cameraState)
         {
-            switch (m_cameraState)
-            {
-                case CameraState.NORMAL:
-                    ThirdPersonCamera();
-                    break;
-                case CameraState.INVENTORY:
-                    InventoryCamera();
-                    break;
-            }
+            case CameraState.NORMAL:
+                ThirdPersonCamera();
+                break;
+            case CameraState.INVENTORY:
+                InventoryCamera();
+                break;
         }
     }
     void InventoryCamera()
@@ -85,7 +78,7 @@ public class CameraController : MonoBehaviour
         }
         RotateX = ClampAngle(RotateX);
         RotateY = ClampAngle(RotateY);
-        RotateY = Mathf.Clamp(RotateY,yMinLimit,yMaxLimit);
+        RotateY = Mathf.Clamp(RotateY, yMinLimit, yMaxLimit);
     }
     float ClampAngle(float angle)
     {
@@ -107,8 +100,8 @@ public class CameraController : MonoBehaviour
     {
         this.targetTranform = targetTranform;
     }
-    public void ShakeCamera(float time,float shakeLenght)
+    public void ShakeCamera(float time, float shakeLenght)
     {
-        iTween.ShakePosition(this.gameObject,new Vector3(shakeLenght,shakeLenght,0),time);
+        iTween.ShakePosition(this.gameObject, new Vector3(shakeLenght, shakeLenght, 0), time);
     }
 }
