@@ -30,15 +30,8 @@ public class Main : MonoBehaviour
     void Start()
     {
         GameCore.m_uiHandler.CloseInventory();
-        GameCore.m_cameraController.SetCameraState(CameraController.CameraState.NORMAL);
-        GameCore.m_CursorController.SetCursorInGameMode();
-    }
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F2))
-        {
-            FindObjectOfType<FadeController>().LoadSceneAndFade(2);
-        }
+        GameCore.m_cameraController.SetCameraNormalState();
+        GameCore.m_CursorController.DisableCursor();
     }
 }
 
