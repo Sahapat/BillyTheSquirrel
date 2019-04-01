@@ -11,20 +11,21 @@ public class MovingPlatform : MonoBehaviour, IActivable
         RANDOM
     };
 
-    [SerializeField] Transform[] pointsTomove = null;
-    [SerializeField] float speed = 5f;
+    [SerializeField] Transform[] anchorToMove = null;
+    [SerializeField] float[] achorSpeed = null;
     [SerializeField] JorneyType jorneyType = MovingPlatform.JorneyType.NORMAL;
 
 
     private int currentIndex = 0;
     private int increaser = 1;
     private bool isActive = false;
+
     void FixedUpdate()
     {
         if (isActive)
         {
-            transform.position = Vector3.MoveTowards(transform.position, pointsTomove[currentIndex].position, Time.deltaTime * speed);
-            if (transform.position == pointsTomove[currentIndex].position)
+            transform.position = Vector3.MoveTowards(transform.position, anchorToMove[currentIndex].position, Time.deltaTime * achorSpeed[currentIndex]);
+            if (transform.position == anchorToMove[currentIndex].position)
             {
                 ChangePoint();
             }
@@ -46,13 +47,13 @@ public class MovingPlatform : MonoBehaviour, IActivable
             case MovingPlatform.JorneyType.NORMAL:
                 increaser = 1;
                 currentIndex += increaser;
-                if (currentIndex >= pointsTomove.Length)
+                if (currentIndex >= anchorToMove.Length)
                 {
                     currentIndex = 0;
                 }
                 break;
             case MovingPlatform.JorneyType.BACK:
-                if(currentIndex + increaser >= pointsTomove.Length)
+                if(currentIndex + increaser >= anchorToMove.Length)
                 {
                     increaser = -1;
                 }
@@ -63,12 +64,8 @@ public class MovingPlatform : MonoBehaviour, IActivable
                 currentIndex += increaser;
                 break;
             case MovingPlatform.JorneyType.RANDOM:
-                currentIndex = Random.Range(0,pointsTomove.Length);
+                currentIndex = Random.Range(0,anchorToMove.Length);
             break;
         }
-    }
-    public float GetPlatformSpeed()
-    {
-        return speed;
     }
 }

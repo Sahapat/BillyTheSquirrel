@@ -52,7 +52,6 @@ public class Player : MonoBehaviour, IAttackable
     void Start()
     {
         CharacterHP.OnHPChanged += CheckHealth;
-        GameCore.m_uiHandler.UpdateEquipmentSlot();
         m_ragdollController.InActiveRagdoll();
     }
     void Update()
@@ -67,7 +66,28 @@ public class Player : MonoBehaviour, IAttackable
 
         ItemCollectChecker();
         CheckForUpdateNewLastPosition();
-        
+
+        if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2))
+        {
+            if (GameCore.m_uiHandler.currentItemIndex != -1)
+            {
+                m_stateHandler.UsePotion();
+                SwordHoldPosition.gameObject.SetActive(false);
+                ShieldHoldPosition.gameObject.SetActive(false);
+                var itemIndex = GameCore.m_uiHandler.currentItemIndex - 2;
+                if (itemIndex >= 0)
+                {
+                    var itemUse = ItemInventory.itemInEndPoint[itemIndex];
+                    itemUse.transform.parent = PotionPosition;
+                    itemUse.transform.localPosition = Vector3.zero;
+                    itemUse.transform.localRotation = Quaternion.identity;
+                    itemUse.transform.localScale = Vector3.one;
+                    Invoke("UseItem", 1.2f);
+                    Destroy(itemUse, 1.2f);
+                }
+            }
+        }
+
         //Check Input for Open&Close InventoryHub
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton6))
         {
@@ -85,26 +105,6 @@ public class Player : MonoBehaviour, IAttackable
         if (InventoryStatus)
         {
             m_stateHandler.MovementSetter(SerializeInputByCameraTranform(Vector2.zero));
-            if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2))
-            {
-                if (GameCore.m_uiHandler.currentItemIndex != -1)
-                {
-                    m_stateHandler.UsePotion();
-                    SwordHoldPosition.gameObject.SetActive(false);
-                    ShieldHoldPosition.gameObject.SetActive(false);
-                    var itemIndex = GameCore.m_uiHandler.currentItemIndex - 2;
-                    if (itemIndex >= 0)
-                    {
-                        var itemUse = ItemInventory.itemInEndPoint[itemIndex];
-                        itemUse.transform.parent = PotionPosition;
-                        itemUse.transform.localPosition = Vector3.zero;
-                        itemUse.transform.localRotation = Quaternion.identity;
-                        itemUse.transform.localScale = Vector3.one;
-                        Invoke("UseItem", 1.2f);
-                        Destroy(itemUse, 1.2f);
-                    }
-                }
-            }
         }
         else
         {

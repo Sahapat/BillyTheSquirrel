@@ -36,17 +36,20 @@ public class InventoryUIController : MonoBehaviour
     void Update()
     {
         #region Joystick selection part
-        /* if (inventoryStatus && !inputTrigger)
+        if (inventoryStatus)
         {
-            var directionX = Input.GetAxis("Horizontal");
-            var directionY = Input.GetAxis("Vertical");
-            bool isHorizontalDirection = Mathf.Abs(directionX) > Mathf.Abs(directionY);
-            if (isHorizontalDirection && Mathf.Abs(directionX) > 0.5f)
+            if (!inputTrigger)
             {
-                inputTrigger = true;
-                selectedSlotIndex = (directionX > 0) ? selectedSlotIndex + 1 : selectedSlotIndex - 1;
-                selectedSlotIndex = Mathf.Clamp(selectedSlotIndex, 0, slotUIControllers.Length - 1);
-                Invoke("SetCanInputAgain", 0.15f);
+                var directionX = Input.GetAxis("Horizontal");
+                var directionY = Input.GetAxis("Vertical");
+                bool isHorizontalDirection = Mathf.Abs(directionX) > Mathf.Abs(directionY);
+                if (isHorizontalDirection && Mathf.Abs(directionX) > 0.5f)
+                {
+                    inputTrigger = true;
+                    selectedSlotIndex = (directionX > 0) ? selectedSlotIndex + 1 : selectedSlotIndex - 1;
+                    selectedSlotIndex = Mathf.Clamp(selectedSlotIndex, 0, slotUIControllers.Length - 1);
+                    Invoke("SetCanInputAgain", 0.15f);
+                }
             }
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
@@ -58,7 +61,7 @@ public class InventoryUIController : MonoBehaviour
                     {
                         if (m_player.ItemInventory.items[selectedSlotIndex - 2] == null)
                         {
-                            GameCore.m_uiHandler.SetCurrentItem(selectedSlotIndex,null);
+                            GameCore.m_uiHandler.SetCurrentItem(selectedSlotIndex, null);
                         }
                         else
                         {
@@ -71,8 +74,12 @@ public class InventoryUIController : MonoBehaviour
                     targetDescriptionObject.SetActive(false);
                 }
             }
-        } */
+        }
         #endregion
+    }
+    void SetCanInputAgain()
+    {
+        inputTrigger = false;
     }
     public void CloseInventory()
     {
@@ -122,9 +129,9 @@ public class InventoryUIController : MonoBehaviour
     }
     public void UpdateUiInventory()
     {
-        for(int i=2;i<slotUIControllers.Length;i++)
+        for (int i = 2; i < slotUIControllers.Length; i++)
         {
-            slotUIControllers[i].AddItemToSlot(m_player.ItemInventory.items[i-2]);
+            slotUIControllers[i].AddItemToSlot(m_player.ItemInventory.items[i - 2]);
         }
     }
 }
