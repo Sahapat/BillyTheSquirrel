@@ -20,6 +20,7 @@ public class UIHandler : MonoBehaviour
     [Header("Object UI")]
     [SerializeField] GameObject statusHUB = null;
     [SerializeField] GameObject GameOverHUB = null;
+    [SerializeField] GameObject MarketHUB = null;
 
     public int currentItemIndex {get;private set;} = -1;
 
@@ -37,6 +38,14 @@ public class UIHandler : MonoBehaviour
         OnResetHP();
         OnResetSP();
         UpdateEquipmentSlot();
+    }
+    public void CloseMarket()
+    {
+        MarketHUB.SetActive(false);
+    }
+    public void OpenMarket()
+    {
+        MarketHUB.SetActive(true);
     }
     public void ShowGameOver()
     {

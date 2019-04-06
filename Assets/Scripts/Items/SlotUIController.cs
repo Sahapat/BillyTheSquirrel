@@ -13,7 +13,7 @@ public class SlotUIController : MonoBehaviour
     [SerializeField] Sprite NoneImage = null;
     [SerializeField] TextMeshProUGUI targetDescriptionTxt = null;
     [SerializeField] TextMeshProUGUI targetHeaderDescription = null;
-
+    [SerializeField] GameObject descriptionObject = null;
     ItemType itemType = ItemType.NONE;
     Sprite icon = null;
     string description = string.Empty;
@@ -45,6 +45,7 @@ public class SlotUIController : MonoBehaviour
     public void SetSelectedSlot()
     {
         selectImage.sprite = SelectSprite;
+        UpdateDescription();
     }
     public void SetUnSelectedSlot()
     {
@@ -56,5 +57,18 @@ public class SlotUIController : MonoBehaviour
         targetIconImage.sprite = showIcon;
         targetDescriptionTxt.text = description;
         targetHeaderDescription.text = headerDescription;
+    }
+    void UpdateDescription()
+    {
+        if (description == string.Empty && headerDescription == string.Empty)
+        {
+            descriptionObject.SetActive(false);
+        }
+        else
+        {
+            targetHeaderDescription.text = headerDescription;
+            targetDescriptionTxt.text = description;
+            descriptionObject.SetActive(true);
+        }
     }
 }

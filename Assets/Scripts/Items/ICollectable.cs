@@ -7,11 +7,6 @@ public enum ItemType
     ITEM,
     NONE
 };
-public enum ItemUsedType
-{
-    STATUS_MODIFILER,
-    NONE
-};
 public interface ICollectable
 {
     ItemType itemType{get;}

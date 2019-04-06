@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6974961222514169921}
   - component: {fileID: 3686908953115972658}
   - component: {fileID: 802088933441064156}
-  - component: {fileID: 5845118823792560194}
+  - component: {fileID: 5008449793942359430}
   m_Layer: 10
   m_Name: PotionHP
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6974961222514169920}
-  m_LocalRotation: {x: -0, y: -0, z: -0.000000029802322, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.287, y: 2.435824, z: -63.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -111,7 +111,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5845118823792560194
+--- !u!114 &5008449793942359430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,15 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6974961222514169920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12846249a216cc04b85d78a34e9a11d6, type: 3}
+  m_Script: {fileID: 11500000, guid: ef7451e289d983a40a572830ed4832c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _itemType: 1
-  _itemUsedType: 0
   _Icon: {fileID: 21300000, guid: 05c64bd4bbd179b4682da4968402364d, type: 3}
-  _headerName: Potion HP
-  _description: sdlkalskdlsakdlaskdlaskda
-  HpHeal: 100
-  HPMax: 0
-  SPHeal: 0
-  SpMax: 0
+  _headerName: Health Potion
+  _description: This potion will heal your health 50
+  HP_Heal: 50

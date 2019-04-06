@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Potion : Item,IPopable
 {
-    [SerializeField]int HpHeal = 0;
-    [SerializeField]int HPMax = 0;
-    [SerializeField]int SPHeal = 0;
-    [SerializeField]int SpMax = 0;
     Rigidbody m_rigidBody = null;
     BoxCollider m_boxcolider = null;
     bool isPopOut = false;
@@ -30,18 +26,10 @@ public class Potion : Item,IPopable
             }
         }
     }
-    public void PopOut(float xForce, float zForce, float forceToAdd)
+    public virtual void PopOut(float xForce, float zForce, float forceToAdd)
     {
         m_rigidBody.isKinematic = false;
         isPopOut = true;
         m_rigidBody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse);
-    }
-
-    public override void Use(Player player)
-    {
-        player.CharacterHP.AddHP(HpHeal);
-        player.CharacterHP.SetMaxHP(player.CharacterHP.HP+HPMax);
-        player.CharacterStemina.AddSP(SPHeal);
-        player.CharacterStemina.SetMaxSP(player.CharacterStemina.SP+SpMax);
     }
 }

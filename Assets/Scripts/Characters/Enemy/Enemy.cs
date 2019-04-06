@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         CharacterHP = new Health(m_characterMaxHP);
 
-        waitComboAttack1 = new WaitForSeconds(1.3f);
+        waitComboAttack1 = new WaitForSeconds(0.9f);
         waitComboAttack2 = new WaitForSeconds(0.65f);
         waitComboAttack3 = new WaitForSeconds(0.85f);
 
@@ -179,21 +179,31 @@ public class Enemy : MonoBehaviour, IAttackable
         if (attackSightCheck.targetInSight)
         {
             attackElapsed += Time.deltaTime;
-            if (attackElapsed > 1f)
+            if (attackElapsed > 0.5f)
             {
                 if (counterForAttack <= Time.time && Random.value <= chanceForCombo)
                 {
-                    counterForAttack = Time.time + 4f + attackWaitDuration;
+                    counterForAttack = Time.time + attackWaitDuration-0.5f;
                     canCancelAnimation = false;
                     attackElapsed = 0;
-                    StartCoroutine(DoCombo());
+                    m_stateHandler.HeavyAttack();
                 }
                 else if (counterForAttack <= Time.time && Random.value <= chanceForNormalAttack)
                 {
-                    counterForAttack = Time.time + attackWaitDuration;
-                    canCancelAnimation = true;
-                    m_stateHandler.NormalAttack();
-                    attackElapsed = 0;
+                    if (Random.value < 0.5f)
+                    {
+                        counterForAttack = Time.time+3.5f + attackWaitDuration;
+                        canCancelAnimation = false;
+                        attackElapsed = 0;
+                        StartCoroutine(DoCombo());
+                    }
+                    else
+                    {
+                        counterForAttack = Time.time + attackWaitDuration;
+                        canCancelAnimation = true;
+                        m_stateHandler.NormalAttack();
+                        attackElapsed = 0;
+                    }
                 }
             }
 
@@ -252,7 +262,7 @@ public class Enemy : MonoBehaviour, IAttackable
         if (value <= 0)
         {
             isDead = true;
-            m_stateHandler.SetBool("isDead",true);
+            m_stateHandler.SetBool("isDead", true);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
             m_damageMaterial.FadeOut(1f);
         }
@@ -281,7 +291,7 @@ public class Enemy : MonoBehaviour, IAttackable
     public void TakeDamage(int damage, Vector3 forceToAdd)
     {
         CharacterHP.RemoveHP(damage);
-        m_damageMaterial.TakeDamageMaterialActive(CharacterHP.HP,CharacterHP.MaxHP);
+        m_damageMaterial.TakeDamageMaterialActive(CharacterHP.HP, CharacterHP.MaxHP);
         if (canCancelAnimation)
         {
             m_rigidbody.velocity = forceToAdd;
