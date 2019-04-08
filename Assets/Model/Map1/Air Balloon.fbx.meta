@@ -34,6 +34,7 @@ ModelImporter:
     2100000: lambert1
     2100002: Default_Material
     2100004: Gold
+    2100006: lambert2
     2300000: pCube256
     2300002: pCylinder118
     2300004: pCylinder119
@@ -80,7 +81,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gold
-    second: {fileID: 2100000, guid: 4a603de9d25ab1045ae3d9aff217d579, type: 3}
+    second: {fileID: 2100000, guid: eef70ea25e6eb5742bd24e6cbcb829a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: eba84fbab8769b04883f0726c7cc6ae3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

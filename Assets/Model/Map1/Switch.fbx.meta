@@ -6,17 +6,33 @@ ModelImporter:
     100000: pCylinder31
     100002: pCylinder32
     100004: //RootNode
+    100006: pCylinder33
     400000: pCylinder31
     400002: pCylinder32
     400004: //RootNode
+    400006: pCylinder33
     2100000: lambert1
+    2100002: lambert2
     2300000: pCylinder31
     2300002: pCylinder32
+    2300004: pCylinder33
     3300000: pCylinder31
     3300002: pCylinder32
+    3300004: pCylinder33
     4300000: pCylinder32
     4300002: pCylinder31
-  externalObjects: {}
+    4300004: pCylinder33
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: d5b6681f60839cb4b84c86b4e3e436a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 876e87f0d186ad941a5021dd6fe20926, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

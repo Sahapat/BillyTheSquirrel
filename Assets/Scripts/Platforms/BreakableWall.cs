@@ -13,16 +13,22 @@ public class BreakableWall : MonoBehaviour, IAttackable
     private DamageMaterial m_damageMaterial = null;
     private BoxCollider m_boxcolider = null;
     private Rigidbody[] destructRigid = null;
+    private MeshCollider[] destructColider = null;
+
+
     void Awake()
     {
         CharacterHP = new Health(maxHealth);
         destructRigid = new Rigidbody[destructObject.Length];
+        destructColider = new MeshCollider[destructObject.Length];
         m_boxcolider = GetComponent<BoxCollider>();
         m_damageMaterial = GetComponent<DamageMaterial>();
 
         for(int i=0;i<destructObject.Length;i++)
         {
             destructRigid[i] = destructObject[i].GetComponent<Rigidbody>();
+            destructColider[i] = destructObject[i].GetComponent<MeshCollider>();
+            destructColider[i].enabled = false;
             destructRigid[i].useGravity = false;
             destructRigid[i].isKinematic = true;
         }
@@ -37,6 +43,10 @@ public class BreakableWall : MonoBehaviour, IAttackable
             {
                 i.useGravity = true;
                 i.isKinematic = false;
+            }
+            foreach(var i in destructColider)
+            {
+                i.enabled = true;
             }
             m_boxcolider.enabled = false;
             m_damageMaterial.FadeOut(destructTime);
@@ -53,6 +63,10 @@ public class BreakableWall : MonoBehaviour, IAttackable
             {
                 i.useGravity = true;
                 i.isKinematic = false;
+            }
+            foreach(var i in destructColider)
+            {
+                i.enabled = true;
             }
             m_boxcolider.enabled = false;
             m_damageMaterial.FadeOut(destructTime);
