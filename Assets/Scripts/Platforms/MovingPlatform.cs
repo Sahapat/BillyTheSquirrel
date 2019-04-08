@@ -53,19 +53,19 @@ public class MovingPlatform : MonoBehaviour, IActivable
                 }
                 break;
             case MovingPlatform.JorneyType.BACK:
-                if(currentIndex + increaser >= anchorToMove.Length)
+                if (currentIndex + increaser >= anchorToMove.Length)
                 {
                     increaser = -1;
                 }
-                else if(currentIndex + increaser < 0)
+                else if (currentIndex + increaser < 0)
                 {
                     increaser = 1;
                 }
                 currentIndex += increaser;
                 break;
             case MovingPlatform.JorneyType.RANDOM:
-                currentIndex = Random.Range(0,anchorToMove.Length);
-            break;
+                currentIndex = Random.Range(0, anchorToMove.Length);
+                break;
         }
     }
 }
