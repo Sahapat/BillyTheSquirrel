@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Player ClientPlayerTarget = null;
     [SerializeField] Transform temporaryTranform = null;
     [SerializeField] float ClampPlayerByYPosition = 0f;
-    
+    public bool Controlable{get;set;} = true;
     void FixedUpdate()
     {
         //Check death

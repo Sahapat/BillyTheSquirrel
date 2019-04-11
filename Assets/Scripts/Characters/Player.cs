@@ -60,8 +60,7 @@ public class Player : MonoBehaviour, IAttackable
     }
     void FixedUpdate()
     {
-        if (isDead) return;
-
+        if (isDead || !GameCore.m_GameContrller.Controlable) return;
         bool InventoryStatus = GameCore.m_uiHandler.GetInventoryStatus();
 
         ItemCollectChecker();

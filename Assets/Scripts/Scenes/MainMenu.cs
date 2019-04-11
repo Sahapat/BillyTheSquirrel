@@ -40,4 +40,8 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void LoadGameScene(string Levelpreset)
+    {
+        FindObjectOfType<FadeController>().LoadSceneAndFade(LevelLoadHelper.GetRandomLevel(Levelpreset));
+    }
 }

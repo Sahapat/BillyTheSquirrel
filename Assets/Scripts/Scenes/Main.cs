@@ -31,5 +31,16 @@ public class Main : MonoBehaviour
     {
         GameCore.m_uiHandler.CloseInventory();
     }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F2))
+        {
+            LoadGameScene("Level1");
+        }
+    }
+    public void LoadGameScene(string LevelPreset)
+    {
+        FindObjectOfType<FadeController>().LoadSceneAndFade(LevelLoadHelper.GetRandomLevel(LevelPreset));
+    }
 }
 

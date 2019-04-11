@@ -4,12 +4,38 @@ using UnityEngine;
 
 public class Market : MonoBehaviour
 {
-    [SerializeField]GameObject[] itemsInMarket = null;
+    [SerializeField] GameObject marketUI = null;
 
-    public Inventory marketInventory {get;private set;}
+    private BoxCollider m_boxcolider = null;
 
     void Awake()
     {
-        marketInventory = new Inventory(12);
+        m_boxcolider = GetComponent<BoxCollider>();
+    }
+    void Update()
+    {
+        var hitInfo = PhysicsExtensions.OverlapBox(m_boxcolider, LayerMask.GetMask("Character"));
+
+        if (hitInfo.Length > 0)
+        {
+            OnPlayerEnter(hitInfo[0]);
+        }
+    }
+    void OnPlayerEnter(Collider enter)
+    {
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3)) && !marketUI.activeSelf)
+        {
+            marketUI.SetActive(true);
+            GameCore.m_CursorController.EnableCursor();
+            GameCore.m_cameraController.SetCameraUI_ManageState();
+            GameCore.m_GameContrller.Controlable = false;
+        }
+        else if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton1)) && marketUI.activeSelf)
+        {
+            marketUI.SetActive(false);
+            GameCore.m_CursorController.DisableCursor();
+            GameCore.m_cameraController.SetCameraNormalState();
+            GameCore.m_GameContrller.Controlable = true;
+        }
     }
 }
