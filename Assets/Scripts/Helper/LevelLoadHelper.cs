@@ -10,7 +10,7 @@ public class LevelLoadHelper : MonoBehaviour
         switch(levelPreset)
         {
             case "Level1":
-                levelToRandom = Random.Range(1,4);
+                levelToRandom = Random.Range(1,1);
             break;
         }
         return levelToRandom;

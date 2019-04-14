@@ -5486,10 +5486,10 @@ GameObject:
   - component: {fileID: 8102446970287151298}
   - component: {fileID: 8102446970287151299}
   - component: {fileID: 8102446970287151357}
-  - component: {fileID: 7446903264158856023}
-  - component: {fileID: 8102446970287151355}
-  - component: {fileID: 8102446970287151353}
   - component: {fileID: 8102446970287151359}
+  - component: {fileID: 8102446970287151353}
+  - component: {fileID: 8102446970287151355}
+  - component: {fileID: 7446903264158856023}
   m_Layer: 0
   m_Name: SquirrelCH
   m_TagString: Untagged
@@ -5608,7 +5608,7 @@ MonoBehaviour:
   DashDrag: 10
   normalDrag: 5.2
   fallDrag: 0
---- !u!114 &7446903264158856023
+--- !u!114 &8102446970287151359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5617,15 +5617,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 8102446970287151348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d90f9c24c57b14e85b7feca31969b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a77f1de60522c34c8d83362e0582bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollsRigidbody: []
-  childForSwitchState: []
-  ActiveParent: {fileID: 0}
-  InActiveParent: {fileID: 0}
-  ActiveLayer: 9
-  InActiveLayer: 12
+  m_characterMaxHP: 100
+  NormalAttack: 20
+  HeavyAttack: 40
+  Jump: 20
+  Dash: 20
+  SwordHoldPosition: {fileID: 1325724550133469607}
+  swordInHand: {fileID: 3431909267602021262}
+  ShieldHoldPosition: {fileID: 2401504561082018450}
+  shieldInHand: {fileID: 3387175337758768430}
+  PotionPosition: {fileID: 7341357091196366088}
+--- !u!114 &8102446970287151353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102446970287151348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404dc00d48ebc4040917840f49091079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SP: 100
+  _MaxSP: 100
+  regenerateFrequency: 0.8
+  regeneratePerFrequen: 10
 --- !u!114 &8102446970287151355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5655,7 +5675,7 @@ MonoBehaviour:
     forceToAdd: 232
   - delayForAddForce: 0
     forceToAdd: 0
---- !u!114 &8102446970287151353
+--- !u!114 &7446903264158856023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5664,35 +5684,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8102446970287151348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404dc00d48ebc4040917840f49091079, type: 3}
+  m_Script: {fileID: 11500000, guid: 91d90f9c24c57b14e85b7feca31969b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SP: 100
-  _MaxSP: 100
-  regenerateFrequency: 0.8
-  regeneratePerFrequen: 10
---- !u!114 &8102446970287151359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102446970287151348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a77f1de60522c34c8d83362e0582bb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_characterMaxHP: 100
-  NormalAttack: 20
-  HeavyAttack: 40
-  Jump: 20
-  Dash: 20
-  SwordHoldPosition: {fileID: 1325724550133469607}
-  swordInHand: {fileID: 3431909267602021262}
-  ShieldHoldPosition: {fileID: 2401504561082018450}
-  shieldInHand: {fileID: 3387175337758768430}
-  PotionPosition: {fileID: 7341357091196366088}
+  ragdollsRigidbody:
+  - {fileID: 5375766742124239056}
+  - {fileID: 227332358288382967}
+  - {fileID: 438886383792150256}
+  - {fileID: 4290293838000825404}
+  - {fileID: 8134864147486702112}
+  - {fileID: 396934247840272796}
+  - {fileID: 3315206010201203972}
+  - {fileID: 4306009994023641138}
+  - {fileID: 9178430852916126059}
+  - {fileID: 4826899880791645749}
+  - {fileID: 9059264084814130205}
+  childForSwitchState: []
+  ActiveParent: {fileID: 0}
+  InActiveParent: {fileID: 0}
+  ActiveLayer: 9
+  InActiveLayer: 12
 --- !u!1 &8413854404341128551
 GameObject:
   m_ObjectHideFlags: 0
