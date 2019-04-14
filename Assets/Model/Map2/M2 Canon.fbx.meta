@@ -24,6 +24,7 @@ ModelImporter:
     400016: pCylinder137
     400018: pCylinder138
     2100000: lambert1
+    2100002: lambert2
     2300000: pCube285
     2300002: pCube286
     2300004: pCube287
@@ -56,6 +57,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
+    second: {fileID: 2100000, guid: f3c042d309582e248a232368f72297fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
     second: {fileID: 2100000, guid: f3c042d309582e248a232368f72297fc, type: 2}
   materials:
     importMaterials: 1

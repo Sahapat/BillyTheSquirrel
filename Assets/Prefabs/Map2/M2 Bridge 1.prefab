@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &102096100985787693
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916088129070692405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1 &6916088129194185976
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +25,8 @@ GameObject:
   - component: {fileID: 6916088129194412248}
   - component: {fileID: 6916088129193085178}
   - component: {fileID: 6916088129191987770}
-  m_Layer: 0
+  - component: {fileID: 1246684689745232327}
+  m_Layer: 11
   m_Name: skeletonbridge_Side1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,6 +92,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1246684689745232327
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916088129194185976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: a67b3a691db1c8646991cdd1ebaea421, type: 3}
 --- !u!1 &6916088129194185978
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +117,8 @@ GameObject:
   - component: {fileID: 6916088129194412250}
   - component: {fileID: 6916088129193085180}
   - component: {fileID: 6916088129191987772}
-  m_Layer: 0
+  - component: {fileID: 1823826630957921573}
+  m_Layer: 11
   m_Name: skeletonbridge_Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +184,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1823826630957921573
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916088129194185978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: a67b3a691db1c8646991cdd1ebaea421, type: 3}
 --- !u!1 &6916088129194185980
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +209,8 @@ GameObject:
   - component: {fileID: 6916088129194412252}
   - component: {fileID: 6916088129193085182}
   - component: {fileID: 6916088129191987774}
-  m_Layer: 0
+  - component: {fileID: 5943991417164968241}
+  m_Layer: 11
   m_Name: skeletonbridge_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,6 +276,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5943991417164968241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916088129194185980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.491994, y: 3.6588762, z: 4.571276}
+  m_Center: {x: 0.98469955, y: 0, z: 0.00000053644175}
 --- !u!1 &6916088129194185982
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6916088129194412254}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: M2 Bridge 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,6 +324,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 99.408005, z: 0}
+--- !u!64 &4884017899546579700
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6916088130341461193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1001 &6916088129070595733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,8 +350,16 @@ PrefabInstance:
       value: M2 Bigfang (6)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -371,6 +451,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
+--- !u!1 &6916088129070692405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 38f593a6f510d23418135e00a7162ac8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6916088129070595733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6916088129070457877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 38f593a6f510d23418135e00a7162ac8,
@@ -389,8 +475,16 @@ PrefabInstance:
       value: M2 Bigfang (5)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -482,6 +576,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38f593a6f510d23418135e00a7162ac8, type: 3}
+--- !u!1 &6916088130341461193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 38f593a6f510d23418135e00a7162ac8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6916088130341558889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6916088130341421289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 38f593a6f510d23418135e00a7162ac8,
