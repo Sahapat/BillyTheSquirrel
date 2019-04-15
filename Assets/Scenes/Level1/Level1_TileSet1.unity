@@ -9622,7 +9622,15 @@ PrefabInstance:
     - target: {fileID: 5553855366597001921, guid: 7aab7f6353159f94b95450d6840278a9,
         type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'Character:BottomMouth_Jnt1'\n\tTransform 'Character:L_Knee_Jnt'\n\tTransform
+        'Character:R_Thumb1_Jnt1'\n\tTransform 'Character:R_Middle1_Jnt1'\n\tTransform
+        'Character:Center_Jnt'\n\tTransform 'Character:R_Little1_Jnt1'\n\tTransform
+        'Character:L_Elbow_Jnt'\n\tTransform 'Character:R_Middle1_Jnt2'\n\tTransform
+        'Character:L_Hip_Jnt'\n\tTransform 'Character:L_Index1_Jnt1'\n\tand more ...\n\tFrom
+        animation clip 'Fox_EyeIdle'\n\tFrom animation clip 'Fox_EyeClose'\n\tFrom
+        animation clip 'Fox_EyeClose'"
       objectReference: {fileID: 0}
     - target: {fileID: 5989606864473314398, guid: 7aab7f6353159f94b95450d6840278a9,
         type: 3}
