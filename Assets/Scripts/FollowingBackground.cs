@@ -9,7 +9,7 @@ public class FollowingBackground : MonoBehaviour
     Vector3 offsetToTarget = Vector3.zero;
     void Start()
     {
-        targetTranform = GameCore.m_GameContrller.GetClientPlayerTarget().transform;
+        targetTranform = GameCore.m_GameContrller.ClientPlayerTarget.transform;
         offsetToTarget = transform.position - targetTranform.position;
     }
     void LateUpdate()

@@ -33,7 +33,7 @@ public class Acorn : MonoBehaviour,IPopable
             var hitInfo = PhysicsExtensions.OverlapBox(m_Boxcolider, LayerMask.GetMask("Character"));
             if (hitInfo.Length > 0)
             {
-                GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.AddCoin(coinValue);
+                GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin.AddCoin(coinValue);
                 Destroy(this.gameObject);
             }
         }

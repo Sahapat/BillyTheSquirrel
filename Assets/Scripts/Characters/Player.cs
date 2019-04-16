@@ -242,7 +242,7 @@ public class Player : MonoBehaviour, IAttackable
                     case ItemType.ITEM:
                         if (!ItemInventory.isFull)
                         {
-                            ItemInventory.AddItem(hitInfo[0].gameObject, GameCore.m_GameContrller.GetTemporaryTranform());
+                            ItemInventory.AddItem(hitInfo[0].gameObject, GameCore.m_GameContrller.TemporaryTranform);
                         }
                         break;
                 }

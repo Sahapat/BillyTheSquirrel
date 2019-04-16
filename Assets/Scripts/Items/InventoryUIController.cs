@@ -28,7 +28,7 @@ public class InventoryUIController : MonoBehaviour
     }
     void Start()
     {
-        m_player = GameCore.m_GameContrller.GetClientPlayerTarget();
+        m_player = GameCore.m_GameContrller.ClientPlayerTarget;
         m_player.ItemInventory.OnItemAdded += UpdateUiInventory;
         m_player.ItemInventory.OnItemRemove += UpdateUiInventory;
     }

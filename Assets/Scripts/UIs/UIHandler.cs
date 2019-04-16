@@ -27,7 +27,7 @@ public class UIHandler : MonoBehaviour
     private Player m_player = null;
     void Start()
     {
-        m_player = GameCore.m_GameContrller.GetClientPlayerTarget();
+        m_player = GameCore.m_GameContrller.ClientPlayerTarget;
         m_player.CharacterHP.OnHPChanged += UpdateHPBar;
         m_player.CharacterHP.OnResetHP += OnResetHP;
         m_player.CharacterStemina.OnSteminaReset += OnResetSP;

@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour, IAttackable
     private RagdollController m_ragdoll = null;
 
     //General Var
+    private Renderer m_Renderer = null;
     private Transform targetPlayer = null;
     private Vector3 previousTargetPosition = Vector3.zero;
     private Vector3 startPosition = Vector3.zero;
@@ -70,10 +71,11 @@ public class Enemy : MonoBehaviour, IAttackable
         m_navMeshAgent = GetComponent<CustomNavMeshAgent>();
         m_ragdoll = GetComponent<RagdollController>();
         m_damageMaterial = GetComponent<DamageMaterial>();
+        m_Renderer = GetComponentInChildren<Renderer>();
     }
     void Start()
     {
-        if (!targetPlayer) { targetPlayer = GameCore.m_GameContrller.GetClientPlayerTarget().transform; }
+        if (!targetPlayer) { targetPlayer = GameCore.m_GameContrller.ClientPlayerTarget.transform; }
         CharacterHP.OnHPChanged += CheckHealth;
         startPosition = transform.position;
         startRotation = transform.rotation;
@@ -81,10 +83,21 @@ public class Enemy : MonoBehaviour, IAttackable
         m_ragdoll.InActiveRagdoll();
         CheckStateChange();
     }
+    void Update()
+    {
+        if(m_Renderer.isVisible)
+        {
+            GameCore.m_GameContrller.AddEnemyOnFOVCamera(this.gameObject);
+        }
+        else
+        {
+            GameCore.m_GameContrller.RemoveEnemyOnFOVCamera(this.gameObject);
+        }
+    }
     void FixedUpdate()
     {
         if (isDead) { return; }
-        if (GameCore.m_GameContrller.GetClientPlayerTarget().isDead)
+        if (GameCore.m_GameContrller.ClientPlayerTarget.isDead)
         {
             if (counterForAttack <= Time.time)
             {
@@ -263,6 +276,7 @@ public class Enemy : MonoBehaviour, IAttackable
         {
             isDead = true;
             m_stateHandler.SetBool("isDead", true);
+            GameCore.m_GameContrller.RemoveEnemyOnFOVCamera(this.gameObject);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
             m_damageMaterial.FadeOut(1f);
         }

@@ -50,12 +50,12 @@ public class MarketUI : MonoBehaviour
         {
             if(selectedSlotIndex < marketItems.Length)
             {
-                if(GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin._Coin >= marketItems[selectedSlotIndex].coinRequire)
+                if(GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin._Coin >= marketItems[selectedSlotIndex].coinRequire)
                 {
-                    var parentToStore = GameCore.m_GameContrller.GetTemporaryTranform();
+                    var parentToStore = GameCore.m_GameContrller.TemporaryTranform;
                     var temp = Instantiate(marketItems[selectedSlotIndex].reference,Vector3.zero,Quaternion.identity);
-                    GameCore.m_GameContrller.GetClientPlayerTarget().CharacterCoin.RemoveCoin(marketItems[selectedSlotIndex].coinRequire);
-                    GameCore.m_GameContrller.GetClientPlayerTarget().ItemInventory.AddItem(temp,parentToStore);
+                    GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin.RemoveCoin(marketItems[selectedSlotIndex].coinRequire);
+                    GameCore.m_GameContrller.ClientPlayerTarget.ItemInventory.AddItem(temp,parentToStore);
                 }
             }
         }

@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
     private float RotateY;
     void Start()
     {
-        targetTranform = GameCore.m_GameContrller.GetClientPlayerTarget().transform;
+        targetTranform = GameCore.m_GameContrller.ClientPlayerTarget.transform;
         RotateY = 25f;
     }
     void LateUpdate()
@@ -59,7 +59,12 @@ public class CameraController : MonoBehaviour
 
     void Lock_OnCamera()
     {
-        throw new NotImplementedException();
+        Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);
+        Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
+        Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
+
+        transform.rotation = rotation;
+        transform.position = position;
     }
 
     void Ui_ManageCamera()
@@ -77,7 +82,7 @@ public class CameraController : MonoBehaviour
         Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
         Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
 
-        transform.rotation = rotation;
+        transform.rotation = Quaternion.Lerp(transform.rotation,rotation,smoothFactor);
         transform.position = Vector3.Lerp(transform.position, position, smoothFactor);
     }
     void TurningInputGetter()
@@ -85,7 +90,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
         {
             RotateX += Input.GetAxis("Mouse X") * xSpeed * offsetX * Time.fixedDeltaTime;
-            RotateY += Input.GetAxis("Mouse Y") * ySpeed * Time.fixedDeltaTime;
+            RotateY -= Input.GetAxis("Mouse Y") * ySpeed * Time.fixedDeltaTime;
         }
         else
         {
@@ -118,7 +123,7 @@ public class CameraController : MonoBehaviour
     {
         m_cameraState = CameraController.CameraState.UI_MANAGE;
     }
-    public void SetCameraLock_OnState(Transform target)
+    public void SetCameraLock_OnState()
     {
         m_cameraState = CameraController.CameraState.LOCK_ON;
     }
