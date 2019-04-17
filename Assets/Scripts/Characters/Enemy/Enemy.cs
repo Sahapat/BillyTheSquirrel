@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, IAttackable
     [SerializeField] SightCheck enemySightCheck = null;
     [SerializeField] SightCheck attackSightCheck = null;
     [SerializeField] BaseSword swordInHand = null;
+    [SerializeField] SpriteRenderer lockOnSprite = null;
 
     public Health CharacterHP { get; private set; }
     public bool isDead { get; private set; }
@@ -85,13 +86,28 @@ public class Enemy : MonoBehaviour, IAttackable
     }
     void Update()
     {
-        if(m_Renderer.isVisible)
+        if (m_Renderer.isVisible)
         {
             GameCore.m_GameContrller.AddEnemyOnFOVCamera(this.gameObject);
         }
         else
         {
             GameCore.m_GameContrller.RemoveEnemyOnFOVCamera(this.gameObject);
+        }
+        if (GameCore.m_GameContrller.TargetToLockOn)
+        {
+            if (GameCore.m_GameContrller.TargetToLockOn.GetInstanceID() == this.gameObject.GetInstanceID())
+            {
+                lockOnSprite.enabled = true;
+            }
+            else
+            {
+                lockOnSprite.enabled = false;
+            }
+        }
+        else
+        {
+            lockOnSprite.enabled = false;
         }
     }
     void FixedUpdate()
@@ -196,7 +212,7 @@ public class Enemy : MonoBehaviour, IAttackable
             {
                 if (counterForAttack <= Time.time && Random.value <= chanceForCombo)
                 {
-                    counterForAttack = Time.time + attackWaitDuration-0.5f;
+                    counterForAttack = Time.time + attackWaitDuration - 0.5f;
                     canCancelAnimation = false;
                     attackElapsed = 0;
                     m_stateHandler.HeavyAttack();
@@ -205,7 +221,7 @@ public class Enemy : MonoBehaviour, IAttackable
                 {
                     if (Random.value < 0.5f)
                     {
-                        counterForAttack = Time.time+3.5f + attackWaitDuration;
+                        counterForAttack = Time.time + 3.5f + attackWaitDuration;
                         canCancelAnimation = false;
                         attackElapsed = 0;
                         StartCoroutine(DoCombo());
@@ -276,6 +292,10 @@ public class Enemy : MonoBehaviour, IAttackable
         {
             isDead = true;
             m_stateHandler.SetBool("isDead", true);
+            if(GameCore.m_GameContrller.TargetToLockOn.GetInstanceID() == this.gameObject.GetInstanceID())
+            {
+                GameCore.m_GameContrller.ClearTargetLockOn();
+            }
             GameCore.m_GameContrller.RemoveEnemyOnFOVCamera(this.gameObject);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
             m_damageMaterial.FadeOut(1f);

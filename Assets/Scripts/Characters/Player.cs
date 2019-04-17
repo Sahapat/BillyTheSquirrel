@@ -54,10 +54,6 @@ public class Player : MonoBehaviour, IAttackable
         CharacterHP.OnHPChanged += CheckHealth;
         m_ragdollController.InActiveRagdoll();
     }
-    void Update()
-    {
-        MovementInputGetter();
-    }
     void FixedUpdate()
     {
         if (isDead || !GameCore.m_GameContrller.Controlable) return;
@@ -107,9 +103,14 @@ public class Player : MonoBehaviour, IAttackable
         }
         else
         {
+            MovementInputGetter();
             m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
             if (NormalAttackGetter() && CheckNormalAttackSP())
             {
+                if(GameCore.m_GameContrller.TargetToLockOn)
+                {
+                    transform.LookAt(GameCore.m_GameContrller.TargetToLockOn.transform);
+                }
                 if (m_stateHandler.NormalAttack())
                 {
                     CharacterStemina.RemoveSP(NormalAttack);

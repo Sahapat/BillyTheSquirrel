@@ -63,7 +63,7 @@ public class HitSystem : BaseHitSystem
                 }
                 if(shakeLeght != 0)
                 {
-                    GameCore.m_cameraController.ShakeCamera(0.18f,shakeLeght);
+                    GameCore.m_cameraController.ShakeCamera(0.22f,shakeLeght);
                 }
             }
         }

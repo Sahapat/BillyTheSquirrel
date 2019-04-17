@@ -93,7 +93,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-    void GetClosedEnemyInFOVCamera()
+    public void SetClosedEnemyInFOVCamera()
     {
         List<GameObject> temp = new List<GameObject>();
         for (int i = 0; i < enemyOnFOVCamera.Length; i++)
@@ -127,5 +127,18 @@ public class GameController : MonoBehaviour
             }
         }
         TargetToLockOn = (minIndex != -1)?temp[minIndex]:null;
+    }
+    void SetToControlable()
+    {
+        Controlable = true;
+    }
+    public void SetNotControlableByTime(float time)
+    {
+        Controlable = false;
+        Invoke("SetToControlable",time);
+    }
+    public void ClearTargetLockOn()
+    {
+        TargetToLockOn = null;
     }
 }

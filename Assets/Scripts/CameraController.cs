@@ -28,8 +28,8 @@ public class CameraController : MonoBehaviour
     public bool isShake { get; private set; } = false;
 
     CameraState m_cameraState = CameraState.NORMAL;
-    private float RotateX;
-    private float RotateY;
+    [SerializeField] private float RotateX;
+    [SerializeField] private float RotateY;
     void Start()
     {
         targetTranform = GameCore.m_GameContrller.ClientPlayerTarget.transform;
@@ -47,24 +47,69 @@ public class CameraController : MonoBehaviour
         {
             case CameraState.NORMAL:
                 ThirdPersonCamera();
+                if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.JoystickButton9))
+                {
+                    GameCore.m_GameContrller.SetClosedEnemyInFOVCamera();
+                    if (GameCore.m_GameContrller.TargetToLockOn)
+                    {
+                        SetCameraLock_OnState();
+                    }
+                    else
+                    {
+                        GameCore.m_GameContrller.SetNotControlableByTime(0.5f);
+                        RotateX = GameCore.m_GameContrller.ClientPlayerTarget.transform.eulerAngles.y;
+                        RotateY = 25;
+                    }
+                }
                 break;
             case CameraState.UI_MANAGE:
                 Ui_ManageCamera();
                 break;
             case CameraState.LOCK_ON:
                 Lock_OnCamera();
+                if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.JoystickButton9))
+                {
+                    GameCore.m_GameContrller.SetClosedEnemyInFOVCamera();
+                    if (GameCore.m_GameContrller.TargetToLockOn)
+                    {
+                        SetCameraLock_OnState();
+                    }
+                    else
+                    {
+                        RotateX = GameCore.m_GameContrller.ClientPlayerTarget.transform.eulerAngles.y;
+                        RotateY = 25;
+                    }
+                }
                 break;
         }
     }
 
     void Lock_OnCamera()
     {
-        Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);
-        Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
-        Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
+        if (GameCore.m_GameContrller.TargetToLockOn)
+        {
+            var refCenter = new Vector3(GameCore.m_GameContrller.ClientPlayerTarget.transform.position.x, 0, GameCore.m_GameContrller.ClientPlayerTarget.transform.position.z +10) - GameCore.m_GameContrller.ClientPlayerTarget.transform.position;
+            refCenter.y = 0;
 
-        transform.rotation = rotation;
-        transform.position = position;
+            var targetCenter = GameCore.m_GameContrller.TargetToLockOn.transform.position - GameCore.m_GameContrller.ClientPlayerTarget.transform.position;
+            targetCenter.y = 0;
+
+            /* Debug.DrawRay(new Vector3(0, 2, 0), refCenter, Color.red);
+            Debug.DrawRay(new Vector3(0, 2, 0), targetCenter, Color.green);
+ */
+            RotateX = Vector3.SignedAngle(refCenter, targetCenter, Vector3.up);
+
+            Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);
+            Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
+            Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, smoothFactor);
+            transform.position = Vector3.Lerp(transform.position, position, smoothFactor);
+        }
+        else
+        {
+            SetCameraNormalState();
+        }
     }
 
     void Ui_ManageCamera()
@@ -82,7 +127,7 @@ public class CameraController : MonoBehaviour
         Vector3 negDistance = new Vector3(0.0f, 0.0f, -offsetX);
         Vector3 position = rotation * negDistance + (targetTranform.position + (Vector3.up * offsetY));
 
-        transform.rotation = Quaternion.Lerp(transform.rotation,rotation,smoothFactor);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, smoothFactor);
         transform.position = Vector3.Lerp(transform.position, position, smoothFactor);
     }
     void TurningInputGetter()
@@ -129,6 +174,6 @@ public class CameraController : MonoBehaviour
     }
     public void ShakeCamera(float time, float shakeLenght)
     {
-        iTween.ShakePosition(this.gameObject, new Vector3(shakeLenght, shakeLenght, 0), time);
+        iTween.ShakePosition(this.gameObject.gameObject, new Vector3(shakeLenght, shakeLenght, 0), time);
     }
 }
