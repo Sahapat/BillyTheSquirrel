@@ -28,8 +28,11 @@ public class CameraController : MonoBehaviour
     public bool isShake { get; private set; } = false;
 
     CameraState m_cameraState = CameraState.NORMAL;
-    [SerializeField] private float RotateX;
-    [SerializeField] private float RotateY;
+    private float RotateX;
+    private float RotateY;
+
+    private bool triggerInput = false;
+
     void Start()
     {
         targetTranform = GameCore.m_GameContrller.ClientPlayerTarget.transform;
@@ -49,7 +52,7 @@ public class CameraController : MonoBehaviour
                 ThirdPersonCamera();
                 if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.JoystickButton9))
                 {
-                    GameCore.m_GameContrller.SetClosedEnemyInFOVCamera();
+                    GameCore.m_GameContrller.SetClosedEnemyInFOVCamera(false);
                     if (GameCore.m_GameContrller.TargetToLockOn)
                     {
                         SetCameraLock_OnState();
@@ -58,27 +61,32 @@ public class CameraController : MonoBehaviour
                     {
                         GameCore.m_GameContrller.SetNotControlableByTime(0.5f);
                         RotateX = GameCore.m_GameContrller.ClientPlayerTarget.transform.eulerAngles.y;
-                        RotateY = 25;
                     }
+                    RotateY = 25;
                 }
                 break;
             case CameraState.UI_MANAGE:
                 Ui_ManageCamera();
+                GameCore.m_GameContrller.ClearTargetLockOn();
                 break;
             case CameraState.LOCK_ON:
                 Lock_OnCamera();
-                if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.JoystickButton9))
+                if (GameCore.m_GameContrller.TargetToLockOn)
                 {
-                    GameCore.m_GameContrller.SetClosedEnemyInFOVCamera();
-                    if (GameCore.m_GameContrller.TargetToLockOn)
+                    if ((Input.GetAxis("JoystickTrigger") == -1 || Input.GetKeyDown(KeyCode.Tab)) && !triggerInput)
                     {
-                        SetCameraLock_OnState();
+                        GameCore.m_GameContrller.SetClosedEnemyInFOVCamera(true);
+                        triggerInput = true;
+                        Invoke("ResetTriggerInput",0.2f);
                     }
-                    else
+                    else if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.JoystickButton9))
                     {
-                        RotateX = GameCore.m_GameContrller.ClientPlayerTarget.transform.eulerAngles.y;
-                        RotateY = 25;
+                        GameCore.m_GameContrller.ClearTargetLockOn();
                     }
+                }
+                else
+                {
+                    SetCameraNormalState();
                 }
                 break;
         }
@@ -88,7 +96,7 @@ public class CameraController : MonoBehaviour
     {
         if (GameCore.m_GameContrller.TargetToLockOn)
         {
-            var refCenter = new Vector3(GameCore.m_GameContrller.ClientPlayerTarget.transform.position.x, 0, GameCore.m_GameContrller.ClientPlayerTarget.transform.position.z +10) - GameCore.m_GameContrller.ClientPlayerTarget.transform.position;
+            var refCenter = new Vector3(GameCore.m_GameContrller.ClientPlayerTarget.transform.position.x, 0, GameCore.m_GameContrller.ClientPlayerTarget.transform.position.z + 10) - GameCore.m_GameContrller.ClientPlayerTarget.transform.position;
             refCenter.y = 0;
 
             var targetCenter = GameCore.m_GameContrller.TargetToLockOn.transform.position - GameCore.m_GameContrller.ClientPlayerTarget.transform.position;
@@ -106,12 +114,11 @@ public class CameraController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, smoothFactor);
             transform.position = Vector3.Lerp(transform.position, position, smoothFactor);
         }
-        else
-        {
-            SetCameraNormalState();
-        }
     }
-
+    void ResetTriggerInput()
+    {
+        triggerInput = false;
+    }
     void Ui_ManageCamera()
     {
         Quaternion rotation = Quaternion.Euler(RotateY, RotateX, 0);

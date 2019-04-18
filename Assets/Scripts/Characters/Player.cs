@@ -116,6 +116,13 @@ public class Player : MonoBehaviour, IAttackable
                     CharacterStemina.RemoveSP(NormalAttack);
                 }
             }
+            if(HeavyAttackGetter() && CheckHeavyAttackSP())
+            {
+                if(m_stateHandler.HeavyAttack())
+                {
+                    CharacterStemina.RemoveSP(HeavyAttack);
+                }
+            }
             if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
             {
                 if (m_stateHandler.Dash())

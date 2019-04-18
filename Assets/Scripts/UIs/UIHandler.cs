@@ -37,7 +37,6 @@ public class UIHandler : MonoBehaviour
         
         OnResetHP();
         OnResetSP();
-        UpdateEquipmentSlot();
     }
     public void CloseMarket()
     {

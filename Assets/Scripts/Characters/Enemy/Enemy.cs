@@ -292,9 +292,12 @@ public class Enemy : MonoBehaviour, IAttackable
         {
             isDead = true;
             m_stateHandler.SetBool("isDead", true);
-            if(GameCore.m_GameContrller.TargetToLockOn.GetInstanceID() == this.gameObject.GetInstanceID())
+            if (GameCore.m_GameContrller.TargetToLockOn)
             {
-                GameCore.m_GameContrller.ClearTargetLockOn();
+                if (GameCore.m_GameContrller.TargetToLockOn.GetInstanceID() == this.gameObject.GetInstanceID())
+                {
+                    GameCore.m_GameContrller.ClearTargetLockOn();
+                }
             }
             GameCore.m_GameContrller.RemoveEnemyOnFOVCamera(this.gameObject);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);

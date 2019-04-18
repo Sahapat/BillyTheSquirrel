@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6014526753117913725}
   - component: {fileID: 6014526753118879933}
   - component: {fileID: 1584510675253549219}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Top_Lightcandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6014526753116954235}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.00018199945, y: 1.3624029, z: -0.006414289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -105,6 +105,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 7607194364638902467, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7607194364638902464, guid: 446dd680a00487f4b966eaf229d72de5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +164,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2205520947312012568, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607194364638902526, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489236199679554574, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6252074
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489236199679554574, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.035294116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489236199679554574, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489236199679554574, guid: 446dd680a00487f4b966eaf229d72de5,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 446dd680a00487f4b966eaf229d72de5, type: 3}

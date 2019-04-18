@@ -124,6 +124,8 @@ public class InventoryUIController : MonoBehaviour
             btn.enabled = true;
         }
         UpdateSelectedSlot();
+        UpdateWeapon();
+        UpdateShield();
     }
     public void UpdateWeapon()
     {
