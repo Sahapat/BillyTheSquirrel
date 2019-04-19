@@ -1,46 +1,40 @@
 fileFormatVersion: 2
-guid: 559e178462851e141889b4aa400e834d
+guid: 2dc12f33ead4bc74c8a9ef0f31d030c3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: pCube3
-    100002: pCube4
-    100004: pCube5
-    100006: pCube6
-    100008: pCube7
-    100010: pCube8
-    100012: pCylinder1
-    100014: //RootNode
-    100016: transform1
-    100018: transform2
-    100020: transform3
-    100022: transform4
-    100024: transform5
-    100026: transform6
-    400000: pCube3
-    400002: pCube4
-    400004: pCube5
-    400006: pCube6
-    400008: pCube7
-    400010: pCube8
-    400012: pCylinder1
-    400014: //RootNode
-    400016: transform1
-    400018: transform2
-    400020: transform3
-    400022: transform4
-    400024: transform5
-    400026: transform6
+    100000: Center_Jnt
+    100002: Pelvis_Jnt
+    100004: R_Elbow_Jnt
+    100006: R_Hand_Jnt
+    100008: R_Pelvis_Jnt
+    100010: R_Shoulder_Jnt
+    100012: R_Wrist_Jnt
+    100014: Root_Jnt
+    100016: Spear
+    100018: //RootNode
+    100020: Spine1_Jnt
+    100022: Spine2_Jnt
+    100024: Spine3_Jnt
+    400000: Center_Jnt
+    400002: Pelvis_Jnt
+    400004: R_Elbow_Jnt
+    400006: R_Hand_Jnt
+    400008: R_Pelvis_Jnt
+    400010: R_Shoulder_Jnt
+    400012: R_Wrist_Jnt
+    400014: Root_Jnt
+    400016: Spear
+    400018: //RootNode
+    400020: Spine1_Jnt
+    400022: Spine2_Jnt
+    400024: Spine3_Jnt
     2100000: lambert1
-    2300000: pCube8
-    3300000: pCube8
-    4300000: pCube8
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 85dde8437520b1c4f8d22c9d9b98e442, type: 2}
+    2300000: Spear
+    3300000: Spear
+    4300000: Spear
+    9500000: //RootNode
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,8 +86,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -102,7 +96,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -120,7 +114,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
