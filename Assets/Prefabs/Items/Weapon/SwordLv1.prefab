@@ -192,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a398dab44a420a34a9dcb4d2f4f32107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 20
-  activeDuration: 0.42
+  damagePerHit: 0
+  activeDuration: 0
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 73728
+    m_Bits: 0
   m_trailRenderer: {fileID: 106123758}
   forceToAdd: 5
   shakeLenght: 0.32
@@ -243,8 +243,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27, y: 0.2, z: 0.9294634}
-  m_Center: {x: 0, y: 0, z: 0.3197317}
+  m_Size: {x: 0.27, y: 0.2, z: 0.9}
+  m_Center: {x: 0, y: 0, z: 0.32}
 --- !u!114 &1549695791118166585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,13 +257,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a398dab44a420a34a9dcb4d2f4f32107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 30
-  activeDuration: 0.5
+  damagePerHit: 0
+  activeDuration: 0
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 73728
+    m_Bits: 0
   m_trailRenderer: {fileID: 106123758}
-  forceToAdd: 15
+  forceToAdd: 5
   shakeLenght: 0.32
 --- !u!1 &5565177755798210656
 GameObject:
@@ -274,8 +274,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870284798619028357}
-  - component: {fileID: 319297730453987975}
-  - component: {fileID: 7697846282759861359}
   - component: {fileID: 3281127007809765887}
   - component: {fileID: 3236498424774763355}
   m_Layer: 10
@@ -302,39 +300,10 @@ Transform:
   - {fileID: 2895077681868642946}
   - {fileID: 106123757}
   - {fileID: 5088022128420328407}
-  - {fileID: 4318540466870254173}
+  - {fileID: 979665033988810000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &319297730453987975
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5565177755798210656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3261365, y: 0.13, z: 0.72777474}
-  m_Center: {x: -0.0030586869, y: 0, z: 0.016822875}
---- !u!54 &7697846282759861359
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5565177755798210656}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &3281127007809765887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,9 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemType: 0
+  _weaponType: 0
   _Icon: {fileID: 21300000, guid: f7c1d57919666bd4d896f0acc349700c, type: 3}
   _headerName: Sword Lv1
-  _description: Normal sword skdlokalsdklsad
+  _description: Normal Sword Level1
   _HoldingPos: {x: 0, y: 0, z: 0}
   isPickUp: 0
 --- !u!114 &3236498424774763355
@@ -369,7 +339,7 @@ MonoBehaviour:
   - {fileID: 3101510050577548534}
   - {fileID: 569044942908700235}
   - {fileID: 1549695791118166585}
-  HeavyHit: {fileID: 6337945516765453031}
+  HeavyHit: {fileID: 0}
 --- !u!1 &5570216669123866597
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,13 +397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a398dab44a420a34a9dcb4d2f4f32107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 25
-  activeDuration: 0.36
+  damagePerHit: 0
+  activeDuration: 0
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 73728
+    m_Bits: 0
   m_trailRenderer: {fileID: 106123758}
-  forceToAdd: 12
+  forceToAdd: 5
   shakeLenght: 0.32
 --- !u!1 &6955422943769589648
 GameObject:
@@ -651,7 +621,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5088022128420456791}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8814358968358900580
+--- !u!1001 &5486533623986965545
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -661,7 +631,7 @@ PrefabInstance:
     - target: {fileID: 7305133030321498814, guid: b611a2d5de3a5fc42b560c0f93de0d77,
         type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: ItemPopOutParticle
       objectReference: {fileID: 0}
     - target: {fileID: 4736781216365996345, guid: b611a2d5de3a5fc42b560c0f93de0d77,
         type: 3}
@@ -720,9 +690,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b611a2d5de3a5fc42b560c0f93de0d77, type: 3}
---- !u!4 &4318540466870254173 stripped
+--- !u!4 &979665033988810000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4736781216365996345, guid: b611a2d5de3a5fc42b560c0f93de0d77,
     type: 3}
-  m_PrefabInstance: {fileID: 8814358968358900580}
+  m_PrefabInstance: {fileID: 5486533623986965545}
   m_PrefabAsset: {fileID: 0}
