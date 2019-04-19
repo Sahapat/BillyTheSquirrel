@@ -346,7 +346,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 1
+    optimizeGameObjects: 0
     motionNodeName: Character:Root_Jnt
     rigImportErrors: 
     rigImportWarnings: 
@@ -10633,7 +10633,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -10658,7 +10658,41 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Curve
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0.000011444092
+            value: 0.00437665
+            inSlope: 0.14336164
+            outSlope: 0.14336164
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.39954647
+          - serializedVersion: 3
+            time: 0.5091562
+            value: -0.984315
+            inSlope: 0.019414587
+            outSlope: 0.019414587
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.48709837
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.810668
+            value: 3.0733442
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          preInfinity: 2
+          postInfinity: 2
+          rotationOrder: 4
       events:
       - time: 0.9232608
         functionName: ActiveHeavyHit
@@ -10916,9 +10950,9 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
       name: HeavyAttackToidle_0
       takeName: Take 001
@@ -11192,7 +11226,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
@@ -11468,7 +11502,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
@@ -11744,7 +11778,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
@@ -12020,7 +12054,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
@@ -12296,7 +12330,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
@@ -12572,7 +12606,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     - serializedVersion: 16
@@ -12848,7 +12882,7 @@ ModelImporter:
         weight: 1
       - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
       additiveReferencePoseFrame: 0.59999996
     isReadable: 1
