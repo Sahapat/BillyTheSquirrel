@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyHitWithSphere : HeavyHit
+public class HeavyHitForSword : HeavyHit
 {
     [SerializeField]SphereCollider hitColiderChecker = null;
+    [SerializeField]TrailRenderer m_trailRenderer = null;
 
     private MeshRenderer hitMeshrenderer = null;
+
 
     void Start()
     {
         hitMeshrenderer = hitColiderChecker.GetComponent<MeshRenderer>();
+        m_trailRenderer.enabled = false;
     }
     void Update()
     {
@@ -59,5 +62,13 @@ public class HeavyHitWithSphere : HeavyHit
     protected override void OnInActive()
     {
         hitMeshrenderer.enabled = false;
+    }
+    protected override void OnResetHit()
+    {
+        m_trailRenderer.enabled = false;
+    }
+    public void ActiveTrail()
+    {
+        m_trailRenderer.enabled = true;
     }
 }

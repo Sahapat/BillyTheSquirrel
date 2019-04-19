@@ -16,9 +16,9 @@ public class HitManager : MonoBehaviour
 
         for(int i=0;i<normalHits.Length;i++)
         {
-            normalHits[i] = NormalHits[i].GetComponent<HitSystem>();
+            normalHits[i] = NormalHits[i].gameObject.GetComponent<HitSystem>();
         }
-        heavyHit = HeavyHit.GetComponent<HeavyHit>();
+        heavyHit = HeavyHit.gameObject.GetComponent<HeavyHit>();
     }
 
     public int GetNormalHitSteminaDeplete(int index)
@@ -28,6 +28,14 @@ public class HitManager : MonoBehaviour
     public int GetHeavyHitSteminaDeplete()
     {
         return heavyHit.steminaDeplete;
+    }
+    public void SetTargetLayer(LayerMask mask)
+    {
+        foreach(var i in normalHits)
+        {
+            i.SetTargetLayer(mask);
+        }
+        heavyHit.SetTargetLayer(mask);
     }
     public void ActiveNormalHit(int index)
     {

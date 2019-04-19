@@ -17,7 +17,7 @@ public class ActionHandler : MonoBehaviour
 
     StateHandler m_stateHandler = null;
     Rigidbody m_rigidbody = null;
-    BaseSword m_baseSword = null;
+    BaseWeapon m_baseWeapon = null;
 
     int queueMotionIndex = -1;
     float CounterForMotionAdded = 0;
@@ -26,7 +26,7 @@ public class ActionHandler : MonoBehaviour
     {
         m_stateHandler = GetComponent<StateHandler>();
         m_rigidbody = GetComponent<Rigidbody>();
-        m_baseSword = GetComponentInChildren<BaseSword>();
+        m_baseWeapon = GetComponentInChildren<BaseWeapon>();
     }
     void Start()
     {
@@ -94,7 +94,7 @@ public class ActionHandler : MonoBehaviour
                 queueMotionIndex = 15;
                 break;
             case CharacterState.RESET:
-                m_baseSword.hitSystemManager.CancelAllHit();
+                m_baseWeapon.hitSystemManager.CancelAllHit();
                 queueMotionIndex = -1;
                 break;
         }
@@ -105,14 +105,14 @@ public class ActionHandler : MonoBehaviour
     }
     public void ActiveNormalHit(int index)
     {
-        m_baseSword.hitSystemManager.ActiveNormalHit(index);
+        m_baseWeapon.hitSystemManager.ActiveNormalHit(index);
     }
     public void ActiveHeavyHit()
     {
-        m_baseSword.hitSystemManager.ActiveHeavyHit();
+        m_baseWeapon.hitSystemManager.ActiveHeavyHit();
     }
-    public void UpdateSword(BaseSword baseSword)
+    public void UpdateSword(BaseWeapon baseWeapon)
     {
-        m_baseSword = baseSword;
+        m_baseWeapon = baseWeapon;
     }
 }

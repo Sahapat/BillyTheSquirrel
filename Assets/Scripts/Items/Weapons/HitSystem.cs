@@ -93,4 +93,8 @@ public class HitSystem : BaseHitSystem
             }
         }
     }
+    public void SetTargetLayer(LayerMask mask)
+    {
+        TargetLayer = mask;
+    }
 }

@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SquirrelController
+  m_Name: FoxAnimController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: CharacterState
@@ -133,7 +133,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Eye
     m_StateMachine: {fileID: 1107186492219729702}
-    m_Mask: {fileID: 31900000, guid: d78426b6e7a8f564ebf26e771f561ae1, type: 2}
+    m_Mask: {fileID: 31900000, guid: 1cb25088f43009647a294249ec83fc4e, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -423,23 +423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetIntName: CharacterState
   state: 24
---- !u!114 &114163342318026464
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2799e172d40f5344a8542b9ae62c01c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetBool: HoldingShieldTrigger
-  onEnter: 1
-  EnterValue: 1
-  onExit: 0
-  ExitValue: 0
 --- !u!114 &114166975852763280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6939,7 +6922,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7133fdd91f1c17444a9c1e36bfd64a37, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8b4115c8b6979d8458a35c63457bf816, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -7692,7 +7675,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2e094d3600771784cbcf5ecc6105997d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1acc9c1c3c5680b4fb90051b7ed5383f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -7742,7 +7725,6 @@ AnimatorState:
   - {fileID: 114745753837078584}
   - {fileID: 114377249456856742}
   - {fileID: 114405429815160346}
-  - {fileID: 114163342318026464}
   - {fileID: 114615865501851774}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -8036,7 +8018,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7133fdd91f1c17444a9c1e36bfd64a37, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8b4115c8b6979d8458a35c63457bf816, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

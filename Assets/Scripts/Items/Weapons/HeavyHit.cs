@@ -55,9 +55,18 @@ public class HeavyHit : BaseHitSystem
     {
         return;
     }
+    protected virtual void OnResetHit()
+    {
+        return;
+    }
     void ResetHit()
     {
         isActive = false;
         m_hitDataStorage.ResetHit();
+        OnResetHit();
+    }
+    public void SetTargetLayer(LayerMask mask)
+    {
+        TargetLayer = mask;
     }
 }

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IAttackable
     };
     [Header("Enemy Properties")]
     [SerializeField] int m_characterMaxHP = 100;
+    [SerializeField] LayerMask targetLayer = 0;
     [SerializeField, Range(0f, 1f)] float chanceForRoar = 0.5f;
     [SerializeField] float roarDuration = 2.5f;
     [SerializeField, Range(0f, 1f)] float chanceForNormalAttack = 0.5f;
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour, IAttackable
     [Header("Enemy Ref")]
     [SerializeField] SightCheck enemySightCheck = null;
     [SerializeField] SightCheck attackSightCheck = null;
-    [SerializeField] BaseSword swordInHand = null;
+    [SerializeField] BaseWeapon weaponInHand = null;
     [SerializeField] SpriteRenderer lockOnSprite = null;
 
     public Health CharacterHP { get; private set; }
@@ -83,6 +84,7 @@ public class Enemy : MonoBehaviour, IAttackable
         startRotation = transform.rotation;
         previousTargetPosition = targetPlayer.position;
         m_ragdoll.InActiveRagdoll();
+        weaponInHand.hitSystemManager.SetTargetLayer(targetLayer);
         CheckStateChange();
     }
     void Update()
@@ -255,7 +257,7 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         roarTrigger = false;
         counterForRoar = 0f;
-        swordInHand.gameObject.SetActive(true);
+        weaponInHand.gameObject.SetActive(true);
     }
     void LookAtPosition(Vector3 position)
     {

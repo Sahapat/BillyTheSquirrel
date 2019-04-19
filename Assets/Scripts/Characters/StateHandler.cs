@@ -44,13 +44,14 @@ public class StateHandler : MonoBehaviour
     private GroundChecker m_groundChecker = null;
 
     private bool canHoldShield = false;
-    private BaseSword baseWeapon = null;
+    private BaseWeapon baseWeapon = null;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
-        baseWeapon = GetComponentInChildren<BaseSword>();
+        baseWeapon = GetComponentInChildren<BaseWeapon>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
         canHoldShield = true;
+        m_animator.SetBool("isSpecial",false);
     }
     void Update()
     {
@@ -66,6 +67,7 @@ public class StateHandler : MonoBehaviour
         if (currentCharacterState == CharacterState.RUN || currentCharacterState == CharacterState.IDLE)
         {
             canHoldShield = true;
+            m_animator.SetBool("isSpecial",false);
         }
     }
     void UpdateState()
@@ -76,8 +78,7 @@ public class StateHandler : MonoBehaviour
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
         if(baseWeapon.transform.root.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
         {
-            print("in");
-            baseWeapon = GetComponentInChildren<BaseSword>();
+            baseWeapon = GetComponentInChildren<BaseWeapon>();
         }
         else
         {

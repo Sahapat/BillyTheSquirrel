@@ -4,13 +4,13 @@ using UnityEngine;
 public enum WeaponType
 {
     SHIELD_AND_SWORD,
-    CHUB,
+    AXE,
     SPEAR,
     GREAT_SWORD,
     NONE
 };
 
-public class BaseSword: MonoBehaviour,ICollectable,IPopable
+public class BaseWeapon: MonoBehaviour,ICollectable,IPopable
 {
     [SerializeField]ItemType _itemType = ItemType.NONE;
     [SerializeField]WeaponType _weaponType = WeaponType.NONE;
@@ -28,18 +28,15 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
     public string headerName{get{return _headerName;}}
     public HitManager hitSystemManager{get;private set;}
 
-    private BoxCollider m_boxcolider = null;
-    private Rigidbody m_rigidbody = null;
-    bool isPopOut = false;
+    /* bool isPopOut = false; */
+
     void Awake()
     {
-        m_boxcolider = GetComponent<BoxCollider>();
-        m_rigidbody = GetComponent<Rigidbody>();
         hitSystemManager = GetComponent<HitManager>();
     }
     void FixedUpdate()
     {
-        if(isPopOut)
+        /* if(isPopOut)
         {
             var hitGround = PhysicsExtensions.OverlapBox(m_boxcolider, LayerMask.GetMask("Ground"));
             if (hitGround.Length > 0)
@@ -47,7 +44,7 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
                 m_rigidbody.isKinematic = true;
                 isPopOut = false;
             }
-        }
+        } */
     }
     void Start()
     {
@@ -63,23 +60,23 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
     {
         this.transform.parent = null;
         isPickUp = false;
-        m_boxcolider.enabled =true;
+        /* m_boxcolider.enabled =true;
         m_rigidbody.useGravity = true;
-        m_rigidbody.isKinematic = false;
+        m_rigidbody.isKinematic = false; */
     }
     void SetPickUp()
     {
-        m_boxcolider.enabled = false;
+        /* m_boxcolider.enabled = false;
         m_rigidbody.useGravity = false;
-        m_rigidbody.isKinematic = true;
+        m_rigidbody.isKinematic = true; */
     }
 
     public void PopOut(float xForce, float zForce, float forceToAdd)
     {
-        isPopOut = true;
+        /* isPopOut = true;
         m_rigidbody.useGravity = true;
         m_rigidbody.isKinematic = false;
-        m_rigidbody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse);
+        m_rigidbody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse); */
     }
     public int GetNormalSteminaDeplete(int index)
     {
@@ -88,5 +85,9 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
     public int GetHeavySteminaDeplete()
     {
         return hitSystemManager.GetHeavyHitSteminaDeplete();
+    }
+    public void SetTargetLayer(LayerMask mask)
+    {
+        hitSystemManager.SetTargetLayer(mask);
     }
 }

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, IAttackable
 {
     [Header("CharacterProperties")]
     [SerializeField] int m_characterMaxHP = 100;
+    [SerializeField] LayerMask targetLayer = 0;
 
     [Header("Action Stamina Depletion")]
     [SerializeField] int Jump = 20;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] int holdingShield = 10;
     [Header("Other")]
     [SerializeField] Transform SwordHoldPosition = null;
-    [SerializeField] BaseSword swordInHand = null;
+    [SerializeField] BaseWeapon weaponInHand = null;
     [SerializeField] Transform ShieldHoldPosition = null;
     [SerializeField] BaseShield shieldInHand = null;
     [SerializeField] Transform PotionPosition = null;
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour, IAttackable
     public bool isBlocking { get; private set; }
     public Health CharacterHP { get; private set; }
     public Stemina CharacterStemina { get; private set; }
-    public BaseSword WeaponInventory { get { return swordInHand; } }
+    public BaseWeapon WeaponInventory { get { return weaponInHand; } }
     public BaseShield ShieldInvetory { get { return shieldInHand; } }
     public Inventory ItemInventory { get; private set; }
     public Transform CurrentGround { get; private set; }
@@ -51,7 +52,16 @@ public class Player : MonoBehaviour, IAttackable
     void Start()
     {
         CharacterHP.OnHPChanged += CheckHealth;
+        weaponInHand.SetTargetLayer(targetLayer);
         m_ragdollController.InActiveRagdoll();
+        if(weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+        {
+            shieldInHand.gameObject.SetActive(false);
+        }
+        else
+        {
+            shieldInHand.gameObject.SetActive(true);
+        }
     }
     void Update()
     {
@@ -125,14 +135,23 @@ public class Player : MonoBehaviour, IAttackable
                     {
                         indexToUse = 2;
                     }
-                    CharacterStemina.RemoveSP(swordInHand.GetNormalSteminaDeplete(indexToUse));
+                    CharacterStemina.RemoveSP(weaponInHand.GetNormalSteminaDeplete(indexToUse));
                 }
             }
             if (HeavyAttackGetter() && CheckHeavyAttackSP())
             {
                 if (m_stateHandler.HeavyAttack())
                 {
-                    CharacterStemina.RemoveSP(swordInHand.GetHeavySteminaDeplete());
+                    CharacterStemina.RemoveSP(weaponInHand.GetHeavySteminaDeplete());
+                    switch(weaponInHand.weaponType)
+                    {
+                        case WeaponType.SHIELD_AND_SWORD:
+                            GetComponentInChildren<HeavyHitForSword>()?.ActiveTrail();
+                        break;
+                        case WeaponType.SPEAR:
+                            GetComponentInChildren<HeavyHitForSword>()?.ActiveTrail();
+                        break;
+                    }
                 }
             }
             if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton4))
@@ -173,11 +192,11 @@ public class Player : MonoBehaviour, IAttackable
         {
             indexToUse = 2;
         }
-        return CharacterStemina.SP >= swordInHand.GetNormalSteminaDeplete(indexToUse);
+        return CharacterStemina.SP >= weaponInHand.GetNormalSteminaDeplete(indexToUse);
     }
     bool CheckHeavyAttackSP()
     {
-        return CharacterStemina.SP >= swordInHand.GetHeavySteminaDeplete();
+        return CharacterStemina.SP >= weaponInHand.GetHeavySteminaDeplete();
     }
     bool CheckDashSP()
     {
@@ -264,14 +283,14 @@ public class Player : MonoBehaviour, IAttackable
                 switch (collectItem.itemType)
                 {
                     case ItemType.EQUIPMENT:
-                        var weapon = hitInfo[0].GetComponent<BaseSword>();
+                        var weapon = hitInfo[0].GetComponent<BaseWeapon>();
                         var shield = hitInfo[0].GetComponent<BaseShield>();
 
                         if (weapon != null)
                         {
-                            swordInHand.Discard();
+                            weaponInHand.Discard();
                             var weaponObject = weapon.PickUp();
-                            swordInHand = weapon;
+                            weaponInHand = weapon;
                             weaponObject.transform.parent = SwordHoldPosition;
                             weaponObject.transform.localPosition = weapon.HoldingPos;
                             weaponObject.transform.localRotation = Quaternion.identity;
