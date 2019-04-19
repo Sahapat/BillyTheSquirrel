@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetIntName: CharacterState
-  state: 25
+  state: 24
 --- !u!114 &114163342318026464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetIntName: CharacterState
-  state: 25
+  state: 24
 --- !u!114 &114216898630407172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetIntName: CharacterState
-  state: 25
+  state: 24
 --- !u!114 &114322277608569276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2186,9 +2186,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.055134863
+  m_TransitionDuration: 0.055134833
   m_TransitionOffset: 0
-  m_ExitTime: 0.88821685
+  m_ExitTime: 0.9968852
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3119,9 +3119,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.020056516
+  m_TransitionDuration: 0.020056546
   m_TransitionOffset: 0
-  m_ExitTime: 0.9023721
+  m_ExitTime: 1.085274
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3238,9 +3238,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.034604043
+  m_TransitionDuration: 0.034604013
   m_TransitionOffset: 0
-  m_ExitTime: 0.9929364
+  m_ExitTime: 1.2243795
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -4849,9 +4849,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.11229062
+  m_TransitionDuration: 0.03327489
   m_TransitionOffset: 0
-  m_ExitTime: 1.2463651
+  m_ExitTime: 1.4696274
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -6363,7 +6363,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: NormalAttack1_1
-  m_Speed: 1.2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101279874487037914}
@@ -6670,7 +6670,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HeavyAttackToidle_3
-  m_Speed: 0.2
+  m_Speed: 0.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101895792203191710}
@@ -7334,7 +7334,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StartNormalAttack1_1
-  m_Speed: 0.38
+  m_Speed: 0.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101012552781248504}

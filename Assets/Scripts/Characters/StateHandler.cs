@@ -32,7 +32,7 @@ public enum CharacterState
 public class StateHandler : MonoBehaviour
 {
     [SerializeField] CharacterState m_characterState = CharacterState.IDLE;
-    [SerializeField] int weaponType = 1;
+    [SerializeField] int weaponType = 0;
 
     public CharacterState currentCharacterState { get { return m_characterState; } }
     public Vector2 Movement { get; private set; }
@@ -44,9 +44,11 @@ public class StateHandler : MonoBehaviour
     private GroundChecker m_groundChecker = null;
 
     private bool canHoldShield = false;
+    private BaseSword baseWeapon = null;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
+        baseWeapon = GetComponentInChildren<BaseSword>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
         canHoldShield = true;
     }
@@ -72,6 +74,15 @@ public class StateHandler : MonoBehaviour
         m_animator.SetInteger("WeaponHolding", weaponType);
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
+        if(baseWeapon.transform.root.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+        {
+            print("in");
+            baseWeapon = GetComponentInChildren<BaseSword>();
+        }
+        else
+        {
+            weaponType = (int)baseWeapon.weaponType;
+        }
         if (previousState != currentCharacterState)
         {
             StateChange();

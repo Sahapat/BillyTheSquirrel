@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum WeaponType
+{
+    SHIELD_AND_SWORD,
+    CHUB,
+    SPEAR,
+    GREAT_SWORD,
+    NONE
+};
 
 public class BaseSword: MonoBehaviour,ICollectable,IPopable
 {
     [SerializeField]ItemType _itemType = ItemType.NONE;
+    [SerializeField]WeaponType _weaponType = WeaponType.NONE;
     [SerializeField]Sprite _Icon = null;
     [SerializeField]string _headerName = string.Empty;
     [SerializeField]string _description = string.Empty;
     [SerializeField]Vector3 _HoldingPos = Vector3.zero;
     [SerializeField]bool isPickUp = false;
 
+    public WeaponType weaponType{get{return _weaponType;}}
     public Vector3 HoldingPos{get{return _HoldingPos;}}
     public ItemType itemType{get{return _itemType;}}
     public Sprite Icon{get{return _Icon;}}
