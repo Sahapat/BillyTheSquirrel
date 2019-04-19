@@ -18,7 +18,7 @@ public class MovingPlatform : MonoBehaviour, IActivable
 
     private int currentIndex = 0;
     private int increaser = 1;
-    private bool isActive = false;
+    [SerializeField]private bool isActive = false;
 
     void FixedUpdate()
     {

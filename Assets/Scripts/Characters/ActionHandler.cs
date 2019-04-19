@@ -37,7 +37,7 @@ public class ActionHandler : MonoBehaviour
         if (queueMotionIndex == -1) return;
         if (CounterForMotionAdded <= Time.time)
         {
-            m_rigidbody.velocity = transform.forward* actionMotions[queueMotionIndex].forceToAdd;
+            m_rigidbody.velocity = transform.forward * actionMotions[queueMotionIndex].forceToAdd;
             queueMotionIndex = -1;
         }
     }
@@ -69,12 +69,36 @@ public class ActionHandler : MonoBehaviour
             case CharacterState.WEAPON1_ATTACKHEAVY:
                 queueMotionIndex = 7;
                 break;
+            case CharacterState.WEAPON2_ATTACK1:
+                queueMotionIndex = 8;
+                break;
+            case CharacterState.WEAPON2_ATTACK2:
+                queueMotionIndex = 9;
+                break;
+            case CharacterState.WEAPON2_ATTACK3:
+                queueMotionIndex = 10;
+                break;
+            case CharacterState.WEAPON2_ATTACKHEAVY:
+                queueMotionIndex = 11;
+                break;
+            case CharacterState.WEAPON3_ATTACK1:
+                queueMotionIndex = 12;
+                break;
+            case CharacterState.WEAPON3_ATTACK2:
+                queueMotionIndex = 13;
+                break;
+            case CharacterState.WEAPON3_ATTACK3:
+                queueMotionIndex = 14;
+                break;
+            case CharacterState.WEAPON3_ATTACKHEAVY:
+                queueMotionIndex = 15;
+                break;
             case CharacterState.RESET:
                 m_baseSword.hitSystemManager.CancelAllHit();
                 queueMotionIndex = -1;
                 break;
         }
-        if(queueMotionIndex != -1)
+        if (queueMotionIndex != -1)
         {
             CounterForMotionAdded = Time.time + actionMotions[queueMotionIndex].delayForAddForce;
         }

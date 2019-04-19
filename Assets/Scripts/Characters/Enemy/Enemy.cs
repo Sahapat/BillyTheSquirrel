@@ -261,6 +261,7 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         var newPosition = new Vector3(position.x, transform.position.y, position.z);
         transform.LookAt(position);
+        transform.rotation = new Quaternion(0,transform.rotation.y,0,transform.rotation.w);
     }
     void SightCheck()
     {

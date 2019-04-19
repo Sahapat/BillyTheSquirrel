@@ -392,7 +392,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack1_2
       takeName: Take 001
-      firstFrame: 255
+      firstFrame: 260
       lastFrame: 270
       wrapMode: 0
       orientationOffsetY: 0
@@ -869,7 +869,7 @@ ModelImporter:
       name: StartNormalAttack1_2
       takeName: Take 001
       firstFrame: 240
-      lastFrame: 255
+      lastFrame: 260
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -887,7 +887,32 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: Curve
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.59806687
+            value: -0.058408935
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          preInfinity: 3
+          postInfinity: 3
+          rotationOrder: 4
       events: []
       transformMask: []
       maskType: 3

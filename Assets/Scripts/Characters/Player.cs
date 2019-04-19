@@ -186,7 +186,7 @@ public class Player : MonoBehaviour, IAttackable
     }
     bool HoldingShieldGetter()
     {
-        return Input.GetKey(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.RightControl);
+        return Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey(KeyCode.LeftControl);
     }
     void MovementInputGetter()
     {

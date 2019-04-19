@@ -23,10 +23,13 @@ public class Switch : MonoBehaviour
         }
     }
 
+    private Renderer[] m_renderers = null;
+
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();
         m_animator = GetComponent<Animator>();
+        m_renderers =GetComponentsInChildren<Renderer>();
     }
     void Start()
     {
@@ -40,6 +43,21 @@ public class Switch : MonoBehaviour
     {
         var hitInfo = PhysicsExtensions.OverlapBox(m_boxcolider,LayerMask.GetMask("Character"));
         if(hitInfo.Length > 0){OnPlayerEnter(hitInfo);}
+
+        if(switchStatus)
+        {
+            foreach(var i in m_renderers)
+            {
+                i.material.EnableKeyword("_EMISSION");
+            }
+        }
+        else
+        {
+            foreach(var i in m_renderers)
+            {
+                i.material.DisableKeyword("_EMISSION");
+            }
+        }
     }
     void OnPlayerEnter(Collider[] enterPlayers)
     {
