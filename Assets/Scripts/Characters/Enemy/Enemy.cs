@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour, IAttackable
 
     public Health CharacterHP { get; private set; }
     public bool isDead { get; private set; }
+    public bool isBlocking{get;private set;}
 
     private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
     private AIStateMachine previousAiState = AIStateMachine.NONE;
@@ -320,7 +321,8 @@ public class Enemy : MonoBehaviour, IAttackable
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);
-        if (canCancelAnimation)
+        m_damageMaterial.TakeDamageMaterialActive(CharacterHP.HP, CharacterHP.MaxHP);
+        if (canCancelAnimation && damage!=0)
         {
             m_stateHandler.Hurt();
         }
@@ -329,7 +331,7 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         CharacterHP.RemoveHP(damage);
         m_damageMaterial.TakeDamageMaterialActive(CharacterHP.HP, CharacterHP.MaxHP);
-        if (canCancelAnimation)
+        if (canCancelAnimation&damage!=0)
         {
             m_rigidbody.velocity = forceToAdd;
             m_stateHandler.Hurt();

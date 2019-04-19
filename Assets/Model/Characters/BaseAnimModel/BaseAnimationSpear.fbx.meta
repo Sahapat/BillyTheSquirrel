@@ -272,7 +272,7 @@ ModelImporter:
     7400018: DashLeft_2
     7400020: NormalAttack1Toidle_2
     7400022: Hurt_2
-    7400024: HeavyAttack1_2
+    7400024: HeavyAttack_2
     7400026: HeavyAttackCharge_2
     7400028: NormalAttack1Toidle_2
     7400030: NormalAttack2Toidle_2
@@ -280,6 +280,11 @@ ModelImporter:
     7400034: NormalAttack2Toidle_2_Freeze
     7400036: NormalAttack3Toidle_2
     7400038: NormalAttack3Toidle_2_Freeze
+    7400040: StartNormalAttack1_2
+    7400042: StartNormalAttack2_2
+    7400044: StartNormalAttack3_2
+    7400046: HeavyAttack_2_Freeze
+    7400048: HeavyAttackToidle_2
     9500000: //RootNode
     13700000: Character:Belt
     13700002: Character:Body
@@ -387,7 +392,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack1_2
       takeName: Take 001
-      firstFrame: 240
+      firstFrame: 255
       lastFrame: 270
       wrapMode: 0
       orientationOffsetY: 0
@@ -415,7 +420,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack2_2
       takeName: Take 001
-      firstFrame: 271
+      firstFrame: 275
       lastFrame: 290
       wrapMode: 0
       orientationOffsetY: 0
@@ -443,7 +448,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack3_2
       takeName: Take 001
-      firstFrame: 291
+      firstFrame: 300
       lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
@@ -637,10 +642,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: HeavyAttack1_2
+      name: HeavyAttack_2
       takeName: Take 001
       firstFrame: 341
-      lastFrame: 395
+      lastFrame: 385
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -837,6 +842,146 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 320
       lastFrame: 321
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: StartNormalAttack1_2
+      takeName: Take 001
+      firstFrame: 240
+      lastFrame: 255
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: StartNormalAttack2_2
+      takeName: Take 001
+      firstFrame: 270
+      lastFrame: 275
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: StartNormalAttack3_2
+      takeName: Take 001
+      firstFrame: 290
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: HeavyAttack_2_Freeze
+      takeName: Take 001
+      firstFrame: 385
+      lastFrame: 386
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: HeavyAttackToidle_2
+      takeName: Take 001
+      firstFrame: 386
+      lastFrame: 395
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

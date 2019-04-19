@@ -322,6 +322,11 @@ ModelImporter:
     7400076: HeavyAttack_0
     7400078: HeavyAttackToidle_0
     7400080: HeavyAttackToidle_0_Freeze
+    7400082: StartNormalAttack1_1
+    7400084: StartNormalAttack2_1
+    7400086: NormalAttack1ToIdle_1_Freeze
+    7400088: NormalAttack2ToIdle_1_Freeze
+    7400090: NormalAttack3ToIdle_1_Freeze
     9500000: //RootNode
     13700000: Character:Belt
     13700002: Character:Body
@@ -925,7 +930,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack1_1
       takeName: Take 001
-      firstFrame: 100
+      firstFrame: 110
       lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
@@ -1208,7 +1213,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack2_1
       takeName: Take 001
-      firstFrame: 120
+      firstFrame: 125
       lastFrame: 145
       wrapMode: 0
       orientationOffsetY: 0
@@ -2326,7 +2331,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack1ToIdle_1
       takeName: Take 001
-      firstFrame: 201
+      firstFrame: 202
       lastFrame: 220
       wrapMode: 0
       orientationOffsetY: 0
@@ -2602,7 +2607,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack2ToIdle_1
       takeName: Take 001
-      firstFrame: 231
+      firstFrame: 232
       lastFrame: 260
       wrapMode: 0
       orientationOffsetY: 0
@@ -5362,7 +5367,7 @@ ModelImporter:
     - serializedVersion: 16
       name: NormalAttack3ToIdle_1
       takeName: Take 001
-      firstFrame: 170
+      firstFrame: 171
       lastFrame: 190
       wrapMode: 0
       orientationOffsetY: 0
@@ -10654,7 +10659,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.9232608
+        functionName: ActiveHeavyHit
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -11188,6 +11200,1386 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 816
       lastFrame: 817
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Character:Belt
+        weight: 0
+      - path: Character:Body
+        weight: 0
+      - path: Character:EyeCover
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidTop
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidTop
+        weight: 0
+      - path: Character:EyeGlass
+        weight: 0
+      - path: Character:Root_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt/Character:BagbOt_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt/Character:L_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt/Character:R_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4/Character:L_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4/Character:L_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4/Character:L_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4/Character:L_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3/Character:L_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2/Character:BottomMouth_Jnt3
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1/Character:L_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt/Character:L_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidTop_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1/Character:R_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt/Character:R_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidUp_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopHead_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt/Character:TopMouth_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4/Character:R_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4/Character:R_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4/Character:R_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4/Character:R_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3/Character:R_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
+        weight: 1
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: StartNormalAttack1_1
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Character:Belt
+        weight: 0
+      - path: Character:Body
+        weight: 0
+      - path: Character:EyeCover
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidTop
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidTop
+        weight: 0
+      - path: Character:EyeGlass
+        weight: 0
+      - path: Character:Root_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt/Character:BagbOt_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt/Character:L_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt/Character:R_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4/Character:L_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4/Character:L_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4/Character:L_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4/Character:L_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3/Character:L_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2/Character:BottomMouth_Jnt3
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1/Character:L_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt/Character:L_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidTop_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1/Character:R_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt/Character:R_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidUp_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopHead_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt/Character:TopMouth_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4/Character:R_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4/Character:R_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4/Character:R_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4/Character:R_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3/Character:R_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
+        weight: 1
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: StartNormalAttack2_1
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Character:Belt
+        weight: 0
+      - path: Character:Body
+        weight: 0
+      - path: Character:EyeCover
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidTop
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidTop
+        weight: 0
+      - path: Character:EyeGlass
+        weight: 0
+      - path: Character:Root_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt/Character:BagbOt_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt/Character:L_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt/Character:R_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4/Character:L_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4/Character:L_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4/Character:L_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4/Character:L_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3/Character:L_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2/Character:BottomMouth_Jnt3
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1/Character:L_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt/Character:L_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidTop_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1/Character:R_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt/Character:R_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidUp_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopHead_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt/Character:TopMouth_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4/Character:R_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4/Character:R_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4/Character:R_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4/Character:R_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3/Character:R_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
+        weight: 1
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: NormalAttack1ToIdle_1_Freeze
+      takeName: Take 001
+      firstFrame: 201
+      lastFrame: 202
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Character:Belt
+        weight: 0
+      - path: Character:Body
+        weight: 0
+      - path: Character:EyeCover
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidTop
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidTop
+        weight: 0
+      - path: Character:EyeGlass
+        weight: 0
+      - path: Character:Root_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt/Character:BagbOt_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt/Character:L_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt/Character:R_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4/Character:L_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4/Character:L_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4/Character:L_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4/Character:L_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3/Character:L_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2/Character:BottomMouth_Jnt3
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1/Character:L_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt/Character:L_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidTop_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1/Character:R_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt/Character:R_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidUp_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopHead_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt/Character:TopMouth_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4/Character:R_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4/Character:R_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4/Character:R_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4/Character:R_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3/Character:R_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
+        weight: 1
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: NormalAttack2ToIdle_1_Freeze
+      takeName: Take 001
+      firstFrame: 231
+      lastFrame: 232
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Character:Belt
+        weight: 0
+      - path: Character:Body
+        weight: 0
+      - path: Character:EyeCover
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:L_EyelidTop
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidBot
+        weight: 0
+      - path: Character:EyeCover/Character:R_EyelidTop
+        weight: 0
+      - path: Character:EyeGlass
+        weight: 0
+      - path: Character:Root_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Bagtop_Jnt/Character:BagbOt_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:L_Hip_Jnt/Character:L_Knee_Jnt/Character:L_Ankle_Jnt/Character:L_Ball_Jnt/Character:L_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:R_Hip_Jnt/Character:R_Knee_Jnt/Character:R_Ankle_Jnt/Character:R_Ball_Jnt/Character:R_Foot1_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Index1_Jnt1/Character:L_Index1_Jnt2/Character:L_Index1_Jnt3/Character:L_Index1_Jnt4/Character:L_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Little1_Jnt1/Character:L_Little1_Jnt2/Character:L_Little1_Jnt3/Character:L_Little1_Jnt4/Character:L_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Middle1_Jnt1/Character:L_Middle1_Jnt2/Character:L_Middle1_Jnt3/Character:L_Middle1_Jnt4/Character:L_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Ring1_Jnt1/Character:L_Ring1_Jnt2/Character:L_Ring1_Jnt3/Character:L_Ring1_Jnt4/Character:L_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:L_Pelvis_Jnt/Character:L_Shoulder_Jnt/Character:L_Elbow_Jnt/Character:L_Wrist_Jnt/Character:L_Hand_Jnt/Character:L_Thumb1_Jnt1/Character:L_Thumb1_Jnt2/Character:L_Thumb1_Jnt3/Character:L_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:BottomMouth_Jnt1/Character:BottomMouth_Jnt2/Character:BottomMouth_Jnt3
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Ear_Jnt/Character:L_Ear_Jnt1/Character:L_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_Eye_Jnt/Character:L_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:L_EyelidTop_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Ear_Jnt/Character:R_Ear_Jnt1/Character:R_Ear_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_Eye_Jnt/Character:R_EyeNew
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidBot_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:R_EyelidUp_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopHead_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:Neck1_Jnt/Character:Head_Jnt/Character:TopMouth_Jnt/Character:TopMouth_Jnt2
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Index1_Jnt1/Character:R_Index1_Jnt2/Character:R_Index1_Jnt3/Character:R_Index1_Jnt4/Character:R_Index1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Little1_Jnt1/Character:R_Little1_Jnt2/Character:R_Little1_Jnt3/Character:R_Little1_Jnt4/Character:R_Little1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Middle1_Jnt1/Character:R_Middle1_Jnt2/Character:R_Middle1_Jnt3/Character:R_Middle1_Jnt4/Character:R_Middle1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Ring1_Jnt1/Character:R_Ring1_Jnt2/Character:R_Ring1_Jnt3/Character:R_Ring1_Jnt4/Character:R_Ring1_Jnt5
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Pelvis_Jnt/Character:Spine1_Jnt/Character:Spine2_Jnt/Character:Spine3_Jnt/Character:R_Pelvis_Jnt/Character:R_Shoulder_Jnt/Character:R_Elbow_Jnt/Character:R_Wrist_Jnt/Character:R_Hand_Jnt/Character:R_Thumb1_Jnt1/Character:R_Thumb1_Jnt2/Character:R_Thumb1_Jnt3/Character:R_Thumb1_Jnt4
+        weight: 0
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15
+        weight: 1
+      - path: Character:Root_Jnt/Character:Center_Jnt/Character:Tail_Jnt/Character:Tail_Jnt1/Character:Tail_Jnt2/Character:Tail_Jnt3/Character:Tail_Jnt4/Character:Tail_Jnt5/Character:Tail_Jnt6/Character:Tail_Jnt7/Character:Tail_Jnt8/Character:Tail_Jnt9/Character:Tail_Jnt10/Character:Tail_Jnt11/Character:Tail_Jnt12/Character:Tail_Jnt13/Character:Tail_Jnt14/Character:Tail_Jnt15/Character:Tail_Jnt16
+        weight: 1
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: d92efb967e04ed341b7daaa5899f8e31, type: 2}
+      additiveReferencePoseFrame: 0.59999996
+    - serializedVersion: 16
+      name: NormalAttack3ToIdle_1_Freeze
+      takeName: Take 001
+      firstFrame: 170
+      lastFrame: 171
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

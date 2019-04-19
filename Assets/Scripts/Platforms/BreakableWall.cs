@@ -8,6 +8,7 @@ public class BreakableWall : MonoBehaviour, IAttackable
     [SerializeField]GameObject[] destructObject =null;
     [SerializeField]float destructTime = 6f;
 
+    public bool isBlocking{get;private set;}
     public Health CharacterHP {get; private set;}
     
     private DamageMaterial m_damageMaterial = null;

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] int HeavyAttack = 40;
     [SerializeField] int Jump = 20;
     [SerializeField] int Dash = 20;
+    [SerializeField] int holdingShield = 10;
     [Header("Other")]
     [SerializeField] Transform SwordHoldPosition = null;
     [SerializeField] BaseSword swordInHand = null;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] Transform PotionPosition = null;
 
     public bool isDead { get; private set; }
+    public bool isBlocking { get; private set; }
     public Health CharacterHP { get; private set; }
     public Stemina CharacterStemina { get; private set; }
     public BaseSword WeaponInventory { get { return swordInHand; } }
@@ -35,7 +37,6 @@ public class Player : MonoBehaviour, IAttackable
     private RagdollController m_ragdollController = null;
 
     private Vector3 movement = Vector3.zero;
-    private bool canCancelToHurt = true;
 
     void Awake()
     {
@@ -53,6 +54,10 @@ public class Player : MonoBehaviour, IAttackable
     {
         CharacterHP.OnHPChanged += CheckHealth;
         m_ragdollController.InActiveRagdoll();
+    }
+    void Update()
+    {
+        isBlocking = m_stateHandler.GetBool("isHoldingShield");
     }
     void FixedUpdate()
     {
@@ -107,7 +112,7 @@ public class Player : MonoBehaviour, IAttackable
             m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
             if (NormalAttackGetter() && CheckNormalAttackSP())
             {
-                if(GameCore.m_GameContrller.TargetToLockOn)
+                if (GameCore.m_GameContrller.TargetToLockOn)
                 {
                     transform.LookAt(GameCore.m_GameContrller.TargetToLockOn.transform);
                 }
@@ -116,12 +121,25 @@ public class Player : MonoBehaviour, IAttackable
                     CharacterStemina.RemoveSP(NormalAttack);
                 }
             }
-            if(HeavyAttackGetter() && CheckHeavyAttackSP())
+            if (HeavyAttackGetter() && CheckHeavyAttackSP())
             {
-                if(m_stateHandler.HeavyAttack())
+                if (m_stateHandler.HeavyAttack())
                 {
                     CharacterStemina.RemoveSP(HeavyAttack);
                 }
+            }
+            if(Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton4))
+            {
+                m_stateHandler.SetBool("isHoldingShieldStart",true);
+            }
+            if (HoldingShieldGetter() && CheckHoldingShieldSP())
+            {
+                m_stateHandler.SetHoldingShield();
+            }
+            else
+            {
+                m_stateHandler.SetUnHoldingShield();
+                m_stateHandler.SetBool("isHoldingShieldStart",false);
             }
             if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
             {
@@ -153,6 +171,10 @@ public class Player : MonoBehaviour, IAttackable
     {
         return CharacterStemina.SP >= Jump;
     }
+    bool CheckHoldingShieldSP()
+    {
+        return CharacterStemina.SP >= holdingShield;
+    }
     bool NormalAttackGetter()
     {
         return Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetMouseButtonDown(0);
@@ -161,6 +183,10 @@ public class Player : MonoBehaviour, IAttackable
     {
         var TriggerAxis = Input.GetAxis("JoystickTrigger");
         return TriggerAxis > 0 || Input.GetMouseButtonDown(1);
+    }
+    bool HoldingShieldGetter()
+    {
+        return Input.GetKey(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.RightControl);
     }
     void MovementInputGetter()
     {
@@ -267,18 +293,24 @@ public class Player : MonoBehaviour, IAttackable
     public void TakeDamage(int damage)
     {
         CharacterHP.RemoveHP(damage);
-        if (canCancelToHurt)
+        if (damage != 0)
         {
+            m_stateHandler.SetUnHoldingShield();
             m_stateHandler.Hurt();
         }
     }
     public void TakeDamage(int damage, Vector3 forceToAdd)
     {
         CharacterHP.RemoveHP(damage);
-        if (canCancelToHurt)
+        m_rigidbody.velocity = forceToAdd;
+        if (damage != 0)
         {
-            m_rigidbody.velocity = forceToAdd;
+            m_stateHandler.SetUnHoldingShield();
             m_stateHandler.Hurt();
         }
+    }
+    public void Stop()
+    {
+        m_stateHandler.MovementSetter(Vector3.zero);
     }
 }

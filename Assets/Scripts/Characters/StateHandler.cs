@@ -13,6 +13,14 @@ public enum CharacterState
     WEAPON1_ATTACK2,
     WEAPON1_ATTACK3,
     WEAPON1_ATTACKHEAVY,
+    WEAPON2_ATTACK1,
+    WEAPON2_ATTACK2,
+    WEAPON2_ATTACK3,
+    WEAPON2_ATTACKHEAVY,
+    WEAPON3_ATTACK1,
+    WEAPON3_ATTACK2,
+    WEAPON3_ATTACK3,
+    WEAPON3_ATTACKHEAVY,
     GUARD,
     JUMP,
     DASH,
@@ -26,19 +34,21 @@ public class StateHandler : MonoBehaviour
     [SerializeField] CharacterState m_characterState = CharacterState.IDLE;
     [SerializeField] int weaponType = 1;
 
-    public CharacterState currentCharacterState{get {return m_characterState;}}
-    public Vector2 Movement{get;private set;}
+    public CharacterState currentCharacterState { get { return m_characterState; } }
+    public Vector2 Movement { get; private set; }
     public delegate void _Func();
     public event _Func OnStateChanged;
 
     private Animator m_animator = null;
     private CharacterState previousState = CharacterState.NONE;
     private GroundChecker m_groundChecker = null;
-    
+
+    private bool canHoldShield = false;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
+        canHoldShield = true;
     }
     void Update()
     {
@@ -51,44 +61,69 @@ public class StateHandler : MonoBehaviour
     void StateChange()
     {
         OnStateChanged?.Invoke();
+        if (currentCharacterState == CharacterState.RUN || currentCharacterState == CharacterState.IDLE)
+        {
+            canHoldShield = true;
+        }
     }
     void UpdateState()
     {
         previousState = currentCharacterState;
-        m_animator.SetInteger("WeaponHolding",weaponType);
+        m_animator.SetInteger("WeaponHolding", weaponType);
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
-        if(previousState != currentCharacterState)
+        if (previousState != currentCharacterState)
         {
             StateChange();
         }
     }
     public bool NormalAttack()
     {
-        if (m_animator.GetBool("Controlable"))
+        if (m_animator.GetBool("Controlable") && !m_animator.GetBool("isHoldingShield"))
         {
             m_animator.SetTrigger("Attack");
             m_animator.SetBool("Controlable", false);
+            canHoldShield = false;
             return true;
         }
         return false;
     }
     public bool HeavyAttack()
     {
-        if (m_animator.GetBool("Controlable"))
+        if (m_animator.GetBool("Controlable") && !m_animator.GetBool("isHoldingShield"))
         {
             m_animator.SetTrigger("AttackHeavy");
             m_animator.SetBool("Controlable", false);
+            canHoldShield = false;
+            return true;
+        }
+        return false;
+    }
+    public bool SetHoldingShield()
+    {
+        if (m_animator.GetBool("Controlable") && canHoldShield)
+        {
+            m_animator.SetBool("isHoldingShield", true);
+            return true;
+        }
+        return false;
+    }
+    public bool SetUnHoldingShield()
+    {
+        if (m_animator.GetBool("Controlable"))
+        {
+            m_animator.SetBool("isHoldingShield", false);
             return true;
         }
         return false;
     }
     public bool Dash()
     {
-        if (m_animator.GetBool("Controlable") && m_groundChecker.isOnGround)
+        if (m_animator.GetBool("Controlable") && m_groundChecker.isOnGround && !m_animator.GetBool("isHoldingShield"))
         {
             m_animator.SetTrigger("Dash");
             m_animator.SetBool("Controlable", false);
+            canHoldShield = false;
             return true;
         }
         return false;
@@ -120,8 +155,12 @@ public class StateHandler : MonoBehaviour
             m_animator.SetTrigger("Jump");
         }
     }
-    public void SetBool(string name,bool value)
+    public void SetBool(string name, bool value)
     {
-        m_animator.SetBool(name,value);
+        m_animator.SetBool(name, value);
+    }
+    public bool GetBool(string name)
+    {
+        return m_animator.GetBool(name);
     }
 }

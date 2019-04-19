@@ -2305,7 +2305,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3909909958964324749}
-  m_LocalRotation: {x: 0.3154473, y: 0.13718034, z: 0.93774384, w: -0.048072733}
+  m_LocalRotation: {x: 0.3154473, y: 0.13718036, z: 0.93774384, w: -0.048072737}
   m_LocalPosition: {x: -0.16414037, y: 0.0073327287, z: 0.127676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4951,7 +4951,7 @@ Animator:
   m_GameObject: {fileID: 5679803567152041138}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 153dbf18e03fe1b4188cd1c0318d3f24, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8a1c74c078986d140803159e46b17ca8, type: 2}
+  m_Controller: {fileID: 9100000, guid: ff0f93a58b0153b43a0d47d89b79ee45, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4962,8 +4962,8 @@ Animator:
     'Character:R_Thumb1_Jnt1'\n\tTransform 'Character:R_Middle1_Jnt1'\n\tTransform
     'Character:Center_Jnt'\n\tTransform 'Character:R_Little1_Jnt1'\n\tTransform 'Character:L_Elbow_Jnt'\n\tTransform
     'Character:R_Middle1_Jnt2'\n\tTransform 'Character:L_Hip_Jnt'\n\tTransform 'Character:L_Index1_Jnt1'\n\tand
-    more ...\n\tFrom animation clip 'Fox_EyeIdle'\n\tFrom animation clip 'Fox_EyeClose'\n\tFrom
-    animation clip 'Fox_EyeClose'"
+    more ...\n\tFrom animation clip 'SQ_EyeClose'\n\tFrom animation clip 'SQ_EyeIdle'\n\tFrom
+    animation clip 'SQ_EyeClose'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -5047,20 +5047,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionMotions:
-  - delayForAddForce: 0
-    forceToAdd: 12.5
+  - delayForAddForce: 0.42
+    forceToAdd: 8.5
   - delayForAddForce: 0.22
     forceToAdd: 15
   - delayForAddForce: 0.36
     forceToAdd: 12
   - delayForAddForce: 0
-    forceToAdd: 12
-  - delayForAddForce: 0.92
-    forceToAdd: 160
-  - delayForAddForce: 0.23
-    forceToAdd: 220
-  - delayForAddForce: 0.18
-    forceToAdd: 232
+    forceToAdd: 0
+  - delayForAddForce: 0
+    forceToAdd: 0
+  - delayForAddForce: 0
+    forceToAdd: 0
+  - delayForAddForce: 0
+    forceToAdd: 0
   - delayForAddForce: 0
     forceToAdd: 0
 --- !u!114 &5679803567152041143
@@ -5290,17 +5290,17 @@ PrefabInstance:
       propertyPath: TargetLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
-    - target: {fileID: 780896235190020974, guid: 3f8514120f1e46c409cf0fae2cfcf991,
-        type: 3}
-      propertyPath: TargetLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 1549695791118166585, guid: 3f8514120f1e46c409cf0fae2cfcf991,
         type: 3}
       propertyPath: TargetLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3101510050577548534, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: TargetLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 780896235190020974, guid: 3f8514120f1e46c409cf0fae2cfcf991,
         type: 3}
       propertyPath: TargetLayer.m_Bits
       value: 512

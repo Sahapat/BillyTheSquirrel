@@ -6,7 +6,7 @@ public class HitSystem : BaseHitSystem
 {
     [SerializeField] TrailRenderer m_trailRenderer = null;
     [SerializeField] float forceToAdd = 5f;
-    [SerializeField] float shakeLeght = 0.32f;
+    [SerializeField] float shakeLenght = 0.32f;
     private BoxCollider m_boxcolider = null;
     private Transform m_rootTranform = null;
     void Awake()
@@ -55,15 +55,36 @@ public class HitSystem : BaseHitSystem
                 var attackableObj = hitInfo[i].GetComponent<IAttackable>();
                 if (hitInfo[i].CompareTag("Player") || hitInfo[i].CompareTag("Enemy"))
                 {
-                    attackableObj?.TakeDamage(damagePerHit, m_rootTranform.forward * forceToAdd);
+                    if (attackableObj.isBlocking)
+                    {
+                        hitInfo[i].transform.LookAt(new Vector3(m_rootTranform.position.x,hitInfo[i].transform.position.y,m_rootTranform.position.z));
+
+                        attackableObj?.TakeDamage(0,m_rootTranform.forward * forceToAdd);
+
+                        if(hitInfo[i].CompareTag("Player"))
+                        {
+                            GameCore.m_GameContrller.SetNotControlableByTime(0.8f);
+                            var player = hitInfo[i].GetComponent<Player>();
+                            player.CharacterStemina.RemoveSP((int)(damagePerHit*1.5f));
+                            player.Stop();
+                            if(player.CharacterStemina.SP <= 10)
+                            {
+                                attackableObj?.TakeDamage(damagePerHit);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        attackableObj?.TakeDamage(damagePerHit, m_rootTranform.forward * forceToAdd);
+                    }
                 }
                 else
                 {
                     attackableObj?.TakeDamage(damagePerHit);
                 }
-                if(shakeLeght != 0)
+                if (shakeLenght != 0)
                 {
-                    GameCore.m_cameraController.ShakeCamera(0.22f,shakeLeght);
+                    GameCore.m_cameraController.ShakeCamera(0.22f, shakeLenght);
                 }
             }
         }
