@@ -8,8 +8,6 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] int m_characterMaxHP = 100;
 
     [Header("Action Stamina Depletion")]
-    [SerializeField] int NormalAttack = 20;
-    [SerializeField] int HeavyAttack = 40;
     [SerializeField] int Jump = 20;
     [SerializeField] int Dash = 20;
     [SerializeField] int holdingShield = 10;
@@ -118,19 +116,28 @@ public class Player : MonoBehaviour, IAttackable
                 }
                 if (m_stateHandler.NormalAttack())
                 {
-                    CharacterStemina.RemoveSP(NormalAttack);
+                    var indexToUse = 0;
+                    if (m_stateHandler.GetBool("CanAttack2"))
+                    {
+                        indexToUse = 1;
+                    }
+                    else if (m_stateHandler.GetBool("CanAttack3"))
+                    {
+                        indexToUse = 2;
+                    }
+                    CharacterStemina.RemoveSP(swordInHand.GetNormalSteminaDeplete(indexToUse));
                 }
             }
             if (HeavyAttackGetter() && CheckHeavyAttackSP())
             {
                 if (m_stateHandler.HeavyAttack())
                 {
-                    CharacterStemina.RemoveSP(HeavyAttack);
+                    CharacterStemina.RemoveSP(swordInHand.GetHeavySteminaDeplete());
                 }
             }
-            if(Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton4))
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton4))
             {
-                m_stateHandler.SetBool("isHoldingShieldStart",true);
+                m_stateHandler.SetBool("isHoldingShieldStart", true);
             }
             if (HoldingShieldGetter() && CheckHoldingShieldSP())
             {
@@ -139,7 +146,7 @@ public class Player : MonoBehaviour, IAttackable
             else
             {
                 m_stateHandler.SetUnHoldingShield();
-                m_stateHandler.SetBool("isHoldingShieldStart",false);
+                m_stateHandler.SetBool("isHoldingShieldStart", false);
             }
             if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
             {
@@ -157,11 +164,20 @@ public class Player : MonoBehaviour, IAttackable
     }
     bool CheckNormalAttackSP()
     {
-        return CharacterStemina.SP >= NormalAttack;
+        var indexToUse = 0;
+        if (m_stateHandler.GetBool("CanAttack2"))
+        {
+            indexToUse = 1;
+        }
+        else if (m_stateHandler.GetBool("CanAttack3"))
+        {
+            indexToUse = 2;
+        }
+        return CharacterStemina.SP >= swordInHand.GetNormalSteminaDeplete(indexToUse);
     }
     bool CheckHeavyAttackSP()
     {
-        return CharacterStemina.SP >= HeavyAttack;
+        return CharacterStemina.SP >= swordInHand.GetHeavySteminaDeplete();
     }
     bool CheckDashSP()
     {

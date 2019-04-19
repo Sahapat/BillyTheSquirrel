@@ -81,4 +81,12 @@ public class BaseSword: MonoBehaviour,ICollectable,IPopable
         m_rigidbody.isKinematic = false;
         m_rigidbody.AddForce(new Vector3(xForce,Vector3.up.y,zForce) * forceToAdd, ForceMode.Impulse);
     }
+    public int GetNormalSteminaDeplete(int index)
+    {
+        return hitSystemManager.GetNormalHitSteminaDeplete(index);
+    }
+    public int GetHeavySteminaDeplete()
+    {
+        return hitSystemManager.GetHeavyHitSteminaDeplete();
+    }
 }

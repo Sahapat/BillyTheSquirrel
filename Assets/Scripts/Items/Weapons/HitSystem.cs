@@ -7,6 +7,10 @@ public class HitSystem : BaseHitSystem
     [SerializeField] TrailRenderer m_trailRenderer = null;
     [SerializeField] float forceToAdd = 5f;
     [SerializeField] float shakeLenght = 0.32f;
+    [SerializeField] int _steminaDeplete = 20;
+
+    public int steminaDeplete{get{return _steminaDeplete;}}
+
     private BoxCollider m_boxcolider = null;
     private Transform m_rootTranform = null;
     void Awake()
