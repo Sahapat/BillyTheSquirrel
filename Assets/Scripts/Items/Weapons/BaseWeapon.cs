@@ -12,7 +12,7 @@ public enum WeaponType
     NONE
 };
 
-public class BaseWeapon: MonoBehaviour,IItem,IPopable
+public class BaseWeapon: MonoBehaviour,IItem
 {
     [SerializeField]ItemType _itemType = ItemType.NONE;
     [SerializeField]WeaponType _weaponType = WeaponType.NONE;
@@ -45,9 +45,5 @@ public class BaseWeapon: MonoBehaviour,IItem,IPopable
     public void SetTargetLayer(LayerMask mask)
     {
         hitSystemManager.SetTargetLayer(mask);
-    }
-
-    public void PopOut(Vector3 startPosition, Vector3 endPosition, float duration)
-    {
     }
 }

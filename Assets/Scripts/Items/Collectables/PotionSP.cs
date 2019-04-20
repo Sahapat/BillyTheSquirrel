@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionSP : Potion
+public class PotionSP : Item
 {
     [SerializeField]int SP_Heal = 50;
 

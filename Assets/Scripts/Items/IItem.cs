@@ -14,7 +14,3 @@ public interface IItem
     string headerName{get;}
     Sprite Icon{get;}
 }
-public interface IPopable
-{
-    void PopOut(Vector3 startPosition,Vector3 endPosition,float duration);
-}

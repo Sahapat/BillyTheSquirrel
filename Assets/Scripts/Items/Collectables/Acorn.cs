@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Acorn : MonoBehaviour,IPopable
+public class Acorn : MonoBehaviour
 {
-    [SerializeField] int coinValue = 1;
-
-    public void PopOut(Vector3 startPosition, Vector3 endPosition, float duration)
-    {
-        throw new System.NotImplementedException();
-    }
+    [SerializeField] int _coinValue = 1;
+    public int coinValue{get{return _coinValue;}}
 }

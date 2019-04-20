@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Player _ClientPlayerTarget = null;
     [SerializeField] Transform _temporaryTranform = null;
     [SerializeField] GameObject _targetToLockOn = null;
+    [SerializeField] GameObject PopOutPrefab = null;
     [SerializeField] float ClampPlayerByYPosition = 0f;
 
     public bool Controlable = true;
@@ -41,6 +42,10 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         enemyOnFOVCamera = new GameObject[10];
+    }
+    void Start()
+    {
+        GameCore.m_uiHandler.CloseInventory();
     }
     void FixedUpdate()
     {

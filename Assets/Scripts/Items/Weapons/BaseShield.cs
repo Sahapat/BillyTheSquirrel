@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseShield : MonoBehaviour,IItem,IPopable
+public class BaseShield : MonoBehaviour,IItem
 {
     [SerializeField]ItemType _itemType = ItemType.NONE;
     [SerializeField]Sprite _Icon = null;
@@ -15,9 +15,4 @@ public class BaseShield : MonoBehaviour,IItem,IPopable
     public Sprite Icon{get{return _Icon;}}
     public string description{get{return _description;}}
     public string headerName{get{return _headerName;}}
-
-    public void PopOut(Vector3 startPosition, Vector3 endPosition, float duration)
-    {
-        throw new System.NotImplementedException();
-    }
 }
