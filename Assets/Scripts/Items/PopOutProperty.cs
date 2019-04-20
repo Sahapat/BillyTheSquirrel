@@ -12,7 +12,7 @@ public class PopOutProperty
     public int minRandom = 0;
     public int maxRandom = 0;
     
-    [Range(0,10)] int PopOutNum = 0;
+    [Range(0,10)]public int PopOutNum = 0;
 
     public bool GetPopOutChance()
     {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5008449793942359430}
   m_Layer: 0
   m_Name: PotionHP
-  m_TagString: NotAutoCollect
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,8 @@ MonoBehaviour:
   _Icon: {fileID: 21300000, guid: 05c64bd4bbd179b4682da4968402364d, type: 3}
   _headerName: Health Potion
   _description: This potion will heal your health 50
+  _popOutChildPositionOffset: {x: 0, y: 0, z: 0}
+  _popOutChildRotationOffset: {x: 0, y: 0, z: 0}
   HP_Heal: 50
 --- !u!1001 &2203465842005071328
 PrefabInstance:

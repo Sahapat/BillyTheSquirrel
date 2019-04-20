@@ -51,7 +51,7 @@ public class StateHandler : MonoBehaviour
         baseWeapon = GetComponentInChildren<BaseWeapon>();
         m_groundChecker = GetComponentInChildren<GroundChecker>();
         canHoldShield = true;
-        m_animator.SetBool("isSpecial",false);
+        m_animator.SetBool("isSpecial", false);
     }
     void Update()
     {
@@ -67,7 +67,7 @@ public class StateHandler : MonoBehaviour
         if (currentCharacterState == CharacterState.RUN || currentCharacterState == CharacterState.IDLE)
         {
             canHoldShield = true;
-            m_animator.SetBool("isSpecial",false);
+            m_animator.SetBool("isSpecial", false);
         }
     }
     void UpdateState()
@@ -76,13 +76,20 @@ public class StateHandler : MonoBehaviour
         m_animator.SetInteger("WeaponHolding", weaponType);
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
-        if(baseWeapon.transform.root.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+        if (baseWeapon)
         {
-            baseWeapon = GetComponentInChildren<BaseWeapon>();
+            if (baseWeapon.transform.root.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+            {
+                baseWeapon = GetComponentInChildren<BaseWeapon>();
+            }
+            else
+            {
+                weaponType = (int)baseWeapon.weaponType;
+            }
         }
         else
         {
-            weaponType = (int)baseWeapon.weaponType;
+            weaponType = (int)WeaponType.NONE;
         }
         if (previousState != currentCharacterState)
         {
@@ -160,12 +167,14 @@ public class StateHandler : MonoBehaviour
         var weight = new Vector2(Axis.x, Axis.y).magnitude;
         m_animator.SetFloat("MovementMagnitude", weight);
     }
-    public void Jump()
+    public bool Jump()
     {
         if (m_animator.GetBool("Controlable") && m_groundChecker.isOnGround)
         {
             m_animator.SetTrigger("Jump");
+            return true;
         }
+        return false;
     }
     public void SetBool(string name, bool value)
     {

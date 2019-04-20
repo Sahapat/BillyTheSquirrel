@@ -94,8 +94,11 @@ public class ActionHandler : MonoBehaviour
                 queueMotionIndex = 15;
                 break;
             case CharacterState.RESET:
-                m_baseWeapon.hitSystemManager.CancelAllHit();
-                queueMotionIndex = -1;
+                if (m_baseWeapon)
+                {
+                    m_baseWeapon.hitSystemManager.CancelAllHit();
+                    queueMotionIndex = -1;
+                }
                 break;
         }
         if (queueMotionIndex != -1)

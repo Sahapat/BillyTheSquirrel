@@ -52,15 +52,18 @@ public class Player : MonoBehaviour, IAttackable
     void Start()
     {
         CharacterHP.OnHPChanged += CheckHealth;
-        weaponInHand.SetTargetLayer(targetLayer);
         m_ragdollController.InActiveRagdoll();
-        if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+        if (weaponInHand)
         {
-            shieldInHand.gameObject.SetActive(false);
-        }
-        else
-        {
-            shieldInHand.gameObject.SetActive(true);
+            weaponInHand.SetTargetLayer(targetLayer);
+            if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+            {
+                shieldInHand.gameObject.SetActive(false);
+            }
+            else
+            {
+                shieldInHand.gameObject.SetActive(true);
+            }
         }
     }
     void Update()
@@ -176,8 +179,10 @@ public class Player : MonoBehaviour, IAttackable
             }
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && CheckJumpSP())
             {
-                m_stateHandler.Jump();
-                CharacterStemina.RemoveSP(Jump);
+                if (m_stateHandler.Jump())
+                {
+                    CharacterStemina.RemoveSP(Jump);
+                }
             }
         }
     }
@@ -192,7 +197,14 @@ public class Player : MonoBehaviour, IAttackable
         {
             indexToUse = 2;
         }
-        return CharacterStemina.SP >= weaponInHand.GetNormalSteminaDeplete(indexToUse);
+        if (weaponInHand)
+        {
+            return CharacterStemina.SP >= weaponInHand.GetNormalSteminaDeplete(indexToUse);
+        }
+        else
+        {
+            return false;
+        }
     }
     bool CheckHeavyAttackSP()
     {
@@ -222,6 +234,10 @@ public class Player : MonoBehaviour, IAttackable
     bool HoldingShieldGetter()
     {
         return Input.GetKey(KeyCode.JoystickButton4) || Input.GetKey(KeyCode.LeftControl);
+    }
+    bool Interact()
+    {
+        return Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3);
     }
     void MovementInputGetter()
     {
@@ -273,56 +289,25 @@ public class Player : MonoBehaviour, IAttackable
     }
     void ItemCollectChecker()
     {
-        var hitInfo = PhysicsExtensions.OverlapCapsule(m_capsuleColider, LayerMask.GetMask("PickUp"));
+        var hitInfo = PhysicsExtensions.OverlapCapsule(m_capsuleColider,LayerMask.GetMask("PickUp"));
 
-        if (hitInfo.Length > 0)
+        if(hitInfo.Length > 0)
         {
-            print("in");
-            if (hitInfo[0].CompareTag("Chest"))
+            switch(hitInfo[0].tag)
             {
-                var chestScript = hitInfo[0].GetComponent<Chest>();
-                chestScript.ShowToolTip();
-                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
+                case "Chest":
+                GameCore.m_GameContrller.itemFocus = hitInfo[0].gameObject;
+                if(Interact())
                 {
+                    var chestScript = hitInfo[0].GetComponent<Chest>();
                     chestScript.OpenChest();
                 }
+                break;
             }
-            /* var collectItem = hitInfo[0].GetComponent<ICollectable>();
-            switch (collectItem.itemType)
-            {
-                case ItemType.EQUIPMENT:
-                    var weapon = hitInfo[0].GetComponent<BaseWeapon>();
-                    var shield = hitInfo[0].GetComponent<BaseShield>();
-
-                    if (weapon != null)
-                    {
-                        weaponInHand.Discard();
-                        var weaponObject = weapon.PickUp();
-                        weaponInHand = weapon;
-                        weaponObject.transform.parent = SwordHoldPosition;
-                        weaponObject.transform.localPosition = weapon.HoldingPos;
-                        weaponObject.transform.localRotation = Quaternion.identity;
-                        GameCore.m_uiHandler.UpdateEquipmentSlot();
-                        m_actionHandler.UpdateSword(weapon);
-                    }
-                    else
-                    {
-                        shieldInHand.Discard();
-                        var shieldObject = shield.PickUp();
-                        shieldInHand = shield;
-                        shieldObject.transform.parent = ShieldHoldPosition;
-                        shieldObject.transform.localPosition = shield.HoldingPos;
-                        shieldObject.transform.localRotation = Quaternion.identity;
-                        GameCore.m_uiHandler.UpdateEquipmentSlot();
-                    }
-                    break;
-                case ItemType.ITEM:
-                    if (!ItemInventory.isFull)
-                    {
-                        ItemInventory.AddItem(hitInfo[0].gameObject, GameCore.m_GameContrller.TemporaryTranform);
-                    }
-                    break;
-            } */
+        }
+        else
+        {
+            GameCore.m_GameContrller.itemFocus = null;
         }
     }
     Vector3 SerializeInputByCameraTranform(Vector3 inputAxis)

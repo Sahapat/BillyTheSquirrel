@@ -13,4 +13,6 @@ public interface IItem
     string description{get;}
     string headerName{get;}
     Sprite Icon{get;}
+    Vector3 popOutChildPositionOffset{get;}
+    Vector3 popOutChildRotationOffset{get;}
 }

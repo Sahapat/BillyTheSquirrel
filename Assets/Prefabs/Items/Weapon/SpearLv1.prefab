@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 3236498424774763355}
   m_Layer: 0
   m_Name: SpearLv1
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,7 +400,8 @@ MonoBehaviour:
   _headerName: Spear Lv1
   _description: Spear Lv1
   _HoldingPos: {x: 0, y: 0, z: 0.1}
-  isPickUp: 0
+  _popOutChildPositionOffset: {x: 0, y: 0, z: 0}
+  _popOutChildRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &3236498424774763355
 MonoBehaviour:
   m_ObjectHideFlags: 0

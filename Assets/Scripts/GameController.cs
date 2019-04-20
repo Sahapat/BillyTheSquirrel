@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Player _ClientPlayerTarget = null;
     [SerializeField] Transform _temporaryTranform = null;
     [SerializeField] GameObject _targetToLockOn = null;
+    public GameObject itemFocus = null;
     [SerializeField] GameObject _PopOutPrefab = null;
     [SerializeField] float ClampPlayerByYPosition = 0f;
 

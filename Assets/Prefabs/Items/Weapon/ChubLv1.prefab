@@ -356,8 +356,8 @@ GameObject:
   - component: {fileID: 3281127007809765887}
   - component: {fileID: 3236498424774763355}
   m_Layer: 0
-  m_Name: GreatSwordLv1
-  m_TagString: Untagged
+  m_Name: ChubLv1
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,7 +400,8 @@ MonoBehaviour:
   _headerName: Great Sword Lv1
   _description: Great Sword Lv1
   _HoldingPos: {x: 0, y: 0, z: -0.18}
-  isPickUp: 0
+  _popOutChildPositionOffset: {x: 0, y: 0, z: 0}
+  _popOutChildRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &3236498424774763355
 MonoBehaviour:
   m_ObjectHideFlags: 0

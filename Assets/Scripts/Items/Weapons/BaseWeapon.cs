@@ -20,6 +20,8 @@ public class BaseWeapon: MonoBehaviour,IItem
     [SerializeField]string _headerName = string.Empty;
     [SerializeField]string _description = string.Empty;
     [SerializeField]Vector3 _HoldingPos = Vector3.zero;
+    [SerializeField]Vector3 _popOutChildPositionOffset = Vector3.zero;
+    [SerializeField]Vector3 _popOutChildRotationOffset = Vector3.zero;
 
     public WeaponType weaponType{get{return _weaponType;}}
     public Vector3 HoldingPos{get{return _HoldingPos;}}
@@ -29,6 +31,9 @@ public class BaseWeapon: MonoBehaviour,IItem
     public string headerName{get{return _headerName;}}
     public HitManager hitSystemManager{get;private set;}
 
+    public Vector3 popOutChildPositionOffset{get{return _popOutChildPositionOffset;}}
+
+    public Vector3 popOutChildRotationOffset{get{return _popOutChildRotationOffset;}}
 
     void Awake()
     {

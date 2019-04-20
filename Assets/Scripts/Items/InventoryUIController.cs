@@ -129,11 +129,17 @@ public class InventoryUIController : MonoBehaviour
     }
     public void UpdateWeapon()
     {
-        slotUIControllers[0].AddItemToSlot(m_player.WeaponInventory);
+        if (m_player.WeaponInventory)
+        {
+            slotUIControllers[0].AddItemToSlot(m_player.WeaponInventory);
+        }
     }
     public void UpdateShield()
     {
-        slotUIControllers[1].AddItemToSlot(m_player.ShieldInvetory);
+        if (m_player.ShieldInvetory)
+        {
+            slotUIControllers[1].AddItemToSlot(m_player.ShieldInvetory);
+        }
     }
     public void UpdateUiInventory()
     {

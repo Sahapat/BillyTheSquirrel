@@ -37,21 +37,23 @@ public class PopOutController : MonoBehaviour
         if(isInstantiate)
         {
             itemTarget = Instantiate(targetObject,Vector3.zero,Quaternion.identity);
+            this.tag = "Untagged";
         }
         else
         {
             itemTarget = targetObject;
+            this.tag = itemTarget.tag;
         }
+        var itemScript = itemTarget.GetComponent<IItem>();
         target = itemTarget;
         target.transform.parent = placeTranform;
-        target.transform.localPosition = Vector3.zero;
-        target.transform.localRotation = Quaternion.Euler(0,0,30);
+        target.transform.localPosition = itemScript.popOutChildPositionOffset;
+        target.transform.localRotation = Quaternion.Euler(itemScript.popOutChildRotationOffset);
         target.transform.localScale = Vector3.one;
 
         isPopOut = true;
         initPosition = startPosition;
         finalPosition = endPosition;
-
         if(isAutoCollect)this.GetComponent<BoxCollider>().enabled = false;
 
         transform.position = initPosition;
