@@ -4913,6 +4913,7 @@ GameObject:
   - component: {fileID: 5679803567152041143}
   - component: {fileID: 4761516895564858546}
   - component: {fileID: 8533194671680565925}
+  - component: {fileID: 513369660975942215}
   m_Layer: 13
   m_Name: WildBoarCH
   m_TagString: Enemy
@@ -5140,6 +5141,33 @@ MonoBehaviour:
   m_renderer:
   - {fileID: 3909909958950659369}
   specialRenderers: []
+--- !u!114 &513369660975942215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679803567152041138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346ad4c25e4065246b5f1dae52d21e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsPopOut:
+  - objectToPopOut: {fileID: 5565177755798210656, guid: 6720109bf680f4e42a18400bda480146,
+      type: 3}
+    PopOutChance: 0.3
+    isRandomNum: 0
+    minRandom: 0
+    maxRandom: 0
+    PopOutNum: 1
+  - objectToPopOut: {fileID: 961729817022948993, guid: 34c32ee0e17b80743a42949a280066f0,
+      type: 3}
+    PopOutChance: 1
+    isRandomNum: 1
+    minRandom: 1
+    maxRandom: 5
+    PopOutNum: 0
 --- !u!1 &6062970764465402263
 GameObject:
   m_ObjectHideFlags: 0

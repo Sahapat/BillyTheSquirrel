@@ -119,8 +119,6 @@ public class Player : MonoBehaviour, IAttackable
         }
         else
         {
-            MovementInputGetter();
-            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
             if (NormalAttackGetter() && CheckNormalAttackSP())
             {
                 if (GameCore.m_GameContrller.TargetToLockOn)
@@ -187,6 +185,8 @@ public class Player : MonoBehaviour, IAttackable
                     CharacterStemina.RemoveSP(Jump);
                 }
             }
+            MovementInputGetter();
+            m_stateHandler.MovementSetter(SerializeInputByCameraTranform(movement));
         }
     }
     bool CheckNormalAttackSP()
@@ -310,6 +310,20 @@ public class Player : MonoBehaviour, IAttackable
 
                         if (baseWeapon)
                         {
+                            if (weaponInHand)
+                            {
+                                var circleRandom = Random.insideUnitCircle;
+
+                                var endPosition = new Vector3(transform.position.x + circleRandom.x + 0.5f, transform.position.y + 0.25f, transform.position.z + 0.5f + circleRandom.y);
+
+                                var popOutObj = Instantiate(GameCore.m_GameContrller.PopOutPrefab, Vector3.zero, Quaternion.identity);
+
+                                var popOutController = popOutObj.GetComponent<PopOutController>();
+
+                                popOutController.PopOut(weaponInHand.gameObject, transform.position, endPosition, true, false);
+
+                                Destroy(weaponInHand.gameObject);
+                            }
                             baseWeapon.transform.parent = SwordHoldPosition;
                             baseWeapon.transform.localPosition = baseWeapon.HoldingPos;
                             baseWeapon.transform.localRotation = Quaternion.identity;
@@ -324,11 +338,26 @@ public class Player : MonoBehaviour, IAttackable
                             {
                                 shieldInHand?.gameObject?.SetActive(true);
                             }
+                            m_stateHandler.UpdateWeapon(baseWeapon);
                             GameCore.m_uiHandler.UpdateEquipmentSlot();
                             Destroy(hitInfo[0].gameObject);
                         }
                         else if (baseShield)
                         {
+                            if (shieldInHand)
+                            {
+                                var circleRandom = Random.insideUnitCircle;
+
+                                var endPosition = new Vector3(transform.position.x + circleRandom.x + 0.5f, transform.position.y + 0.25f, transform.position.z + 0.5f + circleRandom.y);
+
+                                var popOutObj = Instantiate(GameCore.m_GameContrller.PopOutPrefab, Vector3.zero, Quaternion.identity);
+
+                                var popOutController = popOutObj.GetComponent<PopOutController>();
+
+                                popOutController.PopOut(shieldInHand.gameObject, transform.position, endPosition, true, false);
+
+                                Destroy(shieldInHand.gameObject);
+                            }
                             baseShield.transform.parent = ShieldHoldPosition;
                             baseShield.transform.localPosition = baseShield.HoldingPos;
                             baseShield.transform.localRotation = Quaternion.identity;
@@ -397,5 +426,75 @@ public class Player : MonoBehaviour, IAttackable
     public void Stop()
     {
         m_stateHandler.MovementSetter(Vector3.zero);
+    }
+    public void AddEquipment(BaseWeapon weapon, BaseShield shield)
+    {
+        if (weapon)
+        {
+            if (weaponInHand)
+            {
+                var circleRandom = Random.insideUnitCircle;
+
+                var endPosition = new Vector3(transform.position.x + circleRandom.x, transform.position.y + 0.25f, transform.position.z + circleRandom.y);
+
+                var popOutObj = Instantiate(GameCore.m_GameContrller.PopOutPrefab, Vector3.zero, Quaternion.identity);
+
+                var popOutController = popOutObj.GetComponent<PopOutController>();
+
+                popOutController.PopOut(weaponInHand.gameObject, transform.position, endPosition, true, false);
+
+                Destroy(weaponInHand.gameObject);
+            }
+            weapon.transform.parent = SwordHoldPosition;
+            weapon.transform.localPosition = weapon.HoldingPos;
+            weapon.transform.localRotation = Quaternion.identity;
+            weaponInHand = weapon;
+
+            weaponInHand.SetTargetLayer(targetLayer);
+            if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+            {
+                shieldInHand?.gameObject.SetActive(false);
+            }
+            else
+            {
+                shieldInHand?.gameObject?.SetActive(true);
+            }
+            m_stateHandler.UpdateWeapon(weapon);
+            GameCore.m_uiHandler.UpdateEquipmentSlot();
+        }
+        else if (shield)
+        {
+            if (shieldInHand)
+            {
+                var circleRandom = Random.insideUnitCircle;
+
+                var endPosition = new Vector3(transform.position.x + circleRandom.x, transform.position.y + 0.25f, transform.position.z + circleRandom.y);
+
+                var popOutObj = Instantiate(GameCore.m_GameContrller.PopOutPrefab, Vector3.zero, Quaternion.identity);
+
+                var popOutController = popOutObj.GetComponent<PopOutController>();
+
+                popOutController.PopOut(shieldInHand.gameObject, transform.position, endPosition, true, false);
+
+                Destroy(shieldInHand.gameObject);
+            }
+            shield.transform.parent = ShieldHoldPosition;
+            shield.transform.localPosition = shield.HoldingPos;
+            shield.transform.localRotation = Quaternion.identity;
+
+            shieldInHand = shield;
+            if (weaponInHand)
+            {
+                if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+                {
+                    shieldInHand?.gameObject.SetActive(false);
+                }
+                else
+                {
+                    shieldInHand?.gameObject?.SetActive(true);
+                }
+            }
+            GameCore.m_uiHandler.UpdateEquipmentSlot();
+        }
     }
 }

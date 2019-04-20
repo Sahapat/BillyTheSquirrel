@@ -5586,6 +5586,7 @@ GameObject:
   - component: {fileID: 6618080165211060974}
   - component: {fileID: 6277699002054259435}
   - component: {fileID: 7161124519156385020}
+  - component: {fileID: 2764614930132008362}
   m_Layer: 13
   m_Name: FoxCH
   m_TagString: Enemy
@@ -5817,6 +5818,33 @@ MonoBehaviour:
   specialRenderers:
   - {fileID: 5453491756115083627}
   - {fileID: 5453491756115083625}
+--- !u!114 &2764614930132008362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618080165211060971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346ad4c25e4065246b5f1dae52d21e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsPopOut:
+  - objectToPopOut: {fileID: 5565177755798210656, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+      type: 3}
+    PopOutChance: 0.3
+    isRandomNum: 0
+    minRandom: 0
+    maxRandom: 0
+    PopOutNum: 1
+  - objectToPopOut: {fileID: 961729817022948993, guid: 34c32ee0e17b80743a42949a280066f0,
+      type: 3}
+    PopOutChance: 1
+    isRandomNum: 1
+    minRandom: 1
+    maxRandom: 5
+    PopOutNum: 0
 --- !u!1 &6618080166121925885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,11 +5948,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordLv1
       objectReference: {fileID: 0}
-    - target: {fileID: 3281127007809765887, guid: 3f8514120f1e46c409cf0fae2cfcf991,
-        type: 3}
-      propertyPath: isPickUp
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5980,17 +6003,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3281127007809765887, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: isPickUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101510050577548534, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: TargetLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 569044942908700235, guid: 3f8514120f1e46c409cf0fae2cfcf991,
         type: 3}
       propertyPath: TargetLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 1549695791118166585, guid: 3f8514120f1e46c409cf0fae2cfcf991,
-        type: 3}
-      propertyPath: TargetLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101510050577548534, guid: 3f8514120f1e46c409cf0fae2cfcf991,
         type: 3}
       propertyPath: TargetLayer.m_Bits
       value: 512

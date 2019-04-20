@@ -33,15 +33,18 @@ public class Enemy : MonoBehaviour, IAttackable
     public Health CharacterHP { get; private set; }
     public bool isDead { get; private set; }
     public bool isBlocking{get;private set;}
+    public Transform CurrentGround{get;private set;}
 
     private AIStateMachine aIStateMachine = AIStateMachine.GUARD;
     private AIStateMachine previousAiState = AIStateMachine.NONE;
     //Component require
     private Rigidbody m_rigidbody = null;
+    private CapsuleCollider m_capsuleColider = null;
     private StateHandler m_stateHandler = null;
     private CustomNavMeshAgent m_navMeshAgent = null;
     private DamageMaterial m_damageMaterial = null;
     private RagdollController m_ragdoll = null;
+    private ItemDropController m_itemDropController = null;
 
     //General Var
     private Renderer m_Renderer = null;
@@ -60,7 +63,7 @@ public class Enemy : MonoBehaviour, IAttackable
     private WaitForSeconds waitComboAttack1 = null;
     private WaitForSeconds waitComboAttack2 = null;
     private WaitForSeconds waitComboAttack3 = null;
-
+    
     void Awake()
     {
         CharacterHP = new Health(m_characterMaxHP);
@@ -75,6 +78,9 @@ public class Enemy : MonoBehaviour, IAttackable
         m_ragdoll = GetComponent<RagdollController>();
         m_damageMaterial = GetComponent<DamageMaterial>();
         m_Renderer = GetComponentInChildren<Renderer>();
+        m_capsuleColider = GetComponent<CapsuleCollider>();
+        m_itemDropController = GetComponent<ItemDropController>();
+        weaponInHand = GetComponentInChildren<BaseWeapon>();
     }
     void Start()
     {
@@ -84,7 +90,6 @@ public class Enemy : MonoBehaviour, IAttackable
         startRotation = transform.rotation;
         previousTargetPosition = targetPlayer.position;
         m_ragdoll.InActiveRagdoll();
-        weaponInHand.hitSystemManager.SetTargetLayer(targetLayer);
         CheckStateChange();
     }
     void Update()
@@ -112,6 +117,8 @@ public class Enemy : MonoBehaviour, IAttackable
         {
             lockOnSprite.enabled = false;
         }
+        weaponInHand.hitSystemManager.SetTargetLayer(targetLayer);
+        CheckForUpdateNewLastPosition();
     }
     void FixedUpdate()
     {
@@ -305,7 +312,29 @@ public class Enemy : MonoBehaviour, IAttackable
             }
             GameCore.m_GameContrller.RemoveEnemyOnFOVCamera(this.gameObject);
             m_ragdoll.ActiveRagdoll(m_rigidbody.velocity);
+            m_itemDropController.DoDrop();
             m_damageMaterial.FadeOut(1f);
+        }
+    }
+    void CheckForUpdateNewLastPosition()
+    {
+        var hitInfo = PhysicsExtensions.OverlapCapsule(m_capsuleColider, LayerMask.GetMask("Ground"));
+        if (hitInfo.Length > 0)
+        {
+            foreach (var temp in hitInfo)
+            {
+                if (CurrentGround)
+                {
+                    if (temp.GetInstanceID() != CurrentGround.GetInstanceID())
+                    {
+                        CurrentGround = temp.transform;
+                    }
+                }
+                else
+                {
+                    CurrentGround = temp.transform;
+                }
+            }
         }
     }
     IEnumerator DoCombo()

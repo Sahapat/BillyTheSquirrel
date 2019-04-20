@@ -5156,6 +5156,7 @@ GameObject:
   - component: {fileID: 5593216696916388501}
   - component: {fileID: 4709043170695848592}
   - component: {fileID: 8441523492433859719}
+  - component: {fileID: 8931156111741539597}
   m_Layer: 13
   m_Name: WeaselCH
   m_TagString: Enemy
@@ -5383,6 +5384,33 @@ MonoBehaviour:
   m_renderer:
   - {fileID: 1902836498005548360}
   specialRenderers: []
+--- !u!114 &8931156111741539597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593216696916388496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346ad4c25e4065246b5f1dae52d21e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsPopOut:
+  - objectToPopOut: {fileID: 5565177755798210656, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
+      type: 3}
+    PopOutChance: 0.3
+    isRandomNum: 0
+    minRandom: 0
+    maxRandom: 0
+    PopOutNum: 1
+  - objectToPopOut: {fileID: 961729817022948993, guid: 34c32ee0e17b80743a42949a280066f0,
+      type: 3}
+    PopOutChance: 1
+    isRandomNum: 1
+    minRandom: 1
+    maxRandom: 5
+    PopOutNum: 0
 --- !u!1 &5593216698096024710
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 7517611728117362283}
   - component: {fileID: 7517611728113937993}
   - component: {fileID: 7517611728115068041}
+  - component: {fileID: 5754194841965814538}
   m_Layer: 0
   m_Name: M2 Spike wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7517611728117362283
 Transform:
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7517611728117002827}
-  m_LocalRotation: {x: -0, y: 0.25367117, z: -0, w: 0.9672906}
+  m_LocalRotation: {x: 0, y: 0.25367346, z: 0, w: 0.9672899}
   m_LocalPosition: {x: -6.445, y: 66.80001, z: 3.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5754194841965814538
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517611728117002827}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 999800c9bade75f48886d3dd5168132e, type: 3}

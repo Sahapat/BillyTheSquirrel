@@ -76,11 +76,7 @@ public class StateHandler : MonoBehaviour
         m_animator.SetInteger("WeaponHolding", weaponType);
         m_characterState = (CharacterState)m_animator.GetInteger("CharacterState");
         m_animator.SetBool("isOnGround", m_groundChecker.isOnGround);
-        if (baseWeapon?.transform.root.gameObject.GetInstanceID() != this.gameObject.GetInstanceID()||!baseWeapon)
-        {
-            baseWeapon = GetComponentInChildren<BaseWeapon>();
-        }
-        else
+        if(baseWeapon)
         {
             weaponType = (int)baseWeapon.weaponType;
         }
@@ -176,5 +172,9 @@ public class StateHandler : MonoBehaviour
     public bool GetBool(string name)
     {
         return m_animator.GetBool(name);
+    }
+    public void UpdateWeapon(BaseWeapon weapon)
+    {
+        baseWeapon = weapon;
     }
 }
