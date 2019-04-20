@@ -54,7 +54,7 @@ public class Player : MonoBehaviour, IAttackable
         CharacterHP.OnHPChanged += CheckHealth;
         weaponInHand.SetTargetLayer(targetLayer);
         m_ragdollController.InActiveRagdoll();
-        if(weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+        if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
         {
             shieldInHand.gameObject.SetActive(false);
         }
@@ -143,14 +143,14 @@ public class Player : MonoBehaviour, IAttackable
                 if (m_stateHandler.HeavyAttack())
                 {
                     CharacterStemina.RemoveSP(weaponInHand.GetHeavySteminaDeplete());
-                    switch(weaponInHand.weaponType)
+                    switch (weaponInHand.weaponType)
                     {
                         case WeaponType.SHIELD_AND_SWORD:
                             GetComponentInChildren<HeavyHitForSword>()?.ActiveTrail();
-                        break;
+                            break;
                         case WeaponType.SPEAR:
                             GetComponentInChildren<HeavyHitForSword>()?.ActiveTrail();
-                        break;
+                            break;
                     }
                 }
             }
@@ -277,45 +277,52 @@ public class Player : MonoBehaviour, IAttackable
 
         if (hitInfo.Length > 0)
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            print("in");
+            if (hitInfo[0].CompareTag("Chest"))
             {
-                /* var collectItem = hitInfo[0].GetComponent<ICollectable>();
-                switch (collectItem.itemType)
+                var chestScript = hitInfo[0].GetComponent<Chest>();
+                chestScript.ShowToolTip();
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
-                    case ItemType.EQUIPMENT:
-                        var weapon = hitInfo[0].GetComponent<BaseWeapon>();
-                        var shield = hitInfo[0].GetComponent<BaseShield>();
-
-                        if (weapon != null)
-                        {
-                            weaponInHand.Discard();
-                            var weaponObject = weapon.PickUp();
-                            weaponInHand = weapon;
-                            weaponObject.transform.parent = SwordHoldPosition;
-                            weaponObject.transform.localPosition = weapon.HoldingPos;
-                            weaponObject.transform.localRotation = Quaternion.identity;
-                            GameCore.m_uiHandler.UpdateEquipmentSlot();
-                            m_actionHandler.UpdateSword(weapon);
-                        }
-                        else
-                        {
-                            shieldInHand.Discard();
-                            var shieldObject = shield.PickUp();
-                            shieldInHand = shield;
-                            shieldObject.transform.parent = ShieldHoldPosition;
-                            shieldObject.transform.localPosition = shield.HoldingPos;
-                            shieldObject.transform.localRotation = Quaternion.identity;
-                            GameCore.m_uiHandler.UpdateEquipmentSlot();
-                        }
-                        break;
-                    case ItemType.ITEM:
-                        if (!ItemInventory.isFull)
-                        {
-                            ItemInventory.AddItem(hitInfo[0].gameObject, GameCore.m_GameContrller.TemporaryTranform);
-                        }
-                        break;
-                } */
+                    chestScript.OpenChest();
+                }
             }
+            /* var collectItem = hitInfo[0].GetComponent<ICollectable>();
+            switch (collectItem.itemType)
+            {
+                case ItemType.EQUIPMENT:
+                    var weapon = hitInfo[0].GetComponent<BaseWeapon>();
+                    var shield = hitInfo[0].GetComponent<BaseShield>();
+
+                    if (weapon != null)
+                    {
+                        weaponInHand.Discard();
+                        var weaponObject = weapon.PickUp();
+                        weaponInHand = weapon;
+                        weaponObject.transform.parent = SwordHoldPosition;
+                        weaponObject.transform.localPosition = weapon.HoldingPos;
+                        weaponObject.transform.localRotation = Quaternion.identity;
+                        GameCore.m_uiHandler.UpdateEquipmentSlot();
+                        m_actionHandler.UpdateSword(weapon);
+                    }
+                    else
+                    {
+                        shieldInHand.Discard();
+                        var shieldObject = shield.PickUp();
+                        shieldInHand = shield;
+                        shieldObject.transform.parent = ShieldHoldPosition;
+                        shieldObject.transform.localPosition = shield.HoldingPos;
+                        shieldObject.transform.localRotation = Quaternion.identity;
+                        GameCore.m_uiHandler.UpdateEquipmentSlot();
+                    }
+                    break;
+                case ItemType.ITEM:
+                    if (!ItemInventory.isFull)
+                    {
+                        ItemInventory.AddItem(hitInfo[0].gameObject, GameCore.m_GameContrller.TemporaryTranform);
+                    }
+                    break;
+            } */
         }
     }
     Vector3 SerializeInputByCameraTranform(Vector3 inputAxis)

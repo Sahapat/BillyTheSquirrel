@@ -5309,7 +5309,7 @@ MonoBehaviour:
     forceToAdd: 12
   - delayForAddForce: 0.6
     forceToAdd: 14.5
-  - delayForAddForce: 0.65
+  - delayForAddForce: 0.4
     forceToAdd: 6.5
   - delayForAddForce: 0.3
     forceToAdd: 5.5
@@ -5563,6 +5563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpearLv1
       objectReference: {fileID: 0}
+    - target: {fileID: 3281127007809765887, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
+        type: 3}
+      propertyPath: isPickUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 870284798619028357, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5617,11 +5622,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3281127007809765887, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
-        type: 3}
-      propertyPath: isPickUp
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b02bd6b6fc2ccbc4d98aa08efa674a09, type: 3}

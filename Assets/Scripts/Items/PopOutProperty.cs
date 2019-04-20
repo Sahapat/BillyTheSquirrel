@@ -6,7 +6,7 @@ using UnityEngine;
 public class PopOutProperty
 {
     public GameObject objectToPopOut = null;
-    [Range(0,1)]float PopOutChance = 0f;
+    [Range(0,1)]public float PopOutChance = 0f;
     
     public bool isRandomNum = false;
     public int minRandom = 0;

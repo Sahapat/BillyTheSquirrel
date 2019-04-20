@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Player _ClientPlayerTarget = null;
     [SerializeField] Transform _temporaryTranform = null;
     [SerializeField] GameObject _targetToLockOn = null;
-    [SerializeField] GameObject PopOutPrefab = null;
+    [SerializeField] GameObject _PopOutPrefab = null;
     [SerializeField] float ClampPlayerByYPosition = 0f;
 
     public bool Controlable = true;
@@ -35,6 +35,13 @@ public class GameController : MonoBehaviour
         private set
         {
             _targetToLockOn = value;
+        }
+    }
+    public GameObject PopOutPrefab
+    {
+        get
+        {
+            return _PopOutPrefab;
         }
     }
 

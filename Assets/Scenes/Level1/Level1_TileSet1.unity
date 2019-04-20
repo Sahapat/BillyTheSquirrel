@@ -551,24 +551,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8102446970296511000, guid: df5c1f63b8af5e444a407287977bdfe5,
+    - target: {fileID: 8102446970287151359, guid: df5c1f63b8af5e444a407287977bdfe5,
         type: 3}
-      propertyPath: m_Controller
+      propertyPath: weaponInHand
       value: 
-      objectReference: {fileID: 9100000, guid: 12a0ad8b25341c14696f417f970fcdde, type: 2}
-    - target: {fileID: 8102446970296511000, guid: df5c1f63b8af5e444a407287977bdfe5,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed by
-        Humanoid clips.\n\tTransform 'Character:BottomMouth_Jnt1'\n\tTransform 'Character:L_Knee_Jnt'\n\tTransform
-        'Character:R_Thumb1_Jnt1'\n\tTransform 'Character:R_Middle1_Jnt1'\n\tTransform
-        'Character:Center_Jnt'\n\tTransform 'Character:R_Little1_Jnt1'\n\tTransform
-        'Character:L_Elbow_Jnt'\n\tTransform 'Character:R_Middle1_Jnt2'\n\tTransform
-        'Character:L_Hip_Jnt'\n\tTransform 'Character:L_Index1_Jnt1'\n\tand more ...\n\tFrom
-        animation clip 'Fox_EyeClose'\n\tFrom animation clip 'Fox_EyeIdle'\n\tFrom
-        animation clip 'Fox_EyeClose'"
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1126205416}
     - target: {fileID: 3688852517314644622, guid: df5c1f63b8af5e444a407287977bdfe5,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -2771,6 +2758,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abcbd8d988198ad4a82eb7aaac0967a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1062497780 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1325724550133469607, guid: df5c1f63b8af5e444a407287977bdfe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 194620402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1096416265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3205,6 +3198,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061d28d4598a37444901451adbfd1373, type: 3}
+--- !u!114 &1126205416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3281127007809765887, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+    type: 3}
+  m_PrefabInstance: {fileID: 1532944826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5d8b05cfbbecc4ab4cd787d60a6f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1133855886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4779,6 +4784,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7654845266490404705}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1532944826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1062497780}
+    m_Modifications:
+    - target: {fileID: 5565177755798210656, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_Name
+      value: SwordLv1
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870284798619028357, guid: 3f8514120f1e46c409cf0fae2cfcf991,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f8514120f1e46c409cf0fae2cfcf991, type: 3}
 --- !u!1 &1550685243
 GameObject:
   m_ObjectHideFlags: 0
