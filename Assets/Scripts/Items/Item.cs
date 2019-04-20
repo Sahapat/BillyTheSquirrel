@@ -16,21 +16,11 @@ public class Item : MonoBehaviour, IItem
     public Vector3 popOutChildRotationOffset{get{return _popOutChildRotationOffset;}}
 
     public Vector3 popOutChildPositionOffset{get{return _popOutChildPositionOffset;}}
-    
-    public GameObject PickUp()
-    {
-        OnPickUp();
-        return this.gameObject;
-    }
     public virtual void Use(Player player)
     {
         return;
     }
     public virtual void Use()
-    {
-        return;
-    }
-    protected virtual void OnPickUp()
     {
         return;
     }

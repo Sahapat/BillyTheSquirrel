@@ -10,7 +10,7 @@ public class HitManager : MonoBehaviour
     private HitSystem[] normalHits = null;
     private HeavyHit heavyHit = null;
 
-    void Awake()
+    void Start()
     {
         normalHits = new HitSystem[NormalHits.Length];
 

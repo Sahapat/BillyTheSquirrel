@@ -28,6 +28,10 @@ public class Chest : MonoBehaviour
                 toolTip.SetActive(false);
             }
         }
+        else
+        {
+            toolTip.SetActive(false);
+        }
     }
     public void OpenChest()
     {

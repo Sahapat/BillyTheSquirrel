@@ -94,11 +94,8 @@ public class ActionHandler : MonoBehaviour
                 queueMotionIndex = 15;
                 break;
             case CharacterState.RESET:
-                if (m_baseWeapon)
-                {
-                    m_baseWeapon.hitSystemManager.CancelAllHit();
-                    queueMotionIndex = -1;
-                }
+                m_baseWeapon?.hitSystemManager.CancelAllHit();
+                queueMotionIndex = -1;
                 break;
         }
         if (queueMotionIndex != -1)
@@ -108,14 +105,18 @@ public class ActionHandler : MonoBehaviour
     }
     public void ActiveNormalHit(int index)
     {
+        if(!m_baseWeapon)
+        {
+            m_baseWeapon = GetComponentInChildren<BaseWeapon>();
+        }
         m_baseWeapon.hitSystemManager.ActiveNormalHit(index);
     }
     public void ActiveHeavyHit()
     {
+        if(!m_baseWeapon)
+        {
+            m_baseWeapon = GetComponentInChildren<BaseWeapon>();
+        }
         m_baseWeapon.hitSystemManager.ActiveHeavyHit();
-    }
-    public void UpdateSword(BaseWeapon baseWeapon)
-    {
-        m_baseWeapon = baseWeapon;
     }
 }

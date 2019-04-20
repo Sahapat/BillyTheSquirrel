@@ -157,18 +157,21 @@ public class Player : MonoBehaviour, IAttackable
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton4))
+            if (shieldInHand)
             {
-                m_stateHandler.SetBool("isHoldingShieldStart", true);
-            }
-            if (HoldingShieldGetter() && CheckHoldingShieldSP())
-            {
-                m_stateHandler.SetHoldingShield();
-            }
-            else
-            {
-                m_stateHandler.SetUnHoldingShield();
-                m_stateHandler.SetBool("isHoldingShieldStart", false);
+                if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton4))
+                {
+                    m_stateHandler.SetBool("isHoldingShieldStart", true);
+                }
+                if (HoldingShieldGetter() && CheckHoldingShieldSP())
+                {
+                    m_stateHandler.SetHoldingShield();
+                }
+                else
+                {
+                    m_stateHandler.SetUnHoldingShield();
+                    m_stateHandler.SetBool("isHoldingShieldStart", false);
+                }
             }
             if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton1)) && CheckDashSP())
             {
@@ -197,18 +200,11 @@ public class Player : MonoBehaviour, IAttackable
         {
             indexToUse = 2;
         }
-        if (weaponInHand)
-        {
-            return CharacterStemina.SP >= weaponInHand.GetNormalSteminaDeplete(indexToUse);
-        }
-        else
-        {
-            return false;
-        }
+        return CharacterStemina.SP >= weaponInHand?.GetNormalSteminaDeplete(indexToUse);
     }
     bool CheckHeavyAttackSP()
     {
-        return CharacterStemina.SP >= weaponInHand.GetHeavySteminaDeplete();
+        return CharacterStemina.SP >= weaponInHand?.GetHeavySteminaDeplete();
     }
     bool CheckDashSP()
     {
@@ -289,20 +285,82 @@ public class Player : MonoBehaviour, IAttackable
     }
     void ItemCollectChecker()
     {
-        var hitInfo = PhysicsExtensions.OverlapCapsule(m_capsuleColider,LayerMask.GetMask("PickUp"));
+        var hitInfo = PhysicsExtensions.OverlapCapsule(m_capsuleColider, LayerMask.GetMask("PickUp"));
 
-        if(hitInfo.Length > 0)
+        if (hitInfo.Length > 0)
         {
-            switch(hitInfo[0].tag)
+            GameCore.m_GameContrller.itemFocus = hitInfo[0].gameObject;
+            switch (hitInfo[0].tag)
             {
                 case "Chest":
-                GameCore.m_GameContrller.itemFocus = hitInfo[0].gameObject;
-                if(Interact())
-                {
-                    var chestScript = hitInfo[0].GetComponent<Chest>();
-                    chestScript.OpenChest();
-                }
-                break;
+                    if (Interact())
+                    {
+                        var chestScript = hitInfo[0].GetComponent<Chest>();
+                        chestScript.OpenChest();
+                    }
+                    break;
+                case "Equipment":
+                    if (Interact())
+                    {
+                        var popoutControllerScript = hitInfo[0].GetComponent<PopOutController>();
+
+                        var equipemnt = popoutControllerScript.PickUp();
+                        var baseWeapon = equipemnt.GetComponent<BaseWeapon>();
+                        var baseShield = equipemnt.GetComponent<BaseShield>();
+
+                        if (baseWeapon)
+                        {
+                            baseWeapon.transform.parent = SwordHoldPosition;
+                            baseWeapon.transform.localPosition = baseWeapon.HoldingPos;
+                            baseWeapon.transform.localRotation = Quaternion.identity;
+                            weaponInHand = baseWeapon;
+
+                            weaponInHand.SetTargetLayer(targetLayer);
+                            if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+                            {
+                                shieldInHand?.gameObject.SetActive(false);
+                            }
+                            else
+                            {
+                                shieldInHand?.gameObject?.SetActive(true);
+                            }
+                            GameCore.m_uiHandler.UpdateEquipmentSlot();
+                            Destroy(hitInfo[0].gameObject);
+                        }
+                        else if (baseShield)
+                        {
+                            baseShield.transform.parent = ShieldHoldPosition;
+                            baseShield.transform.localPosition = baseShield.HoldingPos;
+                            baseShield.transform.localRotation = Quaternion.identity;
+
+                            shieldInHand = baseShield;
+                            if (weaponInHand)
+                            {
+                                if (weaponInHand.weaponType == WeaponType.GREAT_SWORD)
+                                {
+                                    shieldInHand?.gameObject.SetActive(false);
+                                }
+                                else
+                                {
+                                    shieldInHand?.gameObject?.SetActive(true);
+                                }
+                            }
+                            GameCore.m_uiHandler.UpdateEquipmentSlot();
+                            Destroy(hitInfo[0].gameObject);
+                        }
+                    }
+                    break;
+                case "Item":
+                    if (Interact())
+                    {
+                        var popoutControllerScript = hitInfo[0].GetComponent<PopOutController>();
+
+                        var item = popoutControllerScript.PickUp();
+
+                        ItemInventory.AddItem(item, GameCore.m_GameContrller.TemporaryTranform);
+                        Destroy(hitInfo[0].gameObject);
+                    }
+                    break;
             }
         }
         else
