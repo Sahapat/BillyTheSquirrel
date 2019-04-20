@@ -279,7 +279,7 @@ public class Player : MonoBehaviour, IAttackable
         {
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton3))
             {
-                var collectItem = hitInfo[0].GetComponent<ICollectable>();
+                /* var collectItem = hitInfo[0].GetComponent<ICollectable>();
                 switch (collectItem.itemType)
                 {
                     case ItemType.EQUIPMENT:
@@ -314,7 +314,7 @@ public class Player : MonoBehaviour, IAttackable
                             ItemInventory.AddItem(hitInfo[0].gameObject, GameCore.m_GameContrller.TemporaryTranform);
                         }
                         break;
-                }
+                } */
             }
         }
     }

@@ -24,7 +24,7 @@ public class SlotUIController : MonoBehaviour
     {
         selectImage = GetComponent<Image>();
     }
-    public void AddItemToSlot(ICollectable itemIn)
+    public void AddItemToSlot(IItem itemIn)
     {
         if (itemIn == null)
         {

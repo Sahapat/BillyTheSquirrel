@@ -7,15 +7,14 @@ public enum ItemType
     ITEM,
     NONE
 };
-public interface ICollectable
+public interface IItem
 {
     ItemType itemType{get;}
     string description{get;}
     string headerName{get;}
     Sprite Icon{get;}
-    GameObject PickUp();
 }
 public interface IPopable
 {
-    void PopOut(float xForce,float zForce,float forceToAdd);
+    void PopOut(Vector3 startPosition,Vector3 endPosition,float duration);
 }

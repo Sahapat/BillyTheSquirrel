@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    [SerializeField] GameObject[] PopOutObjects = null;
+    /* [SerializeField] GameObject[] PopOutObjects = null;
     Animator chestAnim = null;
     BoxCollider m_boxcolider = null;
     bool isPopOut = false;
@@ -40,5 +40,5 @@ public class Chest : MonoBehaviour
             temp.GetComponent<IPopable>().PopOut(XAddValue, ZAddValue, 5f);
         }
         Destroy(this.gameObject);
-    }
+    } */
 }

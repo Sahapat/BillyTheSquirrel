@@ -27,7 +27,7 @@ public class MarketUI : MonoBehaviour
     {
         for (int i = 0; i < marketItems.Length; i++)
         {
-            slotUiController[i].AddItemToSlot(marketItems[i].reference.GetComponent<ICollectable>());
+            slotUiController[i].AddItemToSlot(marketItems[i].reference.GetComponent<IItem>());
         }
     }
     void Update()

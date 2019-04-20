@@ -440,23 +440,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetIntName: CharacterState
   state: 24
---- !u!114 &114163342318026464
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2799e172d40f5344a8542b9ae62c01c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetBool: HoldingShieldTrigger
-  onEnter: 1
-  EnterValue: 1
-  onExit: 0
-  ExitValue: 0
 --- !u!114 &114166975852763280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7812,7 +7795,6 @@ AnimatorState:
   - {fileID: 114745753837078584}
   - {fileID: 114377249456856742}
   - {fileID: 114405429815160346}
-  - {fileID: 114163342318026464}
   - {fileID: 114615865501851774}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

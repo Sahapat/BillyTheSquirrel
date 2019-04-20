@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Item : MonoBehaviour, ICollectable
+public class Item : MonoBehaviour, IItem
 {
     [SerializeField]ItemType _itemType = ItemType.NONE;
     [SerializeField]Sprite _Icon = null;
