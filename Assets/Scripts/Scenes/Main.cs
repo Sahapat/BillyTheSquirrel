@@ -27,6 +27,15 @@ public class Main : MonoBehaviour
         GameCore.m_GameContrller = GetComponent<GameController>();
         GameCore.m_CursorController = GetComponent<CursorController>();
     }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            GameCore.m_uiHandler.CloseMarket();
+            GameCore.m_uiHandler.CloseInventory();
+            GameCore.m_GameContrller.Controlable = true;
+        }
+    }
     public void LoadGameScene(string LevelPreset)
     {
         FindObjectOfType<FadeController>().LoadSceneAndFade(LevelLoadHelper.GetRandomLevel(LevelPreset));

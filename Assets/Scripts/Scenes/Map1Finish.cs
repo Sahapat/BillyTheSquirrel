@@ -9,6 +9,8 @@ public class Map1Finish : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameCore.m_Main.LoadGameScene("Level2");
+            Temp.maxHP = GameCore.m_GameContrller.ClientPlayerTarget.CharacterHP.MaxHP;
+            Temp.maxSP = GameCore.m_GameContrller.ClientPlayerTarget.CharacterStemina.MaxSP;
             Destroy(this);
         }
     }

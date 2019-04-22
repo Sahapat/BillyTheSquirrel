@@ -53,18 +53,13 @@ public class AirBallon : MonoBehaviour
         esclapForInstance += Time.deltaTime;
         coinTxtRequire.text = coinRequire.ToString();
     }
-    void DisableRequireObj()
-    {
-        requireObj.SetActive(false);
-    }
     void AddCoin()
     {
         if (coinRequire == 0 && !finishTrigger)
         {
             isFinishRequire = true;
             FindObjectOfType<Map1>().SetCurrentQuest(6);
-            Invoke("DisableRequireObj", 1.5f);
-            
+            requireObj.SetActive(false);
         }
         if (!isFinishRequire)
         {

@@ -501,8 +501,8 @@ public class Player : MonoBehaviour, IAttackable
     {
         m_stateHandler.UsePotion();
         GameCore.m_GameContrller.Controlable = false;
-        CharacterHP.SetMaxHP(CharacterHP.HP+maxHP);
-        CharacterStemina.SetMaxSP(CharacterStemina.SP + maxSP);
+        CharacterHP.SetMaxHP(CharacterHP.MaxHP+maxHP);
+        CharacterStemina.SetMaxSP(CharacterStemina.MaxSP + maxSP);
         GameCore.m_GameContrller.Controlable = true;
         SwordHoldPosition?.gameObject.SetActive(false);
         shieldInHand?.gameObject.SetActive(false);
@@ -532,5 +532,10 @@ public class Player : MonoBehaviour, IAttackable
         GameCore.m_uiHandler.UpdateSPMax();
         SwordHoldPosition?.gameObject.SetActive(true);
         shieldInHand?.gameObject.SetActive(true);
+    }
+    public void SetMax(int maxHP,int maxSP)
+    {
+        CharacterHP.SetMaxHP(maxHP);
+        CharacterStemina.SetMaxSP(maxSP);
     }
 }
