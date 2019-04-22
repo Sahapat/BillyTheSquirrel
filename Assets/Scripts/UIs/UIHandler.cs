@@ -104,7 +104,7 @@ public class UIHandler : MonoBehaviour
     }
     public void UpdateHPMax()
     {
-        var hpRect = m_HPSlider.GetComponent<RectTransform>();
+        /* var hpRect = m_HPSlider.GetComponent<RectTransform>();
         var assignWidth = m_player.CharacterHP.MaxHP * 4;
         var assignPosX = 400-assignWidth;
         assignPosX/=2;
@@ -120,11 +120,39 @@ public class UIHandler : MonoBehaviour
         {
             hpRect.sizeDelta = new Vector2(assignWidth,hpRect.rect.height);
             hpRect.anchoredPosition = new Vector2(hpRect.anchoredPosition.x+assignPosX,hpRect.anchoredPosition.y);
+        } */
+        var hpRect = m_HPSlider.GetComponent<RectTransform>();
+        switch(m_player.CharacterHP.MaxHP)
+        {
+            case 100:
+            hpRect.sizeDelta = new Vector2(400,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(-260,hpRect.anchoredPosition.y);
+            break;
+            case 120:
+            hpRect.sizeDelta = new Vector2(480,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(-220,hpRect.anchoredPosition.y);
+            break;
+            case 140:
+            hpRect.sizeDelta = new Vector2(560,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(-180,hpRect.anchoredPosition.y);
+            break;
+            case 160:
+            hpRect.sizeDelta = new Vector2(640,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(-140,hpRect.anchoredPosition.y);
+            break;
+            case 180:
+            hpRect.sizeDelta = new Vector2(720,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(-100,hpRect.anchoredPosition.y);
+            break;
+            case 200:
+            hpRect.sizeDelta = new Vector2(800,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(-60,hpRect.anchoredPosition.y);
+            break;
         }
     }
     public void UpdateSPMax()
     {
-        var hpRect = m_SPSlider.GetComponent<RectTransform>();
+        /* var hpRect = m_SPSlider.GetComponent<RectTransform>();
         var assignWidth = m_player.CharacterStemina.MaxSP * 4;
         var assignPosX = 400-assignWidth;
         assignPosX/=2;
@@ -138,6 +166,35 @@ public class UIHandler : MonoBehaviour
         {
             hpRect.sizeDelta = new Vector2(assignWidth,hpRect.rect.height);
             hpRect.anchoredPosition = new Vector2(hpRect.anchoredPosition.x-assignPosX,hpRect.anchoredPosition.y);
+        } */
+
+        var spRect = m_SPSlider.GetComponent<RectTransform>();
+        switch(m_player.CharacterHP.MaxHP)
+        {
+            case 100:
+            spRect.sizeDelta = new Vector2(400,spRect.rect.height);
+            spRect.anchoredPosition = new Vector2(-260,spRect.anchoredPosition.y);
+            break;
+            case 120:
+            spRect.sizeDelta = new Vector2(480,spRect.rect.height);
+            spRect.anchoredPosition = new Vector2(-220,spRect.anchoredPosition.y);
+            break;
+            case 140:
+            spRect.sizeDelta = new Vector2(560,spRect.rect.height);
+            spRect.anchoredPosition = new Vector2(-180,spRect.anchoredPosition.y);
+            break;
+            case 160:
+            spRect.sizeDelta = new Vector2(640,spRect.rect.height);
+            spRect.anchoredPosition = new Vector2(-140,spRect.anchoredPosition.y);
+            break;
+            case 180:
+            spRect.sizeDelta = new Vector2(720,spRect.rect.height);
+            spRect.anchoredPosition = new Vector2(-100,spRect.anchoredPosition.y);
+            break;
+            case 200:
+            spRect.sizeDelta = new Vector2(800,spRect.rect.height);
+            spRect.anchoredPosition = new Vector2(-60,spRect.anchoredPosition.y);
+            break;
         }
     }
     void UpdateHPBar(int value)

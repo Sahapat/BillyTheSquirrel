@@ -21,7 +21,7 @@ public class Map2 : MonoBehaviour
 
             GameCore.m_uiHandler.UpdateHPMax();
             GameCore.m_uiHandler.UpdateSPMax();
-            
+            GameCore.m_GameContrller.GameStart();
             isSet = true;
         }
     }
