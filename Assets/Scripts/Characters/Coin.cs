@@ -18,6 +18,7 @@ public class Coin
     public void RemoveCoin(int value)
     {
         _Coin-=value;
+        if(_Coin < 0)_Coin = 0;
         OnCoinRemove?.Invoke(value);
     }
 }

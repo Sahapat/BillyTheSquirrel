@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4397176117011301764}
-  m_Layer: 0
+  - component: {fileID: 4090817812065530095}
+  - component: {fileID: 5840250748168789536}
+  m_Layer: 12
   m_Name: M2  MoveingSpike Static
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +33,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4090817812065530095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397176117011536292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 2.3398347, z: 1.2}
+  m_Center: {x: 0, y: 1.2899172, z: 0}
+--- !u!114 &5840250748168789536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397176117011536292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98df6d5059d2610448df9d8fb7183813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 30
+  activeDuration: 5
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 8704
+  shakeLenght: 0.35
 --- !u!1 &4397176117011536294
 GameObject:
   m_ObjectHideFlags: 0

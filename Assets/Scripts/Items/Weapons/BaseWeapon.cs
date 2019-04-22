@@ -35,7 +35,7 @@ public class BaseWeapon: MonoBehaviour,IItem
 
     public Vector3 popOutChildRotationOffset{get{return _popOutChildRotationOffset;}}
 
-    void Start()
+    void Awake()
     {
         hitSystemManager = GetComponent<HitManager>();
     }

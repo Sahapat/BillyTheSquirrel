@@ -45,11 +45,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2356584003804181901}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.8, y: 3.9, z: 6}
-  m_Center: {x: 2.6, y: 1.76, z: 0}
+  m_Size: {x: 1.3518658, y: 3.9, z: 3.39251}
+  m_Center: {x: 1.8759322, y: 1.76, z: 0.014783621}
 --- !u!114 &3969799340958961839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,9 +74,6 @@ GameObject:
   - component: {fileID: 4645549794032290916}
   - component: {fileID: 4645549794032290917}
   - component: {fileID: 4645549794032290918}
-  - component: {fileID: 1413792195652386837}
-  - component: {fileID: 3140648350395472123}
-  - component: {fileID: 7292966238537111969}
   m_Layer: 10
   m_Name: PotionHP (1)
   m_TagString: Untagged
@@ -145,52 +142,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1413792195652386837
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645549794032290919}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.39407614, y: 0.5296097, z: 0.37478873}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3140648350395472123
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645549794032290919}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &7292966238537111969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645549794032290919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7451e289d983a40a572830ed4832c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemType: 1
-  _Icon: {fileID: 21300000, guid: 05c64bd4bbd179b4682da4968402364d, type: 3}
-  _headerName: Health Potion
-  _description: This potion will heal your health 50
-  HP_Heal: 50
 --- !u!1 &4645549794598943934
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,9 +153,6 @@ GameObject:
   - component: {fileID: 4645549794598943933}
   - component: {fileID: 4645549794598943932}
   - component: {fileID: 4645549794598943935}
-  - component: {fileID: 1413792194154655948}
-  - component: {fileID: 3140648348879906850}
-  - component: {fileID: 7292966236813633912}
   m_Layer: 10
   m_Name: PotionHP
   m_TagString: Untagged
@@ -273,52 +221,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1413792194154655948
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645549794598943934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.39407614, y: 0.5296097, z: 0.37478873}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3140648348879906850
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645549794598943934}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &7292966236813633912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645549794598943934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7451e289d983a40a572830ed4832c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemType: 1
-  _Icon: {fileID: 21300000, guid: 05c64bd4bbd179b4682da4968402364d, type: 3}
-  _headerName: Health Potion
-  _description: This potion will heal your health 50
-  HP_Heal: 50
 --- !u!1 &7519071519536128854
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,9 +232,6 @@ GameObject:
   - component: {fileID: 7519071519536128853}
   - component: {fileID: 7519071519536128852}
   - component: {fileID: 7519071519536128855}
-  - component: {fileID: 4305328938173771556}
-  - component: {fileID: 266985963872794570}
-  - component: {fileID: 9183139948151195052}
   m_Layer: 10
   m_Name: PotionSP (1)
   m_TagString: Untagged
@@ -401,52 +300,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4305328938173771556
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7519071519536128854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.39407614, y: 0.5296097, z: 0.37478873}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &266985963872794570
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7519071519536128854}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &9183139948151195052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7519071519536128854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f27d60c99828e4ca8c02b0d43ac531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemType: 1
-  _Icon: {fileID: 21300000, guid: a28a31fce866ee44bbe16fe38c6a0200, type: 3}
-  _headerName: Stemina Potion
-  _description: This potion will heal your stemina 50
-  SP_Heal: 50
 --- !u!1 &7643282485498583767
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,9 +311,6 @@ GameObject:
   - component: {fileID: 7643282485498583764}
   - component: {fileID: 7643282485498583765}
   - component: {fileID: 7643282485498583766}
-  - component: {fileID: 4176216204687447717}
-  - component: {fileID: 144107530015575627}
-  - component: {fileID: 9023646272798522413}
   m_Layer: 10
   m_Name: PotionSP
   m_TagString: Untagged
@@ -529,52 +379,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4176216204687447717
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7643282485498583767}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.39407614, y: 0.5296097, z: 0.37478873}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &144107530015575627
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7643282485498583767}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &9023646272798522413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7643282485498583767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f27d60c99828e4ca8c02b0d43ac531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemType: 1
-  _Icon: {fileID: 21300000, guid: a28a31fce866ee44bbe16fe38c6a0200, type: 3}
-  _headerName: Stemina Potion
-  _description: This potion will heal your stemina 50
-  SP_Heal: 50
 --- !u!1001 &6696734518133166383
 PrefabInstance:
   m_ObjectHideFlags: 0

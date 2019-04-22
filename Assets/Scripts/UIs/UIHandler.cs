@@ -21,22 +21,23 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject statusHUB = null;
     [SerializeField] GameObject GameOverHUB = null;
     [SerializeField] GameObject MarketHUB = null;
+    [SerializeField] GameObject questHUB = null;
 
-    public int currentItemIndex {get;private set;} = -1;
+    public int currentItemIndex { get; private set; } = -1;
 
     private Player m_player = null;
     void Start()
     {
         m_player = GameCore.m_GameContrller.ClientPlayerTarget;
         m_player.CharacterHP.OnHPChanged += UpdateHPBar;
-        m_player.CharacterHP.OnResetHP += OnResetHP;
-        m_player.CharacterStemina.OnSteminaReset += OnResetSP;
         m_player.CharacterStemina.OnSteminachange += UpdateSPBar;
         m_player.CharacterCoin.OnCoinAdd += UpdateCoinTxt;
         m_player.CharacterCoin.OnCoinRemove += UpdateCoinTxt;
-        
-        OnResetHP();
-        OnResetSP();
+
+        UpdateHPBar(m_player.CharacterHP.HP);
+        UpdateSPBar(m_player.CharacterStemina.SP);
+        UpdateHPMax();
+        UpdateSPMax();
     }
     public void CloseMarket()
     {
@@ -63,12 +64,17 @@ public class UIHandler : MonoBehaviour
         InventoryHub.OpenInventory();
         GameCore.m_cameraController.SetCameraUI_ManageState();
         GameCore.m_CursorController.EnableCursor();
+        questHUB.SetActive(false);
     }
     public void CloseInventory()
     {
         InventoryHub.CloseInventory();
         GameCore.m_cameraController.SetCameraNormalState();
         GameCore.m_CursorController.DisableCursor();
+        if(GameCore.m_GameContrller.isGameStart)
+        {
+            questHUB.SetActive(true);
+        }
     }
     public bool GetInventoryStatus()
     {
@@ -96,22 +102,52 @@ public class UIHandler : MonoBehaviour
             currentItemShow.sprite = icon;
         }
     }
-    void OnResetHP()
+    public void UpdateHPMax()
     {
-        UpdateHPBar(m_player.CharacterHP.HP);
+        var hpRect = m_HPSlider.GetComponent<RectTransform>();
+        var assignWidth = m_player.CharacterHP.MaxHP * 4;
+        var assignPosX = 400-assignWidth;
+        assignPosX/=2;
+
+        assignPosX = Mathf.Abs(assignPosX);
+
+        if(m_player.CharacterHP.MaxHP < 100)
+        {
+            hpRect.sizeDelta = new Vector2(assignWidth,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(hpRect.anchoredPosition.x-assignPosX,hpRect.anchoredPosition.y);
+        }
+        else
+        {
+            hpRect.sizeDelta = new Vector2(assignWidth,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(hpRect.anchoredPosition.x+assignPosX,hpRect.anchoredPosition.y);
+        }
     }
-    void OnResetSP()
+    public void UpdateSPMax()
     {
-        UpdateSPBar(m_player.CharacterStemina.SP);
+        var hpRect = m_SPSlider.GetComponent<RectTransform>();
+        var assignWidth = m_player.CharacterStemina.MaxSP * 4;
+        var assignPosX = 400-assignWidth;
+        assignPosX/=2;
+
+        if(m_player.CharacterStemina.MaxSP < 100)
+        {
+            hpRect.sizeDelta = new Vector2(assignWidth,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(hpRect.anchoredPosition.x+assignPosX,hpRect.anchoredPosition.y);
+        }
+        else
+        {
+            hpRect.sizeDelta = new Vector2(assignWidth,hpRect.rect.height);
+            hpRect.anchoredPosition = new Vector2(hpRect.anchoredPosition.x-assignPosX,hpRect.anchoredPosition.y);
+        }
     }
     void UpdateHPBar(int value)
     {
-        int assignValue = (value * 100)/m_player.CharacterHP.MaxHP;
+        int assignValue = (value * 100) / m_player.CharacterHP.MaxHP;
         m_HPSlider.value = assignValue;
     }
     void UpdateSPBar(int value)
     {
-        int assignValue = (value * 100)/m_player.CharacterHP.MaxHP;
+        int assignValue = (value * 100) / m_player.CharacterHP.MaxHP;
         m_SPSlider.value = assignValue;
     }
     void UpdateCoinTxt(int value)

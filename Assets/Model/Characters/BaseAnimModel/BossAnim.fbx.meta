@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: d74a73d329044824c971473b733aaaf1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Character:BottomMouth_Jnt1
+    100004: Character:BottomMouth_Jnt2
+    100006: Character:BottomMouth_Jnt3
+    100008: Character:Center_Jnt
+    100010: Character:Head_Jnt
+    100012: Character:L_Ear_Jnt
+    100014: Character:L_Ear_Jnt1
+    100016: Character:L_Ear_Jnt2
+    100018: Character:L_Eye_Jnt
+    100020: Character:L_EyelidBot_Jnt
+    100022: Character:L_EyelidUP_Jnt
+    100024: Character:L_EyeNew
+    100026: Character:L_Hip_Jnt
+    100028: Character:L_Hip_Jnt1
+    100030: Character:L_Pelvis_Jnt
+    100032: Character:L_Pelvis_Jnt1
+    100034: Character:Neck1_Jnt
+    100036: Character:Pelvis_Jnt
+    100038: Character:R_Ear_Jnt
+    100040: Character:R_Ear_Jnt1
+    100042: Character:R_Ear_Jnt2
+    100044: Character:R_Eye_Jnt
+    100046: Character:R_EyelidBot_Jnt
+    100048: Character:R_EyelidUp_Jnt
+    100050: Character:R_EyeNew
+    100052: Character:Root_Jnt
+    100054: Character:Spine1_Jnt
+    100056: Character:Spine2_Jnt
+    100058: Character:Spine3_Jnt
+    100060: Character:Sword1
+    100062: Character:Sword2
+    100064: Character:Tail_Jnt
+    100066: Character:Tail_Jnt1
+    100068: Character:Tail_Jnt2
+    100070: Character:Tail_Jnt3
+    100072: Character:Tail_Jnt4
+    100074: Character:Tail_Jnt5
+    100076: Character:Tail_Jnt6
+    100078: Character:Tail_Jnt7
+    100080: Character:Tail_Jnt8
+    100082: Character:Tail_Jnt9
+    100084: Character:TopHead_Jnt
+    100086: Character:TopMouth_Jnt
+    100088: Character:TopMouth_Jnt2
+    100090: Squirrel_Rig:L_Ankle_Jnt
+    100092: Squirrel_Rig:L_Ankle_Jnt 1
+    100094: Squirrel_Rig:L_Ball_Jnt
+    100096: Squirrel_Rig:L_Ball_Jnt 1
+    100098: Squirrel_Rig:L_Elbow_Jnt
+    100100: Squirrel_Rig:L_Elbow_Jnt 1
+    100102: Squirrel_Rig:L_Foot1_Jnt
+    100104: Squirrel_Rig:L_Foot1_Jnt 1
+    100106: Squirrel_Rig:L_Hand_Jnt
+    100108: Squirrel_Rig:L_Hand_Jnt 1
+    100110: Squirrel_Rig:L_Index1_Jnt1
+    100112: Squirrel_Rig:L_Index1_Jnt1 1
+    100114: Squirrel_Rig:L_Index1_Jnt2
+    100116: Squirrel_Rig:L_Index1_Jnt2 1
+    100118: Squirrel_Rig:L_Index1_Jnt3
+    100120: Squirrel_Rig:L_Index1_Jnt3 1
+    100122: Squirrel_Rig:L_Index1_Jnt4
+    100124: Squirrel_Rig:L_Index1_Jnt4 1
+    100126: Squirrel_Rig:L_Index1_Jnt5
+    100128: Squirrel_Rig:L_Index1_Jnt5 1
+    100130: Squirrel_Rig:L_Knee_Jnt
+    100132: Squirrel_Rig:L_Knee_Jnt 1
+    100134: Squirrel_Rig:L_Little1_Jnt1
+    100136: Squirrel_Rig:L_Little1_Jnt1 1
+    100138: Squirrel_Rig:L_Little1_Jnt2
+    100140: Squirrel_Rig:L_Little1_Jnt2 1
+    100142: Squirrel_Rig:L_Little1_Jnt3
+    100144: Squirrel_Rig:L_Little1_Jnt3 1
+    100146: Squirrel_Rig:L_Little1_Jnt4
+    100148: Squirrel_Rig:L_Little1_Jnt4 1
+    100150: Squirrel_Rig:L_Little1_Jnt5
+    100152: Squirrel_Rig:L_Little1_Jnt5 1
+    100154: Squirrel_Rig:L_Middle1_Jnt1
+    100156: Squirrel_Rig:L_Middle1_Jnt1 1
+    100158: Squirrel_Rig:L_Middle1_Jnt2
+    100160: Squirrel_Rig:L_Middle1_Jnt2 1
+    100162: Squirrel_Rig:L_Middle1_Jnt3
+    100164: Squirrel_Rig:L_Middle1_Jnt3 1
+    100166: Squirrel_Rig:L_Middle1_Jnt4
+    100168: Squirrel_Rig:L_Middle1_Jnt4 1
+    100170: Squirrel_Rig:L_Middle1_Jnt5
+    100172: Squirrel_Rig:L_Middle1_Jnt5 1
+    100174: Squirrel_Rig:L_Ring1_Jnt1
+    100176: Squirrel_Rig:L_Ring1_Jnt1 1
+    100178: Squirrel_Rig:L_Ring1_Jnt2
+    100180: Squirrel_Rig:L_Ring1_Jnt2 1
+    100182: Squirrel_Rig:L_Ring1_Jnt3
+    100184: Squirrel_Rig:L_Ring1_Jnt3 1
+    100186: Squirrel_Rig:L_Ring1_Jnt4
+    100188: Squirrel_Rig:L_Ring1_Jnt4 1
+    100190: Squirrel_Rig:L_Ring1_Jnt5
+    100192: Squirrel_Rig:L_Ring1_Jnt5 1
+    100194: Squirrel_Rig:L_Shoulder_Jnt
+    100196: Squirrel_Rig:L_Shoulder_Jnt 1
+    100198: Squirrel_Rig:L_Thumb1_Jnt1
+    100200: Squirrel_Rig:L_Thumb1_Jnt1 1
+    100202: Squirrel_Rig:L_Thumb1_Jnt2
+    100204: Squirrel_Rig:L_Thumb1_Jnt2 1
+    100206: Squirrel_Rig:L_Thumb1_Jnt3
+    100208: Squirrel_Rig:L_Thumb1_Jnt3 1
+    100210: Squirrel_Rig:L_Thumb1_Jnt4
+    100212: Squirrel_Rig:L_Thumb1_Jnt4 1
+    100214: Squirrel_Rig:L_Wrist_Jnt
+    100216: Squirrel_Rig:L_Wrist_Jnt 1
+    100218: Squirrel_Rig:Rig_Group
+    100220: Squirrel_Rig:SQ
+    100222: Tail
+    100224: Wolf
+    400000: //RootNode
+    400002: Character:BottomMouth_Jnt1
+    400004: Character:BottomMouth_Jnt2
+    400006: Character:BottomMouth_Jnt3
+    400008: Character:Center_Jnt
+    400010: Character:Head_Jnt
+    400012: Character:L_Ear_Jnt
+    400014: Character:L_Ear_Jnt1
+    400016: Character:L_Ear_Jnt2
+    400018: Character:L_Eye_Jnt
+    400020: Character:L_EyelidBot_Jnt
+    400022: Character:L_EyelidUP_Jnt
+    400024: Character:L_EyeNew
+    400026: Character:L_Hip_Jnt
+    400028: Character:L_Hip_Jnt1
+    400030: Character:L_Pelvis_Jnt
+    400032: Character:L_Pelvis_Jnt1
+    400034: Character:Neck1_Jnt
+    400036: Character:Pelvis_Jnt
+    400038: Character:R_Ear_Jnt
+    400040: Character:R_Ear_Jnt1
+    400042: Character:R_Ear_Jnt2
+    400044: Character:R_Eye_Jnt
+    400046: Character:R_EyelidBot_Jnt
+    400048: Character:R_EyelidUp_Jnt
+    400050: Character:R_EyeNew
+    400052: Character:Root_Jnt
+    400054: Character:Spine1_Jnt
+    400056: Character:Spine2_Jnt
+    400058: Character:Spine3_Jnt
+    400060: Character:Sword1
+    400062: Character:Sword2
+    400064: Character:Tail_Jnt
+    400066: Character:Tail_Jnt1
+    400068: Character:Tail_Jnt2
+    400070: Character:Tail_Jnt3
+    400072: Character:Tail_Jnt4
+    400074: Character:Tail_Jnt5
+    400076: Character:Tail_Jnt6
+    400078: Character:Tail_Jnt7
+    400080: Character:Tail_Jnt8
+    400082: Character:Tail_Jnt9
+    400084: Character:TopHead_Jnt
+    400086: Character:TopMouth_Jnt
+    400088: Character:TopMouth_Jnt2
+    400090: Squirrel_Rig:L_Ankle_Jnt
+    400092: Squirrel_Rig:L_Ankle_Jnt 1
+    400094: Squirrel_Rig:L_Ball_Jnt
+    400096: Squirrel_Rig:L_Ball_Jnt 1
+    400098: Squirrel_Rig:L_Elbow_Jnt
+    400100: Squirrel_Rig:L_Elbow_Jnt 1
+    400102: Squirrel_Rig:L_Foot1_Jnt
+    400104: Squirrel_Rig:L_Foot1_Jnt 1
+    400106: Squirrel_Rig:L_Hand_Jnt
+    400108: Squirrel_Rig:L_Hand_Jnt 1
+    400110: Squirrel_Rig:L_Index1_Jnt1
+    400112: Squirrel_Rig:L_Index1_Jnt1 1
+    400114: Squirrel_Rig:L_Index1_Jnt2
+    400116: Squirrel_Rig:L_Index1_Jnt2 1
+    400118: Squirrel_Rig:L_Index1_Jnt3
+    400120: Squirrel_Rig:L_Index1_Jnt3 1
+    400122: Squirrel_Rig:L_Index1_Jnt4
+    400124: Squirrel_Rig:L_Index1_Jnt4 1
+    400126: Squirrel_Rig:L_Index1_Jnt5
+    400128: Squirrel_Rig:L_Index1_Jnt5 1
+    400130: Squirrel_Rig:L_Knee_Jnt
+    400132: Squirrel_Rig:L_Knee_Jnt 1
+    400134: Squirrel_Rig:L_Little1_Jnt1
+    400136: Squirrel_Rig:L_Little1_Jnt1 1
+    400138: Squirrel_Rig:L_Little1_Jnt2
+    400140: Squirrel_Rig:L_Little1_Jnt2 1
+    400142: Squirrel_Rig:L_Little1_Jnt3
+    400144: Squirrel_Rig:L_Little1_Jnt3 1
+    400146: Squirrel_Rig:L_Little1_Jnt4
+    400148: Squirrel_Rig:L_Little1_Jnt4 1
+    400150: Squirrel_Rig:L_Little1_Jnt5
+    400152: Squirrel_Rig:L_Little1_Jnt5 1
+    400154: Squirrel_Rig:L_Middle1_Jnt1
+    400156: Squirrel_Rig:L_Middle1_Jnt1 1
+    400158: Squirrel_Rig:L_Middle1_Jnt2
+    400160: Squirrel_Rig:L_Middle1_Jnt2 1
+    400162: Squirrel_Rig:L_Middle1_Jnt3
+    400164: Squirrel_Rig:L_Middle1_Jnt3 1
+    400166: Squirrel_Rig:L_Middle1_Jnt4
+    400168: Squirrel_Rig:L_Middle1_Jnt4 1
+    400170: Squirrel_Rig:L_Middle1_Jnt5
+    400172: Squirrel_Rig:L_Middle1_Jnt5 1
+    400174: Squirrel_Rig:L_Ring1_Jnt1
+    400176: Squirrel_Rig:L_Ring1_Jnt1 1
+    400178: Squirrel_Rig:L_Ring1_Jnt2
+    400180: Squirrel_Rig:L_Ring1_Jnt2 1
+    400182: Squirrel_Rig:L_Ring1_Jnt3
+    400184: Squirrel_Rig:L_Ring1_Jnt3 1
+    400186: Squirrel_Rig:L_Ring1_Jnt4
+    400188: Squirrel_Rig:L_Ring1_Jnt4 1
+    400190: Squirrel_Rig:L_Ring1_Jnt5
+    400192: Squirrel_Rig:L_Ring1_Jnt5 1
+    400194: Squirrel_Rig:L_Shoulder_Jnt
+    400196: Squirrel_Rig:L_Shoulder_Jnt 1
+    400198: Squirrel_Rig:L_Thumb1_Jnt1
+    400200: Squirrel_Rig:L_Thumb1_Jnt1 1
+    400202: Squirrel_Rig:L_Thumb1_Jnt2
+    400204: Squirrel_Rig:L_Thumb1_Jnt2 1
+    400206: Squirrel_Rig:L_Thumb1_Jnt3
+    400208: Squirrel_Rig:L_Thumb1_Jnt3 1
+    400210: Squirrel_Rig:L_Thumb1_Jnt4
+    400212: Squirrel_Rig:L_Thumb1_Jnt4 1
+    400214: Squirrel_Rig:L_Wrist_Jnt
+    400216: Squirrel_Rig:L_Wrist_Jnt 1
+    400218: Squirrel_Rig:Rig_Group
+    400220: Squirrel_Rig:SQ
+    400222: Tail
+    400224: Wolf
+    2100000: lambert1
+    2100002: Squirrel_Rig_lambert3
+    2300000: Character:Sword1
+    2300002: Character:Sword2
+    3300000: Character:Sword1
+    3300002: Character:Sword2
+    4300000: Character:Sword2
+    4300002: Character:Sword1
+    4300004: Wolf
+    4300006: Tail
+    7400000: Idle
+    7400002: NormalAttack_2
+    7400004: NormalAttack_1
+    7400006: NormalAttack_3
+    7400008: NormalAttack_1ToIdle
+    7400010: NormalAttack_2ToIdle
+    7400012: NormalAttack_3ToIdle
+    9500000: //RootNode
+    13700000: Tail
+    13700002: Wolf
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NormalAttack_1
+      takeName: Take 001
+      firstFrame: 11
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NormalAttack_2
+      takeName: Take 001
+      firstFrame: 131
+      lastFrame: 260
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NormalAttack_3
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 380
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NormalAttack_1ToIdle
+      takeName: Take 001
+      firstFrame: 330
+      lastFrame: 350
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NormalAttack_2ToIdle
+      takeName: Take 001
+      firstFrame: 360
+      lastFrame: 380
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NormalAttack_3ToIdle
+      takeName: Take 001
+      firstFrame: 301
+      lastFrame: 320
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -67,9 +67,9 @@ public class PopOutController : MonoBehaviour
             target.transform.localPosition = itemScript.popOutChildPositionOffset;
             target.transform.localRotation = Quaternion.Euler(itemScript.popOutChildRotationOffset);
             target.transform.localScale = Vector3.one;
+            transform.Find("ItemPopOutParticle").localPosition =itemScript.popOutChildPositionOffset;
             this.gameObject.tag = targetObject.tag;
-        }
-
+        } 
         transform.position = initPosition;
         transform.DOJump(finalPosition, 1.2f, 1, 0.75f, false);
     }

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField] Transform ShieldHoldPosition = null;
     [SerializeField] BaseShield shieldInHand = null;
     [SerializeField] Transform PotionPosition = null;
-
+    public int killEnemyCount = 0;
     public bool isDead { get; private set; }
     public bool isBlocking { get; private set; }
     public Health CharacterHP { get; private set; }
@@ -496,5 +496,41 @@ public class Player : MonoBehaviour, IAttackable
             }
             GameCore.m_uiHandler.UpdateEquipmentSlot();
         }
+    }
+    public void SetDrink(int maxHP,int maxSP,GameObject Obj)
+    {
+        m_stateHandler.UsePotion();
+        GameCore.m_GameContrller.Controlable = false;
+        CharacterHP.SetMaxHP(CharacterHP.HP+maxHP);
+        CharacterStemina.SetMaxSP(CharacterStemina.SP + maxSP);
+        GameCore.m_GameContrller.Controlable = true;
+        SwordHoldPosition?.gameObject.SetActive(false);
+        shieldInHand?.gameObject.SetActive(false);
+        Obj.transform.parent = PotionPosition;
+        Obj.transform.localPosition = Vector3.zero;
+        Obj.transform.localRotation = Quaternion.identity;
+        Obj.transform.localScale = Vector3.one;
+
+        if(maxHP != 0)
+        {
+            Invoke("UpdateMaxHP",0.8f);
+        }
+        if(maxSP != 0)
+        {
+            Invoke("UpdateMaxSP",0.8f);
+        }
+        Destroy(Obj,0.8f);
+    }
+    void UpdateMaxHP()
+    {
+        GameCore.m_uiHandler.UpdateHPMax();
+        SwordHoldPosition?.gameObject.SetActive(true);
+        shieldInHand?.gameObject.SetActive(true);
+    }
+    void UpdateMaxSP()
+    {
+        GameCore.m_uiHandler.UpdateSPMax();
+        SwordHoldPosition?.gameObject.SetActive(true);
+        shieldInHand?.gameObject.SetActive(true);
     }
 }

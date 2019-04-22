@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     [Header("Setting Property")]
     [SerializeField] float offsetX = 3f;
     [SerializeField] float offsetY = 0.8f;
+    [SerializeField] float startRotateX = 0f;
     [Range(0.0f, 1.0f)]
     [SerializeField] float smoothFactor = 0.5f;
     [SerializeField] float xSpeed = 30f;
@@ -36,6 +37,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         targetTranform = GameCore.m_GameContrller.ClientPlayerTarget.transform;
+        RotateX = startRotateX;
         RotateY = 25f;
     }
     void LateUpdate()

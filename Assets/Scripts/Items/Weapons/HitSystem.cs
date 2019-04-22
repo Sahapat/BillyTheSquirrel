@@ -69,7 +69,7 @@ public class HitSystem : BaseHitSystem
                         {
                             GameCore.m_GameContrller.SetNotControlableByTime(0.8f);
                             var player = hitInfo[i].GetComponent<Player>();
-                            player.CharacterStemina.RemoveSP((int)(damagePerHit*1.5f));
+                            player.CharacterStemina.RemoveSP(damagePerHit);
                             player.Stop();
                             if(player.CharacterStemina.SP <= 10)
                             {

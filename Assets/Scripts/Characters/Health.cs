@@ -37,6 +37,7 @@ public class Health
     public void SetMaxHP(int value)
     {
         MaxHP = value;
+        HP = MaxHP;
         _FireEvent_OnHPChanged();
     }
     public void ResetHP()

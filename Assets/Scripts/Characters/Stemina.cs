@@ -60,6 +60,7 @@ public class Stemina : MonoBehaviour
     public void SetMaxSP(int value)
     {
         _MaxSP = value;
+        _SP = MaxSP;
     }
     void _FireEvent_OnSteminaChange()
     {

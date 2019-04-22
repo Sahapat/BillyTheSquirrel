@@ -51,7 +51,7 @@ Transform:
   - {fileID: 1572043986520999279}
   - {fileID: 2033118843720743514}
   - {fileID: 1554911717928733217}
-  - {fileID: 8763136970473531555}
+  - {fileID: 6811380026268174128}
   - {fileID: 7258237070273291501}
   - {fileID: 5544653027793938938}
   - {fileID: 8347044236627909254}
@@ -59,6 +59,68 @@ Transform:
   - {fileID: 7886077048839368409}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4355852267996816937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4283801549950169835}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8763136970473531555}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8763136970473531555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4823342511066372680, guid: d2825d7c8584a2b4e9c3e963e1378944,
+    type: 3}
+  m_PrefabInstance: {fileID: 4283801549950169835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355852267996816937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6811380026268174128}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7669415822292144497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4283801549950169835}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6811380026268174128}
+  m_Layer: 0
+  m_Name: Vases (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6811380026268174128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4283801549950169835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7669415822292144497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8763136970473531555}
+  m_Father: {fileID: 2976023123885124625}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &122204593663262319
 PrefabInstance:
@@ -1312,11 +1374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2976023123885124625}
     m_Modifications:
-    - target: {fileID: 4823342511066007144, guid: d2825d7c8584a2b4e9c3e963e1378944,
-        type: 3}
-      propertyPath: m_Name
-      value: Vases
-      objectReference: {fileID: 0}
     - target: {fileID: 4823342511066372680, guid: d2825d7c8584a2b4e9c3e963e1378944,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1372,14 +1429,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4823342511066007144, guid: d2825d7c8584a2b4e9c3e963e1378944,
+        type: 3}
+      propertyPath: m_Name
+      value: Vases
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2825d7c8584a2b4e9c3e963e1378944, type: 3}
---- !u!4 &8763136970473531555 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4823342511066372680, guid: d2825d7c8584a2b4e9c3e963e1378944,
-    type: 3}
-  m_PrefabInstance: {fileID: 4283801549950169835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4389636307219128199
 PrefabInstance:
   m_ObjectHideFlags: 0

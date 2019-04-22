@@ -35,12 +35,12 @@ public class Chest : MonoBehaviour
     }
     public void OpenChest()
     {
+        m_boxcolider.enabled =false;
         m_animator.SetTrigger("Open");
         Invoke("PopOutObject", 0.35f);
     }
     void PopOutObject()
     {
-        m_boxcolider.enabled =false;
         for (int i = 0; i < PopOutObjectsProperty.Length; i++)
         {
             if (PopOutObjectsProperty[i].GetPopOutChance())

@@ -123,6 +123,10 @@ public class Enemy : MonoBehaviour, IAttackable
     void FixedUpdate()
     {
         if (isDead) { return; }
+        if(transform.position.y < GameCore.m_GameContrller.ClampPlayerByYPosition)
+        {
+            CharacterHP.RemoveHP(CharacterHP.MaxHP);
+        }
         if (GameCore.m_GameContrller.ClientPlayerTarget.isDead)
         {
             if (counterForAttack <= Time.time)
@@ -301,6 +305,10 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         if (value <= 0)
         {
+            if(!isDead)
+            {
+                GameCore.m_GameContrller.ClientPlayerTarget.killEnemyCount++;
+            }
             isDead = true;
             m_stateHandler.SetBool("isDead", true);
             if (GameCore.m_GameContrller.TargetToLockOn)

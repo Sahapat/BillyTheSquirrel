@@ -21,10 +21,15 @@ public class LongRangeEnemy : MonoBehaviour, IAttackable
     private float coolDownCounter = 0f;
     private bool isDead = false;
 
+    private Vector3 startPosition = Vector3.zero;
+    private Vector3 startRotation = Vector3.zero;
+
     void Awake()
     {
         CharacterHP = new Health(maxHealth);
         m_takedamageMaterial = GetComponent<DamageMaterial>();
+        startPosition = transform.position;
+        startRotation = transform.eulerAngles;
     }
     void Start()
     {
@@ -59,6 +64,11 @@ public class LongRangeEnemy : MonoBehaviour, IAttackable
                 bullet.transform.rotation = rotation;
                 Destroy(bullet.gameObject, coolDown);
             }
+        }
+        else
+        {
+            transform.position = startPosition;
+            transform.rotation = Quaternion.Euler(startRotation);
         }
     }
     public void TakeDamage(int damage)

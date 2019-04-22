@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject _targetToLockOn = null;
     public GameObject itemFocus = null;
     [SerializeField] GameObject _PopOutPrefab = null;
-    [SerializeField] float ClampPlayerByYPosition = 0f;
+    [SerializeField] float _ClampPlayerByYPosition = 0f;
 
     public bool Controlable = true;
-
+    public bool isGameStart{get;private set;}
     public Player ClientPlayerTarget
     {
         get
@@ -45,7 +46,13 @@ public class GameController : MonoBehaviour
             return _PopOutPrefab;
         }
     }
-
+    public float ClampPlayerByYPosition
+    {
+        get
+        {
+            return _ClampPlayerByYPosition;
+        }
+    }
     private GameObject[] enemyOnFOVCamera = null;
     void Awake()
     {
@@ -54,6 +61,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         GameCore.m_uiHandler.CloseInventory();
+        GameCore.m_cameraController.enabled = false;
+        Controlable = false;
     }
     void FixedUpdate()
     {
@@ -123,9 +132,9 @@ public class GameController : MonoBehaviour
         if (isRandom)
         {
             int randomIndex = 0;
-            if(temp.Count <= 1)
+            if(temp.Count == 0)
             {
-                randomIndex = (temp.Count != 0)?0:-1;
+                randomIndex = -1;
             }
             else
             {
@@ -181,5 +190,11 @@ public class GameController : MonoBehaviour
     public void ClearTargetLockOn()
     {
         TargetToLockOn = null;
+    }
+    public void GameStart()
+    {
+        GameCore.m_cameraController.enabled = true;
+        isGameStart = true;
+        Controlable = true;
     }
 }
