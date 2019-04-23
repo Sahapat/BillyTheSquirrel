@@ -69,7 +69,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -143,7 +143,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -220,8 +220,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 148}
-  m_SizeDelta: {x: 160, y: 37.7}
+  m_AnchoredPosition: {x: 0.000002861023, y: 65}
+  m_SizeDelta: {x: 158.3, y: 17.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8034804954621921217
 MonoBehaviour:
@@ -283,13 +283,14 @@ GameObject:
   - component: {fileID: 2142357222217655950}
   - component: {fileID: 1487865178846190879}
   - component: {fileID: 3089863682510925362}
+  - component: {fileID: 2238462657361805964}
   m_Layer: 5
   m_Name: LoadingScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2142357222217655950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -331,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -347,6 +348,23 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &2238462657361805964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029770658363503106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6142607c0e3e9d4ca9700d8f4eab800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randoms:
+  - {fileID: 21300000, guid: cabfddabbe98f3647858bccb9bf3be31, type: 3}
+  - {fileID: 21300000, guid: 59d8cf32b4c52ce45b1852afc8c6b376, type: 3}
+  - {fileID: 21300000, guid: 773e949879068ad46815679d979016ad, type: 3}
+  - {fileID: 21300000, guid: 88a8005968e39284186600e07c91105f, type: 3}
 --- !u!1 &5848142995176351370
 GameObject:
   m_ObjectHideFlags: 0

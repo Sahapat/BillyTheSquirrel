@@ -10,7 +10,7 @@ public class AirBallon : MonoBehaviour
     [SerializeField] GameObject requireObj = null;
     [SerializeField] TextMesh coinTxtRequire = null;
     [SerializeField] BoxCollider blockNotFinish = null;
-
+    [SerializeField]AudioClip clip = null;
     bool isFinishRequire = false;
     bool finishTrigger = false;
     float esclapForInt = 0;
@@ -19,13 +19,14 @@ public class AirBallon : MonoBehaviour
 
     private Animator m_animator = null;
     private BoxCollider checkerColider = null;
-
+    private AudioSource m_audiosource = null;
     private WaitForSeconds second = null;
 
     void Awake()
     {
         m_animator = GetComponent<Animator>();
         checkerColider = GetComponent<BoxCollider>();
+        m_audiosource = GetComponent<AudioSource>();
         second = new WaitForSeconds(0.1f);
     }
     void Start()
@@ -76,6 +77,7 @@ public class AirBallon : MonoBehaviour
                         var temp = Instantiate(acornObj, Vector3.zero, Quaternion.identity);
                         temp.transform.position = GameCore.m_GameContrller.ClientPlayerTarget.transform.position;
                         temp.transform.DOJump(acornObj.transform.position, 1.2f, 1, 0.5f, false);
+                        m_audiosource.PlayOneShot(clip);
                         Destroy(temp.gameObject, 1.1f);
                     }
                 }

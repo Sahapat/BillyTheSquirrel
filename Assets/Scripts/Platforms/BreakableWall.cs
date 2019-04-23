@@ -7,6 +7,7 @@ public class BreakableWall : MonoBehaviour, IAttackable
     [SerializeField] int maxHealth = 120;
     [SerializeField]GameObject[] destructObject =null;
     [SerializeField]float destructTime = 6f;
+    [SerializeField]AudioClip breakSound = null;
 
     public bool isBlocking{get;private set;}
     public Health CharacterHP {get; private set;}
@@ -15,7 +16,7 @@ public class BreakableWall : MonoBehaviour, IAttackable
     private BoxCollider m_boxcolider = null;
     private Rigidbody[] destructRigid = null;
     private MeshCollider[] destructColider = null;
-
+    private AudioSource m_audiosource = null;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class BreakableWall : MonoBehaviour, IAttackable
         destructColider = new MeshCollider[destructObject.Length];
         m_boxcolider = GetComponent<BoxCollider>();
         m_damageMaterial = GetComponent<DamageMaterial>();
+        m_audiosource = GetComponent<AudioSource>();
 
         for(int i=0;i<destructObject.Length;i++)
         {
@@ -50,6 +52,7 @@ public class BreakableWall : MonoBehaviour, IAttackable
                 i.enabled = true;
             }
             m_boxcolider.enabled = false;
+            m_audiosource.PlayOneShot(breakSound);
             m_damageMaterial.FadeOut(destructTime);
         }
     }
@@ -71,6 +74,7 @@ public class BreakableWall : MonoBehaviour, IAttackable
             }
             m_boxcolider.enabled = false;
             m_damageMaterial.FadeOut(destructTime);
+            m_audiosource.PlayOneShot(breakSound);
         }
     }
 }

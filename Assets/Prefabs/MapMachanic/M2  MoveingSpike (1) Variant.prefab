@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &432670854933961944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184331597858293305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6502958028662099700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8184331597858293305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98df6d5059d2610448df9d8fb7183813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 30
+  activeDuration: 5
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 8704
+  shakeLenght: 0.35
 --- !u!1001 &7822634704610498839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +41,7 @@ PrefabInstance:
     - target: {fileID: 2097273249504878380, guid: 049fbad4b606bd44ab79f84e202ee03e,
         type: 3}
       propertyPath: m_Name
-      value: M2  MoveingSpike (1)
+      value: M2  MoveingSpike (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2097273249505035020, guid: 049fbad4b606bd44ab79f84e202ee03e,
         type: 3}
@@ -74,3 +105,9 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 566416f0f50751c4b9a17ad4e716d9f3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049fbad4b606bd44ab79f84e202ee03e, type: 3}
+--- !u!1 &8184331597858293305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2097273249504878382, guid: 049fbad4b606bd44ab79f84e202ee03e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7822634704610498839}
+  m_PrefabAsset: {fileID: 0}

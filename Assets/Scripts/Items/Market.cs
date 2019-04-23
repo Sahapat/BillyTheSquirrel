@@ -5,9 +5,7 @@ using UnityEngine;
 public class Market : MonoBehaviour
 {
     [SerializeField] GameObject marketUI = null;
-
     private BoxCollider m_boxcolider = null;
-
     void Awake()
     {
         m_boxcolider = GetComponent<BoxCollider>();

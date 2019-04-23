@@ -27,7 +27,8 @@ public class Acorn : MonoBehaviour
                 if (hitInfo.Length > 0)
                 {
                     GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin.AddCoin(coinValue);
-
+                    GameCore.m_GameContrller.PlayAcornCollect();
+                    
                     Destroy(this.transform.root.gameObject);
                 }
             }
@@ -39,7 +40,7 @@ public class Acorn : MonoBehaviour
                 if (hitInfo.Length > 0)
                 {
                     GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin.AddCoin(coinValue);
-
+                    GameCore.m_GameContrller.PlayAcornCollect();
                     Destroy(this.transform.root.gameObject);
                 }
         }

@@ -169,7 +169,7 @@ public class UIHandler : MonoBehaviour
         } */
 
         var spRect = m_SPSlider.GetComponent<RectTransform>();
-        switch(m_player.CharacterHP.MaxHP)
+        switch(m_player.CharacterStemina.MaxSP)
         {
             case 100:
             spRect.sizeDelta = new Vector2(400,spRect.rect.height);

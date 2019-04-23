@@ -35,6 +35,18 @@ public class Main : MonoBehaviour
             GameCore.m_uiHandler.CloseInventory();
             GameCore.m_GameContrller.Controlable = true;
         }
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin.AddCoin(50);
+        }
+        if(Input.GetKeyDown(KeyCode.F7))
+        {
+            GameCore.m_GameContrller.ClientPlayerTarget.transform.position = new Vector3(85.33f,18.82f,106.66f);
+        }
+        if(Input.GetKeyDown(KeyCode.F3))
+        {
+            LoadGameScene("Level2");
+        }
     }
     public void LoadGameScene(string LevelPreset)
     {

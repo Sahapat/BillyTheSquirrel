@@ -36,6 +36,8 @@ public class Player : MonoBehaviour, IAttackable
     private RagdollController m_ragdollController = null;
 
     private Vector3 movement = Vector3.zero;
+    private AudioSource m_audioSource = null;
+    [SerializeField]AudioClip[] clip = null;
 
     void Awake()
     {
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour, IAttackable
         m_actionHandler = GetComponent<ActionHandler>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_ragdollController = GetComponent<RagdollController>();
+        m_audioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -176,6 +179,7 @@ public class Player : MonoBehaviour, IAttackable
                 if (m_stateHandler.Dash())
                 {
                     CharacterStemina.RemoveSP(Dash);
+                    m_audioSource.PlayOneShot(clip[3]);
                 }
             }
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && CheckJumpSP())
@@ -183,6 +187,7 @@ public class Player : MonoBehaviour, IAttackable
                 if (m_stateHandler.Jump())
                 {
                     CharacterStemina.RemoveSP(Jump);
+                    m_audioSource.PlayOneShot(clip[1]);
                 }
             }
             MovementInputGetter();
@@ -411,6 +416,7 @@ public class Player : MonoBehaviour, IAttackable
         {
             m_stateHandler.SetUnHoldingShield();
             m_stateHandler.Hurt();
+            m_audioSource.PlayOneShot(clip[2]);
         }
     }
     public void TakeDamage(int damage, Vector3 forceToAdd)
@@ -421,6 +427,7 @@ public class Player : MonoBehaviour, IAttackable
         {
             m_stateHandler.SetUnHoldingShield();
             m_stateHandler.Hurt();
+            m_audioSource.PlayOneShot(clip[2]);
         }
     }
     public void Stop()
@@ -526,12 +533,14 @@ public class Player : MonoBehaviour, IAttackable
         GameCore.m_uiHandler.UpdateHPMax();
         SwordHoldPosition?.gameObject.SetActive(true);
         shieldInHand?.gameObject.SetActive(true);
+        m_audioSource.PlayOneShot(clip[0]);
     }
     void UpdateMaxSP()
     {
         GameCore.m_uiHandler.UpdateSPMax();
         SwordHoldPosition?.gameObject.SetActive(true);
         shieldInHand?.gameObject.SetActive(true);
+        m_audioSource.PlayOneShot(clip[0]);
     }
     public void SetMax(int maxHP,int maxSP)
     {

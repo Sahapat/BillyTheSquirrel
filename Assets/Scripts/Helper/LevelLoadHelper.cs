@@ -15,6 +15,9 @@ public class LevelLoadHelper : MonoBehaviour
             case "Level2":
                 levelToRandom = Random.Range(2,2);
             break;
+            case "Finish":
+                levelToRandom = 3;
+            break;
         }
         return levelToRandom;
     }

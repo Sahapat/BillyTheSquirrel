@@ -1,5 +1,173 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &57992082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 57992083}
+  m_Layer: 0
+  m_Name: TemporaryTranform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &57992083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57992082}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 200, y: 200, z: 200}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2109069704637968931}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &170076733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170076735}
+  - component: {fileID: 170076734}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &170076735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170076733}
+  m_LocalRotation: {x: 0.62661636, y: 0.15244468, z: 0.21960524, w: 0.7320425}
+  m_LocalPosition: {x: 0.6112695, y: 3, z: -108.22631}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2109069704637968931}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 58.262, y: 71.34901, z: 77.009}
+--- !u!108 &170076734
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170076733}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 90
+--- !u!1 &1982631488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982631490}
+  - component: {fileID: 1982631489}
+  m_Layer: 0
+  m_Name: Directional Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &1982631490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982631488}
+  m_LocalRotation: {x: 0.5386964, y: 0.5653173, z: -0.5099912, w: -0.36073747}
+  m_LocalPosition: {x: 0, y: 3, z: 150.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2109069704637968931}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 10.834001, y: 257.083, z: 95.87701}
+--- !u!108 &1982631489
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982631488}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 0.75, g: 0.8455882, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &2109069704637968933
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +180,7 @@ GameObject:
   - component: {fileID: 2109069704637968932}
   - component: {fileID: 8316208023715585640}
   - component: {fileID: 2109069704637968929}
+  - component: {fileID: 969110296}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -29,7 +198,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 170076735}
+  - {fileID: 1982631490}
+  - {fileID: 57992083}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,6 +229,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed99b9148b021234ba1d67167c776d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ClientPlayerTarget: {fileID: 0}
+  _temporaryTranform: {fileID: 57992083}
+  _targetToLockOn: {fileID: 0}
+  itemFocus: {fileID: 0}
+  _PopOutPrefab: {fileID: 142700118162620213, guid: cced29b39ea8c624ebce1b1d96dbec91,
+    type: 3}
+  _ClampPlayerByYPosition: -10
+  shareAudioSource: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+  Controlable: 1
 --- !u!114 &2109069704637968929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +252,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70ed14109b2a8342bba917b0fe4e48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode_cursorLockMode: 1
-  gameMode_cursor_visable: 0
-  uiMode_cursorLockMode: 0
-  uiMode_cursor_visable: 1
+--- !u!114 &969110296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109069704637968933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bb42d8b4fd7bc42973a6844ef3d91a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  themeSource: {fileID: 0}
+  ThemeSounds:
+  - {fileID: 8300000, guid: 24ec7579cc9e5e14db39576f107af522, type: 3}
+  - {fileID: 8300000, guid: 37bde5bf0fd3a50488000553d47bccca, type: 3}
+  questObject: {fileID: 0}
+  textQuest: {fileID: 0}
+  quests:
+  - Expore the camp
+  - Find weapon
+  - Kill One Enemy
+  - Collect 50 Acorn
+  - Find the ballon
+  - Finish the ballon quest
+  - Get in the ballon
+  currentQuest: 0

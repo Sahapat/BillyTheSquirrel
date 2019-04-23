@@ -5546,7 +5546,7 @@ GameObject:
   - component: {fileID: 8102446970287151353}
   - component: {fileID: 8102446970287151355}
   - component: {fileID: 7446903264158856023}
-  - component: {fileID: 1987442665}
+  - component: {fileID: 1496140386}
   m_Layer: 9
   m_Name: SquirrelCH
   m_TagString: Player
@@ -5689,6 +5689,12 @@ MonoBehaviour:
   ShieldHoldPosition: {fileID: 2401504561082018450}
   shieldInHand: {fileID: 0}
   PotionPosition: {fileID: 7341357091196366088}
+  killEnemyCount: 0
+  clip:
+  - {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+  - {fileID: 8300000, guid: 7e9ee6dc04a5d40d1a5dfc4beb9865e7, type: 3}
+  - {fileID: 8300000, guid: 64910995ae9765c4aba0a0dc2e7df8d8, type: 3}
+  - {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
 --- !u!114 &8102446970287151353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,6 +5756,10 @@ MonoBehaviour:
     forceToAdd: 10.8
   - delayForAddForce: 0.8
     forceToAdd: 12
+  sounds:
+  - {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
+  - {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+  - {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
 --- !u!114 &7446903264158856023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5779,48 +5789,99 @@ MonoBehaviour:
   InActiveParent: {fileID: 0}
   ActiveLayer: 9
   InActiveLayer: 12
---- !u!114 &1987442665
-MonoBehaviour:
+--- !u!82 &1496140386
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8102446970287151348}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5810d236755833e4c851e5c44dc282b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionMotions:
-  - delayForAddForce: 0.42
-    forceToAdd: 8.5
-  - delayForAddForce: 0.22
-    forceToAdd: 15
-  - delayForAddForce: 0.36
-    forceToAdd: 12
-  - delayForAddForce: 0.9
-    forceToAdd: 14.6
-  - delayForAddForce: 0.55
-    forceToAdd: 8.2
-  - delayForAddForce: 0.45
-    forceToAdd: 9.5
-  - delayForAddForce: 0.5
-    forceToAdd: 12
-  - delayForAddForce: 0.6
-    forceToAdd: 14.5
-  - delayForAddForce: 0.4
-    forceToAdd: 6.5
-  - delayForAddForce: 0.3
-    forceToAdd: 5.5
-  - delayForAddForce: 0.4
-    forceToAdd: 8.5
-  - delayForAddForce: 0.71
-    forceToAdd: 11.5
-  - delayForAddForce: 0.72
-    forceToAdd: 9.2
-  - delayForAddForce: 0.67
-    forceToAdd: 12.5
-  - delayForAddForce: 0.7
-    forceToAdd: 10.8
-  - delayForAddForce: 0.8
-    forceToAdd: 12
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

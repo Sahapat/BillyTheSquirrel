@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public GameObject itemFocus = null;
     [SerializeField] GameObject _PopOutPrefab = null;
     [SerializeField] float _ClampPlayerByYPosition = 0f;
+    [SerializeField] AudioSource shareAudioSource = null;
+    [SerializeField] AudioClip[] sounds = null;
 
     public bool Controlable = true;
     public bool isGameStart{get;private set;}
@@ -196,5 +198,9 @@ public class GameController : MonoBehaviour
         GameCore.m_cameraController.enabled = true;
         isGameStart = true;
         Controlable = true;
+    }
+    public void PlayAcornCollect()
+    {
+        shareAudioSource.PlayOneShot(sounds[0]);
     }
 }

@@ -12,6 +12,7 @@ public class LongRangeEnemy : MonoBehaviour, IAttackable
     [SerializeField] float coolDown = 5f;
     [SerializeField] Rigidbody[] destructRigid = null;
     [SerializeField] MeshCollider[] destructCollider = null;
+    [SerializeField] AudioClip[] temp = null;
 
     public Health CharacterHP { get; private set; }
 
@@ -24,10 +25,13 @@ public class LongRangeEnemy : MonoBehaviour, IAttackable
     private Vector3 startPosition = Vector3.zero;
     private Vector3 startRotation = Vector3.zero;
 
+    private AudioSource m_audioSource = null;
+
     void Awake()
     {
         CharacterHP = new Health(maxHealth);
         m_takedamageMaterial = GetComponent<DamageMaterial>();
+        m_audioSource = GetComponent<AudioSource>();
         startPosition = transform.position;
         startRotation = transform.eulerAngles;
     }
@@ -62,6 +66,7 @@ public class LongRangeEnemy : MonoBehaviour, IAttackable
                 var direction = enemySightCheck.targetInSight.transform.position - AttackPosition.position;
                 Quaternion rotation = Quaternion.LookRotation(direction);
                 bullet.transform.rotation = rotation;
+                m_audioSource.PlayOneShot(temp[0]);
                 Destroy(bullet.gameObject, coolDown);
             }
         }
@@ -87,6 +92,7 @@ public class LongRangeEnemy : MonoBehaviour, IAttackable
                 i.useGravity = true;
             }
             isDead= true;
+            m_audioSource.PlayOneShot(temp[1]);
             m_takedamageMaterial.FadeOut(4f);
         }
     }

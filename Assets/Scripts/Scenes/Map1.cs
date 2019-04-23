@@ -10,7 +10,8 @@ public class Map1 : MonoBehaviour
     [SerializeField] GameObject questObject = null;
     [SerializeField] TextMeshProUGUI textQuest = null;
     [SerializeField] string[] quests = null;
-
+    [SerializeField] AudioClip questFinish = null;
+    [SerializeField] AudioSource questAudio = null;
     public int currentQuest = 0;
     void Start()
     {
@@ -35,6 +36,7 @@ public class Map1 : MonoBehaviour
     public void SetCurrentQuest(int index)
     {
         currentQuest = index;
+        questAudio.PlayOneShot(questFinish);
     }
     public void ShowQuest()
     {

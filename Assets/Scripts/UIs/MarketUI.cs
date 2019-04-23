@@ -20,6 +20,8 @@ public class MarketUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI description = null;
     [SerializeField] TextMeshProUGUI coinRequire = null;
     [SerializeField]GameObject descriptionObj = null;
+    [SerializeField]AudioSource shareAudio = null;
+    [SerializeField]AudioClip buy =null;
 
     private int selectedSlotIndex = 0;
     private bool inputTrigger = false;
@@ -56,6 +58,7 @@ public class MarketUI : MonoBehaviour
                     var temp = Instantiate(marketItems[selectedSlotIndex].reference,Vector3.zero,Quaternion.identity);
                     GameCore.m_GameContrller.ClientPlayerTarget.CharacterCoin.RemoveCoin(marketItems[selectedSlotIndex].coinRequire);
                     GameCore.m_GameContrller.ClientPlayerTarget.ItemInventory.AddItem(temp,parentToStore);
+                    shareAudio.PlayOneShot(buy);
                 }
             }
         }

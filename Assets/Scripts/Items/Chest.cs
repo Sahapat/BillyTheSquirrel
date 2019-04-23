@@ -7,13 +7,16 @@ public class Chest : MonoBehaviour
     [SerializeField] PopOutProperty[] PopOutObjectsProperty = null;
     [SerializeField] Transform[] rangesToPopOut = null;
     [SerializeField] GameObject toolTip = null;
+    [SerializeField] AudioClip popClip = null;
     private BoxCollider m_boxcolider = null;
     private Animator m_animator = null;
+    private AudioSource m_audioSource = null;
 
     void Awake()
     {
         m_animator = GetComponentInChildren<Animator>();
         m_boxcolider = GetComponent<BoxCollider>();
+        m_audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -41,6 +44,7 @@ public class Chest : MonoBehaviour
     }
     void PopOutObject()
     {
+        m_audioSource.PlayOneShot(popClip);
         for (int i = 0; i < PopOutObjectsProperty.Length; i++)
         {
             if (PopOutObjectsProperty[i].GetPopOutChance())
