@@ -2284,7 +2284,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 579244d950ca800498ab4024ef1bf53a, type: 3}
+  - {fileID: 2100000, guid: d6996cd3ad2993348ba115f67a8cb56c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2468,7 +2468,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 579244d950ca800498ab4024ef1bf53a, type: 3}
+  - {fileID: 2100000, guid: d6996cd3ad2993348ba115f67a8cb56c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2652,7 +2652,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 579244d950ca800498ab4024ef1bf53a, type: 3}
+  - {fileID: 2100000, guid: d6996cd3ad2993348ba115f67a8cb56c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3054,7 +3054,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 579244d950ca800498ab4024ef1bf53a, type: 3}
+  - {fileID: 2100000, guid: d6996cd3ad2993348ba115f67a8cb56c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5687,10 +5687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9134486784440763941}
     m_Modifications:
-    - target: {fileID: 5565177755798210656, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
+    - target: {fileID: 3281127007809765887, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
         type: 3}
-      propertyPath: m_Name
-      value: SpearLv1
+      propertyPath: isPickUp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 870284798619028357, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
         type: 3}
@@ -5747,10 +5747,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3281127007809765887, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
+    - target: {fileID: 5565177755798210656, guid: b02bd6b6fc2ccbc4d98aa08efa674a09,
         type: 3}
-      propertyPath: isPickUp
-      value: 1
+      propertyPath: m_Name
+      value: SpearLv1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b02bd6b6fc2ccbc4d98aa08efa674a09, type: 3}

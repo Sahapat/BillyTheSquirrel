@@ -3863,7 +3863,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: 153dbf18e03fe1b4188cd1c0318d3f24, type: 3}
+  - {fileID: 2100000, guid: 02c39a6b518352a4aa684a4623809760, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4073,7 +4073,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: 153dbf18e03fe1b4188cd1c0318d3f24, type: 3}
+  - {fileID: 2100000, guid: 02c39a6b518352a4aa684a4623809760, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4249,7 +4249,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: 153dbf18e03fe1b4188cd1c0318d3f24, type: 3}
+  - {fileID: 2100000, guid: 02c39a6b518352a4aa684a4623809760, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4631,7 +4631,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100004, guid: 153dbf18e03fe1b4188cd1c0318d3f24, type: 3}
+  - {fileID: 2100000, guid: 02c39a6b518352a4aa684a4623809760, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5404,6 +5404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChubLv1
       objectReference: {fileID: 0}
+    - target: {fileID: 3281127007809765887, guid: 6720109bf680f4e42a18400bda480146,
+        type: 3}
+      propertyPath: isPickUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 870284798619028357, guid: 6720109bf680f4e42a18400bda480146,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5458,11 +5463,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3281127007809765887, guid: 6720109bf680f4e42a18400bda480146,
-        type: 3}
-      propertyPath: isPickUp
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465440309549657527, guid: 6720109bf680f4e42a18400bda480146,
         type: 3}
